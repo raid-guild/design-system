@@ -66,7 +66,9 @@ export {
   VStack,
   Wrap,
   WrapItem,
-  WrapProps,
+  WrapProps
 } from '@chakra-ui/react';
 export { default as styled } from '@emotion/styled';
 export { motion } from 'framer-motion';
+export { theme as RGTheme } from './theme';
+
