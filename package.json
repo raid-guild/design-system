@@ -51,13 +51,12 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@size-limit/preset-small-lib": "^5.0.3",
-    "@storybook/addon-essentials": "^6.3.7",
-    "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.3.7",
-    "@storybook/addons": "^6.3.7",
-    "@storybook/react": "^6.3.7",
-    "@types/react": "^17.0.19",
-    "@types/react-dom": "^17.0.9",
+    "@storybook/addon-actions": "6.3.2",
+    "@storybook/addon-docs": "6.3.7",
+    "@storybook/addon-links": "6.3.7",
+    "@storybook/addons": "6.3.7",
+    "@storybook/react": "6.3.7",
+    "@storybook/addon-viewport": "6.3.7",
     "babel-loader": "^8.2.2",
     "husky": "^7.0.1",
     "react": "^17.0.2",
@@ -66,10 +65,10 @@
     "react-is": "^17.0.2",
     "size-limit": "^5.0.3",
     "storybook-addon-react-docgen": "^1.2.42",
-    "ts-loader": "^9.2.5",
+    "ts-loader": "8.1.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.2.0"
+    "typescript": "4.2.2"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.6",
