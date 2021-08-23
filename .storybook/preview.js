@@ -2,6 +2,15 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { addDecorator } from '@storybook/react';
 import React from 'react';
 import { ChakraProvider, RGTheme } from '../src';
+import { addParameters } from '@storybook/react';
+import { themes } from '@storybook/theming';
+
+// Option defaults.
+addParameters({
+  options: {
+    theme: themes.dark,
+  },
+});
 
 export const Chakra = ({ children }) => (
   <ChakraProvider theme={RGTheme} resetCSS>

@@ -56,7 +56,7 @@ export {
   Spinner,
   Stack,
   Switch,
-  Text,
+  Text as ChakraText,
   Textarea,
   Tooltip,
   useBreakpointValue,
@@ -71,4 +71,6 @@ export {
 export { default as styled } from '@emotion/styled';
 export { motion } from 'framer-motion';
 export { theme as RGTheme } from './theme';
+export { Card, CardProps } from './components/Card';
+export { Text, TextProps } from './components/Text';
 

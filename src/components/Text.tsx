@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text as CText } from '..';
+import { ChakraText } from '..';
 
 export interface TextProps {
   /**
@@ -31,7 +31,7 @@ export const Text: React.FC<TextProps> = ({
   ...props
 }) => {
   return (
-    <CText
+    <ChakraText
       bg="transparent"
       fontSize={size}
       isTruncated={truncated}
@@ -39,6 +39,6 @@ export const Text: React.FC<TextProps> = ({
       {...props}
     >
       {content}
-    </CText>
+    </ChakraText>
   );
 };
