@@ -12,6 +12,11 @@ TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based]
 
 The recommended workflow is to run TSDX in one terminal:
 
+
+```bash
+npm i # or yarn start
+```
+
 ```bash
 npm start # or yarn start
 ```
@@ -27,6 +32,10 @@ Run inside another terminal:
 ```bash
 yarn storybook
 ```
+```bash
+npm storybook
+```
+
 
 This loads the stories from `./stories`.
 
