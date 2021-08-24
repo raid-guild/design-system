@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ButtonGroup as CButtonGroup } from '..';
+import { Button, ChakraButtonGroup } from '../..';
 
 export interface ButtonGroupProps {
   /**
@@ -44,7 +44,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   };
 
   return (
-    <CButtonGroup isAttached={isAttached}>
+    <ChakraButtonGroup isAttached={isAttached}>
       {buttons.map((label: string, i: number) => {
         return (
           <Button
@@ -59,6 +59,6 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
           </Button>
         );
       })}
-    </CButtonGroup>
+    </ChakraButtonGroup>
   );
 };

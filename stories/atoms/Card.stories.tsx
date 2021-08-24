@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Heading } from '../src';
-import { Card, CardProps } from '../src/components/Card';
+import { Heading } from '../../src';
+import { Card, CardProps } from '../../src';
 
 export default {
   title: 'Components/Card',

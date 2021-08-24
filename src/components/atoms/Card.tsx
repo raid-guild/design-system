@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex } from '..';
+import { Flex } from '../..';
 
 export interface CardProps {
   children?: {};
