@@ -1,10 +1,10 @@
+import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
-
 import { Text, TextProps } from '../../src';
 
+
 export default {
-  title: 'Components/Text',
+  title: 'Components/Atoms/Text',
   component: Text,
   argTypes: {
     size: {

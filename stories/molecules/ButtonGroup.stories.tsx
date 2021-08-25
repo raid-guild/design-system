@@ -1,12 +1,9 @@
+import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
-import {
-  ButtonGroup,
-  ButtonGroupProps,
-} from '../../src';
+import { ButtonGroup, ButtonGroupProps } from '../../src';
 
 export default {
-  title: 'Components/ButtonGroup',
+  title: 'Components/Molecules/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
     isAttached: { control: 'boolean' },
