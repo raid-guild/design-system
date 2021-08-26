@@ -18,6 +18,10 @@ export interface TextProps {
    * How large should the button be?
    */
   size?: 'sm' | 'md' | 'lg' | '2xl' | '4xl' | '6xl';
+  /**
+   * variant to determine styles from themes/components/Text
+   */
+  variant: 'textOne' | 'textTwo';
 }
 
 /**
@@ -28,6 +32,7 @@ export const Text: React.FC<TextProps> = ({
   color,
   content,
   truncated,
+  variant = 'textOne',
   ...props
 }) => {
   return (
@@ -36,6 +41,7 @@ export const Text: React.FC<TextProps> = ({
       fontSize={size}
       isTruncated={truncated}
       color={color}
+      variant={variant}
       {...props}
     >
       {content}

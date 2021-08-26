@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Flex, Image, Spacer } from '../../src';
-import season2 from '../../src/assets/Season2-DAO-02b.png';
+import season2 from '../../src/assets/images/Season2-DAO-02b.png';
 import {
 	SidePanel,
 	SidePanelProps
