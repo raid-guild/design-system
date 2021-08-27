@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Card, CardProps, SimpleGrid } from '../../src';
-import imgConsultations from '../../src/assets/images/consultations.png';
-import imgDesignSprints from '../../src/assets/images/designsprints.png';
-import imgFullStack from '../../src/assets/images/fullstackdev.png';
-import imgMarketing from '../../src/assets/images/marketing.png';
+import { Card, CardProps, SimpleGrid } from '../..';
+import imgConsultations from '../../assets/images/consultations.png';
+import imgDesignSprints from '../../assets/images/designsprints.png';
+import imgFullStack from '../../assets/images/fullstackdev.png';
+import imgMarketing from '../../assets/images/marketing.png';
 
 export default {
   title: 'Components/Atoms/Card',
