@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Flex, Image, Spacer } from '../../src';
-import season2 from '../../src/assets/images/Season2-DAO-02b.png';
+import { Flex, Image, Spacer } from '../..';
+import season2 from '../../assets/images/Season2-DAO-02b.png';
 import {
 	SidePanel,
 	SidePanelProps
-} from '../../src/components/atoms/SidePanel';
+} from '../../components/atoms/SidePanel';
 export default {
   title: 'Components/Atoms/SidePanel',
   component: SidePanel,
