@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraText } from '../..';
+import { ChakraText } from '../chakra';
 
 export interface HeadingProps {
   /**
