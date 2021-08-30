@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraText } from '../..';
+import { ChakraText } from '../chakra';
 
 export interface TextProps {
   /**
@@ -11,7 +11,7 @@ export interface TextProps {
    */
   color?: string;
   /**
-   * Truncate the text and end with elipsis on limit
+   * Truncate the text and end with ellipsis on limit
    */
   truncated?: boolean;
   /**

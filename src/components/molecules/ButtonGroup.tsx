@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ChakraButtonGroup } from '../..';
+import { Button, ChakraButtonGroup } from '../chakra';
 
 export interface ButtonGroupProps {
   /**

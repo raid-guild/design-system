@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Heading, ChakraText, Image } from '../..';
+import { Flex, Heading, ChakraText, Image } from '../chakra';
 
 export interface CardProps {
   title: string;
