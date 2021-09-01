@@ -35,7 +35,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "design-system",
+  "name": "@raidguild/design-system",
   "author": "Raid Guild",
   "module": "dist/design-system.esm.js",
   "size-limit": [
