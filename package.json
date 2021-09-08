@@ -3,7 +3,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "homepage": "https:raid-guild.github.io/design-system",
+  "homepage": "https://raid-guild.github.io/design-system",
   "files": [
     "dist",
     "src"
