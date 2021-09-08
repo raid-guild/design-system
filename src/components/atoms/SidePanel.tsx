@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center } from '../chakra';
+import { Box } from '../chakra';
 
 export interface SidePanelProps {
   /**
@@ -13,8 +13,8 @@ export interface SidePanelProps {
  */
 export const SidePanel: React.FC<SidePanelProps> = ({ children }) => {
   return (
-    <Center top="50%" pointerEvents="none" z-index="0">
+    <Box as="section" minH="100vh">
       {children}
-    </Center>
+    </Box>
   );
 };

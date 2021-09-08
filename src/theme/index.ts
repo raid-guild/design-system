@@ -1,13 +1,13 @@
 import { extendTheme, Theme } from '@chakra-ui/react';
+import '../assets/css/fonts.css';
+import '../assets/css/globals.css';
 import { colors } from './colors';
 import { Button } from './components/Button';
-import { Text } from './components/Text';
 import { Heading } from './components/Heading';
+import { Text } from './components/Text';
 import { textStyles } from './texts';
-import '../assets/css/globals.css';
-import '../assets/css/fonts.css';
 
-export const theme: Theme = extendTheme({
+const config = {
   styles: {
     global: {
       body: {
@@ -25,11 +25,13 @@ export const theme: Theme = extendTheme({
     jetbrains: `'JetBrains Mono', monospace`,
     rubik: `'Rubik Mono One', sans-serif`,
     uncial: `'Uncial Antiqua', cursive`,
-    spaceMono: `'Space Mono', monospace;`
+    spaceMono: `'Space Mono', monospace;`,
   },
   components: {
     Button,
     Text,
     Heading,
   },
-});
+};
+
+export const theme: Theme = extendTheme({ ...config });
