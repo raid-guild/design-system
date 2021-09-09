@@ -9,3 +9,4 @@ export {
   ButtonGroup,
   ButtonGroupProps,
 } from './components/molecules/ButtonGroup';
+export * from './components/icons';

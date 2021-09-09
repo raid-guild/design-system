@@ -3,18 +3,26 @@ import React from 'react';
 import { SimpleGrid } from '../../components/chakra';
 import { ArchiveCartelCulture } from '../../components/icons';
 
-export default {
-  title: 'Components/Icons',
-} as Meta;
+type Args = {
+  size: number;
+};
 
-const Template: Story = () => (
+const Template: Story<Args> = (args) => (
   <SimpleGrid
     columns={{ base: 1, md: 2, lg: 2 }}
     gap="4rem"
     my="2rem"
     ml={{ lg: '3rem' }}
   >
-    <ArchiveCartelCulture />
+    <ArchiveCartelCulture width={args.size} height={args.size} />
   </SimpleGrid>
 );
-export const Lib = Template.bind({});
+
+export const IconLib = Template.bind({});
+IconLib.args = {
+  size: 96,
+};
+
+export default {
+  title: 'Components/Icons/Icons',
+} as Meta;
