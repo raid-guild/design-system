@@ -1,7 +1,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { addDecorator } from '@storybook/react';
 import React from 'react';
-import { ChakraProvider, RGTheme } from '../src';
+import { RGTheme, RGThemeProvider } from '../src';
 
 // Option defaults.
 const RaidGuildTheme = {
@@ -13,9 +13,9 @@ const RaidGuildTheme = {
 };
 
 export const Chakra = ({ children }) => (
-  <ChakraProvider theme={RaidGuildTheme} resetCSS>
+  <RGThemeProvider theme={RaidGuildTheme} resetCSS>
     {children}
-  </ChakraProvider>
+  </RGThemeProvider>
 );
 
 addDecorator((StoryFn) => (
