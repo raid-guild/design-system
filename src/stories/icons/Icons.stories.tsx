@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { SimpleGrid } from '../../components/chakra';
-import { ArchiveCartelCulture } from '../../components/icons';
+import * as RootIcons from '../../components/icons';
 
 type Args = {
   size: number;
@@ -14,7 +14,7 @@ const Template: Story<Args> = (args) => (
     my="2rem"
     ml={{ lg: '3rem' }}
   >
-    <ArchiveCartelCulture width={args.size} height={args.size} />
+    {Object.values(RootIcons).map((Icon) => <Icon width={args.size} height={args.size} />)}
   </SimpleGrid>
 );
 
