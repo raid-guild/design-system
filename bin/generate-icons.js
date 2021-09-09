@@ -1,30 +1,34 @@
-const { camelCase, difference } = require('lodash');
-const svgr = require('@svgr/core');
-const { readdirSync, writeFileSync, readFileSync, unlinkSync, watch: watchDir } = require('fs');
-const { join } = require('path');
+const { camelCase, startCase, difference } = require('lodash');
+const svgr = require('@svgr/core').default;
+const { readdirSync, writeFileSync, readFileSync, unlinkSync, watch: watchDir, existsSync } = require('fs');
+const { join, resolve } = require('path');
 
 const COMP_EXT = '.tsx';
+const ASSET_EXT = '.svg';
 
-const getFileNamesInDir = (dir) => {
-  const fileNames = readdirSync(dir);
-  return fileNames;
+const getFileNamesInDir = (dirPath, extension) => {
+  const fileNames = readdirSync(dirPath);
+  return fileNames.filter((fileName) => fileName.endsWith(extension));
 };
 
-const stripExtension = (fileName) => fileName.replace(/\.+./, '');
+const stripExtension = (fileName) => fileName.replace(/\..+/, '');
 
 const getFullPath = (parts) => join(...parts);
 
 const withExtension = (fileName, extension) => `${fileName}.${extension.replace(/^\./, '')}`;
 
-const writeFile = (contents, fullPath) => {
-  writeFileSync(contents, fullPath, 'utf-8');
+const writeFile = (fullPath, contents) => {
+  writeFileSync(fullPath, contents, 'utf-8');
 };
 
 const getFileContents = (fullPath) => {
-  return readFileSync(fullPath, 'utf-8');
+  if (existsSync(fullPath)) {
+    return readFileSync(fullPath, 'utf-8');
+  }
+  return '';
 }
 
-const assetNameToCompName = (filename) => camelCase(stripExtension(filename));
+const assetNameToCompName = (filename) => startCase(camelCase(stripExtension(filename))).replace(/ /g, '');
 
 // for removing components no longer supported by an svg asset (from deleting asset or renaming)
 const findStaleComps = (currComps, nextComps) => {
@@ -33,7 +37,7 @@ const findStaleComps = (currComps, nextComps) => {
 
 const removeStaleComps = (compNames, fromDir) => {
   compNames.forEach((compName) => {
-    unlinkSync(join(fromDir, compName, COMP_EXT));
+    unlinkSync(join(fromDir, withExtension(compName, COMP_EXT)));
   });
 };
 
@@ -41,27 +45,27 @@ const removeStaleComps = (compNames, fromDir) => {
 //   // import all icons and inject into a story for display
 // };
 
-const generateCompFile = (assetName, fromDir) => {
+const generateCompFile = (assetName, assetDir, componentDir) => {
   const compName = assetNameToCompName(assetName);
-  const svgCode = getFileContents(getFullPath([assetName, fromDir]));
+  const svgCode = getFileContents(getFullPath([assetDir, assetName]));
   // generate template
   svgr(svgCode, { icon: true }, { componentName: compName })
   .then((output) => {
       // write to file
-      writeFile(output, getFullPath([compName, withExtension(compName, 'tsx')]));
+      const outputPath = getFullPath([componentDir, withExtension(compName, COMP_EXT)]);
+      writeFile(outputPath, output);
     });
 };
 
-const generateNewComps = (assetNames, fromDir) => assetNames.forEach((assetName) => generateCompFile(assetName, fromDir));
+const generateNewComps = (assetNames, assetDir, componentDir) => assetNames.forEach((assetName) => generateCompFile(assetName, assetDir, componentDir));
 
 
 const generate = (assetDir, componentDir) => {
-  const assetNames = getFileNamesInDir(assetDir);
-  const currCompNames = getFileNamesInDir(componentDir).map(stripExtension);
+  const assetNames = getFileNamesInDir(assetDir, ASSET_EXT);
+  const currCompNames = getFileNamesInDir(componentDir, COMP_EXT).map(stripExtension);
 
   const nextCompNames = assetNames.map(assetNameToCompName);
-  const newCompNames = difference(nextCompNames, currCompNames);
-  generateNewComps(newCompNames, componentDir);
+  generateNewComps(assetNames, assetDir, componentDir);
 
   const staleCompNames = findStaleComps(currCompNames, nextCompNames)
   removeStaleComps(staleCompNames, componentDir);
@@ -75,7 +79,12 @@ const generate = (assetDir, componentDir) => {
 const ASSET_DIR = resolve(__dirname, '../src/assets/icons');
 const COMPONENT_DIR = resolve(__dirname, '../src/components/icons');
 
-const watch = (assetDir) => {
-  watchDir(assetDir, () => generate(assetDir, COMPONENT_DIR));
+const watch = (assetDir, componentDir) => {
+  watchDir(assetDir, () => generate(assetDir, componentDir));
 };
-watch(ASSET_DIR);
+
+if (process.argv[2] === '--watch') {
+  watch(ASSET_DIR, COMPONENT_DIR);
+} else {
+  generate(ASSET_DIR, COMPONENT_DIR);
+}
