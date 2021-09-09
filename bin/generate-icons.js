@@ -49,7 +49,11 @@ const generateCompFile = (assetName, assetDir, componentDir) => {
   const compName = assetNameToCompName(assetName);
   const svgCode = getFileContents(getFullPath([assetDir, assetName]));
   // generate template
-  svgr(svgCode, { icon: true }, { componentName: compName })
+  svgr(svgCode, {
+    icon: true,
+    plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
+    typescript: true,
+  }, { componentName: compName })
   .then((output) => {
       // write to file
       const outputPath = getFullPath([componentDir, withExtension(compName, COMP_EXT)]);
