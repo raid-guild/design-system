@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 
-function Learningnewthings(props: React.SVGProps<SVGSVGElement>) {
+function LearningNewThings(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -39,6 +39,6 @@ function Learningnewthings(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default Learningnewthings;
+export default LearningNewThings;
 
   

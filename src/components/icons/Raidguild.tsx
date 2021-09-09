@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 
-function Raidguild(props: React.SVGProps<SVGSVGElement>) {
+function RaidGuild(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -29,6 +29,6 @@ function Raidguild(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default Raidguild;
+export default RaidGuild;
 
   

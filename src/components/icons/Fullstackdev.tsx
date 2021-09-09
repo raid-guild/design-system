@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 
-function Fullstackdev(props: React.SVGProps<SVGSVGElement>) {
+function FullStackDev(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -29,6 +29,6 @@ function Fullstackdev(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default Fullstackdev;
+export default FullStackDev;
 
   
