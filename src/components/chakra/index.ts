@@ -89,6 +89,6 @@ export {
   VStack,
   Wrap,
   WrapItem,
-  WrapProps
+  WrapProps,
 } from '@chakra-ui/react';
 
