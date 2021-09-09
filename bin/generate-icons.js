@@ -18,7 +18,15 @@ const getFullPath = (parts) => join(...parts);
 const withExtension = (fileName, extension) => `${fileName}.${extension.replace(/^\./, '')}`;
 
 const writeFile = (fullPath, contents) => {
-  writeFileSync(fullPath, contents, 'utf-8');
+  const output = `\
+/**************************************
+ ****     AUTO GENERATED FILE     *****
+ ****   DO NOT UPDATE MANUALLY    *****
+ ***************************************/
+
+${contents}
+  `
+  writeFileSync(fullPath, output, 'utf-8');
 };
 
 const getFileContents = (fullPath) => {
@@ -41,11 +49,7 @@ const removeStaleComps = (compNames, fromDir) => {
   });
 };
 
-// const generateStoryFile = (compNames, fromDir): void => {
-//   // import all icons and inject into a story for display
-// };
-
-const generateCompFile = (assetName, assetDir, componentDir) => {
+const generateCompFile = (assetName, assetDir, compDir) => {
   const compName = assetNameToCompName(assetName);
   const svgCode = getFileContents(getFullPath([assetDir, assetName]));
   // generate template
@@ -55,27 +59,40 @@ const generateCompFile = (assetName, assetDir, componentDir) => {
     typescript: true,
   }, { componentName: compName })
   .then((output) => {
-      // write to file
-      const outputPath = getFullPath([componentDir, withExtension(compName, COMP_EXT)]);
+      const outputPath = getFullPath([compDir, withExtension(compName, COMP_EXT)]);
       writeFile(outputPath, output);
     });
 };
 
-const generateNewComps = (assetNames, assetDir, componentDir) => assetNames.forEach((assetName) => generateCompFile(assetName, assetDir, componentDir));
+const generateNewComps = (assetNames, assetDir, compDir) => assetNames.forEach((assetName) => generateCompFile(assetName, assetDir, compDir));
 
+/**
+ * generate index.ts to export all generated components
+ */
+const generateExports = (compDir) => {
+  const compFileNames = getFileNamesInDir(compDir, COMP_EXT);
+  const output = compFileNames.map(stripExtension).map((compName) => `export { default as ${compName} } from './${compName}';`).join('\n');
+  writeFile(getFullPath([compDir, 'index.ts']), output);
+};
 
-const generate = (assetDir, componentDir) => {
+// const generateStoryFile = (compNames, fromDir): void => {
+//   // import all icons and inject into a story for display
+// };
+
+const generate = (assetDir, compDir) => {
   const assetNames = getFileNamesInDir(assetDir, ASSET_EXT);
-  const currCompNames = getFileNamesInDir(componentDir, COMP_EXT).map(stripExtension);
+  const currCompNames = getFileNamesInDir(compDir, COMP_EXT).map(stripExtension);
 
   const nextCompNames = assetNames.map(assetNameToCompName);
-  generateNewComps(assetNames, assetDir, componentDir);
+  generateNewComps(assetNames, assetDir, compDir);
 
   const staleCompNames = findStaleComps(currCompNames, nextCompNames)
-  removeStaleComps(staleCompNames, componentDir);
+  removeStaleComps(staleCompNames, compDir);
+
+  generateExports(compDir);
 
   // update story
-  // generateStoryFile(nextCompNames, componentDir);
+  // generateStoryFile(nextCompNames, compDir);
 };
 
 
@@ -83,8 +100,8 @@ const generate = (assetDir, componentDir) => {
 const ASSET_DIR = resolve(__dirname, '../src/assets/icons');
 const COMPONENT_DIR = resolve(__dirname, '../src/components/icons');
 
-const watch = (assetDir, componentDir) => {
-  watchDir(assetDir, () => generate(assetDir, componentDir));
+const watch = (assetDir, compDir) => {
+  watchDir(assetDir, () => generate(assetDir, compDir));
 };
 
 if (process.argv[2] === '--watch') {

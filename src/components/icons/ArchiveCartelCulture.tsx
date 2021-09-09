@@ -1,3 +1,8 @@
+/**************************************
+ ****     AUTO GENERATED FILE     *****
+ ****   DO NOT UPDATE MANUALLY    *****
+ ***************************************/
+
 import * as React from 'react';
 
 function ArchiveCartelCulture(props: React.SVGProps<SVGSVGElement>) {
@@ -35,3 +40,5 @@ function ArchiveCartelCulture(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default ArchiveCartelCulture;
+
+  
