@@ -74,10 +74,6 @@ const generateExports = (compNames, compDir) => {
   writeFile(getFullPath([compDir, 'index.ts']), output);
 };
 
-const generateStoryFile = (compNames, compDir) => {
-  // import all icons and inject into a story for display
-};
-
 const generate = (assetDir, compDir) => {
   const assetNames = getFileNamesInDir(assetDir, ASSET_EXT);
   const currCompNames = getFileNamesInDir(compDir, COMP_EXT).map(stripExtension);
@@ -89,8 +85,6 @@ const generate = (assetDir, compDir) => {
   removeStaleComps(staleCompNames, compDir);
 
   generateExports(nextCompNames, compDir);
-
-  generateStoryFile(nextCompNames, compDir);
 };
 
 

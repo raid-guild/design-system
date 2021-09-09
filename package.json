@@ -23,7 +23,8 @@
     "build-storybook": "build-storybook",
     "predeploy": "build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "generate-icons": "node bin/generate-icons.js"
+    "generate-icons": "node bin/generate-icons.js",
+    "generate-icons:watch": "yarn generate-icons --watch"
   },
   "peerDependencies": {
     "react": ">=16"
