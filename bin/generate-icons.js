@@ -69,15 +69,14 @@ const generateNewComps = (assetNames, assetDir, compDir) => assetNames.forEach((
 /**
  * generate index.ts to export all generated components
  */
-const generateExports = (compDir) => {
-  const compFileNames = getFileNamesInDir(compDir, COMP_EXT);
-  const output = compFileNames.map(stripExtension).map((compName) => `export { default as ${compName} } from './${compName}';`).join('\n');
+const generateExports = (compNames, compDir) => {
+  const output = compNames.map((compName) => `export { default as ${compName} } from './${compName}';`).join('\n');
   writeFile(getFullPath([compDir, 'index.ts']), output);
 };
 
-// const generateStoryFile = (compNames, fromDir): void => {
-//   // import all icons and inject into a story for display
-// };
+const generateStoryFile = (compNames, compDir) => {
+  // import all icons and inject into a story for display
+};
 
 const generate = (assetDir, compDir) => {
   const assetNames = getFileNamesInDir(assetDir, ASSET_EXT);
@@ -89,10 +88,9 @@ const generate = (assetDir, compDir) => {
   const staleCompNames = findStaleComps(currCompNames, nextCompNames)
   removeStaleComps(staleCompNames, compDir);
 
-  generateExports(compDir);
+  generateExports(nextCompNames, compDir);
 
-  // update story
-  // generateStoryFile(nextCompNames, compDir);
+  generateStoryFile(nextCompNames, compDir);
 };
 
 
