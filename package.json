@@ -3,6 +3,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "homepage": "https://raid-guild.github.io/design-system",
   "files": [
     "dist",
     "src"
@@ -19,7 +20,9 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "predeploy": "build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -59,6 +62,7 @@
     "@storybook/addons": "6.3.7",
     "@storybook/react": "6.3.7",
     "babel-loader": "^8.2.2",
+    "gh-pages": "^3.2.3",
     "husky": "^7.0.1",
     "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
