@@ -9,5 +9,5 @@ interface RGThemeProps {
 export const RGThemeProvider: React.FC<RGThemeProps> = ({
   children,
 }: RGThemeProps) => {
-  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
+  return <ChakraProvider theme={theme} resetCSS>{children}</ChakraProvider>;
 };

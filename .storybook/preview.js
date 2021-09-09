@@ -13,7 +13,7 @@ const RaidGuildTheme = {
 };
 
 export const Chakra = ({ children }) => (
-  <RGThemeProvider theme={RaidGuildTheme} resetCSS>
+  <RGThemeProvider>
     {children}
   </RGThemeProvider>
 );
