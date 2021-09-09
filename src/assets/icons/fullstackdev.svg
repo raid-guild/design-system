@@ -1,0 +1,27 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 88V72L12 68V56H20V64H28V56H36V68L32 72V88" stroke="#FF3864" stroke-width="2"/>
+<path d="M64 88V72L60 68V56H68V64H76V56H84V68L80 72V88" stroke="#FF3864" stroke-width="2"/>
+<path d="M24 20H12V12H24V28" stroke="#FF3864" stroke-width="2"/>
+<path d="M16 52V36L24 28" stroke="#FF3864" stroke-width="2"/>
+<path d="M32 52V36L24 28" stroke="#FF3864" stroke-width="2"/>
+<path d="M16 40H32" stroke="#FF3864" stroke-width="2"/>
+<path d="M72 20H84V12H72V28" stroke="#FF3864" stroke-width="2"/>
+<path d="M80 52V36L72 28" stroke="#FF3864" stroke-width="2"/>
+<path d="M64 52V36L72 28" stroke="#FF3864" stroke-width="2"/>
+<path d="M80 40H64" stroke="#FF3864" stroke-width="2"/>
+<path d="M8 88H88" stroke="#FF3864" stroke-width="2"/>
+<path d="M44 64V60" stroke="#FF3864" stroke-width="2"/>
+<path d="M44 56V52" stroke="#FF3864" stroke-width="2"/>
+<path d="M52 56V52" stroke="#FF3864" stroke-width="2"/>
+<path d="M52 64V60" stroke="#FF3864" stroke-width="2"/>
+<path d="M40 32H56" stroke="#FF3864" stroke-width="2"/>
+<path d="M48 36V44" stroke="#FF3864" stroke-width="2"/>
+<path d="M32 48H40V28L48 20" stroke="#FF3864" stroke-width="2"/>
+<path d="M64 48H56V28L48 20" stroke="#FF3864" stroke-width="2"/>
+<path d="M48 16H60V8H48V20" stroke="#FF3864" stroke-width="2"/>
+<path d="M40 88V80C40 72 48 68 48 68C48 68 56 72 56 80V88" stroke="#FF3864" stroke-width="2"/>
+<path d="M24 80V76" stroke="#FF3864" stroke-width="2"/>
+<path d="M72 80V76" stroke="#FF3864" stroke-width="2"/>
+<path d="M24 52V48" stroke="#FF3864" stroke-width="2"/>
+<path d="M72 52V48" stroke="#FF3864" stroke-width="2"/>
+</svg>
