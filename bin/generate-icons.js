@@ -1,7 +1,7 @@
-import { camelCase, difference } from 'lodash';
-import svgr from '@svgr/core';
-import { readdirSync, writeFileSync, readFileSync, unlinkSync } from 'fs';
-import { join } from 'path';
+const { camelCase, difference } = require('lodash');
+const svgr = require('@svgr/core');
+const { readdirSync, writeFileSync, readFileSync, unlinkSync, watch: watchDir } = require('fs');
+const { join } = require('path');
 
 const COMP_EXT = '.tsx';
 
@@ -55,7 +55,7 @@ const generateCompFile = (assetName, fromDir) => {
 const generateNewComps = (assetNames, fromDir) => assetNames.forEach((assetName) => generateCompFile(assetName, fromDir));
 
 
-export const generate = (assetDir, componentDir) => {
+const generate = (assetDir, componentDir) => {
   const assetNames = getFileNamesInDir(assetDir);
   const currCompNames = getFileNamesInDir(componentDir).map(stripExtension);
 
@@ -70,7 +70,12 @@ export const generate = (assetDir, componentDir) => {
   // generateStoryFile(nextCompNames, componentDir);
 };
 
+
+// running inline for now
 const ASSET_DIR = resolve(__dirname, '../src/assets/icons');
 const COMPONENT_DIR = resolve(__dirname, '../src/components/icons');
 
-generate(ASSET_DIR, COMPONENT_DIR);
+const watch = (assetDir) => {
+  watchDir(assetDir, () => generate(assetDir, COMPONENT_DIR));
+};
+watch(ASSET_DIR);
