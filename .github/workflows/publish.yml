@@ -1,0 +1,23 @@
+name: Publish Package & Storybook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish_docker_image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build latest
+        uses: yarn build && yarn build-storybook
+
+      - name: Publish npm package
+        run: yarn publish --non-interactive
+
+      - name: Update GH Pages
+        run: yarn deploy-storybook
