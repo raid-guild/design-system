@@ -3,7 +3,7 @@ name: Publish Package & Storybook
 on:
   push:
     branches:
-      - main
+      - gh-workflow # temp to test
 
 jobs:
   publish_docker_image:
