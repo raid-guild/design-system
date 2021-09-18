@@ -3,7 +3,7 @@ name: Publish Package & Storybook
 on:
   push:
     branches:
-      - gh-workflow # temp to test
+      - main
 
 jobs:
   publish_docker_image:
@@ -20,7 +20,7 @@ jobs:
         run: yarn build && yarn build-storybook
 
       - name: Publish NPM Package
-        run: echo "yarn publish --non-interactive"
+        run: yarn publish --non-interactive
 
       - name: Update GH Pages
         uses: peaceiris/actions-gh-pages@v3
