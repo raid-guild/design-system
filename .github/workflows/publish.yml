@@ -13,11 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
       - name: Build Latest
         run: yarn build && yarn build-storybook
 
       - name: Publish NPM Package
-        run: yarn publish --non-interactive
+        run: echo "yarn publish --non-interactive"
 
       - name: Update GH Pages
         run: yarn deploy-storybook
