@@ -13,10 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build latest
+      - name: Build Latest
         uses: yarn build && yarn build-storybook
 
-      - name: Publish npm package
+      - name: Publish NPM Package
         run: yarn publish --non-interactive
 
       - name: Update GH Pages
