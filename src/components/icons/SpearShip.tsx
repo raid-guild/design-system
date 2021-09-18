@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 
-function TipOfTheSpear(props: React.SVGProps<SVGSVGElement>) {
+function SpearShip(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -24,6 +24,6 @@ function TipOfTheSpear(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default TipOfTheSpear;
+export default SpearShip;
 
   

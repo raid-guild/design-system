@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 
-function Consultations(props: React.SVGProps<SVGSVGElement>) {
+function RoundTable(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -39,6 +39,6 @@ function Consultations(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default Consultations;
+export default RoundTable;
 
   

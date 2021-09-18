@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 
-function FullStackDev(props: React.SVGProps<SVGSVGElement>) {
+function Castle(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -29,6 +29,6 @@ function FullStackDev(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default FullStackDev;
+export default Castle;
 
   
