@@ -1,0 +1,29 @@
+name: Publish Package & Storybook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish_docker_image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build Latest
+        run: yarn build && yarn build-storybook
+
+      - name: Publish NPM Package
+        run: yarn publish --non-interactive --access public
+
+      - name: Update GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
