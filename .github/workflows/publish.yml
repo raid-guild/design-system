@@ -21,7 +21,9 @@ jobs:
         run: yarn build && yarn build-storybook
 
       - name: Publish NPM Package
-        run: yarn publish --non-interactive --access publica
+        run: yarn publish --non-interactive --access public
+        with:         
+          always-auth: true
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
