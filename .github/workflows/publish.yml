@@ -22,10 +22,8 @@ jobs:
 
       - name: Publish NPM Package
         run: yarn publish --non-interactive --access public
-        with:         
-          always-auth: true
         env: 
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Update GH Pages
         uses: peaceiris/actions-gh-pages@v3
