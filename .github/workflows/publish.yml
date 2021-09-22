@@ -22,7 +22,7 @@ jobs:
 
       - name: Publish NPM Package
         run: yarn publish --non-interactive --access publica
-        end: 
+        env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Update GH Pages
