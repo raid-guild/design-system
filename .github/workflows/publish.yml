@@ -20,7 +20,7 @@ jobs:
         run: yarn build && yarn build-storybook
 
       - name: Publish NPM Package
-        run: yarn publish --non-interactive
+        run: yarn publish --non-interactive --access public
 
       - name: Update GH Pages
         uses: peaceiris/actions-gh-pages@v3
