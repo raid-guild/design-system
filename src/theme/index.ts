@@ -1,4 +1,4 @@
-import { extendTheme, Theme } from '@chakra-ui/react';
+import { extendTheme } from '@chakra-ui/react';
 import '../assets/css/fonts.css';
 import '../assets/css/globals.css';
 import { colors } from './colors';
@@ -7,7 +7,7 @@ import { Heading } from './components/Heading';
 import { Text } from './components/Text';
 import { textStyles } from './texts';
 
-const config = {
+const theme = extendTheme({
   styles: {
     global: {
       body: {
@@ -32,6 +32,6 @@ const config = {
     Text,
     Heading,
   },
-};
+});
 
-export const theme: Theme = extendTheme({ ...config });
+export default theme;
