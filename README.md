@@ -18,4 +18,4 @@ We recommend using the `RGThemeProvider` which automatically provides the Raid G
 3. `yarn build-storybook`
 4. `yarn storybook`
 
-On http://localhost:6006/ you'll see the components built in the [storybook]('https://storybook.js.org/').
+On http://localhost:6006/ you'll see the components built in the [storybook](https://storybook.js.org/).
