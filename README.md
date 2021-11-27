@@ -19,3 +19,7 @@ We recommend using the `RGThemeProvider` which automatically provides the Raid G
 4. `yarn storybook`
 
 On http://localhost:6006/ you'll see the components built in the [storybook](https://storybook.js.org/).
+
+## Prettier
+
+If you do not already use [Prettier](https://prettier.io/), please add Prettier to your text editor. Prettier allows us to have consistent formatting without having to think much about it.
