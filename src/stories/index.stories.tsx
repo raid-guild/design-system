@@ -1,10 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Heading, VStack, ChakraText, HStack, Image, Tooltip } from '..';
+
 import raidGuildLogoLeft from '../assets/images/raid--left.png';
 import raidGuildLogoRight from '../assets/images/raid--right.png';
 import season2 from '../assets/images/Season2-DAO-02b.png';
 import { FooterSimple } from '../theme/components/footers/Simple';
+import { Card } from '../theme/components/cards/Card';
 
 export default {
   title: 'Raid Guild Design System',
@@ -31,6 +33,20 @@ const Template: Story = () => (
       <Image src={raidGuildLogoRight} alt="Swords logo" maxH="75vh" />
     </HStack>
     <FooterSimple />
+    <Card variant="flat">
+      <Image
+        src="https://chakra-ui.com/eric.jpg"
+        rounded="full"
+        w={32}
+        h={32}
+        boxShadow="md"
+      />
+      <Heading mt={6} maxW={60} size="lg" textAlign="center" color="gray.700">
+        Welcome back, Eric
+      </Heading>
+
+      <Image src="https://chakra-ui.com/eric.jpg" w={32} h={32} />
+    </Card>
   </>
 );
 

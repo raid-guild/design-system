@@ -1,8 +1,10 @@
 import { extendTheme } from '@chakra-ui/react';
 import '../assets/css/fonts.css';
 import '../assets/css/globals.css';
-import { colors } from './colors';
+
 import { Button } from './components/Button';
+import { Card } from './components/cards/CardStyle';
+import { colors } from './colors';
 import { Heading } from './components/typography/Heading';
 import { Text } from './components/typography/Text';
 // import { textStyles } from './texts';
@@ -28,6 +30,7 @@ const theme = extendTheme({
   },
   components: {
     Button,
+    Card,
     Text,
     Heading,
   },

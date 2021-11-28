@@ -1,33 +1,29 @@
 export const Card = {
   // The styles all Cards have in common
   baseStyle: {
+    alignItems: 'center',
+    background: 'black',
+    border: '2px solid',
+    borderColor: 'red',
+    borderRadius: 'none',
+    color: 'black',
     display: 'flex',
     flexDirection: 'column',
-    background: 'black',
-    alignItems: 'center',
     gap: 6,
+    padding: 12,
+
+    p: {
+      color: 'white',
+    },
   },
   // Two variants: rounded and smooth
   variants: {
-    rounded: {
-      padding: 8,
-      borderRadius: 'xl',
-      boxShadow: 'xl',
-    },
-    smooth: {
-      padding: 6,
-      borderRadius: 'base',
-      boxShadow: 'md',
-    },
-    flat: {
-      padding: 6,
-      background: 'white',
-      borderRadius: 0,
-      boxShadow: 'md',
+    topBorderOnly: {
+      borderLeft: 'none',
+      borderRight: 'none',
+      borderBottom: 'none',
     },
   },
   // The default variant value
-  defaultProps: {
-    variant: 'smooth',
-  },
+  defaultProps: {},
 };
