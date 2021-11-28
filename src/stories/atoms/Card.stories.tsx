@@ -51,40 +51,6 @@ export const Primary: ComponentStory<typeof Card> = () => (
 
         <Text>{cardCopy}</Text>
       </Card>
-      <Card>
-        <Heading as="h4" size="xl" color="white" textAlign="center" mb={4}>
-          {title}
-        </Heading>
-
-        <Image src={imgSrc} alt={title} my="1.5rem" />
-
-        <Text>{cardCopy}</Text>
-      </Card>
-      <Card>
-        <Heading as="h4" size="xl" color="white" textAlign="center" mb={4}>
-          {title}
-        </Heading>
-
-        <Image src={imgSrc} alt={title} my="1.5rem" />
-
-        <Text>{cardCopy}</Text>
-      </Card>
-    </SimpleGrid>
-  </>
-);
-
-export const Secondary: ComponentStory<typeof Card> = () => (
-  <>
-    <SimpleGrid
-      columns={{ base: 1, md: 2, lg: 2 }}
-      gap="4rem"
-      my="2rem"
-      ml={{ lg: '3rem' }}
-    >
-      <Card borderColor="red">Stuff</Card>
-      <Card>Stuff</Card>
-      <Card>Stuff</Card>
-      <Card>Stuff</Card>
     </SimpleGrid>
   </>
 );
