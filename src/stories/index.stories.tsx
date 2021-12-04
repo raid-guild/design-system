@@ -13,7 +13,7 @@ import {
 import raidGuildLogoLeft from '../assets/images/raid--left.png';
 import raidGuildLogoRight from '../assets/images/raid--right.png';
 import season2 from '../assets/images/Season2-DAO-02b.png';
-import { FooterSimple } from '../theme/components/footers/Simple';
+import { FooterSimple } from '../components/footers/Simple';
 // import { Card } from '../theme/components/cards/Card';
 
 export default {
