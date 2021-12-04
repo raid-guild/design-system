@@ -5,7 +5,7 @@ import { Heading, Image, Text, SimpleGrid } from '@chakra-ui/react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Card } from '../../theme/components/cards/Card';
+import { Card } from '../../components/atoms/Card';
 
 export default {
   /* 👇 The title prop is optional.

@@ -5,7 +5,7 @@
 
 import * as React from 'react';
 
-function RaidGuildLogo(props: React.SVGProps<SVGSVGElement>) {
+function BuiltByRaidGuild(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="1em"
@@ -23,6 +23,6 @@ function RaidGuildLogo(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default RaidGuildLogo;
+export default BuiltByRaidGuild;
 
   
