@@ -1,7 +1,7 @@
 import { Box, Stack } from '@chakra-ui/react';
 import * as React from 'react';
 import { Copyright } from './Copyright';
-import { BroughtToYouBuyRaidGuild } from '../logos/BroughtToYouBuyRaidGuild';
+import RaidGuildLogo from '../icons/RaidGuildLogo';
 import { SocialMediaLinks } from './SocialMediaLinks';
 
 export const FooterSimple = () => (
@@ -15,7 +15,7 @@ export const FooterSimple = () => (
   >
     <Stack>
       <Stack direction="row" spacing="4" align="center" justify="space-between">
-        <BroughtToYouBuyRaidGuild />
+        <RaidGuildLogo />
         <SocialMediaLinks />
       </Stack>
       <Copyright alignSelf={{ base: 'center', sm: 'start' }} />

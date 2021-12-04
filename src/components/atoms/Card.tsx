@@ -1,37 +1,11 @@
-import React from 'react';
-import { Flex, Heading, ChakraText, Image } from '../chakra';
+import { Box, useStyleConfig } from '@chakra-ui/react';
+import * as React from 'react';
 
-export interface CardProps {
-  title: string;
-  imgSrc: string;
-  imgAlt?: string;
-  text: string;
+export function Card(props: any) {
+  const { variant, ...rest } = props;
+
+  const styles = useStyleConfig('Card', { variant });
+
+  // Pass the computed styles into the `__css` prop
+  return <Box __css={styles} {...rest} />;
 }
-
-export const Card: React.FC<CardProps> = ({ title, imgSrc, text, imgAlt }) => (
-  <Flex
-    direction="column"
-    alignItems="center"
-    justifyContent="space-evenly"
-    py="2rem"
-    px="1.5rem"
-    bg="black"
-    borderTop="2px solid"
-    borderColor="red"
-  >
-    <Heading
-      variant="labels"
-      fontSize={{ base: '16px' }}
-      textAlign="center"
-      mb={4}
-    >
-      {title}
-    </Heading>
-
-    <Image src={imgSrc} alt={imgAlt || imgSrc} my="1.5rem" />
-
-    <ChakraText variant="textTwo" fontSize={{ base: '16px' }} textAlign="left">
-      {text}
-    </ChakraText>
-  </Flex>
-);
