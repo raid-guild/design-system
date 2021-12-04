@@ -3,7 +3,7 @@ export { default as styled } from '@emotion/styled';
 export { motion } from 'framer-motion';
 
 export { Card } from './theme/components/cards/Card';
-// export { Heading } from './theme/components/typography/Heading';
+export { BroughtToYouBuyRaidGuild } from './theme/components/logos/BroughtToYouBuyRaidGuild';
 
 export { RGThemeProvider } from './components/chakra/RGThemeProvider';
 export {

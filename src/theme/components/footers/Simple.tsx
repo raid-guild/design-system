@@ -1,7 +1,7 @@
 import { Box, Stack } from '@chakra-ui/react';
 import * as React from 'react';
 import { Copyright } from './Copyright';
-import BroughtToYouBuyRaidGuild from '../logos/BroughtToYouBuyRaidGuild';
+import { BroughtToYouBuyRaidGuild } from '../logos/BroughtToYouBuyRaidGuild';
 import { SocialMediaLinks } from './SocialMediaLinks';
 
 export const FooterSimple = () => (
