@@ -3,13 +3,14 @@ const path = require('path');
 module.exports = {
   stories: [
     '../src/stories/index.stories.tsx',
-    '../src/stories/**/*.stories.@(ts|tsx|js|jsx)'
+    '../src/stories/**/*.stories.@(ts|tsx|js|jsx)',
   ],
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-docs',
-    'storybook-addon-react-docgen'
+    'storybook-addon-react-docgen',
+    '@storybook/addon-a11y',
   ],
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {

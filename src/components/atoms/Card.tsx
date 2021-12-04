@@ -10,32 +10,28 @@ export interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ title, imgSrc, text, imgAlt }) => (
   <Flex
-    direction='column'
-    alignItems='center'
-    justifyContent='space-evenly'
-    py='2rem'
-    px='1.5rem'
-    bg='black'
-    borderTop='2px solid'
-    borderColor='red'
+    direction="column"
+    alignItems="center"
+    justifyContent="space-evenly"
+    py="2rem"
+    px="1.5rem"
+    bg="black"
+    borderTop="2px solid"
+    borderColor="red"
   >
     <Heading
-      variant='labels'
+      variant="labels"
       fontSize={{ base: '16px' }}
-      textAlign='center'
+      textAlign="center"
       mb={4}
     >
       {title}
     </Heading>
 
-    <Image src={imgSrc} alt={imgAlt || imgSrc} my='1.5rem' />
+    <Image src={imgSrc} alt={imgAlt || imgSrc} my="1.5rem" />
 
-    <ChakraText
-      variant="textTwo"
-      fontSize={{ base: '16px' }}
-      textAlign='left'
-    >
+    <ChakraText variant="textTwo" fontSize={{ base: '16px' }} textAlign="left">
       {text}
     </ChakraText>
   </Flex>
-);;
+);

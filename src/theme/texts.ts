@@ -1,5 +1,5 @@
-export const textStyles = {
-  p: {
-    textTransform: 'uppercase',
-  },
-};
+// export const textStyles = {
+//   p: {
+//     textTransform: 'uppercase',
+//   },
+// };
