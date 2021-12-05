@@ -1,8 +1,10 @@
-import { Text, TextProps } from '@chakra-ui/layout';
+import { ChakraText, TextProps } from 'components/chakra';
 import * as React from 'react';
 
-export const Copyright = (props: TextProps) => (
-  <Text fontSize="sm" {...props}>
+const Copyright = (props: TextProps) => (
+  <ChakraText fontSize='sm' {...props}>
     &copy; {new Date().getFullYear()} Raid Guild, DAO. All rights reserved.
-  </Text>
+  </ChakraText>
 );
+
+export default Copyright;

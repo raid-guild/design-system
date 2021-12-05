@@ -1,11 +1,13 @@
-import { Box, useStyleConfig } from '@chakra-ui/react';
-import * as React from 'react';
+import React from 'react';
+import { Box, useStyleConfig } from 'components/chakra';
 
-export function Card(props: any) {
+const Card: React.FC<any> = (props: any) => {
   const { variant, ...rest } = props;
 
   const styles = useStyleConfig('Card', { variant });
 
   // Pass the computed styles into the `__css` prop
   return <Box __css={styles} {...rest} />;
-}
+};
+
+export default Card;

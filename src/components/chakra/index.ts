@@ -37,7 +37,7 @@ export {
   FlexProps,
   Grid,
   GridItem,
-  Heading,
+  Heading as ChakraHeading,
   HStack,
   HTMLChakraProps,
   Icon,
@@ -75,6 +75,7 @@ export {
   Tbody,
   Td,
   Text as ChakraText,
+  TextProps,
   Textarea,
   Th,
   Thead,
@@ -91,4 +92,3 @@ export {
   WrapItem,
   WrapProps,
 } from '@chakra-ui/react';
-

@@ -1,12 +1,12 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import theme from '../../../theme';
+import theme from 'theme/index';
 
 interface RGThemeProps {
   children: any;
 }
 
-export const RGThemeProvider: React.FC<RGThemeProps> = ({
+const RGThemeProvider: React.FC<RGThemeProps> = ({
   children,
 }: RGThemeProps) => {
   return (
@@ -15,3 +15,5 @@ export const RGThemeProvider: React.FC<RGThemeProps> = ({
     </ChakraProvider>
   );
 };
+
+export default RGThemeProvider;

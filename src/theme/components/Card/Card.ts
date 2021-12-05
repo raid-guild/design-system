@@ -1,4 +1,4 @@
-export const Card = {
+const Card = {
   // The styles all Cards have in common
   baseStyle: {
     alignItems: 'center',
@@ -27,3 +27,5 @@ export const Card = {
   // The default variant value
   defaultProps: {},
 };
+
+export default Card;

@@ -1,5 +1,5 @@
 {
-  "version": "0.2.1-beta.7",
+  "version": "0.2.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,7 +16,6 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
@@ -33,12 +32,6 @@
     "hooks": {
       "pre-commit": "tsdx lint"
     }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
   },
   "name": "@raidguild/design-system",
   "author": "Raid Guild",
@@ -63,15 +56,25 @@
     "@storybook/addon-links": "6.4.0",
     "@storybook/addon-viewport": "6.4.0",
     "@storybook/addons": "6.4.0",
-    "@storybook/react": "6.4.0",
     "@svgr/core": "^5.5.0",
     "@svgr/plugin-jsx": "^5.5.0",
     "@svgr/plugin-prettier": "^5.5.0",
     "@svgr/plugin-svgo": "^5.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
     "babel-loader": "^8.2.2",
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "gh-pages": "^3.2.3",
     "husky": "^7.0.1",
-    "prettier": "^2.5.0",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^17.0.2",
@@ -88,6 +91,7 @@
     "@chakra-ui/react": "^1.6.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@storybook/react": "6.4.0",
     "@types/react-dom": "^17.0.9",
     "framer-motion": "^4",
     "react-icons": "^4.3.1"

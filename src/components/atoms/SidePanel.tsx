@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '../chakra';
+import { Box } from 'components/chakra';
 
 export interface SidePanelProps {
   /**
@@ -11,10 +11,10 @@ export interface SidePanelProps {
 /**
  * Primary UI component for user interaction
  */
-export const SidePanel: React.FC<SidePanelProps> = ({ children }) => {
-  return (
-    <Box as="section" minH="100vh">
-      {children}
-    </Box>
-  );
-};
+const SidePanel: React.FC<SidePanelProps> = ({ children }) => (
+  <Box as='section' minH='100vh'>
+    {children}
+  </Box>
+);
+
+export default SidePanel;

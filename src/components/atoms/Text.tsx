@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraText } from '../chakra';
+import { ChakraText } from 'components/chakra';
 
 export interface TextProps {
   /**
@@ -34,17 +34,15 @@ export const Text: React.FC<TextProps> = ({
   truncated,
   variant = 'textOne',
   ...props
-}) => {
-  return (
-    <ChakraText
-      bg="transparent"
-      fontSize={size}
-      isTruncated={truncated}
-      color={color}
-      variant={variant}
-      {...props}
-    >
-      {content}
-    </ChakraText>
-  );
-};
+}) => (
+  <ChakraText
+    bg='transparent'
+    fontSize={size}
+    isTruncated={truncated}
+    color={color}
+    variant={variant}
+    {...props}
+  >
+    {content}
+  </ChakraText>
+);

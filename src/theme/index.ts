@@ -1,13 +1,12 @@
 import { extendTheme } from '@chakra-ui/react';
-import '../assets/css/fonts.css';
-import '../assets/css/globals.css';
+import 'assets/css/fonts.css';
+import 'assets/css/globals.css';
 
-import { Button } from './components/Button';
-import { Card } from './components/Card/Card';
-import { colors } from './colors';
-import { Heading } from './components/typography/Heading';
-import { Text } from './components/typography/Text';
-// import { textStyles } from './texts';
+import Button from './components/Button';
+import Card from './components/Card/Card';
+import Colors from './colors';
+import Heading from './components/typography/Heading';
+import Text from './components/typography/Text';
 
 const theme = extendTheme({
   styles: {
@@ -20,7 +19,7 @@ const theme = extendTheme({
       },
     },
   },
-  colors,
+  colors: Colors,
   fonts: {
     texturina: `'Texturina', serif`,
     jetbrains: `'JetBrains Mono', monospace`,
@@ -33,6 +32,10 @@ const theme = extendTheme({
     Card,
     Text,
     Heading,
+  },
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
   },
 });
 

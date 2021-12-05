@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { ButtonGroup, ButtonGroupProps } from '../..';
+import { ButtonGroup, ButtonGroupProps } from 'components/molecules';
 
 export default {
   title: 'Components/Molecules/ButtonGroup',

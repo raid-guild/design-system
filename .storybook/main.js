@@ -38,6 +38,13 @@ module.exports = {
     });
 
     config.resolve.extensions.push('.ts', '.tsx');
+
+    // include ts files here so they can be resolved properly
+    config.resolve.modules.push(process.cwd() + '/node_modules');
+    config.resolve.modules.push(process.cwd() + '/src');
+
+    // this is needed for working w/ linked folders
+    config.resolve.symlinks = false;
     return {
       ...config,
       resolve: {

@@ -1,4 +1,4 @@
-export const colors = {
+const Colors = {
   transparent: 'transparent',
   blackDark: 'rgba(10, 10, 10, 0.960784)',
   blackLight: '#2b2c34',
@@ -22,3 +22,5 @@ export const colors = {
     800: '#da0030',
   },
 };
+
+export default Colors;

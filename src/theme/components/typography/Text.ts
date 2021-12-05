@@ -1,4 +1,4 @@
-export const Text = {
+const Text = {
   // Styles for the base style
   baseStyle: {
     fontFamily: 'texturina',
@@ -25,3 +25,5 @@ export const Text = {
   // The default `size` or `variant` values
   defaultProps: {},
 };
+
+export default Text;

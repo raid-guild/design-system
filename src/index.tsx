@@ -1,12 +1,15 @@
-export * from './components/chakra';
 export { default as styled } from '@emotion/styled';
 export { motion } from 'framer-motion';
 
-export { Card } from './components/atoms/Card';
+// ATOMS
+export * from 'components/atoms';
 
-export { RGThemeProvider } from './components/chakra/RGThemeProvider';
-export {
-  ButtonGroup,
-  ButtonGroupProps,
-} from './components/molecules/ButtonGroup';
-export * from './components/icons';
+// CHAKRA/THEME
+export * from 'components/chakra';
+export { default as RGThemeProvider } from 'components/chakra/RGThemeProvider';
+
+// ICONS
+export * from 'components/icons';
+
+// MOLECULES
+export * from 'components/molecules';

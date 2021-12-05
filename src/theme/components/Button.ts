@@ -1,4 +1,4 @@
-export const Button = {
+const Button = {
   defaultProps: {
     colorScheme: 'primaryAlpha',
     variant: 'solid',
@@ -53,3 +53,5 @@ export const Button = {
     }),
   },
 };
+
+export default Button;

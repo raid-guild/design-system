@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraText } from '../chakra';
+import { ChakraText } from 'components/chakra';
 
 export interface HeadingProps {
   /**
@@ -13,27 +13,27 @@ export interface HeadingProps {
   /**
    * variant to determine different sizes
    */
-  variant: 'headingOne' | 'headingTwo' | 'headingThree' | 'labels';
+  variant: 'shadow' | 'noShadow';
 }
 
 /**
  * Primary UI component for Heading
  */
-export const Heading: React.FC<HeadingProps> = ({
-  variant,
+const Heading: React.FC<HeadingProps> = ({
+  variant = 'shadow',
   color,
   content,
   ...props
-}) => {
-  return (
-    <ChakraText
-      bg="transparent"
-      color={color}
-      fontFamily="texturina"
-      variant={variant}
-      {...props}
-    >
-      {content}
-    </ChakraText>
-  );
-};
+}) => (
+  <ChakraText
+    bg='transparent'
+    color={color}
+    fontFamily='texturina'
+    variant={variant}
+    {...props}
+  >
+    {content}
+  </ChakraText>
+);
+
+export default Heading;

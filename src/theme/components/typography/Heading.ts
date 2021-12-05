@@ -1,4 +1,4 @@
-export const Heading = {
+const Heading = {
   // Styles for the base style
   baseStyle: {
     fontFamily: 'uncial',
@@ -42,3 +42,5 @@ export const Heading = {
     variant: 'shadow',
   },
 };
+
+export default Heading;
