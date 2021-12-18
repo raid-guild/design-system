@@ -5,7 +5,7 @@ export interface TextProps extends ChakraTextProps {
   /**
    * Show text as something besides <Box />
    */
-  as: any;
+  as?: any;
   /**
    * Text content
    */

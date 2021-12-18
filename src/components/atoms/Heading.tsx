@@ -5,7 +5,7 @@ export interface HeadingProps extends ChakraHeadingProps {
   /**
    * Show text as something besides <Box />
    */
-  as: any;
+  as?: any;
   /**
    * Heading content
    */
@@ -21,7 +21,7 @@ export interface HeadingProps extends ChakraHeadingProps {
   /**
    * variant to determine different sizes
    */
-  variant: 'shadow' | 'noShadow';
+  variant?: 'shadow' | 'noShadow';
 }
 
 /**
