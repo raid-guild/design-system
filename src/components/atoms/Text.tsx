@@ -1,7 +1,7 @@
 import React from 'react';
-import { ChakraText } from '../chakra';
+import { ChakraText, ChakraTextProps } from '../chakra';
 
-export interface TextProps {
+export interface TextProps extends ChakraTextProps {
   /**
    * Text content
    */
