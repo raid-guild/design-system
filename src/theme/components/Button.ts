@@ -3,6 +3,7 @@ const Button = {
     colorScheme: 'primaryAlpha',
     variant: 'solid',
     fontWeight: '400',
+    fontFamily: 'Uncial Antiqua',
   },
   variants: {
     solid: () => ({

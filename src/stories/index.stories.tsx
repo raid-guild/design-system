@@ -1,14 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 
-import {
-  Heading,
-  VStack,
-  Text,
-  HStack,
-  Image,
-  Tooltip,
-} from '@chakra-ui/react';
+import { Heading, VStack, Text, HStack, Image, Tooltip } from '..';
 
 import raidGuildLogoLeft from '../assets/images/raid--left.png';
 import raidGuildLogoRight from '../assets/images/raid--right.png';

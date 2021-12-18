@@ -1,5 +1,7 @@
 import React from 'react';
-import { ChakraHeadingProps, ChakraText } from '../chakra';
+import { ChakraHeadingProps, ChakraHeading } from '../chakra';
+
+export type HeadingVariants = 'shadow' | 'noShadow';
 
 export interface HeadingProps extends ChakraHeadingProps {
   /**
@@ -21,7 +23,7 @@ export interface HeadingProps extends ChakraHeadingProps {
   /**
    * variant to determine different sizes
    */
-  variant?: 'shadow' | 'noShadow';
+  variant?: HeadingVariants;
 }
 
 /**
@@ -35,16 +37,15 @@ const Heading: React.FC<HeadingProps> = ({
   children,
   ...props
 }) => (
-  <ChakraText
+  <ChakraHeading
     as={as}
     bg='transparent'
     color={color}
-    fontFamily='texturina'
     variant={variant}
     {...props}
   >
     {content || children}
-  </ChakraText>
+  </ChakraHeading>
 );
 
 export default Heading;

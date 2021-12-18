@@ -10,9 +10,11 @@ const Heading = {
 
   variants: {
     shadow: {
+      fontFamily: 'uncial',
       textShadow: '0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.20em red',
     },
     noShadow: {
+      fontFamily: 'uncial',
       textShadow: 'none',
     },
     // headingOne: {
