@@ -10,10 +10,10 @@ import {
   Tooltip,
 } from '@chakra-ui/react';
 
-import raidGuildLogoLeft from 'assets/images/raid--left.png';
-import raidGuildLogoRight from 'assets/images/raid--right.png';
-import season2 from 'assets/images/Season2-DAO-02b.png';
-import FooterSimple from 'components/footers/Simple';
+import raidGuildLogoLeft from '../assets/images/raid--left.png';
+import raidGuildLogoRight from '../assets/images/raid--right.png';
+import season2 from '../assets/images/Season2-DAO-02b.png';
+import FooterSimple from '../components/footers/Simple';
 
 export default {
   title: 'Raid Guild Design System',

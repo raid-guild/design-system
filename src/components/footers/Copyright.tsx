@@ -1,5 +1,5 @@
-import { ChakraText, TextProps } from 'components/chakra';
 import * as React from 'react';
+import { ChakraText, TextProps } from '../chakra';
 
 const Copyright = (props: TextProps) => (
   <ChakraText fontSize='sm' {...props}>

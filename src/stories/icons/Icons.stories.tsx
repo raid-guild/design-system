@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Flex, SimpleGrid } from 'components/chakra';
-import * as RootIcons from 'components/icons';
-import { Heading } from 'components/atoms';
+import { Flex, SimpleGrid } from '../../components/chakra';
+import * as RootIcons from '../../components/icons';
+import { Heading } from '../../components/atoms';
 import { styled } from '../..';
 
 const IconPreview = styled('div')`

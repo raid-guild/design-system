@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, useStyleConfig } from 'components/chakra';
+import { Box, useStyleConfig } from '../chakra';
 
 const Card: React.FC<any> = (props: any) => {
   const { variant, ...rest } = props;

@@ -5,10 +5,10 @@ import {
   Image,
   ChakraText,
   SimpleGrid,
-} from 'components/chakra';
-import { Card } from 'components/atoms';
-import imgConsultations from 'assets/images/consultations.png';
-import imgDesignSprints from 'assets/images/designsprints.png';
+} from '../../components/chakra';
+import { Card } from '../../components/atoms';
+import imgConsultations from '../../assets/images/consultations.png';
+import imgDesignSprints from '../../assets/images/designsprints.png';
 
 export default {
   /* 👇 The title prop is optional.

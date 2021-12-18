@@ -1,6 +1,6 @@
 import { Box, Stack } from '@chakra-ui/react';
 import * as React from 'react';
-import BuiltByRaidGuild from 'components/icons/BuiltByRaidGuild';
+import BuiltByRaidGuild from '../icons/BuiltByRaidGuild';
 import Copyright from './Copyright';
 import SocialMediaLinks from './SocialMediaLinks';
 

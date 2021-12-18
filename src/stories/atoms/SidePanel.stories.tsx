@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Box, Center, Image } from 'components/chakra';
-import { SidePanel, SidePanelProps } from 'components/atoms';
-import season2 from 'assets/images/Season2-DAO-02b.png';
+import { Box, Center, Image } from '../../components/chakra';
+import { SidePanel, SidePanelProps } from '../../components/atoms';
+import season2 from '../../assets/images/Season2-DAO-02b.png';
 
 export default {
   title: 'Components/Atoms/SidePanel',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ChakraButtonGroup } from 'components/chakra';
+import { Button, ChakraButtonGroup } from '../../chakra';
 
 export interface ButtonGroupProps {
   /**
@@ -48,9 +48,9 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
       {buttons.map((label: string, i: number) => {
         return (
           <Button
-            key={i}
+            key={label}
             variant={i === selected ? 'solid' : 'outline'}
-            color="white"
+            color='white'
             size={size}
             onClick={() => handleSelection(i)}
             {...props}
