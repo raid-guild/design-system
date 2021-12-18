@@ -1,11 +1,19 @@
 import React from 'react';
-import { ChakraText, ChakraHeadingProps } from '../chakra';
+import { ChakraHeadingProps, ChakraText } from '../chakra';
 
 export interface HeadingProps extends ChakraHeadingProps {
   /**
+   * Show text as something besides <Box />
+   */
+  as: any;
+  /**
    * Heading content
    */
-  content: string;
+  content?: string;
+  /**
+   * Heading childner content
+   */
+  children?: any;
   /**
    * What Heading color to use
    */
@@ -21,18 +29,21 @@ export interface HeadingProps extends ChakraHeadingProps {
  */
 const Heading: React.FC<HeadingProps> = ({
   variant = 'shadow',
+  as,
   color,
   content,
+  children,
   ...props
 }) => (
   <ChakraText
+    as={as}
     bg='transparent'
     color={color}
     fontFamily='texturina'
     variant={variant}
     {...props}
   >
-    {content}
+    {content || children}
   </ChakraText>
 );
 

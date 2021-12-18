@@ -3,9 +3,17 @@ import { ChakraText, ChakraTextProps } from '../chakra';
 
 export interface TextProps extends ChakraTextProps {
   /**
+   * Show text as something besides <Box />
+   */
+  as: any;
+  /**
    * Text content
    */
-  content: string;
+  content?: string;
+  /**
+   * Text content
+   */
+  children?: any;
   /**
    * What text color to use
    */
@@ -21,21 +29,24 @@ export interface TextProps extends ChakraTextProps {
   /**
    * variant to determine styles from themes/components/Text
    */
-  variant: 'textOne' | 'textTwo';
+  variant?: 'textOne' | 'textTwo';
 }
 
 /**
  * Primary UI component for text
  */
 export const Text: React.FC<TextProps> = ({
+  as,
   size,
   color,
   content,
   truncated,
   variant = 'textOne',
+  children,
   ...props
 }) => (
   <ChakraText
+    as={as}
     bg='transparent'
     fontSize={size}
     isTruncated={truncated}
@@ -43,6 +54,6 @@ export const Text: React.FC<TextProps> = ({
     variant={variant}
     {...props}
   >
-    {content}
+    {content || children}
   </ChakraText>
 );
