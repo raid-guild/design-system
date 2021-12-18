@@ -1,5 +1,5 @@
 {
-  "version": "0.2.9",
+  "version": "0.2.10",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -13,12 +13,12 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "yarn clean && tsdx build && yarn copy-files",
+    "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 src/assets/**/*.css src/assets/**/*.woff src/assets/**/*.woff2 src/assets/**/*.png src/assets/**/*.svg dist/",
-    "prepare": "yarn build",
+    "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
