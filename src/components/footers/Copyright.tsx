@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { ChakraText, TextProps } from '../chakra';
+import { ChakraText, ChakraTextProps } from '../chakra';
 
-const Copyright = (props: TextProps) => (
+const Copyright = (props: ChakraTextProps) => (
   <ChakraText fontSize='sm' {...props}>
     &copy; {new Date().getFullYear()} Raid Guild, DAO. All rights reserved.
   </ChakraText>
