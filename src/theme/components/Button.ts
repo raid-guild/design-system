@@ -3,7 +3,7 @@ const Button = {
     colorScheme: 'primaryAlpha',
     variant: 'solid',
     fontWeight: '400',
-    fontFamily: 'Uncial Antiqua',
+    fontFamily: 'texturina',
   },
   variants: {
     solid: () => ({
@@ -57,9 +57,9 @@ const Button = {
       maxWidth: '100%',
       width: 'auto',
       height: '40px',
-      color: { base: '#8B1DBA', md: 'transparent' }, // added a media query to display RG red on mobile
-      paddingLeft: '24px',
-      paddingRight: '24px',
+      color: '#8B1DBA',
+      // paddingLeft: '24px',
+      // paddingRight: '24px',
       _focus: {
         boxShadow: 'none',
       },
