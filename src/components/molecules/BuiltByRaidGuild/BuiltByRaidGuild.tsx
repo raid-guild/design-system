@@ -1,5 +1,6 @@
 import React from 'react';
-import { Stack, Heading, BuiltByRaidGuild, Link } from '../../..';
+import { Stack, Heading, Link } from '../../..';
+import { BuiltByRaidGuild } from '../../icons';
 
 export interface BuiltByRaidGuildProps {
   copy?: string;
