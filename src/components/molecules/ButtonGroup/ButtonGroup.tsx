@@ -28,7 +28,7 @@ export interface ButtonGroupProps {
 /**
  * Container for grouping and wrapping buttons - can be used for toggles
  */
-export const ButtonGroup: React.FC<ButtonGroupProps> = ({
+const ButtonGroup: React.FC<ButtonGroupProps> = ({
   buttons,
   defaultSelected = 0,
   size = 'sm',
@@ -62,3 +62,5 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
     </ChakraButtonGroup>
   );
 };
+
+export default ButtonGroup;

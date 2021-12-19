@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraHeadingProps, ChakraHeading } from '../chakra';
+import { ChakraHeadingProps, ChakraHeading } from '../../chakra';
 
 export type HeadingVariants = 'shadow' | 'noShadow';
 

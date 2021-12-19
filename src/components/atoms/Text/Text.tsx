@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraText, ChakraTextProps } from '../chakra';
+import { ChakraText, ChakraTextProps } from '../../chakra';
 
 export interface TextProps extends ChakraTextProps {
   /**
@@ -35,7 +35,7 @@ export interface TextProps extends ChakraTextProps {
 /**
  * Primary UI component for text
  */
-export const Text: React.FC<TextProps> = ({
+const Text: React.FC<TextProps> = ({
   as,
   size,
   color,
@@ -57,3 +57,5 @@ export const Text: React.FC<TextProps> = ({
     {content || children}
   </ChakraText>
 );
+
+export default Text;
