@@ -24,11 +24,11 @@ const Template: Story<Args> = (args) => {
       ml={{ lg: '3rem' }}
     >
       {Object.entries(RootIcons).map(([name, Icon]) => (
-        <IconPreview>
+        <IconPreview key={name}>
           <Flex justifyContent='center'>
             <Icon width={size} height={size} />
           </Flex>
-          <Heading variant='shadow' content={name} />
+          <Heading variant='shadow' size='sm' content={name} />
         </IconPreview>
       ))}
     </SimpleGrid>
@@ -41,5 +41,5 @@ IconLib.args = {
 };
 
 export default {
-  title: 'Components/Icons/Icons',
+  title: 'Components/Atoms/Icons',
 } as Meta;

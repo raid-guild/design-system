@@ -15,7 +15,7 @@ const FooterSimple = () => (
   >
     <Stack>
       <Stack direction='row' spacing='4' align='center' justify='space-between'>
-        <BuiltByRaidGuild />
+        <BuiltByRaidGuild width='200px' height='60px' />
         <SocialMediaLinks />
       </Stack>
       <Copyright alignSelf={{ base: 'center', sm: 'start' }} />

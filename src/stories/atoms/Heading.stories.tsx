@@ -29,8 +29,10 @@ const copy = 'RaidGuild vs Moloch';
 
 const Heading: Story<HeadingProps> = (args) => (
   <Stack spacing={4}>
+    {/* Map out each size */}
     {headingExamples.map((example) => (
       <Stack spacing={2} key={example.size}>
+        {/* Add both variants */}
         {headingVariants.map((variant: any) => (
           <Flex align='center' key={`${example.size}-${variant}`}>
             <Text mr={3}>{`${example.size} - ${variant}`}</Text>

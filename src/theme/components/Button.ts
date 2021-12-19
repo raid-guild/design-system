@@ -52,6 +52,18 @@ const Button = {
         boxShadow: 'none',
       },
     }),
+    ghost: () => ({
+      textTransform: 'uppercase',
+      maxWidth: '100%',
+      width: 'auto',
+      height: '40px',
+      color: { base: '#8B1DBA', md: 'transparent' }, // added a media query to display RG red on mobile
+      paddingLeft: '24px',
+      paddingRight: '24px',
+      _focus: {
+        boxShadow: 'none',
+      },
+    }),
   },
 };
 

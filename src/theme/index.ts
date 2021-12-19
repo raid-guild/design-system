@@ -7,6 +7,7 @@ import Card from './components/Card/Card';
 import Colors from './colors';
 import Heading from './components/typography/Heading';
 import Text from './components/typography/Text';
+import Link from './components/Link';
 
 const theme = extendTheme({
   styles: {
@@ -32,6 +33,7 @@ const theme = extendTheme({
     Card,
     Text,
     Heading,
+    Link,
   },
   config: {
     initialColorMode: 'dark',

@@ -42,6 +42,7 @@ module.exports = {
         'global-require': 0,
         'import/no-dynamic-require': 'off',
         'import/no-unresolved': 'off',
+        'import/prefer-default-export': 'off',
         'prettier/prettier': ['error', { singleQuote: true }],
 
         // REACT

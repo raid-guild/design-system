@@ -3,6 +3,9 @@ const Heading = {
   baseStyle: {
     fontFamily: 'uncial',
     letterSpacing: '1.2px',
+    _hover: {
+      textDecoration: 'none',
+    },
   },
   // Styles for the size variations
   sizes: {},
