@@ -1,5 +1,5 @@
 {
-  "version": "0.2.16",
+  "version": "0.2.17",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -88,7 +88,7 @@
     "typescript": "4.2.2"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.6",
+    "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@rollup/plugin-replace": "^3.0.0",
