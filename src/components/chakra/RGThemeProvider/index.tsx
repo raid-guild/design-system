@@ -9,7 +9,7 @@ interface RGThemeProps {
 const RGThemeProvider: React.FC<RGThemeProps> = ({
   children,
 }: RGThemeProps) => {
-  console.log(defaultTheme.components.Switch);
+  console.log(defaultTheme);
   return (
     <ChakraProvider theme={theme} resetCSS>
       {children}
