@@ -66,6 +66,7 @@ module.exports = {
         '@typescript-eslint/require-await': 'off',
         '@typescript-eslint/restrict-template-expressions': 'off',
         '@typescript-eslint/unbound-method': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
       },
       parser: '@typescript-eslint/parser',
       parserOptions: {

@@ -6,7 +6,10 @@ import Button from './components/Button';
 import Card from './components/Card/Card';
 import Colors from './colors';
 import Heading from './components/typography/Heading';
+import Input from './components/Input';
+import Switch from './components/Switch';
 import Text from './components/typography/Text';
+import Textarea from './components/Textarea';
 import Link from './components/Link';
 
 const theme = extendTheme({
@@ -31,9 +34,12 @@ const theme = extendTheme({
   components: {
     Button,
     Card,
-    Text,
     Heading,
+    Input,
     Link,
+    Switch,
+    Textarea,
+    Text,
   },
   config: {
     initialColorMode: 'dark',

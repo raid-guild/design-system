@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, theme as defaultTheme } from '@chakra-ui/react';
 import theme from '../../../theme/index';
 
 interface RGThemeProps {
@@ -9,6 +9,7 @@ interface RGThemeProps {
 const RGThemeProvider: React.FC<RGThemeProps> = ({
   children,
 }: RGThemeProps) => {
+  console.log(defaultTheme.components.Switch);
   return (
     <ChakraProvider theme={theme} resetCSS>
       {children}
