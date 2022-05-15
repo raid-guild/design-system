@@ -1,4 +1,4 @@
-const Input = {
+const Select = {
   baseStyle: {},
   variants: {
     filled: {
@@ -25,9 +25,6 @@ const Input = {
       },
     },
   },
-  defaultProps: {
-    variant: 'filled',
-  },
 };
 
-export default Input;
+export default Select;
