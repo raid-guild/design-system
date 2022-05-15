@@ -7,6 +7,7 @@ import Card from './components/Card/Card';
 import Colors from './colors';
 import Heading from './components/typography/Heading';
 import Input from './components/Input';
+import Slider from './components/Slider';
 import Switch from './components/Switch';
 import Text from './components/typography/Text';
 import Textarea from './components/Textarea';
@@ -35,6 +36,7 @@ const theme = extendTheme({
     Heading,
     Input,
     Link,
+    Slider,
     Switch,
     Textarea,
     Text,
