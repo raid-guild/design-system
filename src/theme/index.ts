@@ -16,8 +16,6 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        color: 'white',
-        bg: 'black',
         minHeight: '100vh',
         minWidth: '100vw',
       },

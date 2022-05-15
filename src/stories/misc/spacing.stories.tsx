@@ -70,7 +70,7 @@ const Spacing: Story = () => (
       </Thead>
       <Tbody>
         {spacingSizes.map((space) => (
-          <Tr>
+          <Tr key={space.space}>
             <Td width={7}>{space.name}</Td>
             <Td width={7}>{space.space}</Td>
             <Td width={7}>{`${space.pixels}px`}</Td>
