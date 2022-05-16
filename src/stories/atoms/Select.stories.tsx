@@ -25,7 +25,11 @@ const Select: ComponentStory<typeof SelectComponent> = () => (
   <Box w='50%'>
     <Stack spacing={5}>
       {selectVariants.map((select) => (
-        <Formik initialValues={{ test: '' }} onSubmit={() => console.log()}>
+        <Formik
+          initialValues={{ test: '' }}
+          onSubmit={() => console.log()}
+          key={select.variant}
+        >
           {(props: FormikProps<Values>) => (
             <form onSubmit={props.handleSubmit}>
               <Stack spacing={3}>

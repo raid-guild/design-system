@@ -11,6 +11,9 @@ const Colors = {
   red: '#ff3864',
   yellow: '#F2E857',
   yellowDark: '#DCCF11',
+  rgGradient: {
+    500: 'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+  },
   primaryAlpha: {
     // Base colour is at 500
     200: '#ff95ad',

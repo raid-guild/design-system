@@ -1,6 +1,8 @@
 export * from './Card';
+export * from './Checkbox';
 export * from './Heading';
 export * from './Input';
+export * from './Radio';
 export * from './Select';
 // export * from './SidePanel';
 export * from './Slider';
