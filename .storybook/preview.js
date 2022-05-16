@@ -1,18 +1,6 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-// import { addDecorator } from '@storybook/react';
-import React from 'react';
-import { addDecorator } from '@storybook/react';
-import RGThemeProvider from '../src/components/chakra/RGThemeProvider';
-
-export const Chakra = ({ children }) => (
-  <RGThemeProvider>{children}</RGThemeProvider>
-);
-
-addDecorator((StoryFn) => (
-  <Chakra>
-    <StoryFn />
-  </Chakra>
-));
+import { themes } from '@storybook/theming';
+import theme from '../src/theme/index';
 
 export const parameters = {
   viewport: {
@@ -26,10 +14,16 @@ export const parameters = {
     // sets the execution mode for the addon
     manual: false,
   },
+  chakra: {
+    theme,
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  docs: {
+    theme: themes.dark,
   },
 };

@@ -11,10 +11,14 @@ module.exports = {
     '@storybook/addon-docs',
     'storybook-addon-react-docgen',
     '@storybook/addon-a11y',
+    '@chakra-ui/storybook-addon',
   ],
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {
     check: true, // type-check stories during Storybook build
+  },
+  features: {
+    emotionAlias: false,
   },
   webpackFinal: async (config) => {
     config.module.rules.push({
@@ -45,16 +49,7 @@ module.exports = {
 
     // this is needed for working w/ linked folders
     config.resolve.symlinks = false;
-    return {
-      ...config,
-      resolve: {
-        ...config.resolve,
-        alias: {
-          ...config.resolve.alias,
-          '@emotion/core': '@emotion/react',
-          'emotion-theming': '@emotion/react',
-        },
-      },
-    };
+
+    return config;
   },
 };

@@ -1,5 +1,5 @@
 {
-  "version": "0.2.17",
+  "version": "0.2.18",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -49,6 +49,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@chakra-ui/storybook-addon": "^2.0.0",
     "@size-limit/preset-small-lib": "^5.0.3",
     "@storybook/addon-a11y": "^6.4.0",
     "@storybook/addon-actions": "6.4.0",
@@ -60,6 +61,8 @@
     "@svgr/plugin-jsx": "^5.5.0",
     "@svgr/plugin-prettier": "^5.5.0",
     "@svgr/plugin-svgo": "^5.5.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "babel-loader": "^8.2.2",
@@ -92,9 +95,10 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@rollup/plugin-replace": "^3.0.0",
-    "@storybook/react": "6.4.0",
-    "@types/react-dom": "^17.0.9",
+    "@storybook/react": "^6.4.22",
+    "formik": "^2.2.9",
     "framer-motion": "^4",
+    "lodash": "^4.17.21",
     "react-icons": "^4.3.1",
     "rollup-plugin-css-porter": "^1.0.2"
   }

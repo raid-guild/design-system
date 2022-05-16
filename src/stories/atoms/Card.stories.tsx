@@ -18,7 +18,7 @@ const title = 'Card Title';
 const cardCopy =
   'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores eius amet quisquam ratione, perspiciatis voluptatem officia.';
 
-export const Primary: ComponentStory<typeof Card> = () => (
+const Cards: ComponentStory<typeof Card> = () => (
   <SimpleGrid
     columns={{ base: 1, md: 2, lg: 2 }}
     gap='4rem'
@@ -44,3 +44,5 @@ export const Primary: ComponentStory<typeof Card> = () => (
     ))}
   </SimpleGrid>
 );
+
+export { Cards };
