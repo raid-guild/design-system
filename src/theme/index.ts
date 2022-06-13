@@ -2,6 +2,7 @@ import { extendTheme } from '@chakra-ui/react';
 import '../assets/css/fonts.css';
 import '../assets/css/globals.css';
 
+import Badge from './components/Badge';
 import Button from './components/Button';
 import Card from './components/Card/Card';
 import Checkbox from './components/Checkbox';
@@ -34,6 +35,7 @@ const theme = extendTheme({
     spaceMono: `'Space Mono', monospace;`,
   },
   components: {
+    Badge,
     Button,
     Card,
     Checkbox,

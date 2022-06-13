@@ -6,7 +6,7 @@ import {
   SliderFilledTrack,
   SliderMark,
   ChakraSliderProps,
-  Tooltip,
+  ChakraTooltip,
 } from '../../chakra';
 
 interface markValue {
@@ -64,7 +64,7 @@ const Slider: React.FC<SliderProps> = ({
         <SliderFilledTrack />
       </SliderTrack>
       {withToolTip ? (
-        <Tooltip
+        <ChakraTooltip
           hasArrow
           bg='linear-gradient(94.89deg, #FF5A00 0%, #D62789 70.2%, #AD17AD 100%)'
           color='white'
@@ -73,7 +73,7 @@ const Slider: React.FC<SliderProps> = ({
           label={`$${sliderValue}`}
         >
           <SliderThumb />
-        </Tooltip>
+        </ChakraTooltip>
       ) : (
         <SliderThumb />
       )}

@@ -13,3 +13,6 @@ export * from './components/icons';
 
 // MOLECULES
 export * from './components/molecules';
+
+// CONTEXTS
+export * from './contexts';
