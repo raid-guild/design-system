@@ -1,6 +1,6 @@
 const Button = {
   defaultProps: {
-    colorScheme: 'primaryAlpha',
+    colorScheme: 'primary',
     variant: 'solid',
     fontWeight: '400',
     fontFamily: 'texturina',

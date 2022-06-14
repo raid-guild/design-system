@@ -25,7 +25,7 @@ const BuiltByRaidGuildComponent: React.FC<BuiltByRaidGuildProps> = ({
     <BuiltByRaidGuild
       width='200px'
       height='60px'
-      color={color || 'primaryAlpha.50'}
+      color={color || 'primary.500'}
     />
   </Stack>
 );

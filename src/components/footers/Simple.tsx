@@ -1,5 +1,6 @@
-import { Box, Stack } from '@chakra-ui/react';
 import * as React from 'react';
+import { Box, Stack, Link } from '@chakra-ui/react';
+
 import BuiltByRaidGuild from '../icons/BuiltByRaidGuild';
 import Copyright from './Copyright';
 import SocialMediaLinks from './SocialMediaLinks';
@@ -9,16 +10,20 @@ const FooterSimple = () => (
     as='footer'
     role='contentinfo'
     mx='auto'
-    maxW='7xl'
+    w='90%'
+    maxW='1200px'
     py='12'
     px={{ base: '4', md: '8' }}
   >
-    <Stack>
-      <Stack direction='row' spacing='4' align='center' justify='space-between'>
-        <BuiltByRaidGuild width='200px' height='60px' />
-        <SocialMediaLinks />
-      </Stack>
-      <Copyright alignSelf={{ base: 'center', sm: 'start' }} />
+    <Stack direction='row' spacing='4' align='center' justify='space-between'>
+      <Link href='https://raidguild.org' isExternal>
+        <Stack>
+          <BuiltByRaidGuild width='200px' height='60px' />
+          <Copyright alignSelf={{ base: 'center', sm: 'start' }} />
+        </Stack>
+      </Link>
+
+      <SocialMediaLinks />
     </Stack>
   </Box>
 );

@@ -29,7 +29,7 @@ export interface TextProps extends ChakraTextProps {
   /**
    * variant to determine styles from themes/components/Text
    */
-  variant?: 'textOne' | 'textTwo';
+  variant?: 'textOne' | 'textTwo' | 'shadow';
 }
 
 /**

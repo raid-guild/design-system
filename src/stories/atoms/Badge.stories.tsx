@@ -8,8 +8,9 @@ export default {
 } as ComponentMeta<typeof BadgeComponent>;
 
 const badgeColors = [
-  { name: 'Default', color: '' },
+  { name: 'Default', color: 'gray' },
   { name: 'Red', color: 'red' },
+  { name: 'Raid Guild Red', color: 'primary' },
   { name: 'Green', color: 'green' },
 ];
 
@@ -18,10 +19,14 @@ const badgeVariants = ['outline', 'solid', 'subtle'];
 const Badge: ComponentStory<typeof BadgeComponent> = () => (
   <Stack>
     {badgeColors.map((b) => (
-      <HStack>
+      <HStack key={b.name}>
         {badgeVariants.map((variant: string) => (
-          <BadgeComponent colorScheme={b.color} variant={variant}>
-            {b.name}
+          <BadgeComponent
+            colorScheme={b.color}
+            variant={variant}
+            key={`${b.name} - ${variant}`}
+          >
+            {`${b.name} - ${variant}`}
           </BadgeComponent>
         ))}
       </HStack>

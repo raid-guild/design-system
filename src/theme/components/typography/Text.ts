@@ -21,6 +21,9 @@ const Text = {
       color: 'white',
       textAlign: 'left',
     },
+    shadow: {
+      textShadow: '1px 1px black',
+    },
   },
   // The default `size` or `variant` values
   defaultProps: {},
