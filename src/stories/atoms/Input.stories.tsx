@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, FormikProps } from 'formik';
-import { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Input as InputComponent, Box, Stack } from '../..';
 
 export default {
@@ -16,7 +16,7 @@ const inputVariants = [
 
 type Values = { test: string };
 
-const Input: Story = () => (
+const Input: ComponentStory<typeof InputComponent> = () => (
   <Box m='15px'>
     <Stack spacing={4}>
       {inputVariants.map((input) => (

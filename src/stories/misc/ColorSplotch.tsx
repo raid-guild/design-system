@@ -34,7 +34,7 @@ const ColorSplotch = ({
       height='102%'
       background={
         important
-          ? 'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)'
+          ? 'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)' // TODO can we not hardcode this gradient?
           : undefined
       }
       filter='blur(10px)'

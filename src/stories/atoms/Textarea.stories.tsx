@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, FormikProps } from 'formik';
-import { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Textarea as TextareaComponent, Box, Stack } from '../..';
 
 export default {
@@ -16,7 +16,7 @@ const textareaVariants = [
 
 type Values = { test: string };
 
-const Textarea: Story = () => (
+const Textarea: ComponentStory<typeof TextareaComponent> = () => (
   <Box m='15px'>
     <Stack spacing={4}>
       {textareaVariants.map((textarea) => (

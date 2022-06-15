@@ -1,5 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Slider as SliderComponent, Flex, Stack, Heading } from '../..';
 
 export default {

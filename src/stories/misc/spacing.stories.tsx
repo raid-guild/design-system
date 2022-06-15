@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import {
   Table,
   Thead,
@@ -61,7 +61,7 @@ const HeaderFooterRow = () => (
   </Tr>
 );
 
-const Spacing: Story = () => (
+const Spacing: StoryFn = () => (
   <TableContainer>
     <Table variant='simple'>
       <TableCaption>Spacing examples for the default theme</TableCaption>
@@ -75,7 +75,7 @@ const Spacing: Story = () => (
             <Td width={7}>{space.space}</Td>
             <Td width={7}>{`${space.pixels}px`}</Td>
             <Td>
-              <Box bg='red' width={`${space.pixels}px`} height='16px' />
+              <Box bg='red.500' width={`${space.pixels}px`} height='16px' />
             </Td>
           </Tr>
         ))}

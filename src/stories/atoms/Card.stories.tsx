@@ -1,5 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Card, ChakraHeading, Image, ChakraText, SimpleGrid } from '../..';
 import imgDesignSprints from '../../assets/images/designsprints.png';
 

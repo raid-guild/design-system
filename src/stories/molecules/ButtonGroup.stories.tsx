@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
+import type { Meta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { ButtonGroup, ButtonGroupProps } from '../..';
+import { ButtonGroup } from '../..';
 
 export default {
   title: 'Components/Molecules/ButtonGroup',
@@ -16,7 +16,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ButtonGroupProps> = (args) => <ButtonGroup {...args} />;
+const Template: ComponentStory<typeof ButtonGroup> = (args) => (
+  <ButtonGroup {...args} />
+);
 
 export const Attached = Template.bind({});
 Attached.args = {

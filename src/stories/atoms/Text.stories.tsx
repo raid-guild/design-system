@@ -1,6 +1,6 @@
-import { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import React from 'react';
-import { Text as TextComponent, TextProps, Stack, Flex } from '../..';
+import { Text as TextComponent, Stack, Flex } from '../..';
 
 export default {
   title: 'Components/Atoms/Text',
@@ -30,7 +30,7 @@ const textExamples: Array<{ size: any }> = [
 
 const copy = 'At the table of rounds we lay our swords.';
 
-const Text: Story<TextProps> = (args) => (
+const Text: ComponentStory<typeof TextComponent> = (args) => (
   <Stack spacing={3}>
     {textExamples.map((text) => (
       <Flex align='center' key={text.size}>

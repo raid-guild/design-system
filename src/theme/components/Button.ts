@@ -58,6 +58,7 @@ const Button = {
       width: 'auto',
       height: '40px',
       color: '#8B1DBA',
+      bg: 'whiteAlpha.100',
       // paddingLeft: '24px',
       // paddingRight: '24px',
       _focus: {

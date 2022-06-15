@@ -1,5 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Spinner as SpinnerComponent, Stack } from '../..';
 
 export default {
@@ -12,7 +13,7 @@ const spinnerSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 const Spinner: ComponentStory<typeof SpinnerComponent> = () => (
   <Stack>
     {spinnerSizes.map((size) => (
-      <SpinnerComponent thickness='4px' speed='0.65s' size={size} color='red' />
+      <SpinnerComponent size={size} key={size} />
     ))}
   </Stack>
 );

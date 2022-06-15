@@ -1,12 +1,6 @@
-import { Story } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import React from 'react';
-import {
-  Heading as HeadingComponent,
-  HeadingProps,
-  Stack,
-  Flex,
-  Text,
-} from '../..';
+import { Heading as HeadingComponent, Stack, Flex, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Heading',
@@ -27,7 +21,7 @@ const headingVariants = ['shadow', 'noShadow'];
 
 const copy = 'RaidGuild vs Moloch';
 
-const Heading: Story<HeadingProps> = (args) => (
+const Heading: ComponentStory<typeof HeadingComponent> = (args) => (
   <Stack spacing={4}>
     {/* Map out each size */}
     {headingExamples.map((example) => (

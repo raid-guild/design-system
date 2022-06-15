@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
 import { BuiltByRaidGuildComponent } from '../..';
 
@@ -7,6 +7,6 @@ export default {
   component: BuiltByRaidGuildComponent,
 };
 
-const BuiltByRaidGuild: Story = () => <BuiltByRaidGuildComponent />;
+const BuiltByRaidGuild: StoryFn = () => <BuiltByRaidGuildComponent />;
 
 export { BuiltByRaidGuild };

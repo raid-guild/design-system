@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import type { StoryFn } from '@storybook/react';
 import {
   Stack,
   useTheme,
@@ -17,7 +18,7 @@ export default {
   title: 'System/Colors',
 };
 
-const Colors = () => {
+const Colors: StoryFn = () => {
   const theme = useTheme();
 
   const colors: { colors: any[]; misc: any[] } = colorsWithObject(

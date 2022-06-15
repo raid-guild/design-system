@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, FormikProps } from 'formik';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import { Select as SelectComponent, Box, Stack, Text } from '../..';
 
 export default {

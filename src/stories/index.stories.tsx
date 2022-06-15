@@ -1,4 +1,5 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Heading, Stack, Text, Flex, Box } from '..';
@@ -12,7 +13,7 @@ export default {
   title: 'Raid Guild Design System',
 } as Meta;
 
-const Template: Story = () => (
+const Template: StoryFn = () => (
   <Box position='relative'>
     <Box
       bgImg={castle}

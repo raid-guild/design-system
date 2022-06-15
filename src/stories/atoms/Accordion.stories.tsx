@@ -1,5 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta } from '@storybook/react';
+import type { ComponentStory } from '@storybook/react';
 import {
   Accordion as AccordionComponent,
   AccordionItem,
@@ -7,6 +8,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   Text,
+  Heading,
 } from '../..';
 
 export default {
@@ -18,17 +20,21 @@ const Accordion: ComponentStory<typeof AccordionComponent> = () => (
   <AccordionComponent allowToggle>
     <AccordionItem>
       <AccordionButton justifyContent='space-between'>
-        <Text>Open 1</Text>
+        <Heading size='md'>Open 1</Heading>
         <AccordionIcon />
       </AccordionButton>
-      <AccordionPanel>Content 1</AccordionPanel>
+      <AccordionPanel bg='whiteAlpha.100'>
+        <Text>Content 1</Text>
+      </AccordionPanel>
     </AccordionItem>
     <AccordionItem>
       <AccordionButton justifyContent='space-between'>
-        <Text>Open 2</Text>
+        <Heading size='md'>Open 2</Heading>
         <AccordionIcon />
       </AccordionButton>
-      <AccordionPanel>Content 2</AccordionPanel>
+      <AccordionPanel bg='whiteAlpha.100'>
+        <Text>Content 2</Text>
+      </AccordionPanel>
     </AccordionItem>
   </AccordionComponent>
 );

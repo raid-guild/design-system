@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 import { Flex, SimpleGrid } from '../../components/chakra';
 import * as RootIcons from '../../components/icons';
@@ -10,11 +10,7 @@ const IconPreview = styled('div')`
   text-align: center;
 `;
 
-type Args = {
-  size: number;
-};
-
-const Template: Story<Args> = (args) => {
+const Template: StoryFn = (args) => {
   const { size } = args;
   return (
     <SimpleGrid
