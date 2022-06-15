@@ -1,6 +1,6 @@
 import React from 'react';
 import { Stack, Heading, Link } from '../../..';
-import { BuiltByRaidGuild } from '../../icons';
+import { RaidGuild } from '../../icons';
 
 export interface BuiltByRaidGuildProps {
   copy?: string;
@@ -22,11 +22,7 @@ const BuiltByRaidGuildComponent: React.FC<BuiltByRaidGuildProps> = ({
     <Heading variant='noShadow' size='md'>
       {copy || 'Brought to you by:'}
     </Heading>
-    <BuiltByRaidGuild
-      width='200px'
-      height='60px'
-      color={color || 'primary.500'}
-    />
+    <RaidGuild width='200px' height='60px' color={color || 'primary.500'} />
   </Stack>
 );
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Stack, Link } from '@chakra-ui/react';
 
-import BuiltByRaidGuild from '../icons/BuiltByRaidGuild';
+import RaidGuild from '../icons/RaidGuild';
 import Copyright from './Copyright';
 import SocialMediaLinks from './SocialMediaLinks';
 
@@ -18,7 +18,7 @@ const FooterSimple = () => (
     <Stack direction='row' spacing='4' align='center' justify='space-between'>
       <Link href='https://raidguild.org' isExternal>
         <Stack>
-          <BuiltByRaidGuild width='200px' height='60px' />
+          <RaidGuild width='200px' height='60px' />
           <Copyright alignSelf={{ base: 'center', sm: 'start' }} />
         </Stack>
       </Link>
