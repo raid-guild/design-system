@@ -16,6 +16,9 @@ export default {
   component: AccordionComponent,
 } as ComponentMeta<typeof AccordionComponent>;
 
+// eslint-disable-next-line max-len
+// TODO this could be abstracted to its own component, but just added the style to the default chakra component for now
+
 const Accordion: ComponentStory<typeof AccordionComponent> = () => (
   <AccordionComponent allowToggle>
     <AccordionItem>

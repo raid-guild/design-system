@@ -3,17 +3,17 @@ import { Image } from '../../chakra';
 import { roleImage } from './roleImages';
 
 interface RoleBadgeProps {
-  role: string;
+  roleName: string;
   width?: number | string;
   height?: number | string;
 }
 
 const RoleBadge: React.FC<RoleBadgeProps> = ({
-  role,
+  roleName,
   width = '150px',
   height = '150px',
 }: RoleBadgeProps) => {
-  return <Image src={roleImage[role]} width={width} height={height} />;
+  return <Image src={roleImage[roleName]} width={width} height={height} />;
 };
 
 export default RoleBadge;

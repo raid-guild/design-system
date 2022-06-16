@@ -10,6 +10,7 @@ import Checkbox from './components/Checkbox';
 import Colors from './colors';
 import Heading from './components/Heading';
 import Input from './components/Input';
+import Menu from './components/Menu';
 import Radio from './components/Radio';
 import Select from './components/Select';
 import Slider from './components/Slider';
@@ -45,6 +46,7 @@ const theme = extendTheme({
     Heading,
     Input,
     Link,
+    Menu,
     Radio,
     Select,
     Slider,

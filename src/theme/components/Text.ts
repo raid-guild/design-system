@@ -7,26 +7,24 @@ const Text = {
   sizes: {},
   // Styles for the visual style variations
   variants: {
-    textOne: {
+    main: {
       maxWidth: '720px',
       fontFamily: 'texturina',
       lineHeight: '1.8',
-      color: 'white',
-      textAlign: 'left',
-    },
-    textTwo: {
-      maxWidth: '720px',
-      fontFamily: 'texturina',
-      lineHeight: '1.8',
-      color: 'white',
+      color: ['black', 'white'],
       textAlign: 'left',
     },
     shadow: {
       textShadow: '1px 1px black',
     },
+    mono: {
+      fontFamily: 'spaceMono',
+    },
   },
   // The default `size` or `variant` values
-  defaultProps: {},
+  defaultProps: {
+    variant: 'main',
+  },
 };
 
 export default Text;

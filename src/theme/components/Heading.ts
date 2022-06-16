@@ -14,6 +14,7 @@ const Heading = {
   variants: {
     shadow: {
       fontFamily: 'uncial',
+      // TODO handle better shadow on light mode. wasn't working with array method here
       textShadow: '0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.20em red',
     },
     noShadow: {

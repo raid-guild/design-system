@@ -1,8 +1,17 @@
 import React from 'react';
 import { ComponentMeta } from '@storybook/react';
 import type { ComponentStory } from '@storybook/react';
-import { Card, ChakraHeading, Image, ChakraText, SimpleGrid } from '../..';
+import {
+  Card,
+  ChakraHeading,
+  Image,
+  ChakraText,
+  SimpleGrid,
+  Heading,
+  Text,
+} from '../..';
 import imgDesignSprints from '../../assets/images/designsprints.png';
+import { RoleBadge } from '../../components/molecules';
 
 export default {
   /* 👇 The title prop is optional.
@@ -13,7 +22,7 @@ export default {
   component: Card,
 } as ComponentMeta<typeof Card>;
 
-const cardVariants = [null, 'topBorderOnly'];
+const cardVariants = [undefined, 'topBorderOnly'];
 
 const title = 'Card Title';
 const cardCopy =
@@ -43,6 +52,14 @@ const Cards: ComponentStory<typeof Card> = () => (
         <ChakraText>{cardCopy}</ChakraText>
       </Card>
     ))}
+    <Card
+      heading={<Heading variant='noShadow'>Testing test</Heading>}
+      centerDivider={<RoleBadge roleName='archer' width='auto' height='auto' />}
+      variant='withHeader'
+      bg='whiteAlpha.200'
+    >
+      <Text>Test</Text>
+    </Card>
   </SimpleGrid>
 );
 

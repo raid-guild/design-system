@@ -34,7 +34,7 @@ const Template: StoryFn = (args) => {
     >
       {roles.map((roleName) => (
         <Stack key={roleName} align='center' spacing={4}>
-          <RoleBadge role={roleName} width={size} height={size} />
+          <RoleBadge roleName={roleName} width={size} height={size} />
           <Heading
             variant='shadow'
             size='sm'

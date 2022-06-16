@@ -1,13 +1,32 @@
 import React from 'react';
-import { Box, useStyleConfig } from '../../chakra';
+import { Box, useStyleConfig, ChakraBoxProps } from '../../chakra';
 
-const Card: React.FC<any> = (props: any) => {
-  const { variant, ...rest } = props;
+export interface CardProps extends ChakraBoxProps {
+  heading?: React.ReactNode;
+  centerDivider?: React.ReactNode;
+  variant?: string;
+  children: React.ReactNode;
+}
 
-  const styles = useStyleConfig('Card', { variant });
+const Card: React.FC<CardProps> = ({
+  heading,
+  centerDivider,
+  variant,
+  children,
+  ...props
+}: CardProps) => {
+  const styles: any = useStyleConfig('Card', { variant });
 
   // Pass the computed styles into the `__css` prop
-  return <Box __css={styles} {...rest} />;
+  return (
+    <Box __css={styles} {...props}>
+      <Box __css={styles.header}>
+        <Box __css={styles.centerDivider}>{centerDivider}</Box>
+        {heading}
+      </Box>
+      <Box __css={styles.body}>{children}</Box>
+    </Box>
+  );
 };
 
 export default Card;
