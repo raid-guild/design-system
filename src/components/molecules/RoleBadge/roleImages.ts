@@ -1,35 +1,42 @@
-import Alchemist from 'assets/roleIcons/alchemist.png';
-import Archer from 'assets/roleIcons/archer.png';
-import Cleric from 'assets/roleIcons/cleric.png';
-import Druid from 'assets/roleIcons/druid.png';
-import Dwarf from 'assets/roleIcons/dwarf.png';
-import Healer from 'assets/roleIcons/healer.png';
-import Hunter from 'assets/roleIcons/hunter.png';
-import Monk from 'assets/roleIcons/monk.png';
-import Necromancer from 'assets/roleIcons/necromancer.png';
-import Paladin from 'assets/roleIcons/paladin.png';
-import Ranger from 'assets/roleIcons/ranger.png';
-import Rogue from 'assets/roleIcons/rogue.png';
-import Scribe from 'assets/roleIcons/scribe.png';
-import TavernKeeper from 'assets/roleIcons/tavernkeeper.png';
-import Warrior from 'assets/roleIcons/warrior.png';
-import Wizard from 'assets/roleIcons/wizard.png';
+import {
+  Alchemist,
+  Archer,
+  Cleric,
+  Druid,
+  Dwarf,
+  Healer,
+  Hunter,
+  Monk,
+  Necromancer,
+  Paladin,
+  Ranger,
+  Rogue,
+  Scribe,
+  TavernKeeper,
+  Warrior,
+  Wizard,
+} from '../../icons';
 
-export const roleImage: { [name: string]: string } = {
-  alchemist: Alchemist,
-  archer: Archer,
-  cleric: Cleric,
-  druid: Druid,
-  dwarf: Dwarf,
-  healer: Healer,
-  hunter: Hunter,
-  monk: Monk,
-  necromancer: Necromancer,
-  paladin: Paladin,
-  ranger: Ranger,
-  rogue: Rogue,
-  scribe: Scribe,
-  tavernkeeper: TavernKeeper,
-  warrior: Warrior,
-  wizard: Wizard,
+export const roleImage: {
+  [name: string]: {
+    img: any;
+    color: string;
+  };
+} = {
+  alchemist: { img: Alchemist, color: '#FFEF56' },
+  archer: { img: Archer, color: '#AD17AD' },
+  cleric: { img: Cleric, color: '#626CA0' },
+  druid: { img: Druid, color: '#D35353' },
+  dwarf: { img: Dwarf, color: '#CFAA18' },
+  healer: { img: Healer, color: '#751545' },
+  hunter: { img: Hunter, color: '#C64B1A' },
+  monk: { img: Monk, color: '#4CED63' },
+  necromancer: { img: Necromancer, color: '#455360' },
+  paladin: { img: Paladin, color: '#0C4913' },
+  ranger: { img: Ranger, color: '#B5A518' },
+  rogue: { img: Rogue, color: '#79B6EE' },
+  scribe: { img: Scribe, color: '#668466' },
+  tavernkeeper: { img: TavernKeeper, color: '#439B3E' },
+  warrior: { img: Warrior, color: '#EF0012' },
+  wizard: { img: Wizard, color: '#24DCEA' },
 };

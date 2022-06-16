@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from '../../chakra';
+import { Flex } from '../../chakra';
 import { roleImage } from './roleImages';
 
 interface RoleBadgeProps {
@@ -10,10 +10,25 @@ interface RoleBadgeProps {
 
 const RoleBadge: React.FC<RoleBadgeProps> = ({
   roleName,
-  width = '150px',
-  height = '150px',
+  width = '200px',
+  height = '200px',
 }: RoleBadgeProps) => {
-  return <Image src={roleImage[roleName]} width={width} height={height} />;
+  const Icon = roleImage[roleName].img;
+
+  return (
+    <Flex
+      borderRadius='100px'
+      w={width}
+      h={height}
+      bg='black'
+      border='5px solid'
+      borderColor={roleImage[roleName].color}
+      align='center'
+      justify='center'
+    >
+      <Icon width='70%' height='70%' />
+    </Flex>
+  );
 };
 
 export default RoleBadge;

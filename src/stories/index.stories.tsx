@@ -4,8 +4,6 @@ import React from 'react';
 
 import { Heading, Stack, Text, Flex, Box } from '..';
 
-// import raidGuildLogoLeft from '../assets/images/raid--left.png';
-// import raidGuildLogoRight from '../assets/images/raid--right.png';
 import castle from '../assets/images/raid-guild-castle.png';
 import FooterSimple from '../components/footers/Simple';
 

@@ -41,8 +41,8 @@ const Card = {
       },
       centerDivider: {
         position: 'absolute',
-        bottom: -3,
-        left: '50%',
+        bottom: -5,
+        left: '45%',
         width: '50px',
         height: '50px',
       },

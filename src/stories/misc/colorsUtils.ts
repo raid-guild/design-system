@@ -4,6 +4,7 @@ export const importantColors: any = {
   // [colorName]: 'What it's used for',
   'red.500': 'Raid Guild Ruby Red\n(Primary Color)',
   'primary.500': 'Raid Guild Ruby Red\n(Primary Color)',
+  'gray.800': 'Primary Background Color',
 };
 
 export const miscColors = [
