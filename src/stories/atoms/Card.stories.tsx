@@ -54,7 +54,14 @@ const Cards: ComponentStory<typeof Card> = () => (
     ))}
     <Card
       heading={<Heading variant='noShadow'>Testing test</Heading>}
-      centerDivider={<RoleBadge roleName='archer' width='auto' height='auto' />}
+      centerDivider={
+        <RoleBadge
+          roleName='archer'
+          width='50px'
+          height='50px'
+          border='2px solid'
+        />
+      }
       variant='withHeader'
       bg='whiteAlpha.200'
     >

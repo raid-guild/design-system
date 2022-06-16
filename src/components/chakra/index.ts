@@ -132,6 +132,7 @@ export type {
   BadgeProps as ChakraBadgeProps,
   BoxProps as ChakraBoxProps,
   ButtonProps,
+  ButtonGroupProps as ChakraButtonGroupProps,
   ChakraProps,
   CheckboxProps as ChakraCheckboxProps,
   DrawerProps,

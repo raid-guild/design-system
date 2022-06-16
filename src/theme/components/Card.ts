@@ -25,6 +25,20 @@ const Card = {
       borderColor: 'red.500',
       borderRadius: 'none',
     },
+    rainbowBorder: {
+      border: '2px solid',
+      borderRadius: 'none',
+      borderImageSlice: 1,
+      borderImageSource:
+        'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+    },
+    topRainbowBorder: {
+      borderTop: '2px solid',
+      borderRadius: 'none',
+      borderImageSlice: 1,
+      borderImageSource:
+        'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+    },
     withHeader: {
       gap: 0,
       padding: 0,
@@ -50,6 +64,9 @@ const Card = {
         width: '100%',
         color: 'whiteAlpha.800',
         padding: 8,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       },
     },
   },

@@ -34,7 +34,7 @@ const Tags: ComponentStory<typeof TagComponent> = () => (
               <TagComponent
                 variant={tag.variant}
                 size={size.size}
-                colorScheme='green'
+                colorScheme='red'
               >
                 Let&apos;s Go
               </TagComponent>

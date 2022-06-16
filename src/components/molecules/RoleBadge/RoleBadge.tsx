@@ -6,12 +6,14 @@ interface RoleBadgeProps {
   roleName: string;
   width?: number | string;
   height?: number | string;
+  border?: string;
 }
 
 const RoleBadge: React.FC<RoleBadgeProps> = ({
   roleName,
   width = '200px',
   height = '200px',
+  border,
 }: RoleBadgeProps) => {
   const Icon = roleImage[roleName].img;
 
@@ -21,7 +23,7 @@ const RoleBadge: React.FC<RoleBadgeProps> = ({
       w={width}
       h={height}
       bg='black'
-      border='5px solid'
+      border={border || '5px solid'}
       borderColor={roleImage[roleName].color}
       align='center'
       justify='center'
