@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ChakraButtonGroup } from '../../chakra';
 
-export interface ButtonGroupProps {
+interface CustomButtonGroupProps {
   /**
    * Provide the list of buttons
    */
@@ -23,7 +23,16 @@ export interface ButtonGroupProps {
    */
   // eslint-disable-next-line no-unused-vars
   onSelect: (index: number) => void;
+  /**
+   * Handle width until we can extend all ButtonGroupProps
+   */
+  width?: number | string;
+  mx?: number | string;
+  my?: number | string;
 }
+
+// having trouble extending `ChakraButtonGroupProps`
+export type ButtonGroupProps = CustomButtonGroupProps;
 
 /**
  * Container for grouping and wrapping buttons - can be used for toggles
@@ -34,6 +43,9 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
   size = 'sm',
   isAttached = true,
   onSelect,
+  width,
+  mx,
+  my,
   ...props
 }) => {
   const [selected, setSelected] = useState<number>(defaultSelected);
@@ -44,7 +56,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
   };
 
   return (
-    <ChakraButtonGroup isAttached={isAttached}>
+    <ChakraButtonGroup isAttached={isAttached} width={width} my={my} mx={mx}>
       {buttons.map((label: string, i: number) => {
         return (
           <Button

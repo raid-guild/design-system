@@ -37,7 +37,7 @@ const Button = {
         'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
       background:
         'linear-gradient(96.18deg, #FF3864 -44.29%, #8B1DBA 53.18%, #4353DF 150.65%);',
-      color: { base: '#8B1DBA', md: 'transparent' }, // added a media query to display RG red on mobile
+      color: { base: 'whiteAlpha.700', md: 'transparent' }, // added a media query to display RG red on mobile
       backgroundClip: 'text',
       paddingLeft: '24px',
       paddingRight: '24px',
@@ -46,7 +46,7 @@ const Button = {
         background:
           'linear-gradient(96.18deg, #e26f88 0%, #a15ebe 53.65%, #6c77db 100%)',
         backgroundClip: 'text',
-        color: { base: 'red', md: 'transparent' }, // added a media query to display RG red on mobile
+        color: { base: 'white', md: 'transparent' }, // added a media query to display RG red on mobile
       },
       _focus: {
         boxShadow: 'none',
