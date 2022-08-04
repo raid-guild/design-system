@@ -1,17 +1,18 @@
 import React from 'react';
-import { ChakraProvider, theme as defaultTheme } from '@chakra-ui/react';
-import theme from '../../../theme/index';
+import { ChakraProvider } from '@chakra-ui/react';
+import RaidGuildTheme from '../../../theme/index';
 
 interface RGThemeProps {
+  theme?: any;
   children: any;
 }
 
 const RGThemeProvider: React.FC<RGThemeProps> = ({
+  theme,
   children,
 }: RGThemeProps) => {
-  console.log(defaultTheme);
   return (
-    <ChakraProvider theme={theme} resetCSS>
+    <ChakraProvider theme={theme || RaidGuildTheme} resetCSS>
       {children}
     </ChakraProvider>
   );
