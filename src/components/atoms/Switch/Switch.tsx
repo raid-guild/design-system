@@ -1,26 +1,27 @@
 import React from 'react';
-// import { FieldHookConfig, useField } from 'formik';
+import { UseFormReturn } from 'react-hook-form';
 import {
   ChakraSwitch,
-  // ChakraInputProps,
+  ChakraSwitchProps,
   Flex,
   ChakraText,
   FormControl,
   FormLabel,
 } from '../../chakra';
 
-// type CustomInputProps = {
-//   label: string;
-// };
+type CustomSwitchProps = {
+  label: string;
+  localForm: UseFormReturn;
+};
 
-// type InputProps = ChakraInputProps &
-//   CustomInputProps &
-//   FieldHookConfig<'input'>;
+export type SwitchProps = ChakraSwitchProps & CustomSwitchProps;
 
 /**
  * Primary UI component for Heading
  */
-const Switch: React.FC<any> = ({ label, ...props }: any) => {
+const Switch: React.FC<SwitchProps> = ({ label, localForm, ...props }: any) => {
+  const { register } = localForm;
+
   return (
     <Flex as={FormControl} align='center'>
       {label && (
@@ -28,7 +29,7 @@ const Switch: React.FC<any> = ({ label, ...props }: any) => {
           {label}
         </ChakraText>
       )}
-      <ChakraSwitch {...props} />
+      <ChakraSwitch {...props} {...register} />
     </Flex>
   );
 };

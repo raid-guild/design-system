@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldHookConfig, useField } from 'formik';
+import { UseFormReturn } from 'react-hook-form';
 import {
   ChakraTextarea,
   ChakraTextareaProps,
@@ -9,11 +9,11 @@ import {
 
 type CustomTextareaProps = {
   label: string;
+  name: string;
+  localForm: UseFormReturn;
 };
 
-type TextareaProps = ChakraTextareaProps &
-  CustomTextareaProps &
-  FieldHookConfig<'textarea'>;
+type TextareaProps = ChakraTextareaProps & CustomTextareaProps;
 
 /**
  * Primary UI component for Heading
@@ -21,16 +21,16 @@ type TextareaProps = ChakraTextareaProps &
 const Textarea: React.FC<TextareaProps> = ({
   label,
   name,
-  type,
+  localForm,
   ...props
 }: TextareaProps) => {
-  const [field] = useField(name);
+  const { register } = localForm;
 
   return (
     <FormControl>
       {label && <FormLabel>{label}</FormLabel>}
       {/* @ts-ignore next-line */}
-      <ChakraTextarea type={type} {...props} {...field} />
+      <ChakraTextarea {...props} {...register(name)} />
     </FormControl>
   );
 };
