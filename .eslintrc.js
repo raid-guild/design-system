@@ -25,7 +25,7 @@ module.exports = {
       ],
       rules: {
         // TODO turn some of these back on?
-        'no-console': 'error',
+        'no-console': 'warn', // 'error',
         'import/extensions': [
           'error',
           'ignorePackages',

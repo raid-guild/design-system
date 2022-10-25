@@ -1,12 +1,11 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Radio as RadioComponent, Box, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Radio',
   component: RadioComponent,
-} as ComponentMeta<typeof RadioComponent>;
+} as Meta<typeof RadioComponent>;
 
 const radioSizes = [
   { name: 'Small', size: 'sm' },
@@ -19,7 +18,7 @@ const radioOptions = [
   { label: '$10,000', value: '10000' },
 ];
 
-const Radio: ComponentStory<typeof RadioComponent> = () => (
+const Radio: StoryFn<typeof RadioComponent> = () => (
   <Box w='50%'>
     <Stack spacing={5}>
       {radioSizes.map((size) => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldHookConfig, useField } from 'formik';
+import { UseFormReturn } from 'react-hook-form';
 import { ChakraSelect, ChakraSelectProps } from '../../chakra';
 
 interface SelectOption {
@@ -10,30 +10,27 @@ interface SelectOption {
 interface CustomSelectProps {
   name: string;
   options: SelectOption[];
+  localForm: UseFormReturn;
 }
 
-export type SelectProps = CustomSelectProps &
-  ChakraSelectProps &
-  FieldHookConfig<'select'>;
+export type SelectProps = CustomSelectProps & ChakraSelectProps;
 
 const Select: React.FC<SelectProps> = ({
   name,
   options,
+  localForm,
   ...props
 }: SelectProps) => {
-  const [field] = useField(name);
+  const { register } = localForm;
 
   return (
-    <>
-      {/* @ts-ignore next-line */}
-      <ChakraSelect {...props} {...field}>
-        {options.map((option) => (
-          <option value={option.value} key={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </ChakraSelect>
-    </>
+    <ChakraSelect {...props} {...register(name)}>
+      {options.map((option) => (
+        <option value={option.value} key={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </ChakraSelect>
   );
 };
 

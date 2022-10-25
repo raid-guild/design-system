@@ -1,12 +1,11 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Checkbox as CheckboxComponent, Box, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Checkbox',
   component: CheckboxComponent,
-} as ComponentMeta<typeof CheckboxComponent>;
+} as Meta<typeof CheckboxComponent>;
 
 const checkboxSizes = [
   { name: 'Small', size: 'sm' },
@@ -19,7 +18,7 @@ const checkboxOptions = [
   { label: '$10,000', value: '10000' },
 ];
 
-const Checkbox: ComponentStory<typeof CheckboxComponent> = () => (
+const Checkbox: StoryFn<typeof CheckboxComponent> = () => (
   <Box w='50%'>
     <Stack spacing={5}>
       {checkboxSizes.map((size) => (

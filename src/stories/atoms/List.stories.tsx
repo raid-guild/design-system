@@ -1,15 +1,14 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { List as ListComponent, HStack, Stack, Heading } from '../..';
 import Castle from '../../components/icons/Castle';
 
 export default {
   title: 'Components/Atoms/List',
   component: ListComponent,
-} as ComponentMeta<typeof ListComponent>;
+} as Meta<typeof ListComponent>;
 
-const List: ComponentStory<typeof ListComponent> = () => {
+const List: StoryFn<typeof ListComponent> = () => {
   const listItems = ['lorem ipsum 1', 'lorem ipsum 2', 'lorem ipsum 3'];
 
   const listVariants: any[] = [

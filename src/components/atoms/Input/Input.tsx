@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldHookConfig, useField } from 'formik';
+import { UseFormReturn } from 'react-hook-form';
 import {
   ChakraInput,
   ChakraInputProps,
@@ -9,11 +9,11 @@ import {
 
 type CustomInputProps = {
   label: string;
+  name: string;
+  localForm: UseFormReturn;
 };
 
-type InputProps = ChakraInputProps &
-  CustomInputProps &
-  FieldHookConfig<'input'>;
+type InputProps = ChakraInputProps & CustomInputProps;
 
 /**
  * Primary UI component for Heading
@@ -22,15 +22,15 @@ const Input: React.FC<InputProps> = ({
   label,
   name,
   type,
+  localForm,
   ...props
 }: InputProps) => {
-  const [field] = useField(name);
+  const { register } = localForm;
 
   return (
     <FormControl>
       {label && <FormLabel>{label}</FormLabel>}
-      {/* @ts-ignore next-line */}
-      <ChakraInput type={type} {...props} {...field} />
+      <ChakraInput type={type} {...props} {...register(name)} />
     </FormControl>
   );
 };

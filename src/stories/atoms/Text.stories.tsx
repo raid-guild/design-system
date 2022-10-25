@@ -1,4 +1,4 @@
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 import { Text as TextComponent, Stack, Flex } from '../..';
 
@@ -16,7 +16,7 @@ export default {
       control: { type: 'radio' },
     },
   },
-};
+} as Meta;
 
 const textExamples: Array<{ size: any }> = [
   { size: '4xl' },
@@ -30,7 +30,7 @@ const textExamples: Array<{ size: any }> = [
 
 const copy = 'At the table of rounds we lay our swords.';
 
-const Text: ComponentStory<typeof TextComponent> = (args) => (
+const Text: StoryFn<typeof TextComponent> = (args) => (
   <Stack spacing={3}>
     {textExamples.map((text) => (
       <Flex align='center' key={text.size}>

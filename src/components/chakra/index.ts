@@ -147,6 +147,7 @@ export type {
   SelectProps as ChakraSelectProps,
   SliderProps as ChakraSliderProps,
   SpinnerProps as ChakraSpinnerProps,
+  SwitchProps as ChakraSwitchProps,
   TagProps as ChakraTagProps,
   TextProps as ChakraTextProps,
   TextareaProps as ChakraTextareaProps,

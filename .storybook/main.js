@@ -1,8 +1,7 @@
 const path = require('path');
-
 module.exports = {
   stories: [
-    '../src/stories/index.stories.tsx',
+    // '../src/stories/index.stories.tsx',
     '../src/stories/**/*.stories.@(ts|tsx|js|jsx)',
   ],
   addons: [
@@ -10,7 +9,6 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-docs',
     'storybook-addon-react-docgen',
-    '@storybook/addon-a11y',
     '@chakra-ui/storybook-addon',
   ],
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
@@ -40,7 +38,6 @@ module.exports = {
         },
       ],
     });
-
     config.resolve.extensions.push('.ts', '.tsx');
 
     // include ts files here so they can be resolved properly
@@ -49,7 +46,13 @@ module.exports = {
 
     // this is needed for working w/ linked folders
     config.resolve.symlinks = false;
-
     return config;
+  },
+  core: {
+    builder: 'webpack5',
+  },
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
   },
 };

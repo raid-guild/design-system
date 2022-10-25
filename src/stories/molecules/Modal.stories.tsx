@@ -1,6 +1,5 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   Modal as ModalComponent,
   Button,
@@ -12,9 +11,9 @@ import {
 export default {
   title: 'Components/Molecules/Modal',
   component: ModalComponent,
-} as ComponentMeta<typeof ModalComponent>;
+} as Meta<typeof ModalComponent>;
 
-const Modal: ComponentStory<typeof ModalComponent> = () => {
+const Modal: StoryFn<typeof ModalComponent> = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const submit = () => {

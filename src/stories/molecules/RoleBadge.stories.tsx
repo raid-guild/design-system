@@ -23,8 +23,13 @@ const roles = [
   'wizard',
 ];
 
-const Template: StoryFn = (args) => {
-  const { size } = args;
+type RoleBadgeStoryProps = {
+  size: number;
+};
+
+const Template: StoryFn<RoleBadgeStoryProps> = ({
+  size,
+}: RoleBadgeStoryProps) => {
   return (
     <SimpleGrid
       columns={{ base: 1, md: 2, lg: 6 }}
@@ -53,4 +58,5 @@ RoleBadges.args = {
 
 export default {
   title: 'Components/Molecules/RoleBadges',
+  component: RoleBadges,
 } as Meta;

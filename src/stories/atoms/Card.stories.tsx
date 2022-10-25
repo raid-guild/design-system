@@ -1,6 +1,5 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   Card,
   ChakraHeading,
@@ -20,7 +19,7 @@ export default {
    */
   title: 'Components/Atoms/Cards',
   component: Card,
-} as ComponentMeta<typeof Card>;
+} as Meta<typeof Card>;
 
 const cardVariants = [undefined, 'topBorderOnly'];
 
@@ -28,7 +27,7 @@ const title = 'Card Title';
 const cardCopy =
   'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores eius amet quisquam ratione, perspiciatis voluptatem officia.';
 
-const Cards: ComponentStory<typeof Card> = () => (
+const Cards: StoryFn<typeof Card> = () => (
   <SimpleGrid
     columns={{ base: 1, md: 2, lg: 2 }}
     gap='4rem'

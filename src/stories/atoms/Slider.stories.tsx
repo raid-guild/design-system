@@ -1,19 +1,18 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Slider as SliderComponent, Flex, Stack, Heading } from '../..';
 
 export default {
   title: 'Components/Atoms/Slider',
   component: SliderComponent,
-} as ComponentMeta<typeof SliderComponent>;
+} as Meta<typeof SliderComponent>;
 
 const markValues = [
   { label: '$1000', value: 1000 },
   { label: '$10,000', value: 10000 },
 ];
 
-const Slider: ComponentStory<typeof SliderComponent> = () => (
+const Slider: StoryFn<typeof SliderComponent> = () => (
   <Stack as={Flex} w='50%' spacing={8} justify='center'>
     <Heading textAlign='center'>Select your budget</Heading>
     <SliderComponent

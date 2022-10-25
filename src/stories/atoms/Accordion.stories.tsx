@@ -1,6 +1,5 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   Accordion as AccordionComponent,
   AccordionItem,
@@ -14,12 +13,12 @@ import {
 export default {
   title: 'Components/Atoms/Accordion',
   component: AccordionComponent,
-} as ComponentMeta<typeof AccordionComponent>;
+} as Meta<typeof AccordionComponent>;
 
 // eslint-disable-next-line max-len
 // TODO this could be abstracted to its own component, but just added the style to the default chakra component for now
 
-const Accordion: ComponentStory<typeof AccordionComponent> = () => (
+const Accordion: StoryFn<typeof AccordionComponent> = () => (
   <AccordionComponent allowToggle>
     <AccordionItem>
       <AccordionButton justifyContent='space-between'>

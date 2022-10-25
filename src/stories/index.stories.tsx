@@ -7,11 +7,7 @@ import { Heading, Stack, Text, Flex, Box } from '..';
 import castle from '../assets/images/raid-guild-castle.png';
 import FooterSimple from '../components/footers/Simple';
 
-export default {
-  title: 'Raid Guild Design System',
-} as Meta;
-
-const Template: StoryFn = () => (
+export const Index: StoryFn = () => (
   <Box position='relative'>
     <Box
       bgImg={castle}
@@ -41,4 +37,7 @@ const Template: StoryFn = () => (
   </Box>
 );
 
-export const RaidGuildDesignSystem = Template.bind({});
+export default {
+  title: 'Raid Guild Design System',
+  component: Index,
+} as Meta;

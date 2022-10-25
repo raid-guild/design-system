@@ -11,7 +11,7 @@ import {
   Icon,
 } from '../..';
 
-const Template: StoryFn = () => {
+export const Menu: StoryFn = () => {
   return (
     <MenuComponent>
       <MenuButton>
@@ -27,7 +27,6 @@ const Template: StoryFn = () => {
   );
 };
 
-export const Menu = Template.bind({});
 Menu.args = {
   size: 150,
 };

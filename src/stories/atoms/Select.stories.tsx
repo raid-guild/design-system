@@ -1,15 +1,12 @@
 import React from 'react';
-import { Formik, FormikProps } from 'formik';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { useForm } from 'react-hook-form';
+import { Meta, StoryFn } from '@storybook/react';
 import { Select as SelectComponent, Box, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Select',
   component: SelectComponent,
-} as ComponentMeta<typeof SelectComponent>;
-
-type Values = { test: string };
+} as Meta<typeof SelectComponent>;
 
 const selectVariants = [
   { name: 'Outline', variant: 'outline' },
@@ -22,31 +19,25 @@ const selectOptions = [
   { label: '$10,000', value: 10000 },
 ];
 
-const Select: ComponentStory<typeof SelectComponent> = () => (
-  <Box w='50%'>
-    <Stack spacing={5}>
-      {selectVariants.map((select) => (
-        <Formik
-          initialValues={{ test: '' }}
-          onSubmit={() => console.log()}
-          key={select.variant}
-        >
-          {(props: FormikProps<Values>) => (
-            <form onSubmit={props.handleSubmit}>
-              <Stack spacing={3}>
-                <Text>{select.name}</Text>
-                <SelectComponent
-                  name='testing'
-                  options={selectOptions}
-                  variant={select.variant}
-                />
-              </Stack>
-            </form>
-          )}
-        </Formik>
-      ))}
-    </Stack>
-  </Box>
-);
+const Select: StoryFn<typeof SelectComponent> = () => {
+  const localForm = useForm();
+  return (
+    <Box w='50%'>
+      <Stack spacing={5}>
+        {selectVariants.map((select) => (
+          <Stack spacing={3}>
+            <Text>{select.name}</Text>
+            <SelectComponent
+              name='testing'
+              options={selectOptions}
+              variant={select.variant}
+              localForm={localForm}
+            />
+          </Stack>
+        ))}
+      </Stack>
+    </Box>
+  );
+};
 
 export { Select };
