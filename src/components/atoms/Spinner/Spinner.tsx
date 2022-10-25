@@ -5,14 +5,14 @@ export type SpinnerProps = ChakraSpinnerProps;
 
 // type spinnerSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-const spinnerThinkness: { [name: string]: string } = {
-  xs: '1px',
-  sm: '2px',
-  md: '3px',
-  lg: '4px',
-  xl: '5px',
-  undefined: '6px',
-};
+// const spinnerThickness: { [name: string]: string } = {
+//   xs: '1px',
+//   sm: '2px',
+//   md: '3px',
+//   lg: '4px',
+//   xl: '5px',
+//   undefined: '6px',
+// };
 
 const Spinner: React.FC<SpinnerProps> = ({
   size,
@@ -20,7 +20,7 @@ const Spinner: React.FC<SpinnerProps> = ({
   ...props
 }: SpinnerProps) => (
   <ChakraSpinner
-    thickness={size && spinnerThinkness[size]}
+    // thickness={size && spinnerThickness[size]}
     speed='0.65s'
     size={size}
     color={color || 'red.500'}

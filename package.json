@@ -9,7 +9,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -79,9 +79,7 @@
     "gh-pages": "^3.2.3",
     "husky": "^7.0.1",
     "prettier": "^2.5.1",
-    "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "rollup-plugin-css-porter": "^1.0.2",
     "size-limit": "^5.0.3",
@@ -92,7 +90,7 @@
     "typescript": "4.2.2"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/react": "^2.3.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@rollup/plugin-replace": "^3.0.0",
@@ -100,6 +98,8 @@
     "@storybook/theming": "^6.5.9",
     "framer-motion": "^4",
     "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-hook-form": "^7.38.0",
     "react-icons": "^4.3.1",
     "rollup-plugin-css-porter": "^1.0.2"
