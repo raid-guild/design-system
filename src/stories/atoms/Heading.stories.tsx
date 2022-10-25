@@ -1,11 +1,11 @@
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 import { Heading as HeadingComponent, Stack, Flex, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Heading',
   component: HeadingComponent,
-};
+} as Meta;
 
 const headingExamples: Array<{ size: string }> = [
   { size: '4xl' },
@@ -21,7 +21,7 @@ const headingVariants = ['shadow', 'noShadow'];
 
 const copy = 'RaidGuild vs Moloch';
 
-const Heading: ComponentStory<typeof HeadingComponent> = (args) => (
+const Heading: StoryFn<typeof HeadingComponent> = (args) => (
   <Stack spacing={4}>
     {/* Map out each size */}
     {headingExamples.map((example) => (

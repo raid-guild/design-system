@@ -1,12 +1,11 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Button as ButtonComponent, Flex, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Buttons',
   component: ButtonComponent,
-} as ComponentMeta<typeof ButtonComponent>;
+} as Meta<typeof ButtonComponent>;
 
 const buttonVariants = [
   { name: 'Solid', variant: 'solid' },
@@ -14,7 +13,7 @@ const buttonVariants = [
   { name: 'Ghost', variant: 'ghost' },
 ];
 
-const Buttons: ComponentStory<typeof ButtonComponent> = () => (
+const Buttons: StoryFn<typeof ButtonComponent> = () => (
   <Stack>
     {buttonVariants.map((button) => (
       <Flex width='250px' justify='space-between'>

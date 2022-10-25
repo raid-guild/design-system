@@ -1,13 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Select as SelectComponent, Box, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Select',
   component: SelectComponent,
-} as ComponentMeta<typeof SelectComponent>;
+} as Meta<typeof SelectComponent>;
 
 const selectVariants = [
   { name: 'Outline', variant: 'outline' },
@@ -20,7 +19,7 @@ const selectOptions = [
   { label: '$10,000', value: 10000 },
 ];
 
-const Select: ComponentStory<typeof SelectComponent> = () => {
+const Select: StoryFn<typeof SelectComponent> = () => {
   const localForm = useForm();
   return (
     <Box w='50%'>

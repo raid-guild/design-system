@@ -1,12 +1,11 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Tag as TagComponent, Stack, Text, Heading, Flex } from '../..';
 
 export default {
   title: 'Components/Atoms/Tags',
   component: TagComponent,
-} as ComponentMeta<typeof TagComponent>;
+} as Meta<typeof TagComponent>;
 
 const tagVariants = [
   { name: 'Solid', variant: 'solid' },
@@ -20,7 +19,7 @@ const tagSizes = [
   { name: 'Large', size: 'lg' },
 ];
 
-const Tags: ComponentStory<typeof TagComponent> = () => (
+const Tags: StoryFn<typeof TagComponent> = () => (
   <Stack spacing={10}>
     {tagSizes.map((size) => (
       <Stack w='600px'>

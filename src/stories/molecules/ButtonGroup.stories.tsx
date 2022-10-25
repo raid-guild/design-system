@@ -1,4 +1,4 @@
-import type { Meta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 import { ButtonGroup } from '../..';
 
@@ -16,9 +16,12 @@ export default {
   },
 } as Meta;
 
-const Template: ComponentStory<typeof ButtonGroup> = (args) => (
-  <ButtonGroup {...args} />
-);
+const Template: StoryFn<any> = ({
+  buttons,
+  ...args
+}: {
+  buttons: string[];
+}) => <ButtonGroup buttons={buttons} onSelect={() => null} {...args} />;
 
 export const Attached = Template.bind({});
 Attached.args = {

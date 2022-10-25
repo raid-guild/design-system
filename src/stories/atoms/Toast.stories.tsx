@@ -1,14 +1,13 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Toast as ToastComponent, Button, useToast, Stack } from '../..';
 
 export default {
   title: 'Components/Atoms/Toast',
   component: ToastComponent,
-} as ComponentMeta<typeof ToastComponent>;
+} as Meta<typeof ToastComponent>;
 
-const Toast: ComponentStory<typeof ToastComponent> = () => {
+const Toast: StoryFn = () => {
   const toast = useToast();
 
   const sendToast = ({ title, description, type, iconName }: any) => {

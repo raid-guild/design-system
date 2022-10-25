@@ -1,6 +1,5 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   AlertDialog as AlertDialogComponent,
   Button,
@@ -8,12 +7,7 @@ import {
   useDisclosure,
 } from '../..';
 
-export default {
-  title: 'Components/Molecules/Alert Dialog',
-  component: AlertDialogComponent,
-} as ComponentMeta<typeof AlertDialogComponent>;
-
-const AlertDialog: ComponentStory<typeof AlertDialogComponent> = () => {
+export const AlertDialog: StoryFn = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const submit = () => {
@@ -40,4 +34,7 @@ const AlertDialog: ComponentStory<typeof AlertDialogComponent> = () => {
   );
 };
 
-export { AlertDialog };
+export default {
+  title: 'Components/Molecules/Alert Dialog',
+  component: AlertDialogComponent,
+} as Meta;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import type { ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Textarea as TextareaComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Atoms/Textarea',
   component: TextareaComponent,
-};
+} as Meta;
 
 const textareaVariants = [
   { name: 'Outline', variant: 'outline' },
@@ -14,7 +14,7 @@ const textareaVariants = [
   { name: 'Filled', variant: 'filled' },
 ];
 
-const Textarea: ComponentStory<typeof TextareaComponent> = () => {
+const Textarea: StoryFn<typeof TextareaComponent> = () => {
   const localForm = useForm();
   return (
     <Box m='15px'>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import type { ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Input as InputComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Atoms/Input',
   component: InputComponent,
-};
+} as Meta;
 
 const inputVariants = [
   { name: 'Outline', variant: 'outline' },
@@ -14,7 +14,7 @@ const inputVariants = [
   { name: 'Filled', variant: 'filled' },
 ];
 
-const Input: ComponentStory<typeof InputComponent> = () => {
+const Input: StoryFn<typeof InputComponent> = () => {
   const localForm = useForm();
 
   return (
