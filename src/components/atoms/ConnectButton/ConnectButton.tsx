@@ -1,8 +1,7 @@
 import React from 'react';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { ConnectButton as DefaultConnectCutton } from '@rainbow-me/rainbowkit';
 
 import { useAccount, useDisconnect } from 'wagmi';
-import { Meta, StoryFn } from '@storybook/react';
 import { FiKey, FiChevronDown, FiXCircle } from 'react-icons/fi';
 import {
   Button,
@@ -15,21 +14,16 @@ import {
   Box,
   Flex,
   Image,
-} from '../../..';
-import { truncateAddress } from './truncateAddress';
+} from '../../chakra';
+import { truncateAddress } from '../Web3Provider/truncateAddress';
 import '@rainbow-me/rainbowkit/styles.css';
 
-export default {
-  title: 'Components/Atoms/RainbowKitConnect',
-  component: Button,
-} as Meta<typeof Button>;
-
-const RainbowKitConnect: StoryFn<typeof Button> = () => {
+const ConnectButton: React.FC = () => {
   const { isConnecting } = useAccount();
   const { disconnect } = useDisconnect();
 
   return (
-    <ConnectButton.Custom>
+    <DefaultConnectCutton.Custom>
       {({
         account,
         chain,
@@ -160,8 +154,8 @@ const RainbowKitConnect: StoryFn<typeof Button> = () => {
           </div>
         );
       }}
-    </ConnectButton.Custom>
+    </DefaultConnectCutton.Custom>
   );
 };
 
-export { RainbowKitConnect };
+export default ConnectButton;

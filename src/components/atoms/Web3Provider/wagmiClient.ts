@@ -10,7 +10,6 @@ import {
   coinbaseWallet,
   ledgerWallet,
 } from '@rainbow-me/rainbowkit/wallets';
-
 import { chains, provider } from './chains';
 
 export const connectors = connectorsForWallets([

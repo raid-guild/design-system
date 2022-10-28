@@ -2,7 +2,7 @@ import { chain, configureChains, Chain as WagmiChain } from 'wagmi';
 import { infuraProvider } from 'wagmi/providers/infura';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
-import gnosisLogo from '../gnosis-logo.png';
+import gnosisLogo from './gnosis-logo.png';
 
 export type CustomChain = {
   iconUrl: string;
@@ -31,7 +31,7 @@ const xdai: Chain = {
   testnet: false,
 };
 
-const { chains, provider } = configureChains(
+export const { chains, provider } = configureChains(
   [
     chain.mainnet,
     xdai,
@@ -45,8 +45,8 @@ const { chains, provider } = configureChains(
     infuraProvider({ apiKey: process.env.NEXT_PUBLIC_RPC_KEY }),
     alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_KEY }),
     jsonRpcProvider({
-      rpc: (chain: any) => ({
-        http: chain.rpcUrls.default,
+      rpc: (localChain: any) => ({
+        http: localChain.rpcUrls.default,
       }),
     }),
   ]
