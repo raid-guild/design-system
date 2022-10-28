@@ -94,15 +94,18 @@
     "@chakra-ui/react": "^2.3.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@rainbow-me/rainbowkit": "^0.7.4",
     "@rollup/plugin-replace": "^3.0.0",
     "@storybook/react": "^7.0.0-alpha.43",
     "@storybook/theming": "^7.0.0-alpha.43",
+    "ethers": "^5.7.2",
     "framer-motion": "^7.6.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
     "react-icons": "^4.3.1",
-    "rollup-plugin-css-porter": "^1.0.2"
+    "rollup-plugin-css-porter": "^1.0.2",
+    "wagmi": "^0.7.8"
   }
 }
