@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -92,12 +92,12 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.6",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@rollup/plugin-replace": "^3.0.0",
     "@storybook/react": "^7.0.0-alpha.43",
     "@storybook/theming": "^7.0.0-alpha.43",
-    "framer-motion": "^4",
+    "framer-motion": "^7.6.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, ToastProvider } from '@chakra-ui/react';
 import RaidGuildTheme from '../../../theme/index';
 
 interface RGThemeProps {
@@ -13,7 +13,7 @@ const RGThemeProvider: React.FC<RGThemeProps> = ({
 }: RGThemeProps) => {
   return (
     <ChakraProvider theme={theme || RaidGuildTheme} resetCSS>
-      {children}
+      <ToastProvider>{children}</ToastProvider>
     </ChakraProvider>
   );
 };

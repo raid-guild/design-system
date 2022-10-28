@@ -1,6 +1,12 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import { Toast as ToastComponent, Button, useToast, Stack } from '../..';
+import {
+  Toast as ToastComponent,
+  Button,
+  useCustomToast,
+  Stack,
+  ToastProvider,
+} from '../..';
 
 export default {
   title: 'Components/Atoms/Toast',
@@ -8,55 +14,48 @@ export default {
 } as Meta<typeof ToastComponent>;
 
 const Toast: StoryFn = () => {
-  const toast = useToast();
-
-  const sendToast = ({ title, description, type, iconName }: any) => {
-    toast({
-      position: 'top-right',
-      render: () => (
-        <ToastComponent
-          title={title}
-          description={description}
-          type={type}
-          iconName={iconName}
-        />
-      ),
-    });
-  };
+  const toast = useCustomToast();
 
   const clickSuccessToast = () => {
-    sendToast({
+    toast.success({
+      id: 456,
       title: '123 test',
       description: 'With a description',
-      type: 'success',
+      status: 'success',
       iconName: 'crown',
+      isClosable: true,
     });
   };
 
   const clickErrorToast = () => {
-    sendToast({
+    toast.error({
+      id: 123,
       title: '123 Error test',
       description: 'With a description',
-      type: 'error',
+      status: 'error',
       iconName: 'alert',
+      isClosable: true,
     });
   };
 
   const clickInfoToast = () => {
-    sendToast({
+    toast.info({
       title: '123 info test',
       description: 'With a description',
-      type: 'info',
+      status: 'info',
       iconName: 'warning',
+      isClosable: true,
     });
   };
 
   return (
-    <Stack w='150px'>
-      <Button onClick={clickSuccessToast}>Success</Button>
-      <Button onClick={clickErrorToast}>Error</Button>
-      <Button onClick={clickInfoToast}>Info</Button>
-    </Stack>
+    <ToastProvider>
+      <Stack w='150px'>
+        <Button onClick={clickSuccessToast}>Success</Button>
+        <Button onClick={clickErrorToast}>Error</Button>
+        <Button onClick={clickInfoToast}>Info</Button>
+      </Stack>
+    </ToastProvider>
   );
 };
 

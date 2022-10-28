@@ -8,11 +8,11 @@ export * from './components/atoms';
 export * from './components/chakra';
 export { default as RGThemeProvider } from './components/chakra/RGThemeProvider';
 
+// HOOKS
+export * from './hooks';
+
 // ICONS
 export * from './components/icons';
 
 // MOLECULES
 export * from './components/molecules';
-
-// CONTEXTS
-export * from './contexts';

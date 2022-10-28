@@ -125,6 +125,8 @@ export {
   VStack,
   Wrap,
   WrapItem,
+  createStandaloneToast,
+  ToastProvider,
 } from '@chakra-ui/react';
 export type {
   AvatarProps,
@@ -153,4 +155,6 @@ export type {
   TextareaProps as ChakraTextareaProps,
   TooltipProps as ChakraTooltipProps,
   WrapProps,
+  AlertStatus,
+  ToastProps as ChakraToastProps,
 } from '@chakra-ui/react';

@@ -1,20 +1,25 @@
 import { ColorProps } from '@chakra-ui/react';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { IconType } from 'react-icons';
 import { AiTwotoneCrown, AiFillWarning, AiFillAlert } from 'react-icons/ai';
 import { BsBellFill } from 'react-icons/bs';
 import { RiRocket2Fill } from 'react-icons/ri';
 import { Text, Heading } from '..';
-import { Box, HStack, Icon } from '../../chakra';
+import { Box, HStack, Icon, AlertStatus, ChakraToastProps } from '../../chakra';
 
-export interface ToastProps {
-  title: string;
-  description?: string;
-  type?: 'success' | 'error' | 'info';
+type CustomToastProps = {
+  status: AlertStatus;
+  title: string | ReactNode;
+  description?: string | ReactNode;
   icon?: IconType;
   iconName?: string;
   iconColor?: string;
-}
+  toast?: any;
+  close?: any;
+  isCloseable?: boolean;
+};
+
+export type ToastProps = ChakraToastProps & CustomToastProps;
 
 const icons: {
   [name: string]: { icon: IconType; color: ColorProps['color'] };
@@ -43,50 +48,68 @@ const bgValues = {
     bgImage: 'whiteAlpha.700',
     displayBorder: 'block',
   },
+  warning: {
+    bg: 'blue.500',
+    bgImage: 'whiteAlpha.700',
+    displayBorder: 'block',
+  },
+  loading: {
+    bg: 'blue.500',
+    bgImage: 'whiteAlpha.700',
+    displayBorder: 'block',
+  },
 };
 
 const Toast: React.FC<ToastProps> = ({
   title,
   description,
-  type = 'success',
+  status = 'success',
   icon,
   iconName,
   iconColor,
-}: ToastProps) => (
-  <Box
-    bg={bgValues[type].bg}
-    position='relative'
-    borderRadius='15px'
-    padding={4}
-  >
-    <HStack spacing={3}>
-      {iconName ? (
-        <Icon
-          as={icons[iconName].icon}
-          color={iconColor || icons[iconName].color || 'whiteAlpha.800'}
-          width='35px'
-          height='35px'
-        />
-      ) : (
-        icon && <Icon as={icon} width='35px' height='35px' />
-      )}
-      <Box>
-        <Heading size='md'>{title}</Heading>
-        {description && <Text size='sm'>{description}</Text>}
-      </Box>
-    </HStack>
-
+}: ToastProps) => {
+  return (
     <Box
-      display={bgValues[type].displayBorder}
-      top='-2px'
-      left='-2px'
-      width='104%'
-      height='104%'
-      bgImage={bgValues[type].bgImage}
-      filter='blur(10px)'
-      position='absolute'
-      zIndex={-1}
-    />
-  </Box>
-);
+      bg={bgValues[status].bg}
+      position='relative'
+      borderRadius='15px'
+      padding={4}
+    >
+      <HStack spacing={3}>
+        {iconName ? (
+          <Icon
+            as={icons[iconName].icon}
+            color={iconColor || icons[iconName].color || 'whiteAlpha.800'}
+            width='35px'
+            height='35px'
+          />
+        ) : (
+          icon && <Icon as={icon} width='35px' height='35px' />
+        )}
+        <Box>
+          <Heading size='md'>{title}</Heading>
+          {description && <Text size='sm'>{description}</Text>}
+        </Box>
+      </HStack>
+
+      {/* {isCloseable && (
+        <Box position='absolute' top='10px' right='10px' onClick={close}>
+          <Icon as={RiCloseFill} onClick={close} w='25px' h='25px' />
+        </Box>
+      )} */}
+
+      <Box
+        display={bgValues[status].displayBorder}
+        top='-2px'
+        left='-2px'
+        width='104%'
+        height='104%'
+        bgImage={bgValues[status].bgImage}
+        filter='blur(10px)'
+        position='absolute'
+        zIndex={-1}
+      />
+    </Box>
+  );
+};
 export default Toast;
