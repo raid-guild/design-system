@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Meta, StoryFn } from '@storybook/react';
-import { NumberInput, Box, Stack } from '../..';
+import { NumberInput as NumberInputComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Atoms/NumberInput',
@@ -20,13 +20,13 @@ const NumberInput: StoryFn<typeof NumberInputComponent> = () => {
   return (
     <Box m='15px'>
       <Stack spacing={4}>
-        {numberInputVariants.map((NumberInput) => (
+        {numberInputVariants.map((input) => (
           // <form onSubmit={handleSubmit} key={input.variant}>
-          <NumberInput
-            label={`Input - ${NumberInput.name} Variant`}
+          <NumberInputComponent
+            label={`Input - ${input.name} Variant`}
             name='test'
             type='text'
-            variant={NumberInput.variant}
+            variant={input.variant}
             localForm={localForm}
           />
           // </form>

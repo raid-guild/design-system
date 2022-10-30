@@ -4,7 +4,7 @@ import {
   FormControl,
   FormLabel,
   ChakraInputProps,
-  NumberInput as ChakraNumberInput,
+  ChakraNumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
@@ -25,17 +25,15 @@ type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
 const NumberInput: React.FC<NumberInputProps> = ({
   label,
   name,
-  type,
   localForm,
-  ...props
 }: NumberInputProps) => {
   const { register } = localForm;
 
   return (
     <FormControl>
       {label && <FormLabel>{label}</FormLabel>}
-      <ChakraNumberInput type={type} {...props} {...register(name)}>
-        <NumberInputField />
+      <ChakraNumberInput>
+        <NumberInputField {...register(name)} />
         <NumberInputStepper>
           <NumberIncrementStepper />
           <NumberDecrementStepper />
