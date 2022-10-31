@@ -13,6 +13,10 @@ import {
 
 type CustomNumberInputProps = {
   label?: string;
+  step?: number;
+  min?: number;
+  max?: number;
+  precision?: number;
   name: string;
   variant: string;
   localForm: UseFormReturn;
@@ -26,6 +30,10 @@ type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
  */
 const NumberInput: React.FC<NumberInputProps> = ({
   label,
+  step,
+  min,
+  max,
+  precision,
   name,
   variant,
   localForm,
@@ -36,7 +44,13 @@ const NumberInput: React.FC<NumberInputProps> = ({
   return (
     <FormControl>
       {label && <FormLabel>{label}</FormLabel>}
-      <ChakraNumberInput variant={variant}>
+      <ChakraNumberInput
+        step={step}
+        min={min}
+        max={max}
+        precision={precision}
+        variant={variant}
+      >
         <NumberInputField {...register(name, customValidations)} />
         <NumberInputStepper>
           <NumberIncrementStepper />
