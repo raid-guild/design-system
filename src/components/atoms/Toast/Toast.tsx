@@ -4,7 +4,8 @@ import { IconType } from 'react-icons';
 import { AiTwotoneCrown, AiFillWarning, AiFillAlert } from 'react-icons/ai';
 import { BsBellFill } from 'react-icons/bs';
 import { RiRocket2Fill } from 'react-icons/ri';
-import { Text, Heading } from '..';
+import { Text } from '../Text';
+import { Heading } from '../Heading';
 import { Box, HStack, Icon, AlertStatus, ChakraToastProps } from '../../chakra';
 
 type CustomToastProps = {
