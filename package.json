@@ -1,9 +1,8 @@
 {
   "name": "@raidguild/design-system",
-  "version": "0.4.14",
+  "version": "0.4.15",
   "license": "MIT",
   "author": "Raid Guild",
-  "main": "dist/index.js",
   "module": "dist/design-system.esm.js",
   "typings": "dist/index.d.ts",
   "homepage": "https://raid-guild.github.io/design-system",
@@ -15,7 +14,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build --format esm",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "yarn build",
