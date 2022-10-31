@@ -18,6 +18,8 @@ jobs:
 
       - name: Build Latest
         run: yarn build && yarn build-storybook
+        env:
+          NODE_OPTIONS: --max-old-space-size=8096
 
       - name: Publish NPM Package
         run: yarn publish --non-interactive --access public
