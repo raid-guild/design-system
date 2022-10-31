@@ -22,7 +22,7 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=8096
 
       - name: Publish NPM Package
-        run: yarn publish --non-interactive --access public
+        run: yarn publish --non-interactive --access public ./package.json
         env: 
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
