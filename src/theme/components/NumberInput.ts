@@ -1,7 +1,7 @@
 const NumberInput = {
   baseStyle: {},
   defaultProps: {
-    // variant: 'filled',
+    variant: 'filled',
   },
   variants: {
     filled: {
