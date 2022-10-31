@@ -1,7 +1,6 @@
 export * from './Badge';
 export * from './Card';
 export * from './Checkbox';
-export * from './ConnectButton';
 export * from './Heading';
 export * from './Input';
 export * from './List';
@@ -17,4 +16,3 @@ export * from './Text';
 export * from './Textarea';
 export * from './Toast';
 export * from './Tooltip';
-export * from './Web3Provider';
