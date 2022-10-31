@@ -7,6 +7,15 @@ const NumberInput = {
     filled: {
       field: {
         borderRadius: '0px',
+        bg: 'gray.700',
+        // opacity: '20%',
+        color: 'white',
+        _focus: {
+          bg: 'gray.700',
+        },
+        _hover: {
+          bg: 'gray.700',
+        },
       },
       stepperGroup: {},
       stepper: {},
