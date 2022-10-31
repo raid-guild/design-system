@@ -104,7 +104,6 @@
     "framer-motion": "^7.6.2",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "next-transpile-modules": "^9.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
