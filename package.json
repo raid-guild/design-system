@@ -3,19 +3,18 @@
   "version": "0.4.16",
   "license": "MIT",
   "author": "Raid Guild",
-  "main": "dist/index.js",
   "module": "dist/design-system.esm.js",
   "typings": "dist/index.d.ts",
   "homepage": "https://raid-guild.github.io/design-system",
   "files": [
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=16"
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build && ls ./dist",
+    "build": "tsdx build --format esm",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "yarn build",
