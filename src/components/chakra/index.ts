@@ -73,7 +73,7 @@ export {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  NumberInput,
+  NumberInput as ChakraNumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,

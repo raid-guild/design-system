@@ -11,6 +11,7 @@ import Colors from './colors';
 import Heading from './components/Heading';
 import Input from './components/Input';
 import Menu from './components/Menu';
+import NumberInput from './components/NumberInput';
 import Radio from './components/Radio';
 import Select from './components/Select';
 import Slider from './components/Slider';
@@ -47,6 +48,7 @@ const theme = extendTheme({
     Input,
     Link,
     Menu,
+    NumberInput,
     Radio,
     Select,
     Slider,

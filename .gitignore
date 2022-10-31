@@ -5,3 +5,5 @@ node_modules
 dist
 *.code-workspace
 storybook-static/*
+.yarn
+.yarnrc.yml
