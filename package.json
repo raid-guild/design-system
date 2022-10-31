@@ -1,9 +1,8 @@
 {
-  "version": "0.4.4",
+  "version": "0.4.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "type": "commonjs",
   "homepage": "https://raid-guild.github.io/design-system",
   "files": [
     "dist",
@@ -14,7 +13,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build --format esm",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
