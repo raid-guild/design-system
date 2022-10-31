@@ -15,7 +15,7 @@ module.exports = {
       jsx: true,
     },
   },
-  ignorePatterns: ['bin', 'src/components/icons/*.tsx'],
+  ignorePatterns: ['bin', 'src/components/icons/*.tsx', 'dist'],
   overrides: [
     {
       files: ['src/**/*.{ts,tsx}'],

@@ -1,8 +1,9 @@
 {
   "name": "@raidguild/design-system",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "license": "MIT",
   "author": "Raid Guild",
+  "main": "dist/index.js",
   "module": "dist/design-system.esm.js",
   "typings": "dist/index.d.ts",
   "homepage": "https://raid-guild.github.io/design-system",
@@ -14,10 +15,10 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build --format esm",
+    "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build --format esm",
+    "prepare": "yarn build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "storybook dev -p 6006",
