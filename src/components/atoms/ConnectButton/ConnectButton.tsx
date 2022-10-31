@@ -16,7 +16,7 @@ import {
   Image,
 } from '../../chakra';
 import { truncateAddress } from '../Web3Provider/truncateAddress';
-import '@rainbow-me/rainbowkit/styles.css';
+// import '@rainbow-me/rainbowkit/styles.css';
 
 const ConnectButton: React.FC = () => {
   const { isConnecting } = useAccount();
