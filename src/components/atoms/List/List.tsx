@@ -7,7 +7,7 @@ import {
   ChakraListProps,
   Flex,
 } from '../../chakra';
-import { Text } from '..';
+import { Text } from '../Text';
 import Swords from '../../icons/Swords';
 
 interface ListItemProps {

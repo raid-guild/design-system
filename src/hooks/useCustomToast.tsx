@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { useToast as useChakraToast } from '@chakra-ui/react';
-import { Toast, ToastProps } from '..';
+import { Toast, ToastProps } from '../components/atoms';
 
 const ToastBase = ({
   toast,
