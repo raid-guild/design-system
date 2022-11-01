@@ -12,15 +12,16 @@ import {
 } from '../../chakra';
 
 type CustomNumberInputProps = {
+  customValidations?: RegisterOptions;
   label?: string;
-  step?: number;
   min?: number;
   max?: number;
-  precision?: number;
   name: string;
-  variant: string;
   localForm: UseFormReturn;
-  customValidations?: RegisterOptions;
+  precision?: number;
+  step?: number;
+  value?: number;
+  variant: string;
 };
 
 type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
@@ -29,15 +30,16 @@ type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
  * Primary UI component for Heading
  */
 const NumberInput: React.FC<NumberInputProps> = ({
+  customValidations,
   label,
-  step,
   min,
   max,
-  precision,
   name,
-  variant,
   localForm,
-  customValidations,
+  precision,
+  step,
+  value,
+  variant,
 }: NumberInputProps) => {
   const { register } = localForm;
 
@@ -45,10 +47,11 @@ const NumberInput: React.FC<NumberInputProps> = ({
     <FormControl>
       {label && <FormLabel>{label}</FormLabel>}
       <ChakraNumberInput
-        step={step}
         min={min}
         max={max}
         precision={precision}
+        step={step}
+        value={value}
         variant={variant}
       >
         <NumberInputField {...register(name, customValidations)} />

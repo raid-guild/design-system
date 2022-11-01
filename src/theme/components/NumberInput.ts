@@ -8,7 +8,6 @@ const NumberInput = {
       field: {
         borderRadius: '0px',
         bg: 'gray.700',
-        // opacity: '20%',
         color: 'white',
         _focus: {
           bg: 'gray.700',
