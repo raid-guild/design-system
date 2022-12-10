@@ -15,8 +15,10 @@ import {
   Flex,
   Image,
 } from '../../chakra';
-import { truncateAddress } from '../Web3Provider/truncateAddress';
 // import '@rainbow-me/rainbowkit/styles.css';
+
+const truncateAddress = (address: string): string =>
+  `${address.slice(0, 6)}...${address.slice(-4)}`;
 
 const ConnectButton: React.FC = () => {
   const { isConnecting } = useAccount();
