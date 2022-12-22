@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import _ from 'lodash';
-import { useToast as useChakraToast } from '@chakra-ui/react';
+import {
+  useToast as useChakraToast,
+  AlertStatus,
+  ToastId,
+  CreateToastFnReturn,
+} from '@chakra-ui/react';
 import { Toast, ToastProps } from '../components/atoms';
 
 const ToastBase = ({
@@ -11,24 +16,28 @@ const ToastBase = ({
   status,
   id,
   duration,
-  isClosable,
-  close,
-}: ToastProps) => {
-  toast({
+  closeToast,
+  ...props // gets the rest of the original Chakra Toast props (such as isClosable)
+}: ToastProps & {
+  status: AlertStatus;
+  toast: Partial<CreateToastFnReturn>;
+}) => {
+  return toast({
     title,
     description,
     status,
     id,
     duration: duration ?? 3000,
     position: 'top-right',
+    ...props,
     render: () => (
       <Toast
         title={_.toString(title) || ''}
         description={description}
         iconName={iconName}
         status={status}
-        isCloseable={isClosable}
-        close={close}
+        closeToast={closeToast}
+        {...props}
       />
     ),
   });
@@ -36,22 +45,59 @@ const ToastBase = ({
 
 const useCustomToast = () => {
   const toast = useChakraToast();
+  const toastIdRef = useRef<ToastId | null>(null);
+
+  function closeToast() {
+    if (toastIdRef.current) {
+      toast.close(toastIdRef.current);
+    }
+  }
 
   return {
-    success(props: ToastProps) {
-      ToastBase({ ...props, status: 'success', toast });
+    success(props: Omit<ToastProps, 'status'>) {
+      toastIdRef.current = ToastBase({
+        ...props,
+        status: 'success',
+        closeToast,
+        isClosable: props.isClosable ?? true,
+        toast,
+      });
     },
-    error(props: ToastProps) {
-      ToastBase({ ...props, status: 'error', toast });
+    error(props: Omit<ToastProps, 'status'>) {
+      toastIdRef.current = ToastBase({
+        ...props,
+        status: 'error',
+        closeToast,
+        isClosable: props.isClosable ?? true,
+        toast,
+      });
     },
-    warning(props: ToastProps) {
-      ToastBase({ ...props, status: 'warning', toast });
+    warning(props: Omit<ToastProps, 'status'>) {
+      toastIdRef.current = ToastBase({
+        ...props,
+        status: 'warning',
+        closeToast,
+        isClosable: props.isClosable ?? true,
+        toast,
+      });
     },
-    loading(props: ToastProps) {
-      ToastBase({ ...props, status: 'loading', toast });
+    loading(props: Omit<ToastProps, 'status'>) {
+      toastIdRef.current = ToastBase({
+        ...props,
+        status: 'loading',
+        closeToast,
+        isClosable: props.isClosable ?? true,
+        toast,
+      });
     },
-    info(props: ToastProps) {
-      ToastBase({ ...props, status: 'info', toast });
+    info(props: Omit<ToastProps, 'status'>) {
+      toastIdRef.current = ToastBase({
+        ...props,
+        status: 'info',
+        closeToast,
+        isClosable: props.isClosable ?? true,
+        toast,
+      });
     },
   };
 };
