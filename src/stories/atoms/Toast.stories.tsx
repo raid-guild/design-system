@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import {
   Toast as ToastComponent,
   Button,
-  useCustomToast,
+  useToast,
   Stack,
   ToastProvider,
 } from '../..';
@@ -14,7 +14,7 @@ export default {
 } as Meta<typeof ToastComponent>;
 
 const Toast: StoryFn = () => {
-  const toast = useCustomToast();
+  const toast = useToast();
 
   const clickSuccessToast = () => {
     toast.success({

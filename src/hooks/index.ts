@@ -1,1 +1,1 @@
-export { default as useCustomToast } from './useCustomToast';
+export { default as useToast } from './useToast';
