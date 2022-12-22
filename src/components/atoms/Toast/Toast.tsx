@@ -1,12 +1,19 @@
-import { ColorProps } from '@chakra-ui/react';
+import { ColorProps, CreateToastFnReturn } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 import { IconType } from 'react-icons';
 import { AiTwotoneCrown, AiFillWarning, AiFillAlert } from 'react-icons/ai';
 import { BsBellFill } from 'react-icons/bs';
-import { RiRocket2Fill } from 'react-icons/ri';
+import { RiRocket2Fill, RiCloseFill } from 'react-icons/ri';
 import { Text } from '../Text';
 import { Heading } from '../Heading';
-import { Box, HStack, Icon, AlertStatus, ChakraToastProps } from '../../chakra';
+import {
+  Box,
+  Flex,
+  HStack,
+  Icon,
+  AlertStatus,
+  ChakraToastProps,
+} from '../../chakra';
 
 type CustomToastProps = {
   status: AlertStatus;
@@ -15,9 +22,8 @@ type CustomToastProps = {
   icon?: IconType;
   iconName?: string;
   iconColor?: string;
-  toast?: any;
-  close?: any;
-  isCloseable?: boolean;
+  toast?: CreateToastFnReturn;
+  closeToast?: () => void;
 };
 
 export type ToastProps = ChakraToastProps & CustomToastProps;
@@ -68,9 +74,11 @@ const Toast: React.FC<ToastProps> = ({
   icon,
   iconName,
   iconColor,
+  closeToast,
+  ...props
 }: ToastProps) => {
   return (
-    <Box
+    <Flex
       bg={bgValues[status].bg}
       position='relative'
       borderRadius='15px'
@@ -92,12 +100,22 @@ const Toast: React.FC<ToastProps> = ({
           {description && <Text size='sm'>{description}</Text>}
         </Box>
       </HStack>
-
-      {/* {isCloseable && (
-        <Box position='absolute' top='10px' right='10px' onClick={close}>
-          <Icon as={RiCloseFill} onClick={close} w='25px' h='25px' />
-        </Box>
-      )} */}
+      {props.isClosable === true && (
+        <Flex
+          marginLeft={8}
+          onClick={closeToast}
+          justifyContent='baseline'
+          _hover={{ cursor: 'pointer' }}
+        >
+          <Icon
+            as={RiCloseFill}
+            onClick={closeToast}
+            w='25px'
+            h='25px'
+            _hover={{ cursor: 'pointer' }}
+          />
+        </Flex>
+      )}
 
       <Box
         display={bgValues[status].displayBorder}
@@ -110,7 +128,7 @@ const Toast: React.FC<ToastProps> = ({
         position='absolute'
         zIndex={-1}
       />
-    </Box>
+    </Flex>
   );
 };
 export default Toast;

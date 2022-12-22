@@ -120,7 +120,7 @@ export {
   useDisclosure,
   useStyleConfig,
   useTheme,
-  useToast,
+  useToast as useChakraToast,
   VisuallyHidden,
   VStack,
   Wrap,
