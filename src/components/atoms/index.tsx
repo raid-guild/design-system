@@ -2,6 +2,7 @@ export * from './Badge';
 export * from './Card';
 export * from './Checkbox';
 export * from './ConnectButton';
+export * from './ControlledInput';
 export * from './Heading';
 export * from './Input';
 export * from './List';
