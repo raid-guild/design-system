@@ -6,7 +6,7 @@ type CustomControlledTextareaProps = {
   name?: string; // optional, not required since no form control
   tip?: string; // optional, displays tip if provided
   defaultValue?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   value: string;
 };
 
