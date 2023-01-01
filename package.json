@@ -1,6 +1,6 @@
 {
   "name": "@raidguild/design-system",
-  "version": "0.4.20",
+  "version": "0.4.21",
   "license": "MIT",
   "author": "Raid Guild",
   "module": "dist/design-system.esm.js",
@@ -90,14 +90,12 @@
     "typescript": "4.2.2"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.3.6",
+    "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@rainbow-me/rainbowkit": "^0.7.4",
     "@rollup/plugin-replace": "^3.0.0",
     "@storybook/react": "^7.0.0-alpha.43",
     "@storybook/theming": "^7.0.0-alpha.43",
-    "ethers": "^5.7.2",
     "framer-motion": "^7.6.2",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
@@ -105,7 +103,6 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
     "react-icons": "^4.3.1",
-    "rollup-plugin-css-porter": "^1.0.2",
-    "wagmi": "^0.7.8"
+    "rollup-plugin-css-porter": "^1.0.2"
   }
 }
