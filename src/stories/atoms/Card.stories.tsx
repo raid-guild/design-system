@@ -21,7 +21,7 @@ export default {
   component: Card,
 } as Meta<typeof Card>;
 
-const cardVariants = [undefined, 'topBorderOnly'];
+const cardVariants = [undefined, 'topBorderOnly', 'rainbowBorder', 'topRainbowBorder', 'filled', 'outline'];
 
 const title = 'Card Title';
 const cardCopy =
@@ -47,7 +47,7 @@ const Cards: StoryFn<typeof Card> = () => (
         </ChakraHeading>
 
         <Image src={imgDesignSprints} alt={title} my='1.5rem' />
-
+        <ChakraText>Variant: {variant}</ChakraText>
         <ChakraText>{cardCopy}</ChakraText>
       </Card>
     ))}

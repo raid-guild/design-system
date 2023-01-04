@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Box, useStyleConfig, ChakraBoxProps } from '../../chakra';
+import { Box, ChakraCard, CardBody, CardHeader, ChakraBoxProps } from '../../chakra';
 
 export interface CardProps extends ChakraBoxProps {
   heading?: ReactNode;
@@ -15,25 +15,32 @@ const Card: React.FC<CardProps> = ({
   children,
   ...props
 }: CardProps) => {
-  const styles: any = useStyleConfig('Card', { variant });
+  const centerDividerStyles = {
+    position: 'absolute',
+    bottom: -5,
+    left: '45%',
+    width: '50px',
+    height: '50px',
+  };
 
   if (heading) {
     return (
-      <Box __css={styles} {...props}>
-        <Box __css={styles.header}>
-          <Box __css={styles.centerDivider}>{centerDivider}</Box>
+      <ChakraCard variant={variant} {...props}>
+        <CardHeader>
+          <Box __css={centerDividerStyles}>{centerDivider}</Box>
           {heading}
-        </Box>
-        <Box __css={styles.body}>{children}</Box>
-      </Box>
+        </CardHeader>
+        <CardBody>{children}</CardBody>
+      </ChakraCard>
     );
   }
 
-  // Pass the computed styles into the `__css` prop
   return (
-    <Box __css={styles} {...props}>
-      {children}
-    </Box>
+    <ChakraCard variant={variant} {...props}>
+      <CardBody>
+        {children}
+      </CardBody>
+    </ChakraCard>
   );
 };
 
