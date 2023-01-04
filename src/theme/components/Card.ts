@@ -13,7 +13,7 @@ const Card = {
       flexDirection: 'column',
       alignItems: 'center',
       gap: 6,
-    }
+    },
   }),
   // Two variants: rounded and smooth
   variants: {
@@ -38,7 +38,7 @@ const Card = {
         borderImageSlice: 1,
         borderImageSource:
           'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
-      }
+      },
     },
     topRainbowBorder: {
       container: {
@@ -47,15 +47,14 @@ const Card = {
         borderImageSlice: 1,
         borderImageSource:
           'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
-      }
+      },
     },
     withHeader: {
       container: {
         gap: 0,
         padding: 0,
         borderRadius: 'md',
-        backgroundColor: "gray.800",
-        // borderRadiusBottomRight: "15",
+        background: 'gray.800',
       },
       header: {
         position: 'relative',
@@ -75,38 +74,38 @@ const Card = {
         height: '50px',
       },
       body: {
-        backgroundColor: "gray.800",
+        background: 'gray.800',
         width: '100%',
         color: 'whiteAlpha.800',
         padding: 8,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        borderBottomRightRadius: "md",
-        borderBottomLeftRadius: "md",
+        borderBottomRightRadius: 'md',
+        borderBottomLeftRadius: 'md',
       },
     },
     filled: {
       body: {
-        backgroundColor: "gray.800",
-        borderRadius: "15",
+        background: 'gray.800',
+        borderRadius: '15',
       },
       container: {
-        backgroundColor: "gray.800",
-        borderRadius: "15",
-      }
+        background: 'gray.800',
+        borderRadius: '15',
+      },
     },
     outline: {
       body: {
-        backgroundColor: "gray.800",
-        border: "1px solid",
-        borderColor: "whiteAlpha.500",
-        borderRadius: "15",
+        background: 'gray.800',
+        border: '1px solid',
+        borderColor: 'whiteAlpha.500',
+        borderRadius: '15',
       },
       container: {
-        backgroundColor: "gray.800",
-        borderRadius: "15",
-      }
+        background: 'gray.800',
+        borderRadius: '15',
+      },
     },
   },
   // The default variant value
