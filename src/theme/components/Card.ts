@@ -1,48 +1,60 @@
 const Card = {
   // The styles all Cards have in common
   baseStyle: ({ bg, color }: any) => ({
-    alignItems: 'center',
-    background: bg || 'black',
-    color: color || bg || 'black',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 6,
-    padding: 12,
-
-    p: {
-      color: 'white',
+    container: {
+      background: bg || 'black',
+      color: color || bg || 'black',
+      p: {
+        color: 'white',
+      },
     },
+    body: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 6,
+    }
   }),
   // Two variants: rounded and smooth
   variants: {
     fullBorder: {
-      border: '2px solid',
-      borderColor: 'red.500',
-      borderRadius: 'none',
+      container: {
+        border: '2px solid',
+        borderColor: 'red.500',
+        borderRadius: 'none',
+      },
     },
     topBorderOnly: {
-      borderTop: '2px solid',
-      borderColor: 'red.500',
-      borderRadius: 'none',
+      container: {
+        borderTop: '2px solid',
+        borderColor: 'red.500',
+        borderRadius: 'none',
+      },
     },
     rainbowBorder: {
-      border: '2px solid',
-      borderRadius: 'none',
-      borderImageSlice: 1,
-      borderImageSource:
-        'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+      container: {
+        border: '2px solid',
+        borderRadius: 'none',
+        borderImageSlice: 1,
+        borderImageSource:
+          'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+      }
     },
     topRainbowBorder: {
-      borderTop: '2px solid',
-      borderRadius: 'none',
-      borderImageSlice: 1,
-      borderImageSource:
-        'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+      container: {
+        borderTop: '2px solid',
+        borderRadius: 'none',
+        borderImageSlice: 1,
+        borderImageSource:
+          'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+      }
     },
     withHeader: {
-      gap: 0,
-      padding: 0,
-      borderRadius: 'md',
+      container: {
+        gap: 0,
+        padding: 0,
+        borderRadius: 'md',
+      },
       header: {
         position: 'relative',
         color: 'whiteAlpha.800',
@@ -68,6 +80,26 @@ const Card = {
         flexDirection: 'column',
         alignItems: 'center',
       },
+    },
+    filled: {
+      body: {
+        backgroundColor: "gray.800",
+      },
+      container: {
+        backgroundColor: "gray.800",
+      }
+    },
+    outline: {
+      body: {
+        backgroundColor: "gray.800",
+        border: "1px solid",
+        borderColor: "whiteAlpha.500",
+        borderRadius: "15",
+      },
+      container: {
+        backgroundColor: "gray.800",
+        borderRadius: "15",
+      }
     },
   },
   // The default variant value
