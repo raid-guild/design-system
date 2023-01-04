@@ -54,6 +54,8 @@ const Card = {
         gap: 0,
         padding: 0,
         borderRadius: 'md',
+        backgroundColor: "gray.800",
+        // borderRadiusBottomRight: "15",
       },
       header: {
         position: 'relative',
@@ -73,20 +75,25 @@ const Card = {
         height: '50px',
       },
       body: {
+        backgroundColor: "gray.800",
         width: '100%',
         color: 'whiteAlpha.800',
         padding: 8,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        borderBottomRightRadius: "md",
+        borderBottomLeftRadius: "md",
       },
     },
     filled: {
       body: {
         backgroundColor: "gray.800",
+        borderRadius: "15",
       },
       container: {
         backgroundColor: "gray.800",
+        borderRadius: "15",
       }
     },
     outline: {
