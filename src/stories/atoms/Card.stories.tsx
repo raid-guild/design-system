@@ -33,6 +33,8 @@ const Cards: StoryFn<typeof Card> = () => (
     gap='4rem'
     my='2rem'
     ml={{ lg: '3rem' }}
+    bg={"blue.800"}
+    p={8}
   >
     {cardVariants.map((variant) => (
       <Card variant={variant} key={variant}>
