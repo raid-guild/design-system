@@ -1,5 +1,11 @@
 import React, { ReactNode } from 'react';
-import { Box, ChakraCard, CardBody, CardHeader, ChakraBoxProps } from '../../chakra';
+import {
+  Box,
+  ChakraCard,
+  CardBody,
+  CardHeader,
+  ChakraBoxProps,
+} from '../../chakra';
 
 export interface CardProps extends ChakraBoxProps {
   heading?: ReactNode;
@@ -37,9 +43,7 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <ChakraCard variant={variant} {...props}>
-      <CardBody>
-        {children}
-      </CardBody>
+      <CardBody>{children}</CardBody>
     </ChakraCard>
   );
 };
