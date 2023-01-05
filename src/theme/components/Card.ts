@@ -89,6 +89,7 @@ const Card = {
       body: {
         background: 'gray.800',
         borderRadius: '15',
+        color: 'whiteAlpha.800',
       },
       container: {
         background: 'gray.800',
@@ -101,6 +102,7 @@ const Card = {
         border: '1px solid',
         borderColor: 'whiteAlpha.500',
         borderRadius: '15',
+        color: 'whiteAlpha.800',
       },
       container: {
         background: 'gray.800',
