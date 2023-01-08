@@ -1,4 +1,7 @@
 const Button = {
+  baseStyle: {
+    textTransform: 'uppercase',
+  },
   defaultProps: {
     colorScheme: 'primary',
     variant: 'solid',
@@ -6,8 +9,14 @@ const Button = {
     fontFamily: 'texturina',
   },
   variants: {
-    solid: () => ({
-      textTransform: 'uppercase',
+    solid: {
+      bg: 'purple.500',
+      color: 'white',
+      _hover: {
+        bg: 'primary.500',
+      },
+    },
+    bright: {
       maxWidth: '100%',
       width: 'auto',
       height: '40px',
@@ -24,8 +33,21 @@ const Button = {
       _focus: {
         boxShadow: 'none',
       },
-    }),
-    outline: () => ({
+    },
+    outline: {
+      bg: 'transparent',
+      border: '2px solid',
+      borderColor: 'purple.500',
+      borderRadius: 'lg',
+      color: 'whiteAlpha.800',
+      _hover: {
+        bg: 'purple.500',
+        color: 'white',
+        border: '2px solid',
+        borderColor: 'white',
+      },
+    },
+    gradientOutline: {
       textTransform: 'uppercase',
       maxWidth: '100%',
       width: 'auto',
@@ -51,7 +73,7 @@ const Button = {
       _focus: {
         boxShadow: 'none',
       },
-    }),
+    },
     ghost: () => ({
       textTransform: 'uppercase',
       maxWidth: '100%',

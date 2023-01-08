@@ -9,14 +9,16 @@ export default {
 
 const buttonVariants = [
   { name: 'Solid', variant: 'solid' },
+  { name: 'Bright', variant: 'bright' },
   { name: 'Outline', variant: 'outline' },
+  { name: 'Gradient Outline', variant: 'gradientOutline' },
   { name: 'Ghost', variant: 'ghost' },
 ];
 
 const Buttons: StoryFn<typeof ButtonComponent> = () => (
   <Stack>
     {buttonVariants.map((button) => (
-      <Flex width='250px' justify='space-between'>
+      <Flex width='400px' justify='space-between' key='variant'>
         <Text size='lg'>{button.name}</Text>
         <ButtonComponent variant={button.variant} width='150px'>
           Let&apos;s Go

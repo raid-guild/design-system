@@ -44,6 +44,8 @@ export {
   Fade,
   Flex,
   FormControl,
+  FormErrorMessage,
+  FormHelperText,
   FormLabel,
   Grid,
   GridItem,

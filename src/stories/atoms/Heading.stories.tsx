@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 import { Heading as HeadingComponent, Stack, Flex, Text } from '../..';
+import { HeadingVariants } from '../../components/atoms/Heading';
 
 export default {
   title: 'Components/Atoms/Heading',
@@ -17,7 +18,7 @@ const headingExamples: Array<{ size: string }> = [
   { size: 'sm' },
 ];
 
-const headingVariants = ['shadow', 'noShadow'];
+const headingVariants: HeadingVariants[] = ['shadow', 'noShadow'];
 
 const copy = 'RaidGuild vs Moloch';
 
@@ -27,7 +28,7 @@ const Heading: StoryFn<typeof HeadingComponent> = (args) => (
     {headingExamples.map((example) => (
       <Stack spacing={2} key={example.size}>
         {/* Add both variants */}
-        {headingVariants.map((variant: any) => (
+        {headingVariants.map((variant) => (
           <Flex align='center' key={`${example.size}-${variant}`}>
             <Text mr={3}>{`${example.size} - ${variant}`}</Text>
             <HeadingComponent size={example.size} variant={variant} {...args}>

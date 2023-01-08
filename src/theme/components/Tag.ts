@@ -1,5 +1,5 @@
 const Tag = {
-  baseStyles: {},
+  baseStyle: {},
   sizes: {},
   variants: {},
   defaultProps: {},

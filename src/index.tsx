@@ -8,6 +8,9 @@ export * from './components/atoms';
 export * from './components/chakra';
 export { default as RGThemeProvider } from './components/chakra/RGThemeProvider';
 
+// FORMS
+export * from './components/forms';
+
 // HOOKS
 export * from './hooks';
 
