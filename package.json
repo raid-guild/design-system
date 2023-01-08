@@ -96,6 +96,7 @@
     "@rollup/plugin-replace": "^3.0.0",
     "@storybook/react": "^7.0.0-alpha.43",
     "@storybook/theming": "^7.0.0-alpha.43",
+    "chakra-react-select": "^4.4.3",
     "framer-motion": "^7.6.2",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",

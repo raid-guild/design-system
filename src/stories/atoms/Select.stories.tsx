@@ -9,9 +9,12 @@ export default {
 } as Meta<typeof SelectComponent>;
 
 const selectVariants = [
-  { name: 'Outline', variant: 'outline' },
-  { name: 'Filled', variant: 'filled' },
-  { name: 'Flushed', variant: 'flushed' },
+  { name: 'Single Outline', variant: 'outline' },
+  { name: 'Single Filled', variant: 'filled' },
+  { name: 'Single Flushed', variant: 'flushed' },
+  { name: 'Multi Outline', variant: 'outline', isMulti: true },
+  { name: 'Multi Filled', variant: 'filled', isMulti: true },
+  { name: 'Multi Flushed', variant: 'flushed', isMulti: true },
 ];
 
 const selectOptions = [
@@ -32,6 +35,7 @@ const Select: StoryFn<typeof SelectComponent> = () => {
               options={selectOptions}
               variant={select.variant}
               localForm={localForm}
+              isMulti={select.isMulti}
             />
           </Stack>
         ))}
