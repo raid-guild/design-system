@@ -26,7 +26,7 @@ export interface SelectProps {
   isClearable?: boolean;
   onChange?: (option: Option) => void;
   isDisabled?: boolean;
-  variant?: 'outline' | 'filled' | 'flushed';
+  variant?: 'outline' | 'filled' | 'flushed' | undefined;
   value?: any;
 }
 

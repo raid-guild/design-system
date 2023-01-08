@@ -8,7 +8,13 @@ export default {
   component: SelectComponent,
 } as Meta<typeof SelectComponent>;
 
-const selectVariants = [
+type SelectVariant = {
+  name: string;
+  variant: 'outline' | 'filled' | 'flushed';
+  isMulti?: boolean;
+};
+
+const selectVariants: SelectVariant[] = [
   { name: 'Single Outline', variant: 'outline' },
   { name: 'Single Filled', variant: 'filled' },
   { name: 'Single Flushed', variant: 'flushed' },
