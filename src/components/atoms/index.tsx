@@ -4,6 +4,7 @@ export * from './Checkbox';
 export * from './ControlledInput';
 export * from './ControlledTextarea';
 export * from './ControlledSelect';
+export * from './ControlledCreatableSelect';
 export * from './CreatableSelect';
 export * from './Heading';
 export * from './Input';
