@@ -1,10 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Meta, StoryFn } from '@storybook/react';
-import { Select as SelectComponent, Box, Stack, Text } from '../..';
+import { CreatableSelect as SelectComponent, Box, Stack, Text } from '../..';
 
 export default {
-  title: 'Components/Atoms/Select',
+  title: 'Components/Atoms/CreatableSelect',
   component: SelectComponent,
 } as Meta<typeof SelectComponent>;
 
@@ -50,7 +50,7 @@ const multiSelectOptions = [
   { label: 'Smart Contracts', value: 'Smart Contracts' },
 ];
 
-const Select: StoryFn<typeof SelectComponent> = () => {
+const CreatableSelect: StoryFn<typeof SelectComponent> = () => {
   const localForm = useForm();
   return (
     <Box w='50%'>
@@ -75,4 +75,4 @@ const Select: StoryFn<typeof SelectComponent> = () => {
   );
 };
 
-export { Select };
+export { CreatableSelect };

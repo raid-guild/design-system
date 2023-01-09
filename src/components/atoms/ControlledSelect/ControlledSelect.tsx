@@ -1,7 +1,6 @@
 import React from 'react';
-import { UseFormReturn, Controller } from 'react-hook-form';
 import { ChakraStylesConfig, Select as ReactSelect } from 'chakra-react-select';
-import { FormLabel, FormControl, Box, Stack } from '../../chakra';
+import { FormLabel, Box, Stack } from '../../chakra';
 
 export type Option =
   | {
@@ -13,23 +12,22 @@ export type Option =
   | { value: null; label: string }
   | { label: string | number; value: string | number }
   | { value: number; label: string };
-export interface SelectProps {
-  name: string;
+export interface ControlledSelectProps {
   label?: string;
   placeholder?: string;
   defaultValue?: Option | Option[];
   id?: string;
   options: Option[];
   isRequired?: boolean;
-  localForm: Pick<UseFormReturn, 'control' | 'formState'>;
   isMulti?: boolean;
   isClearable?: boolean;
-  isSearchable?: boolean;
   onChange?: (option: Option) => void;
   isDisabled?: boolean;
   variant?: 'outline' | 'filled' | 'flushed' | undefined;
   basicStyles?: boolean;
   value?: any;
+  isSearchable?: boolean;
+
   colorScheme?:
     | 'whiteAlpha'
     | 'blackAlpha'
@@ -52,26 +50,22 @@ export interface SelectProps {
     | 'primary';
 }
 
-const Select: React.FC<SelectProps> = ({
+const ControlledSelect: React.FC<ControlledSelectProps> = ({
   label,
-  name,
   placeholder,
   defaultValue,
   options,
   isMulti,
   isClearable,
-  isSearchable,
   onChange,
   isDisabled,
   value,
   variant,
-  localForm,
   basicStyles = false,
   colorScheme = 'primary',
+  isSearchable,
   ...props
-}: SelectProps) => {
-  const { control } = localForm;
-
+}: ControlledSelectProps) => {
   const chakraStyles: ChakraStylesConfig = {
     dropdownIndicator: (provided) => ({
       ...provided,
@@ -82,39 +76,28 @@ const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <FormControl mb={4}>
-      <Stack spacing={2}>
-        {label && <FormLabel>{label}</FormLabel>}
-        <Box my={2}>
-          <Controller
-            name={name}
-            control={control}
-            shouldUnregister={false}
-            render={({ field }) => (
-              <ReactSelect
-                {...field}
-                chakraStyles={basicStyles === false ? chakraStyles : {}}
-                onBlur={field.onBlur}
-                options={options}
-                defaultValue={defaultValue}
-                placeholder={placeholder}
-                isClearable={isClearable}
-                isMulti={isMulti}
-                onChange={onChange}
-                isDisabled={isDisabled}
-                variant={variant}
-                colorScheme={colorScheme}
-                value={value}
-                useBasicStyles={basicStyles}
-                isSearchable={isSearchable}
-                {...props}
-              />
-            )}
-          />
-        </Box>
-      </Stack>
-    </FormControl>
+    <Stack spacing={2}>
+      {label && <FormLabel>{label}</FormLabel>}
+      <Box my={2}>
+        <ReactSelect
+          chakraStyles={basicStyles === false ? chakraStyles : {}}
+          options={options}
+          defaultValue={defaultValue}
+          placeholder={placeholder}
+          isClearable={isClearable}
+          isMulti={isMulti}
+          onChange={onChange}
+          isDisabled={isDisabled}
+          variant={variant}
+          colorScheme={colorScheme}
+          value={value}
+          useBasicStyles={basicStyles}
+          isSearchable={isSearchable}
+          {...props}
+        />
+      </Box>
+    </Stack>
   );
 };
 
-export default Select;
+export default ControlledSelect;

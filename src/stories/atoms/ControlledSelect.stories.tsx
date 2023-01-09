@@ -1,10 +1,9 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import { Select as SelectComponent, Box, Stack, Text } from '../..';
+import { ControlledSelect as SelectComponent, Box, Stack, Text } from '../..';
 
 export default {
-  title: 'Components/Atoms/Select',
+  title: 'Components/Atoms/ControlledSelect',
   component: SelectComponent,
 } as Meta<typeof SelectComponent>;
 
@@ -15,6 +14,17 @@ type SelectVariant = {
   creatable?: boolean;
   basicStyles?: boolean;
 };
+
+type Option =
+  | {
+      label: string | number;
+      value: string | number;
+    }
+  | { value: number | null; label: string }
+  | { value: number; label: string | null | undefined }
+  | { value: null; label: string }
+  | { label: string | number; value: string | number }
+  | { value: number; label: string };
 
 const selectVariants: SelectVariant[] = [
   { name: 'Single Outline', variant: 'outline', isMulti: false },
@@ -50,8 +60,11 @@ const multiSelectOptions = [
   { label: 'Smart Contracts', value: 'Smart Contracts' },
 ];
 
-const Select: StoryFn<typeof SelectComponent> = () => {
-  const localForm = useForm();
+const ControlledSelect: StoryFn<typeof SelectComponent> = () => {
+  const [, setSelectedValue] = useState<Option>();
+  // these all share state for the Storybook example
+  // set your own state via the ControlledSelect's onChange
+
   return (
     <Box w='50%'>
       <Stack spacing={5}>
@@ -59,14 +72,13 @@ const Select: StoryFn<typeof SelectComponent> = () => {
           <Stack spacing={3}>
             <Text>{select.name}</Text>
             <SelectComponent
-              name='testSelect'
               options={
                 select.isMulti === true ? multiSelectOptions : selectOptions
               }
               variant={select.variant}
-              localForm={localForm}
               isMulti={select.isMulti}
               basicStyles={select.basicStyles}
+              onChange={(selection: Option) => setSelectedValue(selection)}
             />
           </Stack>
         ))}
@@ -75,4 +87,4 @@ const Select: StoryFn<typeof SelectComponent> = () => {
   );
 };
 
-export { Select };
+export { ControlledSelect };

@@ -1,6 +1,9 @@
 import React from 'react';
 import { UseFormReturn, Controller } from 'react-hook-form';
-import { ChakraStylesConfig, Select as ReactSelect } from 'chakra-react-select';
+import {
+  ChakraStylesConfig,
+  CreatableSelect as ReactCreatableSelect,
+} from 'chakra-react-select';
 import { FormLabel, FormControl, Box, Stack } from '../../chakra';
 
 export type Option =
@@ -13,7 +16,7 @@ export type Option =
   | { value: null; label: string }
   | { label: string | number; value: string | number }
   | { value: number; label: string };
-export interface SelectProps {
+export interface CreatableSelectProps {
   name: string;
   label?: string;
   placeholder?: string;
@@ -24,7 +27,6 @@ export interface SelectProps {
   localForm: Pick<UseFormReturn, 'control' | 'formState'>;
   isMulti?: boolean;
   isClearable?: boolean;
-  isSearchable?: boolean;
   onChange?: (option: Option) => void;
   isDisabled?: boolean;
   variant?: 'outline' | 'filled' | 'flushed' | undefined;
@@ -52,7 +54,7 @@ export interface SelectProps {
     | 'primary';
 }
 
-const Select: React.FC<SelectProps> = ({
+const CreatableSelect: React.FC<CreatableSelectProps> = ({
   label,
   name,
   placeholder,
@@ -60,7 +62,6 @@ const Select: React.FC<SelectProps> = ({
   options,
   isMulti,
   isClearable,
-  isSearchable,
   onChange,
   isDisabled,
   value,
@@ -69,7 +70,7 @@ const Select: React.FC<SelectProps> = ({
   basicStyles = false,
   colorScheme = 'primary',
   ...props
-}: SelectProps) => {
+}: CreatableSelectProps) => {
   const { control } = localForm;
 
   const chakraStyles: ChakraStylesConfig = {
@@ -91,7 +92,7 @@ const Select: React.FC<SelectProps> = ({
             control={control}
             shouldUnregister={false}
             render={({ field }) => (
-              <ReactSelect
+              <ReactCreatableSelect
                 {...field}
                 chakraStyles={basicStyles === false ? chakraStyles : {}}
                 onBlur={field.onBlur}
@@ -106,7 +107,6 @@ const Select: React.FC<SelectProps> = ({
                 colorScheme={colorScheme}
                 value={value}
                 useBasicStyles={basicStyles}
-                isSearchable={isSearchable}
                 {...props}
               />
             )}
@@ -117,4 +117,4 @@ const Select: React.FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export default CreatableSelect;
