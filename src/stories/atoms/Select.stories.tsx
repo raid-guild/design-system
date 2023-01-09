@@ -28,6 +28,13 @@ const selectOptions = [
   { label: '$10,000', value: 10000 },
 ];
 
+const multiSelectOptions = [
+  { label: 'Frontend Dev', value: 'Frontend Dev' },
+  { label: 'Backend Dev', value: 'Backend Dev' },
+  { label: 'Design', value: 'Design' },
+  { label: 'Smart Contracts', value: 'Smart Contracts' },
+];
+
 const Select: StoryFn<typeof SelectComponent> = () => {
   const localForm = useForm();
   return (
@@ -37,11 +44,14 @@ const Select: StoryFn<typeof SelectComponent> = () => {
           <Stack spacing={3}>
             <Text>{select.name}</Text>
             <SelectComponent
-              name='testing'
-              options={selectOptions}
+              name='testSelect'
+              options={
+                select.isMulti === true ? multiSelectOptions : selectOptions
+              }
               variant={select.variant}
               localForm={localForm}
               isMulti={select.isMulti}
+              basicStyles
             />
           </Stack>
         ))}

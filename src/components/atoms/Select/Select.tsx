@@ -1,6 +1,6 @@
 import React from 'react';
 import { UseFormReturn, Controller } from 'react-hook-form';
-import { Select as ReactSelect } from 'chakra-react-select';
+import { Select as ReactSelect, SelectComponent } from 'chakra-react-select';
 import { FormLabel, FormControl, Box, Stack } from '../../chakra';
 
 export type Option =
@@ -27,6 +27,7 @@ export interface SelectProps {
   onChange?: (option: Option) => void;
   isDisabled?: boolean;
   variant?: 'outline' | 'filled' | 'flushed' | undefined;
+  basicStyles?: boolean;
   value?: any;
 }
 
@@ -43,14 +44,13 @@ const Select: React.FC<SelectProps> = ({
   value,
   variant,
   localForm,
+  basicStyles = true,
+  ...props
 }: SelectProps) => {
-  const {
-    control,
-    formState: { errors },
-  } = localForm;
+  const { control } = localForm;
 
   return (
-    <FormControl mb={4} isInvalid={errors && errors[name] !== undefined}>
+    <FormControl mb={4}>
       <Stack spacing={2}>
         {label && <FormLabel>{label}</FormLabel>}
         <Box my={2}>
@@ -70,7 +70,10 @@ const Select: React.FC<SelectProps> = ({
                 onChange={onChange}
                 isDisabled={isDisabled}
                 variant={variant}
+                colorScheme='primary'
+                useBasicStyles={basicStyles}
                 value={value}
+                {...props}
               />
             )}
           />
