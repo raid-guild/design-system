@@ -68,14 +68,14 @@ const Select: React.FC<SelectProps> = ({
   value,
   variant,
   localForm,
-  basicStyles = true,
+  basicStyles = false,
   colorScheme = 'primary',
   ...props
 }: SelectProps) => {
   const { control } = localForm;
 
   const chakraStyles: ChakraStylesConfig = {
-    dropdownIndicator: (provided, state) => ({
+    dropdownIndicator: (provided) => ({
       ...provided,
       background: 'gray.600',
       p: 0,
@@ -95,7 +95,7 @@ const Select: React.FC<SelectProps> = ({
             render={({ field }) => (
               <ReactSelect
                 {...field}
-                chakraStyles={chakraStyles}
+                chakraStyles={basicStyles === false ? chakraStyles : {}}
                 onBlur={field.onBlur}
                 options={options}
                 defaultValue={defaultValue}
