@@ -7,7 +7,7 @@ import { Heading, Stack, Text, Flex, Box } from '..';
 import castle from '../assets/images/raid-guild-castle.png';
 import FooterSimple from '../components/footers/Simple';
 
-export const Index: StoryFn = () => (
+export const RaidGuildDesignSystem: StoryFn = () => (
   <Box position='relative'>
     <Box
       bgImg={castle}
@@ -22,9 +22,9 @@ export const Index: StoryFn = () => (
       position='absolute'
       zIndex={-1}
     />
-    <Flex direction='column' justify='space-between' minH='130vh' w='100%'>
-      <Stack align='center' spacing='5vh'>
-        <Heading as='h1' size='3xl' color='white' textAlign='center' mt={64}>
+    <Flex direction='column' justify='space-between' minH='70vh' w='100%'>
+      <Stack align='center' spacing={6} my={40}>
+        <Heading as='h1' size='3xl' color='white' textAlign='center'>
           Raid Guild Design Guide
         </Heading>
         <Text align='center' mb={5} fontFamily='texturina'>
@@ -39,5 +39,5 @@ export const Index: StoryFn = () => (
 
 export default {
   title: 'Raid Guild Design System',
-  component: Index,
+  component: RaidGuildDesignSystem,
 } as Meta;

@@ -1,30 +1,17 @@
 import React from 'react';
-import { ChakraTooltip, ChakraTooltipProps, useTheme } from '../../chakra';
+import { ChakraTooltip, ChakraTooltipProps } from '../../chakra';
 
 type TooltipProps = ChakraTooltipProps;
 
 const Tooltip: React.FC<TooltipProps> = ({
   label,
-  placement,
-  shouldWrapChildren,
+  placement = 'top',
   children,
   ...props
-}: TooltipProps) => {
-  const theme = useTheme();
-  console.log(theme.components.Spinner);
-
-  return (
-    <ChakraTooltip
-      label={label}
-      placement={placement}
-      shouldWrapChildren={shouldWrapChildren}
-      background='gray.200'
-      color='gray.800'
-      {...props}
-    >
-      {children}
-    </ChakraTooltip>
-  );
-};
+}: TooltipProps) => (
+  <ChakraTooltip label={label} placement={placement} {...props}>
+    {children}
+  </ChakraTooltip>
+);
 
 export default Tooltip;
