@@ -15,9 +15,9 @@ type SelectVariant = {
 };
 
 const selectVariants: SelectVariant[] = [
-  { name: 'Single Outline', variant: 'outline' },
-  { name: 'Single Filled', variant: 'filled' },
-  { name: 'Single Flushed', variant: 'flushed' },
+  { name: 'Single Outline', variant: 'outline', isMulti: false },
+  { name: 'Single Filled', variant: 'filled', isMulti: false },
+  { name: 'Single Flushed', variant: 'flushed', isMulti: false },
   { name: 'Multi Outline', variant: 'outline', isMulti: true },
   { name: 'Multi Filled', variant: 'filled', isMulti: true },
   { name: 'Multi Flushed', variant: 'flushed', isMulti: true },
@@ -51,7 +51,7 @@ const Select: StoryFn<typeof SelectComponent> = () => {
               variant={select.variant}
               localForm={localForm}
               isMulti={select.isMulti}
-              basicStyles
+              basicStyles={false}
             />
           </Stack>
         ))}

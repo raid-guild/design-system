@@ -1,6 +1,10 @@
 import React from 'react';
 import { UseFormReturn, Controller } from 'react-hook-form';
-import { Select as ReactSelect, SelectComponent } from 'chakra-react-select';
+import {
+  ChakraStylesConfig,
+  Select as ReactSelect,
+  SelectComponent,
+} from 'chakra-react-select';
 import { FormLabel, FormControl, Box, Stack } from '../../chakra';
 
 export type Option =
@@ -29,6 +33,26 @@ export interface SelectProps {
   variant?: 'outline' | 'filled' | 'flushed' | undefined;
   basicStyles?: boolean;
   value?: any;
+  colorScheme?:
+    | 'whiteAlpha'
+    | 'blackAlpha'
+    | 'gray'
+    | 'red'
+    | 'orange'
+    | 'yellow'
+    | 'green'
+    | 'teal'
+    | 'blue'
+    | 'cyan'
+    | 'purple'
+    | 'pink'
+    | 'linkedin'
+    | 'facebook'
+    | 'messenger'
+    | 'whatsapp'
+    | 'twitter'
+    | 'telegram'
+    | 'primary';
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -45,9 +69,19 @@ const Select: React.FC<SelectProps> = ({
   variant,
   localForm,
   basicStyles = true,
+  colorScheme = 'primary',
   ...props
 }: SelectProps) => {
   const { control } = localForm;
+
+  const chakraStyles: ChakraStylesConfig = {
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      background: 'gray.600',
+      p: 0,
+      w: '40px',
+    }),
+  };
 
   return (
     <FormControl mb={4}>
@@ -61,6 +95,7 @@ const Select: React.FC<SelectProps> = ({
             render={({ field }) => (
               <ReactSelect
                 {...field}
+                chakraStyles={chakraStyles}
                 onBlur={field.onBlur}
                 options={options}
                 defaultValue={defaultValue}
@@ -70,9 +105,9 @@ const Select: React.FC<SelectProps> = ({
                 onChange={onChange}
                 isDisabled={isDisabled}
                 variant={variant}
-                colorScheme='primary'
-                useBasicStyles={basicStyles}
+                colorScheme={colorScheme}
                 value={value}
+                useBasicStyles={basicStyles}
                 {...props}
               />
             )}
