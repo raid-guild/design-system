@@ -1,41 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { DatePicker, DatePickerProps } from '../..';
+import { Meta, StoryFn } from '@storybook/react';
+import { DatePicker as DatePickerComponent, Box } from '../..';
 
 export default {
   title: 'Components/Atoms/DatePicker',
-  component: DatePicker,
-};
+  component: DatePickerComponent,
+} as Meta;
 
-const Default = (args: DatePickerProps) => {
+const DatePicker: StoryFn<typeof DatePickerComponent> = () => {
   const localForm = useForm();
+  const [, setTestDateValue] = useState<
+    Date | [Date | null, Date | null] | null
+  >(new Date());
+
   return (
-    <form>
-      <DatePicker {...args} localForm={localForm} />
-    </form>
+    <Box m='15px'>
+      <DatePicker
+        name='raidStartDate'
+        localForm={localForm}
+        label='Raid Start Date'
+        defaultValue={new Date()}
+        onChange={(date) => setTestDateValue(date)}
+      />
+    </Box>
   );
 };
 
-const WithTip = (args: DatePickerProps) => {
-  const localForm = useForm();
-  return (
-    <form>
-      <DatePicker {...args} localForm={localForm} />
-    </form>
-  );
-};
-
-Default.args = {
-  name: 'engagementDate',
-  label: 'Date of Contribution Engagement (UTC)',
-  defaultValue: new Date(),
-};
-
-WithTip.args = {
-  name: 'engagementDate',
-  label: 'Date of Contribution Engagement (UTC)',
-  defaultValue: new Date(),
-  tip: 'Use the date picker to set your Contribution engagement date..',
-};
-
-export { Default, WithTip };
+export { DatePicker };
