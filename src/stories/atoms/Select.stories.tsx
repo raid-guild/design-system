@@ -12,6 +12,7 @@ type SelectVariant = {
   name: string;
   variant: 'outline' | 'filled' | 'flushed';
   isMulti?: boolean;
+  creatable?: boolean;
   basicStyles?: boolean;
 };
 
@@ -25,6 +26,12 @@ const selectVariants: SelectVariant[] = [
     isMulti: false,
     basicStyles: true,
   },
+  {
+    name: 'Single Outline Creatable',
+    variant: 'outline',
+    isMulti: false,
+    creatable: true,
+  },
   { name: 'Multi Outline', variant: 'outline', isMulti: true },
   { name: 'Multi Filled', variant: 'filled', isMulti: true },
   { name: 'Multi Flushed', variant: 'flushed', isMulti: true },
@@ -33,6 +40,12 @@ const selectVariants: SelectVariant[] = [
     variant: 'outline',
     isMulti: true,
     basicStyles: true,
+  },
+  {
+    name: 'Multi Outline Creatable',
+    variant: 'outline',
+    isMulti: true,
+    creatable: true,
   },
 ];
 

@@ -3,7 +3,7 @@ import { UseFormReturn, Controller } from 'react-hook-form';
 import {
   ChakraStylesConfig,
   Select as ReactSelect,
-  SelectComponent,
+  CreatableSelect as ReactCreatableSelect,
 } from 'chakra-react-select';
 import { FormLabel, FormControl, Box, Stack } from '../../chakra';
 
@@ -21,6 +21,7 @@ export interface SelectProps {
   name: string;
   label?: string;
   placeholder?: string;
+  creatable?: boolean;
   defaultValue?: Option | Option[];
   id?: string;
   options: Option[];
@@ -70,6 +71,7 @@ const Select: React.FC<SelectProps> = ({
   localForm,
   basicStyles = false,
   colorScheme = 'primary',
+  creatable = false,
   ...props
 }: SelectProps) => {
   const { control } = localForm;
@@ -83,39 +85,77 @@ const Select: React.FC<SelectProps> = ({
     }),
   };
 
-  return (
-    <FormControl mb={4}>
-      <Stack spacing={2}>
-        {label && <FormLabel>{label}</FormLabel>}
-        <Box my={2}>
-          <Controller
-            name={name}
-            control={control}
-            shouldUnregister={false}
-            render={({ field }) => (
-              <ReactSelect
-                {...field}
-                chakraStyles={basicStyles === false ? chakraStyles : {}}
-                onBlur={field.onBlur}
-                options={options}
-                defaultValue={defaultValue}
-                placeholder={placeholder}
-                isClearable={isClearable}
-                isMulti={isMulti}
-                onChange={onChange}
-                isDisabled={isDisabled}
-                variant={variant}
-                colorScheme={colorScheme}
-                value={value}
-                useBasicStyles={basicStyles}
-                {...props}
-              />
-            )}
-          />
-        </Box>
-      </Stack>
-    </FormControl>
-  );
+  if (creatable === true) {
+    return (
+      <FormControl mb={4}>
+        <Stack spacing={2}>
+          {label && <FormLabel>{label}</FormLabel>}
+          <Box my={2}>
+            <Controller
+              name={name}
+              control={control}
+              shouldUnregister={false}
+              render={({ field }) => (
+                <ReactCreatableSelect
+                  {...field}
+                  chakraStyles={basicStyles === false ? chakraStyles : {}}
+                  onBlur={field.onBlur}
+                  options={options}
+                  defaultValue={defaultValue}
+                  placeholder={placeholder}
+                  isClearable={isClearable}
+                  isMulti={isMulti}
+                  onChange={onChange}
+                  isDisabled={isDisabled}
+                  variant={variant}
+                  colorScheme={colorScheme}
+                  value={value}
+                  useBasicStyles={basicStyles}
+                  {...props}
+                />
+              )}
+            />
+          </Box>
+        </Stack>
+      </FormControl>
+    );
+  }
+
+  if (creatable === false || creatable === undefined) {
+    return (
+      <FormControl mb={4}>
+        <Stack spacing={2}>
+          {label && <FormLabel>{label}</FormLabel>}
+          <Box my={2}>
+            <Controller
+              name={name}
+              control={control}
+              shouldUnregister={false}
+              render={({ field }) => (
+                <ReactSelect
+                  {...field}
+                  chakraStyles={basicStyles === false ? chakraStyles : {}}
+                  onBlur={field.onBlur}
+                  options={options}
+                  defaultValue={defaultValue}
+                  placeholder={placeholder}
+                  isClearable={isClearable}
+                  isMulti={isMulti}
+                  onChange={onChange}
+                  isDisabled={isDisabled}
+                  variant={variant}
+                  colorScheme={colorScheme}
+                  value={value}
+                  useBasicStyles={basicStyles}
+                  {...props}
+                />
+              )}
+            />
+          </Box>
+        </Stack>
+      </FormControl>
+    );
+  }
 };
 
 export default Select;
