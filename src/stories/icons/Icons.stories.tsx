@@ -34,8 +34,8 @@ const Template: StoryFn = (args) => {
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 6 }}
         gap='4rem'
-        my='2rem'
-        ml={{ lg: '3rem' }}
+        mx='auto'
+        maxW='90%'
       >
         {Object.entries(RootIcons).map(([name, Icon]) => (
           <Stack key={name} align='center' spacing={4}>

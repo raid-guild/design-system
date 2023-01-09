@@ -9,16 +9,21 @@ import {
 } from '../../chakra';
 
 export interface CustomCheckboxProps {
+  name?: string;
+  label?: string;
   options: string[];
-
+  direction?: 'row' | 'column';
   localForm: UseFormReturn<FieldValues>;
 }
 
 export type RadioProps = CustomCheckboxProps & ChakraCheckboxProps;
 
 const Checkbox: React.FC<RadioProps> = ({
+  name,
+  label,
   options,
   size,
+  direction,
   localForm,
   ...props
 }: RadioProps) => {
@@ -29,7 +34,7 @@ const Checkbox: React.FC<RadioProps> = ({
       <FormControl>
         <Controller
           control={control}
-          name={options[0]}
+          name={name || options[0]}
           key={options[0]}
           defaultValue={false}
           render={({ field: { onChange, value, ref } }) => (
@@ -51,12 +56,12 @@ const Checkbox: React.FC<RadioProps> = ({
 
   return (
     <FormControl>
-      <Stack spacing={3} direction='row'>
+      <Stack spacing={3} direction={direction || 'row'}>
         {options.map(
           (option): ReactElement => (
             <Controller
               control={control}
-              name={option}
+              name={name || option}
               key={option}
               defaultValue={false}
               render={({ field: { onChange, value, ref } }) => (
