@@ -15,16 +15,16 @@ const DatePicker: StoryFn<typeof DatePickerComponent> = () => {
   return (
     <Box m='15px'>
       <Stack spacing={4}>
-        <Text>Date: {new Date(testDateValue).toString()}</Text>
         <DatePickerComponent
           name='raidStartDate'
           localForm={localForm}
           label='Raid Start Date'
-          defaultValue={new Date()}
+          defaultValue={testDateValue}
           onChange={(selectedDate) => {
-            setTestDateValue(selectedDate);
+            setTestDateValue(selectedDate as Date);
           }}
         />
+        <Text variant='shadow'>Selected Date: {testDateValue?.toString()}</Text>
       </Stack>
     </Box>
   );
