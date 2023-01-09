@@ -37,7 +37,7 @@ export interface CustomRadioBoxProps {
   label: string;
   localForm: UseFormReturn<FieldValues>;
   options: any;
-  stack: 'vertical' | 'horizontal';
+  stack?: 'vertical' | 'horizontal';
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -52,6 +52,7 @@ function RadioBox({
   isRequired,
   size,
 }: RadioBoxProps) {
+  if (!localForm) return null;
   const { control } = localForm;
   const {
     field,
