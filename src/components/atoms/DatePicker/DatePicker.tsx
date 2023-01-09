@@ -21,22 +21,33 @@ export interface DatePickerProps extends ReactDatePickerProps {
 const DatePicker: React.FC<DatePickerProps> = ({
   label,
   name,
-  tip,
   defaultValue,
   localForm,
   onChange,
   ...props
 }: DatePickerProps) => {
-  const {
-    control,
-    formState: { errors },
-  } = localForm;
+  const { control } = localForm;
+
+  // these are the values that seemed relevant. we can adjust and even theme this
+  const customDatePickerStyles = {
+    '.react-datepicker__header': {
+      backgroundColor: 'gray.800',
+      color: 'gray.100',
+    },
+    '.react-datepicker__month-container': {
+      backgroundColor: 'gray.800',
+      color: 'gray.100',
+    },
+    '.react-datepicker__current-month, .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__month, .react-datepicker__month-text':
+      {
+        color: 'gray.100',
+      },
+  };
 
   return (
-    <FormControl mb={4} isInvalid={errors && errors[name] !== undefined}>
-      <Stack spacing={2}>
-        {label && <FormLabel label={label} />}
-        {tip && <HelperText tipText={tip} fontSize='xs' color='gray.700' />}
+    <FormControl mb={4}>
+      <Stack sx={customDatePickerStyles} spacing={2}>
+        {label && <FormLabel>{label}</FormLabel>}
         <Box my={2}>
           <Controller
             name={name}
@@ -53,11 +64,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
               />
             )}
           />
-          {errors && (
-            <ErrorMessage
-              errorMessage={errors[name] && errors[name]?.message?.toString()}
-            />
-          )}
         </Box>
       </Stack>
     </FormControl>

@@ -3,6 +3,7 @@ export * from './Card';
 export * from './Checkbox';
 export * from './ControlledInput';
 export * from './ControlledTextarea';
+export * from './DatePicker';
 export * from './Heading';
 export * from './Input';
 export * from './List';
