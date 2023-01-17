@@ -61,9 +61,7 @@ const Select: React.FC<SelectProps> = ({
   isMulti,
   isClearable,
   isSearchable,
-  onChange,
   isDisabled,
-  value,
   variant,
   localForm,
   basicStyles = false,
@@ -92,21 +90,18 @@ const Select: React.FC<SelectProps> = ({
             shouldUnregister={false}
             render={({ field }) => (
               <ReactSelect
-                {...field}
                 chakraStyles={basicStyles === false ? chakraStyles : {}}
-                onBlur={field.onBlur}
                 options={options}
                 defaultValue={defaultValue}
                 placeholder={placeholder}
                 isClearable={isClearable}
                 isMulti={isMulti}
-                onChange={onChange}
                 isDisabled={isDisabled}
                 variant={variant}
                 colorScheme={colorScheme}
-                value={value}
                 useBasicStyles={basicStyles}
                 isSearchable={isSearchable}
+                {...field}
                 {...props}
               />
             )}
