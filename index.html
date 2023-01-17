@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
 
     <title>@storybook/cli - Storybook</title>
-
-    <link rel="shortcut icon" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+      <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    
 
       
 
@@ -26,13 +28,11 @@
       
         
           window['FEATURES'] = {
-  "postcss": true,
   "warnOnLegacyHierarchySeparator": true,
   "buildStoriesJson": false,
   "storyStoreV7": true,
   "breakingChangesV7": true,
   "interactionsDebugger": false,
-  "babelModeV7": true,
   "argTypeTargetsV7": true,
   "emotionAlias": false
 };
@@ -44,7 +44,7 @@
     "id": "@chakra-ui/react",
     "url": "https://storybook.chakra-ui.com",
     "title": "Chakra UI",
-    "version": "2.4.6",
+    "version": "2.4.7",
     "type": "server-checked"
   }
 };
@@ -56,10 +56,14 @@
       
         
           window['DOCS_OPTIONS'] = {
-  "enabled": true,
+  "disable": false,
   "defaultName": "Docs",
-  "docsPage": true
+  "autodocs": "tag"
 };
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
         
       
         
@@ -73,18 +77,22 @@
     </script>
     
 
-    <script src="./sb-manager/runtime.mjs" type="module"></script>
+    <script type="module">
+      import './sb-manager/runtime.mjs';
 
-    
-    <script src="./sb-addons/node_modules/%40storybook/addon-actions/manager.mjs" type="module"></script>
-    
-    <script src="./sb-addons/node_modules/%40storybook/addon-links/manager.mjs" type="module"></script>
-    
-    <script src="./sb-addons/node_modules/storybook-addon-react-docgen/register.mjs" type="module"></script>
-    
-    <script src="./sb-addons/node_modules/%40chakra-ui/storybook-addon/dist/preset/register.cjs.mjs" type="module"></script>
-    
-    <script src="./sb-addons/.storybook/manager.mjs" type="module"></script>
-    
+      
+      import './sb-addons/actions-0/manager-bundle.mjs';
+      
+      import './sb-addons/links-1/manager-bundle.mjs';
+      
+      import './sb-addons/react-docgen-2/register-bundle.mjs';
+      
+      import './sb-addons/chakra-ui-preset-3/register-bundle.mjs';
+      
+      import './sb-addons/storybook-4/manager-bundle.mjs';
+           
+    </script>    
+
+    <link href="./sb-preview/runtime.mjs" rel="preload" as="script">
   </body>
 </html>
