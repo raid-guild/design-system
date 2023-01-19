@@ -11,12 +11,12 @@ import {
   Flex,
   HStack,
   Icon,
-  AlertStatus,
+  ChakraAlertStatus,
   ChakraToastProps,
 } from '../../chakra';
 
 type CustomToastProps = {
-  status: AlertStatus;
+  status: ChakraAlertStatus;
   title: string | ReactNode;
   description?: string | ReactNode;
   icon?: IconType;

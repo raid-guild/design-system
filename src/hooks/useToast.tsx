@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import _ from 'lodash';
 import {
-  useToast as useChakraToast,
-  AlertStatus,
+  useChakraToast,
+  ChakraAlertStatus,
   ToastId,
   CreateToastFnReturn,
-} from '@chakra-ui/react';
+} from '../components/chakra';
 import { Toast, ToastProps } from '../components/atoms';
 
 const ToastBase = ({
@@ -19,7 +19,7 @@ const ToastBase = ({
   closeToast,
   ...props // gets the rest of the original Chakra Toast props (such as isClosable)
 }: ToastProps & {
-  status: AlertStatus;
+  status: ChakraAlertStatus;
   toast: Partial<CreateToastFnReturn>;
 }) => {
   return toast({
@@ -57,7 +57,7 @@ const useCustomToast = () => {
     success(props: Omit<ToastProps, 'status'>) {
       toastIdRef.current = ToastBase({
         ...props,
-        status: 'success',
+        status: 'success' as ChakraAlertStatus,
         closeToast,
         isClosable: props.isClosable ?? true,
         toast,
@@ -66,7 +66,7 @@ const useCustomToast = () => {
     error(props: Omit<ToastProps, 'status'>) {
       toastIdRef.current = ToastBase({
         ...props,
-        status: 'error',
+        status: 'error' as ChakraAlertStatus,
         closeToast,
         isClosable: props.isClosable ?? true,
         toast,
@@ -75,7 +75,7 @@ const useCustomToast = () => {
     warning(props: Omit<ToastProps, 'status'>) {
       toastIdRef.current = ToastBase({
         ...props,
-        status: 'warning',
+        status: 'warning' as ChakraAlertStatus,
         closeToast,
         isClosable: props.isClosable ?? true,
         toast,
@@ -84,7 +84,7 @@ const useCustomToast = () => {
     loading(props: Omit<ToastProps, 'status'>) {
       toastIdRef.current = ToastBase({
         ...props,
-        status: 'loading',
+        status: 'loading' as ChakraAlertStatus,
         closeToast,
         isClosable: props.isClosable ?? true,
         toast,
@@ -93,7 +93,7 @@ const useCustomToast = () => {
     info(props: Omit<ToastProps, 'status'>) {
       toastIdRef.current = ToastBase({
         ...props,
-        status: 'info',
+        status: 'info' as ChakraAlertStatus,
         closeToast,
         isClosable: props.isClosable ?? true,
         toast,

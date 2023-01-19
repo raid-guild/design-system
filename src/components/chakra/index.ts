@@ -1,3 +1,4 @@
+// EXPORT AS CHAKRACOMPONENT IF THERE'S A NATIVE COMPONENT
 export {
   Accordion,
   AccordionItem,
@@ -152,21 +153,26 @@ export {
   createStandaloneToast,
   ToastProvider,
 } from '@chakra-ui/react';
+// EXPORT DEFAULT COMPONENT TYPES AS [CHAKRACOMPONENTTYPE] SO THERE ISN'T CONFUSION
 export type {
+  ToastId,
+  CreateToastFnReturn,
   AvatarProps,
   AlertDialogProps as ChakraAlertDialogProps,
+  AlertStatus as ChakraAlertStatus,
   BadgeProps as ChakraBadgeProps,
   BoxProps as ChakraBoxProps,
-  ButtonProps,
+  ButtonProps as ChakraButtonProps,
   ButtonGroupProps as ChakraButtonGroupProps,
   ChakraProps,
   CheckboxProps as ChakraCheckboxProps,
-  DrawerProps,
-  FlexProps,
+  DrawerProps as ChakraDrawerProps,
+  FlexProps as ChakraFlexProps,
   HeadingProps as ChakraHeadingProps,
   HTMLChakraProps,
   InputProps as ChakraInputProps,
   ListProps as ChakraListProps,
+  LinkProps as ChakraLinkProps,
   ModalProps as ChakraModalProps,
   RadioProps as ChakraRadioProps,
   RadioGroupProps,
@@ -177,8 +183,7 @@ export type {
   TagProps as ChakraTagProps,
   TextProps as ChakraTextProps,
   TextareaProps as ChakraTextareaProps,
-  TooltipProps as ChakraTooltipProps,
-  WrapProps,
-  AlertStatus,
   ToastProps as ChakraToastProps,
+  TooltipProps as ChakraTooltipProps,
+  WrapProps as ChakraWrapProps,
 } from '@chakra-ui/react';
