@@ -19,3 +19,5 @@ export * from './components/icons';
 
 // MOLECULES
 export * from './components/molecules';
+
+export { default as defaultTheme } from './theme';
