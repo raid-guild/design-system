@@ -4,13 +4,13 @@ import {
   ColorModeScript,
   ToastProvider,
 } from '@chakra-ui/react';
-import RaidGuildTheme from '../../../theme/index';
+import RaidGuildTheme from '../../theme/index';
 import Fonts from './Fonts';
 
 interface RGThemeProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   theme?: Record<string, any>;
-  fonts?: ReactNode;
+  fonts?: boolean;
   colorModeScript?: ReactNode;
   children: ReactNode;
 }
@@ -24,10 +24,12 @@ const RGThemeProvider: React.FC<RGThemeProps> = ({
   return (
     <ChakraProvider theme={theme || RaidGuildTheme} resetCSS>
       {colorModeScript || <ColorModeScript initialColorMode='dark' />}
-      {fonts || <Fonts />}
+      {fonts}
       <ToastProvider>{children}</ToastProvider>
     </ChakraProvider>
   );
 };
 
 export default RGThemeProvider;
+
+export { Fonts };
