@@ -16,11 +16,11 @@ module.exports = {
     plugins = [
       url({
         include: [
-          '**/*.ttf',
-          '**/*.eot',
-          '**/*.otf',
-          '**/*.woff',
-          '**/*.woff2',
+          'assets/fonts/**',
+          // '**/*.eot',
+          // '**/*.otf',
+          // '**/*.woff',
+          // '**/*.woff2',
         ],
         limit: Infinity,
       }),

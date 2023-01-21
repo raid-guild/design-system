@@ -1,37 +1,45 @@
-// import SpaceMonoBold from '../../../../assets/fonts/SpaceMono/Bold.woff';
-// import SpaceMonoBoldItalic from '../../../../assets/fonts/SpaceMono/BoldItalic.woff';
-// import SpaceMonoItalic from '../../../../assets/fonts/SpaceMono/Italic.woff';
-import SpaceMonoRegular from '../../../../assets/fonts/SpaceMono/Regular.woff';
-import SpaceMonoWoff2 from '../../../../assets/fonts/SpaceMono/Regular.woff2';
+import { ASSETS_BASE_URL } from './util';
+
+const family = 'Space Mono';
 
 const SpaceMono = [
   {
-    family: 'Space Mono',
+    family,
     weight: 500,
-    sources: [{ location: SpaceMonoRegular, format: 'woff' }],
+    sources: [
+      { location: `${ASSETS_BASE_URL}/SpaceMono/Regular.woff`, format: 'woff' },
+      {
+        location: `${ASSETS_BASE_URL}/SpaceMono/Regular.woff2`,
+        format: 'woff2',
+      },
+    ],
   },
   {
-    family: 'Space Mono',
-    weight: 500,
-    sources: [{ location: SpaceMonoWoff2, format: 'woff2' }],
+    family,
+    weight: 600,
+    sources: [
+      { location: `${ASSETS_BASE_URL}/SpaceMono/Bold.woff`, format: 'woff' },
+    ],
   },
-  // {
-  //   family: 'Space Mono',
-  //   weight: 600,
-  //   sources: [{ location: SpaceMonoBold, format: 'woff' }],
-  // },
-  // {
-  //   family: 'Space Mono',
-  //   style: 'italic',
-  //   weight: 500,
-  //   sources: [{ location: SpaceMonoItalic, format: 'woff' }],
-  // },
-  // {
-  //   family: 'Space Mono',
-  //   style: 'italic',
-  //   weight: 600,
-  //   sources: [{ location: SpaceMonoBoldItalic, format: 'woff' }],
-  // },
+  {
+    family,
+    style: 'italic',
+    weight: 500,
+    sources: [
+      { location: `${ASSETS_BASE_URL}/SpaceMono/Italic.woff`, format: 'woff' },
+    ],
+  },
+  {
+    family,
+    style: 'italic',
+    weight: 600,
+    sources: [
+      {
+        location: `${ASSETS_BASE_URL}/SpaceMono/BoldItalic.woff`,
+        format: 'woff',
+      },
+    ],
+  },
 ];
 
 export default SpaceMono;

@@ -1,20 +1,22 @@
-// import _ from 'lodash';
-import TexturinaTtf from '../../../../assets/fonts/Texturina/Regular.ttf';
-import TexturinaWoff from '../../../../assets/fonts/Texturina/Regular.woff2';
-import { Font } from './util';
+import { Font, ASSETS_BASE_URL } from './util';
+
+const family = 'Texturina';
 
 const Texturina: Font[] = [
   {
-    family: 'Texturina',
-    style: 'normal',
-    weight: 400,
-    sources: [{ location: TexturinaTtf, format: 'ttf' }],
+    family,
+    sources: [
+      { location: `${ASSETS_BASE_URL}/Texturina/Regular.ttf`, format: 'ttf' },
+    ],
   },
   {
-    family: 'Texturina',
-    style: 'normal',
-    weight: 400,
-    sources: [{ location: TexturinaWoff, format: 'woff2' }],
+    family,
+    sources: [
+      {
+        location: `${ASSETS_BASE_URL}/Texturina/Regular.woff2`,
+        format: 'woff2',
+      },
+    ],
   },
 ];
 

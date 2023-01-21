@@ -2,21 +2,19 @@ import React from 'react';
 import _ from 'lodash';
 import { Global, css } from '@emotion/react';
 
-import { Font, Source } from './fonts/util';
+import { Font, Source, ASSETS_BASE_URL } from './fonts/util';
 import SpaceMono from './fonts/spaceMono';
 import Texturina from './fonts/texturina';
 // import TexturinaItalic from './fonts/texturinaItalic';
 import UncialAntiqua from './fonts/uncialAntiqua';
 
-import JetBrainsMonoRegular from '../../../assets/fonts/JetBrainsMono/Regular.woff2';
-
-const JetBrainsMono = [
+const JetBrainsMono: Font[] = [
   {
     family: 'JetBrains Mono',
-    weight: 400,
+    weight: 500,
     sources: [
       {
-        location: JetBrainsMonoRegular,
+        location: `${ASSETS_BASE_URL}/JetBrainsMono/Regular.woff2`,
         format: 'woff2',
       },
     ],
@@ -43,8 +41,8 @@ const fontStringFormatter = (font: Font) => {
     ${_.get(font, 'label') && `/* ${_.get(font, 'label')} */`}
     @font-face {
       font-family: '${_.get(font, 'family')}';
-      font-style: normal;
-      font-weight: ${_.get(font, 'weight')};
+      font-style: ${_.get(font, 'style') || 'normal'};
+      font-weight: ${_.get(font, 'weight') || '500'};
       font-display: swap;
       src: ${sourcesStringFormatter(_.get(font, 'sources'))};
     }

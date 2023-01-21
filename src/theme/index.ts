@@ -32,7 +32,8 @@ const theme = extendTheme({
         boxSizing: 'border-box',
       },
       body: {
-        bg: 'gray.200',
+        bg: 'gray.800',
+        fontFamily: 'texturina',
         color: 'white',
         minHeight: '100vh',
         minWidth: '100vw',
