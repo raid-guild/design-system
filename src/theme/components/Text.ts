@@ -2,6 +2,7 @@ const Text = {
   // Styles for the base style
   baseStyle: {
     fontFamily: 'texturina',
+    lineHeight: '1.8',
   },
   // Styles for the size variations
   sizes: {},

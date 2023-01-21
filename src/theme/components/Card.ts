@@ -1,24 +1,35 @@
+const blackCard = {
+  background: 'black',
+  color: 'white',
+};
+
+const rainbowBorder = {
+  borderImageSlice: 1,
+  borderImageSource:
+    'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+};
+
+const rainbowHeader = {
+  backgroundImage:
+    'linear-gradient(96.18deg, rgb(255, 56, 100) -44.29%, rgb(139, 29, 186) 53.18%, rgb(67, 83, 223) 150.65%)',
+};
+
 const Card = {
   // The styles all Cards have in common
-  baseStyle: ({ bg, color }: any) => ({
-    container: {
-      background: bg || 'black',
-      color: color || bg || 'black',
-      p: {
-        color: 'white',
-      },
-    },
+  baseStyle: {
+    container: {},
     body: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       gap: 6,
     },
-  }),
+  },
   // Two variants: rounded and smooth
   variants: {
     fullBorder: {
       container: {
+        ...blackCard,
         border: '2px solid',
         borderColor: 'red.500',
         borderRadius: 'none',
@@ -26,6 +37,7 @@ const Card = {
     },
     topBorderOnly: {
       container: {
+        ...blackCard,
         borderTop: '2px solid',
         borderColor: 'red.500',
         borderRadius: 'none',
@@ -33,20 +45,17 @@ const Card = {
     },
     rainbowBorder: {
       container: {
+        ...blackCard,
         border: '2px solid',
         borderRadius: 'none',
-        borderImageSlice: 1,
-        borderImageSource:
-          'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+        ...rainbowBorder,
       },
     },
     topRainbowBorder: {
       container: {
         borderTop: '2px solid',
         borderRadius: 'none',
-        borderImageSlice: 1,
-        borderImageSource:
-          'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
+        ...rainbowBorder,
       },
     },
     withHeader: {
@@ -63,8 +72,7 @@ const Card = {
         borderTopLeftRadius: 'md',
         borderTopRightRadius: 'md',
         width: '100%',
-        backgroundImage:
-          'linear-gradient(96.18deg, rgb(255, 56, 100) -44.29%, rgb(139, 29, 186) 53.18%, rgb(67, 83, 223) 150.65%)',
+        ...rainbowHeader,
       },
       centerDivider: {
         position: 'absolute',
