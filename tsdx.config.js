@@ -1,21 +1,34 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const css = require('rollup-plugin-css-porter');
 const replace = require('@rollup/plugin-replace');
+const url = require('@rollup/plugin-url');
 
 module.exports = {
   rollup(config, options) {
+    // grab the original plugins
+    let plugins = config.plugins || [];
     // workaround to fix 'preventAssignment' warning in build
-    config.plugins = config.plugins.map((p) =>
-      p.name === 'replace'
-        ? replace({
-            'process.env.NODE_ENV': JSON.stringify(options.env),
-            preventAssignment: true,
-          })
-        : p
-    );
+    plugins.replace = replace({
+      'process.env.NODE_ENV': JSON.stringify(options.env),
+      preventAssignment: true,
+    });
+    // manually include fonts
+    plugins = [
+      url({
+        include: [
+          '**/*.ttf',
+          '**/*.eot',
+          '**/*.otf',
+          '**/*.woff',
+          '**/*.woff2',
+        ],
+        limit: Infinity,
+      }),
+      ...plugins,
+    ];
+    // export css
+    plugins.push(css());
 
-    config.plugins.push(css());
-
-    return config;
+    return { ...config, plugins };
   },
 };

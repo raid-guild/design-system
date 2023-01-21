@@ -3,6 +3,10 @@
   "include": ["src", "types", "src/stories", "src/test"],
   "exclude": ["dist"],
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["/*"]
+    },
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "importHelpers": true,

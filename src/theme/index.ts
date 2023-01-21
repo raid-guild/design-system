@@ -1,6 +1,4 @@
 import { extendTheme } from '../components/chakra';
-import '../assets/css/fonts.css';
-import '../assets/css/globals.css';
 
 import colors from './colors';
 import gradientStyles from './gradientStyles';
@@ -28,10 +26,30 @@ import Tooltip from './components/Tooltip';
 const theme = extendTheme({
   styles: {
     global: {
+      '*': {
+        margin: 0,
+        padding: 0,
+        boxSizing: 'border-box',
+      },
       body: {
+        bg: 'gray.200',
         color: 'white',
         minHeight: '100vh',
         minWidth: '100vw',
+        overflowY: 'overlay',
+      },
+
+      // Scrollbar styles
+      '::-webkit-scrollbar': {
+        width: '10px',
+        background: 'transparent',
+      },
+      '::-webkit-scrollbar-thumb': {
+        background: '#ff3864',
+        borderRadius: '5px',
+      },
+      '::-webkit-scrollbar-thumb:hover': {
+        background: '#e4728b',
       },
     },
   },
@@ -41,7 +59,7 @@ const theme = extendTheme({
     jetbrains: `'JetBrains Mono', monospace`,
     rubik: `'Rubik Mono One', sans-serif`,
     uncial: `'Uncial Antiqua', serif`,
-    spaceMono: `'Space Mono', monospace;`,
+    spaceMono: `'Space Mono', monospace`,
   },
   components: {
     Accordion,
@@ -66,10 +84,6 @@ const theme = extendTheme({
   },
   layerStyles: {
     ...gradientStyles,
-  },
-  config: {
-    initialColorMode: 'dark',
-    useSystemColorMode: false,
   },
 });
 
