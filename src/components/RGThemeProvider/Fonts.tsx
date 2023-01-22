@@ -38,7 +38,7 @@ const sourcesStringFormatter = (sources: Source[]) =>
 
 const fontStringFormatter = (font: Font) => {
   const fontString = `
-    ${_.get(font, 'label') && `/* ${_.get(font, 'label')} */`}
+    ${_.get(font, 'label') ? `/* ${_.get(font, 'label')} */` : ''}
     @font-face {
       font-family: '${_.get(font, 'family')}';
       font-style: ${_.get(font, 'style') || 'normal'};
@@ -47,6 +47,7 @@ const fontStringFormatter = (font: Font) => {
       src: ${sourcesStringFormatter(_.get(font, 'sources'))};
     }
   `;
+
   return fontString;
 };
 
