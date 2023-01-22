@@ -1,6 +1,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { themes } from '@storybook/theming';
 import theme from '../src/theme/index';
+import { Fonts, Box } from '../src';
 
 export const parameters = {
   viewport: {
@@ -29,6 +30,15 @@ export const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
-    }
-  }
+    },
+  },
 };
+
+export const decorators = [
+  (Story) => (
+    <Box>
+      <Fonts />
+      <Story />
+    </Box>
+  ),
+];

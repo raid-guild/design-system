@@ -2,7 +2,7 @@ const Text = {
   // Styles for the base style
   baseStyle: {
     fontFamily: 'texturina',
-    lineHeight: '1.8',
+    // lineHeight: '1.8',
   },
   // Styles for the size variations
   sizes: {},
@@ -11,7 +11,7 @@ const Text = {
     main: {
       maxWidth: '720px',
       fontFamily: 'texturina',
-      lineHeight: '1.8',
+      // lineHeight: '1.8',
       color: ['black', 'white'],
       textAlign: 'left',
     },

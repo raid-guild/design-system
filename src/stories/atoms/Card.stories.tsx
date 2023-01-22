@@ -1,14 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import {
-  Card,
-  ChakraHeading,
-  Image,
-  ChakraText,
-  SimpleGrid,
-  Heading,
-  Text,
-} from '../..';
+import { Card, Image, HStack, SimpleGrid, Heading, Text } from '../..';
 import imgDesignSprints from '../../assets/images/designsprints.png';
 import { RoleBadge } from '../../components/molecules';
 
@@ -22,7 +14,7 @@ export default {
 } as Meta<typeof Card>;
 
 const cardVariants = [
-  undefined,
+  'fullBorder',
   'topBorderOnly',
   'rainbowBorder',
   'topRainbowBorder',
@@ -40,24 +32,26 @@ const Cards: StoryFn<typeof Card> = () => (
     gap='4rem'
     my='2rem'
     ml={{ lg: '3rem' }}
-    bg={'blue.800'}
+    bg='blue.800'
     p={8}
   >
     {cardVariants.map((variant) => (
       <Card variant={variant} key={variant}>
-        <ChakraHeading
-          as='h4'
-          size='xl'
-          color='white'
-          textAlign='center'
-          mb={4}
-        >
+        <Heading as='h4' size='xl' color='white' textAlign='center' mb={4}>
           {title}
-        </ChakraHeading>
+        </Heading>
 
         <Image src={imgDesignSprints} alt={title} my='1.5rem' />
-        <ChakraText>Variant: {variant}</ChakraText>
-        <ChakraText>{cardCopy}</ChakraText>
+        <HStack align='flex-end' spacing={3}>
+          <Text fontSize='xl' fontWeight={800}>
+            Variant:
+          </Text>
+          <Text fontFamily='jetbrains'>
+            {variant} {variant === 'fullBorder' ? '(Default)' : ''}
+          </Text>
+        </HStack>
+
+        <Text>{cardCopy}</Text>
       </Card>
     ))}
     <Card
@@ -73,7 +67,7 @@ const Cards: StoryFn<typeof Card> = () => (
       variant='withHeader'
       bg='whiteAlpha.200'
     >
-      <Text>Test</Text>
+      <Text>Variant: withHeader</Text>
     </Card>
   </SimpleGrid>
 );
