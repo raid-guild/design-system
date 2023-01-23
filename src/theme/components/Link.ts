@@ -1,5 +1,7 @@
 const Link = {
-  baseStyle: {},
+  baseStyle: {
+    fontFamily: 'spaceMono',
+  },
   variants: {
     noDecoration: {
       _hover: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import {
   ChakraInput,
@@ -8,7 +8,7 @@ import {
 } from '../../chakra';
 
 type CustomInputProps = {
-  label: string;
+  label: string | ReactNode;
   name: string;
   localForm: UseFormReturn;
 };

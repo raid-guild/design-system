@@ -1,8 +1,11 @@
 const Input = {
-  baseStyle: {},
+  baseStyle: {
+    fontFamily: 'spaceMono',
+  },
   variants: {
     filled: {
       field: {
+        fontFamily: 'spaceMono',
         borderRadius: '0px',
         bg: 'gray.700',
         // opacity: '20%',

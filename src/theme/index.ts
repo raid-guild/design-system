@@ -8,6 +8,7 @@ import Badge from './components/Badge';
 import Button from './components/Button';
 import Card from './components/Card';
 import Checkbox from './components/Checkbox';
+import FormLabel from './components/FormLabel';
 import RadioBox from './components/RadioBox';
 import Heading from './components/Heading';
 import Input from './components/Input';
@@ -68,6 +69,7 @@ const theme = extendTheme({
     Button,
     Card,
     Checkbox,
+    FormLabel,
     RadioBox,
     Heading,
     Input,
