@@ -1,5 +1,7 @@
 const Textarea = {
-  baseStyle: {},
+  baseStyle: {
+    fontFamily: 'spaceMono',
+  },
   variants: {
     filled: {
       borderRadius: '0px',
