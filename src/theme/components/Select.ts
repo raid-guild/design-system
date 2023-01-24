@@ -4,6 +4,7 @@ const Select = {
     filled: {
       field: {
         borderRadius: '0px',
+        fontFamily: 'spaceMono',
       },
     },
     outline: {

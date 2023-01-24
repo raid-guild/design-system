@@ -12,6 +12,9 @@ const RadioBox = {
         color: 'white',
         borderColor: 'teal.600',
       },
+      label: {
+        fontFamily: 'spaceMono',
+      },
     },
   },
   sizes: {
