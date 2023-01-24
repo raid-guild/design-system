@@ -10,7 +10,7 @@ import Fonts from './Fonts';
 interface RGThemeProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   theme?: Record<string, any>;
-  fonts?: boolean;
+  fonts?: ReactNode;
   colorModeScript?: ReactNode;
   children: ReactNode;
 }
@@ -24,7 +24,7 @@ const RGThemeProvider: React.FC<RGThemeProps> = ({
   return (
     <ChakraProvider theme={theme || RaidGuildTheme} resetCSS>
       {colorModeScript || <ColorModeScript initialColorMode='dark' />}
-      {fonts}
+      {fonts || <Fonts />}
       <ToastProvider>{children}</ToastProvider>
     </ChakraProvider>
   );

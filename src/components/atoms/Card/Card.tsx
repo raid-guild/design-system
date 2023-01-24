@@ -5,9 +5,13 @@ import {
   CardBody,
   CardHeader,
   ChakraBoxProps,
+  ChakraCardProps,
+  ChakraFlexProps,
 } from '../../chakra';
 
-export interface CardProps extends ChakraBoxProps {
+type ExtensionProps = ChakraBoxProps & ChakraFlexProps & ChakraCardProps;
+
+export interface CardProps extends ExtensionProps {
   heading?: ReactNode;
   centerDivider?: ReactNode;
   variant?: string;

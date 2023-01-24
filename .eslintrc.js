@@ -21,12 +21,14 @@ module.exports = {
     'no-use-before-define': 'off',
     'no-param-reassign': [2, { props: false }],
     // REACT
-    'react/function-component-definition': 'off',
-    'react/require-default-props': 'off',
-    'react/jsx-filename-extension': [
+    'react/function-component-definition': [
       2,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+      {
+        namedComponents: ['arrow-function'],
+      },
     ],
+    'react/require-default-props': 'off',
+    'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': 'off',
     // IMPORT
     'import/prefer-default-export': 'off',
