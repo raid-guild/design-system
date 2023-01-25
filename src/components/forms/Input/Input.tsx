@@ -1,16 +1,26 @@
 import React, { ReactNode } from 'react';
 import { UseFormReturn } from 'react-hook-form';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 import {
   ChakraInput,
   ChakraInputProps,
   FormControl,
   FormLabel,
+  HStack,
+  FormHelperText,
+  FormErrorMessage,
+  Icon,
+  Flex,
+  Stack,
 } from '../../chakra';
+import { Tooltip } from '../../atoms';
 
 type CustomInputProps = {
   label: string | ReactNode;
   name: string;
   localForm: UseFormReturn;
+  tooltip?: string;
+  helperText?: string;
 };
 
 export type InputProps = ChakraInputProps & CustomInputProps;
@@ -30,15 +40,49 @@ const Input: React.FC<InputProps> = ({
   name,
   type,
   localForm,
+  tooltip,
+  helperText,
   ...props
 }: InputProps) => {
   if (!localForm) return null;
-  const { register } = localForm;
+  const {
+    register,
+    formState: { errors },
+  } = localForm;
+
+  const error = errors[name] && errors[name]?.message;
 
   return (
     <FormControl>
-      {label && <FormLabel>{label}</FormLabel>}
-      <ChakraInput type={type} {...props} {...register(name)} />
+      <Stack spacing={4}>
+        <HStack align='center'>
+          {label && <FormLabel m='0'>{label}</FormLabel>}
+          {tooltip && (
+            <Tooltip
+              label={tooltip}
+              shouldWrapChildren
+              hasArrow
+              placement='end'
+            >
+              <Flex
+                h='24px'
+                w='24px'
+                bg='primary.500'
+                borderRadius='full'
+                align='center'
+                justify='center'
+              >
+                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
+              </Flex>
+            </Tooltip>
+          )}
+        </HStack>
+        <ChakraInput type={type} {...props} {...register(name)} />
+        {helperText && <FormHelperText>{helperText}</FormHelperText>}
+        {typeof error === 'string' && (
+          <FormErrorMessage>Error Message</FormErrorMessage>
+        )}
+      </Stack>
     </FormControl>
   );
 };

@@ -1,7 +1,19 @@
 import React from 'react';
 import { UseFormReturn, Controller } from 'react-hook-form';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { ChakraStylesConfig, Select as ReactSelect } from 'chakra-react-select';
-import { FormLabel, FormControl, Box, Stack } from '../../chakra';
+import {
+  FormLabel,
+  FormControl,
+  Box,
+  Stack,
+  FormHelperText,
+  FormErrorMessage,
+  Icon,
+  HStack,
+  Flex,
+} from '../../chakra';
+import { Tooltip } from '../../atoms';
 
 export type Option =
   | {
@@ -15,6 +27,8 @@ export type Option =
   | { value: number; label: string };
 export interface SelectProps {
   name: string;
+  helperText?: string;
+  tooltip?: string;
   label?: string | React.ReactNode;
   placeholder?: string;
   defaultValue?: Option | Option[];
@@ -55,6 +69,8 @@ export interface SelectProps {
 const Select: React.FC<SelectProps> = ({
   label,
   name,
+  helperText,
+  tooltip,
   placeholder,
   defaultValue,
   options,
@@ -68,7 +84,12 @@ const Select: React.FC<SelectProps> = ({
   colorScheme = 'primary',
   ...props
 }: SelectProps) => {
-  const { control } = localForm;
+  const {
+    control,
+    formState: { errors },
+  } = localForm;
+
+  const error = errors[name] && errors[name]?.message;
 
   const chakraStyles: ChakraStylesConfig = {
     dropdownIndicator: (provided) => ({
@@ -82,7 +103,29 @@ const Select: React.FC<SelectProps> = ({
   return (
     <FormControl mb={4}>
       <Stack spacing={2}>
-        {label && <FormLabel>{label}</FormLabel>}
+        <HStack align='center'>
+          {label && <FormLabel m='0'>{label}</FormLabel>}
+          {tooltip && (
+            <Tooltip
+              label={tooltip}
+              shouldWrapChildren
+              hasArrow
+              placement='end'
+            >
+              <Flex
+                h='24px'
+                w='24px'
+                bg='primary.500'
+                borderRadius='full'
+                align='center'
+                justify='center'
+              >
+                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
+              </Flex>
+            </Tooltip>
+          )}
+        </HStack>
+
         <Box my={2}>
           <Controller
             name={name}
@@ -107,6 +150,10 @@ const Select: React.FC<SelectProps> = ({
             )}
           />
         </Box>
+        {helperText && <FormHelperText>{helperText}</FormHelperText>}
+        {typeof error === 'string' && (
+          <FormErrorMessage>Error Message</FormErrorMessage>
+        )}
       </Stack>
     </FormControl>
   );

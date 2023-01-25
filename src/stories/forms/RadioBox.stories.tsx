@@ -1,17 +1,35 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { RadioBox as RadioBoxComponent, Box, Stack, Text } from '../..';
+import { RadioBox as RadioBoxComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Forms/RadioBox/HookForm',
   component: RadioBoxComponent,
 } as Meta<typeof RadioBoxComponent>;
 
-const radioSizes: { name: string; size: 'sm' | 'md' | 'lg' }[] = [
-  { name: 'Small', size: 'sm' },
-  { name: 'Medium', size: 'md' },
-  { name: 'Large', size: 'lg' },
+const radioSizes: {
+  name: string;
+  size: 'sm' | 'md' | 'lg';
+  helperText?: string;
+  tooltip?: string;
+}[] = [
+  {
+    name: 'Small',
+    size: 'sm',
+    helperText: 'This is a helper text',
+    tooltip: 'This is a tooltip',
+  },
+  {
+    name: 'Medium',
+    size: 'md',
+    helperText: 'This is a helper text',
+    tooltip: 'This is a tooltip',
+  },
+  {
+    name: 'Large',
+    size: 'lg',
+  },
 ];
 
 const radioOptions = ['1000', '10000'];
@@ -24,15 +42,16 @@ const HookForm: StoryFn<typeof RadioBoxComponent> = () => (
 
         return (
           <Stack key={size.size}>
-            <Text>{size.name}</Text>
             <RadioBoxComponent
               name='testing'
-              label='Select your budget'
+              label={size.name}
               options={radioOptions}
               defaultValue='1000'
               localForm={localForm}
               size={size.size}
               stack='horizontal'
+              helperText={size.helperText}
+              tooltip={size.tooltip}
             />
           </Stack>
         );

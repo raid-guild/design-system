@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { Checkbox as CheckboxComponent, Box, Stack, Text } from '../..';
+import { Checkbox as CheckboxComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Forms/Checkbox/HookForm',
@@ -14,7 +14,7 @@ const checkboxSizes = [
   { name: 'Large', size: 'lg' },
 ];
 
-const checkboxOptions = ['1000', '10000'];
+const checkboxOptions = ['1000', '10000', '100000', '1000000'];
 
 const HookForm: StoryFn<typeof CheckboxComponent> = () => (
   <Box w='50%'>
@@ -23,12 +23,15 @@ const HookForm: StoryFn<typeof CheckboxComponent> = () => (
         const localForm = useForm();
         return (
           <Stack key={size.size}>
-            <Text>{size.name}</Text>
             <CheckboxComponent
+              label={size.name}
               name='testing'
               options={checkboxOptions}
               size={size.size}
               localForm={localForm}
+              tooltip='This is a tooltip'
+              placeholder='Optional placeholder value'
+              helperText='This is a helper text'
             />
           </Stack>
         );
