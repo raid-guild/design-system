@@ -15,7 +15,7 @@ import {
   Stack,
 } from '../../chakra';
 
-function RadioCard({ children, variant, size, ...props }: ChakraRadioProps) {
+const RadioCard = ({ children, variant, size, ...props }: ChakraRadioProps) => {
   const styles = useStyleConfig('RadioBox', { variant, size });
   const { getInputProps, getCheckboxProps } = useRadio({ ...props });
 
@@ -30,11 +30,11 @@ function RadioCard({ children, variant, size, ...props }: ChakraRadioProps) {
       </Box>
     </Box>
   );
-}
+};
 
 export interface CustomRadioBoxProps {
   name: string;
-  label: string;
+  label: string | React.ReactNode;
   localForm: UseFormReturn<FieldValues>;
   options: any;
   stack?: 'vertical' | 'horizontal';
@@ -43,7 +43,7 @@ export interface CustomRadioBoxProps {
 
 type RadioBoxProps = CustomRadioBoxProps & ChakraRadioProps;
 
-function RadioBox({
+const RadioBox = ({
   name,
   label,
   localForm,
@@ -51,7 +51,7 @@ function RadioBox({
   stack,
   isRequired,
   size,
-}: RadioBoxProps) {
+}: RadioBoxProps) => {
   if (!localForm) return null;
   const { control } = localForm;
   const {
@@ -100,6 +100,6 @@ function RadioBox({
       </Stack>
     </FormControl>
   );
-}
+};
 
 export default RadioBox;

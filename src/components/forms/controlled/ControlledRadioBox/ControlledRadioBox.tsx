@@ -10,7 +10,7 @@ import {
   useStyleConfig,
 } from '../../../chakra';
 
-function RadioCard({ children, variant, ...props }: ChakraRadioProps) {
+const RadioCard = ({ children, variant, ...props }: ChakraRadioProps) => {
   const styles = useStyleConfig('RadioBox', { variant });
   const { getInputProps, getCheckboxProps } = useRadio({ ...props });
 
@@ -25,7 +25,7 @@ function RadioCard({ children, variant, ...props }: ChakraRadioProps) {
       </Box>
     </Box>
   );
-}
+};
 
 interface RadioBoxProps {
   name: string;
@@ -35,13 +35,13 @@ interface RadioBoxProps {
   stack: 'vertical' | 'horizontal';
 }
 
-function ControlledRadioBox({
+const ControlledRadioBox = ({
   name,
   value,
   updateRadio,
   options,
   stack,
-}: RadioBoxProps) {
+}: RadioBoxProps) => {
   const { getRootProps, getRadioProps } = useRadioGroup({
     name,
     value,
@@ -71,6 +71,6 @@ function ControlledRadioBox({
       <Options />
     </HStack>
   );
-}
+};
 
 export default ControlledRadioBox;

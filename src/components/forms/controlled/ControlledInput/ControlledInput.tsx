@@ -18,7 +18,7 @@ type CustomControlledInputProps = {
   /**
    * optional, displays label if provided
    */
-  label?: string;
+  label?: string | React.ReactNode;
   /**
    *  optional, not required since no form control
    */

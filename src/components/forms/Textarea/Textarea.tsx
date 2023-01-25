@@ -16,7 +16,7 @@ import {
 import { Tooltip } from '../../atoms';
 
 export type CustomTextareaProps = {
-  label: string;
+  label: string | React.ReactNode;
   name: string;
   helperText?: string;
   tooltip?: string;
