@@ -25,6 +25,8 @@ const HookForm: StoryFn<typeof InputComponent> = () => (
             key={input.name}
             label={`Input - ${input.name} Variant`}
             name='test'
+            tooltip='This is a tooltip'
+            helperText='This is a helper text'
             type='text'
             placeholder='Optional placeholder value'
             variant={input.variant}

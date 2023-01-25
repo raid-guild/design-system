@@ -28,6 +28,8 @@ const HookForm: StoryFn<typeof RadioComponent> = () => (
             <RadioComponent
               name='testing'
               label='Select your budget'
+              helperText='This is a helper text'
+              tooltip='This is a tooltip'
               options={radioOptions}
               defaultValue='1000'
               localForm={localForm}

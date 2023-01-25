@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import { UseFormReturn, useController, FieldValues } from 'react-hook-form';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 import {
   Box,
   useRadio,
@@ -11,11 +12,15 @@ import {
   useStyleConfig,
   FormControl,
   FormLabel,
+  FormHelperText,
   FormErrorMessage,
   Stack,
+  Flex,
+  Icon,
 } from '../../chakra';
+import { Tooltip } from '../../atoms';
 
-function RadioCard({ children, variant, size, ...props }: ChakraRadioProps) {
+const RadioCard = ({ children, variant, size, ...props }: ChakraRadioProps) => {
   const styles = useStyleConfig('RadioBox', { variant, size });
   const { getInputProps, getCheckboxProps } = useRadio({ ...props });
 
@@ -30,11 +35,13 @@ function RadioCard({ children, variant, size, ...props }: ChakraRadioProps) {
       </Box>
     </Box>
   );
-}
+};
 
 export interface CustomRadioBoxProps {
   name: string;
   label: string;
+  helperText?: string;
+  tooltip?: string;
   localForm: UseFormReturn<FieldValues>;
   options: any;
   stack?: 'vertical' | 'horizontal';
@@ -43,7 +50,7 @@ export interface CustomRadioBoxProps {
 
 type RadioBoxProps = CustomRadioBoxProps & ChakraRadioProps;
 
-function RadioBox({
+const RadioBox = ({
   name,
   label,
   localForm,
@@ -51,7 +58,9 @@ function RadioBox({
   stack,
   isRequired,
   size,
-}: RadioBoxProps) {
+  helperText,
+  tooltip,
+}: RadioBoxProps) => {
   if (!localForm) return null;
   const { control } = localForm;
   const {
@@ -84,7 +93,28 @@ function RadioBox({
   return (
     <FormControl isRequired={isRequired} isInvalid={!!errors[name]}>
       <Stack>
-        {label && <FormLabel as='legend'>{label}</FormLabel>}
+        <HStack align='center'>
+          {label && <FormLabel m='0'>{label}</FormLabel>}
+          {tooltip && (
+            <Tooltip
+              label={tooltip}
+              shouldWrapChildren
+              hasArrow
+              placement='end'
+            >
+              <Flex
+                h='24px'
+                w='24px'
+                bg='primary.500'
+                borderRadius='full'
+                align='center'
+                justify='center'
+              >
+                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
+              </Flex>
+            </Tooltip>
+          )}
+        </HStack>
         {stack === 'vertical' ? (
           <VStack {...group} alignItems='inherit'>
             <Options />
@@ -94,12 +124,13 @@ function RadioBox({
             <Options />
           </HStack>
         )}
+        {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {typeof error === 'string' && (
           <FormErrorMessage>{error}</FormErrorMessage>
         )}
       </Stack>
     </FormControl>
   );
-}
+};
 
 export default RadioBox;

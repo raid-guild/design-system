@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Meta, StoryFn } from '@storybook/react';
-import { Select as SelectComponent, Box, Stack, Text } from '../..';
+import { Select as SelectComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Forms/Select/HookForm',
@@ -14,12 +14,32 @@ type SelectVariant = {
   isMulti?: boolean;
   creatable?: boolean;
   basicStyles?: boolean;
+  tooltip?: string;
+  helperText?: string;
 };
 
 const selectVariants: SelectVariant[] = [
-  { name: 'Single Outline', variant: 'outline', isMulti: false },
-  { name: 'Single Filled', variant: 'filled', isMulti: false },
-  { name: 'Single Flushed', variant: 'flushed', isMulti: false },
+  {
+    name: 'Single Outline',
+    variant: 'outline',
+    isMulti: false,
+    tooltip: 'this is a tooltip',
+    helperText: 'This is a helper text',
+  },
+  {
+    name: 'Single Filled',
+    variant: 'filled',
+    isMulti: false,
+    tooltip: 'this is a tooltip',
+    helperText: 'This is a helper text',
+  },
+  {
+    name: 'Single Flushed',
+    variant: 'flushed',
+    isMulti: false,
+    tooltip: 'this is a tooltip',
+    helperText: 'This is a helper text',
+  },
   {
     name: 'Single Outline Basic',
     variant: 'outline',
@@ -27,9 +47,25 @@ const selectVariants: SelectVariant[] = [
     basicStyles: true,
   },
 
-  { name: 'Multi Outline', variant: 'outline', isMulti: true },
-  { name: 'Multi Filled', variant: 'filled', isMulti: true },
-  { name: 'Multi Flushed', variant: 'flushed', isMulti: true },
+  {
+    name: 'Multi Outline',
+    variant: 'outline',
+    isMulti: true,
+    tooltip: 'this is a tooltip',
+    helperText: 'This is a helper text',
+  },
+  {
+    name: 'Multi Filled',
+    variant: 'filled',
+    isMulti: true,
+    tooltip: 'this is a tooltip',
+  },
+  {
+    name: 'Multi Flushed',
+    variant: 'flushed',
+    isMulti: true,
+    tooltip: 'this is a tooltip',
+  },
   {
     name: 'Multi Outline Basic',
     variant: 'outline',
@@ -57,9 +93,9 @@ const HookForm: StoryFn<typeof SelectComponent> = () => {
       <Stack spacing={5}>
         {selectVariants.map((select) => (
           <Stack spacing={3} key={select.variant}>
-            <Text>{select.name}</Text>
             <SelectComponent
-              name='testSelect'
+              name={select.name}
+              label={select.name}
               options={
                 select.isMulti === true ? multiSelectOptions : selectOptions
               }
@@ -67,6 +103,8 @@ const HookForm: StoryFn<typeof SelectComponent> = () => {
               localForm={localForm}
               isMulti={select.isMulti}
               basicStyles={select.basicStyles}
+              tooltip={select.tooltip}
+              helperText={select.helperText}
             />
           </Stack>
         ))}
