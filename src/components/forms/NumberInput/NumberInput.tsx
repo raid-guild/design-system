@@ -13,7 +13,7 @@ import {
 
 type CustomNumberInputProps = {
   customValidations?: RegisterOptions;
-  label?: string;
+  label?: string | React.ReactNode;
   min?: number;
   max?: number;
   name: string;
