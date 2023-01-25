@@ -29,7 +29,7 @@ const ControlledTextarea: React.FC<ControlledTextareaProps> = ({
 };
 
 type CustomControlledTextareaProps = {
-  label?: string; // optional, displays label if provided
+  label?: string | React.ReactNode; // optional, displays label if provided
   name?: string; // optional, not required since no form control
   tip?: string; // optional, displays tip if provided
   defaultValue?: string;

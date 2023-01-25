@@ -11,7 +11,7 @@ import {
 } from '../../chakra';
 
 type CustomSwitchProps = {
-  label: string;
+  label: string | React.ReactNode;
   localForm: UseFormReturn;
 };
 

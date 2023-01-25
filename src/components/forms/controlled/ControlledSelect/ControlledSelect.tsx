@@ -13,7 +13,7 @@ export type Option =
   | { label: string | number; value: string | number }
   | { value: number; label: string };
 export interface ControlledSelectProps {
-  label?: string;
+  label?: string | React.ReactNode;
   placeholder?: string;
   defaultValue?: Option | Option[];
   id?: string;

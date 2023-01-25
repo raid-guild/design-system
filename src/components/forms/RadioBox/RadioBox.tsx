@@ -39,9 +39,9 @@ const RadioCard = ({ children, variant, size, ...props }: ChakraRadioProps) => {
 
 export interface CustomRadioBoxProps {
   name: string;
-  label: string;
   helperText?: string;
   tooltip?: string;
+  label: string | React.ReactNode;
   localForm: UseFormReturn<FieldValues>;
   options: any;
   stack?: 'vertical' | 'horizontal';

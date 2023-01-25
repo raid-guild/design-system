@@ -27,9 +27,9 @@ export type Option =
   | { value: number; label: string };
 export interface SelectProps {
   name: string;
-  label?: string;
   helperText?: string;
   tooltip?: string;
+  label?: string | React.ReactNode;
   placeholder?: string;
   defaultValue?: Option | Option[];
   id?: string;

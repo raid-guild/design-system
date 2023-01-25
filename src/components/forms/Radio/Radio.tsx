@@ -23,7 +23,7 @@ import { Tooltip } from '../../atoms';
 
 export interface CustomRadioProps {
   name: string;
-  label: string;
+  label: string | React.ReactNode;
   options: string[];
   size?: string;
   isRequired?: boolean;
