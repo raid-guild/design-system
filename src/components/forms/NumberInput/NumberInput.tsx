@@ -25,7 +25,10 @@ export interface CustomNumberInputProps {
   helperText?: string;
   name: string;
   localForm: UseFormReturn<FieldValues>;
-  options?: any;
+  step: number;
+  variant: string;
+  min: number;
+  max: number;
 }
 
 type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
@@ -40,6 +43,10 @@ const NumberInput = ({
   helperText,
   customValidations,
   isRequired,
+  step,
+  variant,
+  min,
+  max,
 }: NumberInputProps) => {
   if (!localForm) return null;
 
@@ -58,7 +65,13 @@ const NumberInput = ({
         name={name}
         rules={customValidations}
         render={({ field: { ref, ...restField } }) => (
-          <ChakraNumberInput {...restField}>
+          <ChakraNumberInput
+            variant={variant}
+            step={step}
+            min={min}
+            max={max}
+            {...restField}
+          >
             <NumberInputField ref={ref} name={restField.name} />
             <NumberInputStepper>
               <NumberIncrementStepper />

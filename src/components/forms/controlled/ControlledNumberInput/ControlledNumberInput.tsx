@@ -1,5 +1,4 @@
 import React from 'react';
-import { RegisterOptions, UseFormReturn } from 'react-hook-form';
 import {
   ChakraNumberInputProps,
   ChakraNumberInput,
@@ -10,9 +9,11 @@ import {
 } from '../../../chakra';
 
 type CustomNumberInputProps = {
-  customValidations?: RegisterOptions;
-  localForm: UseFormReturn;
-  ref: React.LegacyRef<HTMLInputElement>;
+  name: string;
+  step: number;
+  variant: string;
+  min: number;
+  max: number;
 };
 
 export type ControlledNumberInputProps = CustomNumberInputProps &
@@ -20,10 +21,10 @@ export type ControlledNumberInputProps = CustomNumberInputProps &
 
 const ControlledNumberInput: React.FC<ControlledNumberInputProps> = ({
   name,
-  precision,
   step,
   variant,
-  ref,
+  min,
+  max,
   ...props
 }) => {
   return (
@@ -31,10 +32,12 @@ const ControlledNumberInput: React.FC<ControlledNumberInputProps> = ({
       variant={variant}
       step={step}
       id={name}
-      precision={precision}
+      name={name}
+      min={min}
+      max={max}
       {...props}
     >
-      <NumberInputField ref={ref} name={name} />
+      <NumberInputField name={name} />
       <NumberInputStepper>
         <NumberIncrementStepper />
         <NumberDecrementStepper />

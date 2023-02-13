@@ -8,10 +8,11 @@ export default {
   component: NumberInputComponent,
 } as Meta;
 
+const stepConfig = { step: 1, min: 0, max: 10 };
 const numberInputVariants = [
-  { name: 'Outline', variant: 'outline' },
-  { name: 'Flushed', variant: 'flushed' },
-  { name: 'Filled', variant: 'filled' },
+  { name: 'Outline', variant: 'outline', ...stepConfig },
+  { name: 'Flushed', variant: 'flushed', ...stepConfig },
+  { name: 'Filled', variant: 'filled', ...stepConfig },
 ];
 
 const HookForm: StoryFn<typeof NumberInputComponent> = () => (
@@ -24,9 +25,8 @@ const HookForm: StoryFn<typeof NumberInputComponent> = () => (
           <NumberInputComponent
             key={input.variant}
             label={`Input - ${input.name} Variant`}
-            name='test'
-            variant={input.variant}
             localForm={localForm}
+            {...input}
           />
         );
       })}
