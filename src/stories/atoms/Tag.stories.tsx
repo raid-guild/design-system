@@ -22,13 +22,13 @@ const tagSizes = [
 const Tags: StoryFn<typeof TagComponent> = () => (
   <Stack spacing={10}>
     {tagSizes.map((size) => (
-      <Stack w='600px'>
+      <Stack w='600px' key={size.name}>
         <Heading textAlign='center' size='md' textTransform='uppercase'>
           {size.name}
         </Heading>
         <Flex justify='space-between'>
           {tagVariants.map((tag) => (
-            <Stack spacing={3} direction='row'>
+            <Stack spacing={3} direction='row' key={tag.name}>
               <Text size='lg'>{tag.name}</Text>
               <TagComponent
                 variant={tag.variant}
