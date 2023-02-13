@@ -21,16 +21,13 @@ const HookForm: StoryFn<typeof NumberInputComponent> = () => (
         const localForm = useForm();
 
         return (
-          // <form onSubmit={handleSubmit} key={input.variant}>
           <NumberInputComponent
             key={input.variant}
             label={`Input - ${input.name} Variant`}
             name='test'
-            type='text'
             variant={input.variant}
             localForm={localForm}
           />
-          // </form>
         );
       })}
     </Stack>

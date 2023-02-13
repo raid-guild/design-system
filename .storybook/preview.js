@@ -24,9 +24,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  docs: {
-    theme: themes.dark,
-  },
   options: {
     storySort: {
       method: 'alphabetical',

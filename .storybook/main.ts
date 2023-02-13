@@ -8,11 +8,9 @@ const config: StorybookConfig = {
     '../src/stories/**/*.stories.@(ts|tsx|js|jsx)',
   ],
   addons: [
-    '@storybook/addon-actions',
     '@storybook/addon-links',
-    '@storybook/addon-docs',
-    '@storybook/addon-controls',
     '@storybook/addon-essentials',
+    '@storybook/addon-docs',
     '@chakra-ui/storybook-addon',
   ],
   core: {
@@ -23,15 +21,9 @@ const config: StorybookConfig = {
       },
     },
   },
-
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {
     check: true, // type-check stories during Storybook build
-    reactDocgenTypescriptOptions: {
-      componentNameResolver: (expression) => {
-        return expression.getName();
-      },
-    },
   },
   framework: '@storybook/react-webpack5',
   features: {
@@ -46,14 +38,6 @@ const config: StorybookConfig = {
             loader: require.resolve('ts-loader'),
             options: {
               transpileOnly: true,
-            },
-          },
-          {
-            loader: require.resolve('react-docgen-typescript-loader'),
-            options: {
-              // Provide the path to your tsconfig.json so that your stories can
-              // display types from outside each individual story.
-              tsconfigPath: path.resolve(__dirname, '../tsconfig.json'),
             },
           },
         ],

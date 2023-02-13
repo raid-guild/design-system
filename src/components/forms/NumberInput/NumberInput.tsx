@@ -25,7 +25,7 @@ export interface CustomNumberInputProps {
   helperText?: string;
   name: string;
   localForm: UseFormReturn<FieldValues>;
-  options: any;
+  options?: any;
 }
 
 type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
