@@ -1,7 +1,8 @@
-const path = require('path');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+import path from 'path';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import { StorybookConfig } from '@storybook/react-webpack5';
 
-module.exports = {
+const config: StorybookConfig = {
   stories: [
     // '../src/stories/index.stories.tsx',
     '../src/stories/**/*.stories.@(ts|tsx|js|jsx)',
@@ -10,15 +11,30 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-docs',
-    'storybook-addon-react-docgen',
+    '@storybook/addon-controls',
+    '@storybook/addon-essentials',
     '@chakra-ui/storybook-addon',
   ],
+  core: {
+    builder: {
+      name: '@storybook/builder-webpack5',
+      options: {
+        lazyCompilation: true,
+      },
+    },
+  },
+
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {
     check: true, // type-check stories during Storybook build
+    reactDocgenTypescriptOptions: {
+      componentNameResolver: (expression) => {
+        return expression.getName();
+      },
+    },
   },
+  framework: '@storybook/react-webpack5',
   features: {
-    emotionAlias: false,
     storyStoreV7: true,
   },
   webpackFinal: async (config) => {
@@ -69,17 +85,6 @@ module.exports = {
     // return result
     return config;
   },
-  core: {
-    builder: 'webpack5',
-    options: {
-      lazyCompilation: true,
-    },
-  },
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {},
-  },
-  // docs: {
-  //   autodocs: true,
-  // },
 };
+
+export default config;

@@ -1,1 +1,1 @@
-export { default as BuiltByRaidGuildComponent } from './BuiltByRaidGuild';
+export { default as BuiltByRaidGuild } from './BuiltByRaidGuild';

@@ -1,6 +1,6 @@
 import type { StoryFn } from '@storybook/react';
 import React from 'react';
-import { BuiltByRaidGuildComponent } from '../..';
+import { BuiltByRaidGuild as BuiltByRaidGuildComponent } from '../..';
 
 export default {
   title: 'Components/Molecules/BuiltByRaidGuild',

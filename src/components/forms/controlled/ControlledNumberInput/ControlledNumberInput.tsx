@@ -18,7 +18,7 @@ type CustomNumberInputProps = {
 export type ControlledNumberInputProps = CustomNumberInputProps &
   ChakraNumberInputProps;
 
-const ControlledRadio: React.FC<ControlledNumberInputProps> = ({
+const ControlledNumberInput: React.FC<ControlledNumberInputProps> = ({
   name,
   precision,
   step,
@@ -43,4 +43,4 @@ const ControlledRadio: React.FC<ControlledNumberInputProps> = ({
   );
 };
 
-export default ControlledRadio;
+export default ControlledNumberInput;

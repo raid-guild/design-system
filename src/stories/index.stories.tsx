@@ -5,7 +5,7 @@ import React from 'react';
 import { Heading, Stack, Text, Flex, Box } from '..';
 
 import castle from '../assets/images/raid-guild-castle.png';
-import FooterSimple from '../components/footers/Simple';
+import FooterSimple from '../components/footers/FooterSimple';
 
 export const RaidGuildDesignSystem: StoryFn = () => (
   <Box position='relative'>
