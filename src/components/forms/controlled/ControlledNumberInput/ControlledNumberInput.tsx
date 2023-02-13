@@ -6,6 +6,8 @@ import {
   NumberIncrementStepper,
   NumberInputField,
   NumberInputStepper,
+  FormLabel,
+  Stack,
 } from '../../../chakra';
 
 type CustomNumberInputProps = {
@@ -14,6 +16,7 @@ type CustomNumberInputProps = {
   variant: string;
   min: number;
   max: number;
+  label: string;
 };
 
 export type ControlledNumberInputProps = CustomNumberInputProps &
@@ -25,24 +28,28 @@ const ControlledNumberInput: React.FC<ControlledNumberInputProps> = ({
   variant,
   min,
   max,
+  label,
   ...props
 }) => {
   return (
-    <ChakraNumberInput
-      variant={variant}
-      step={step}
-      id={name}
-      name={name}
-      min={min}
-      max={max}
-      {...props}
-    >
-      <NumberInputField name={name} />
-      <NumberInputStepper>
-        <NumberIncrementStepper />
-        <NumberDecrementStepper />
-      </NumberInputStepper>
-    </ChakraNumberInput>
+    <Stack>
+      {label && <FormLabel>{label}</FormLabel>}
+      <ChakraNumberInput
+        variant={variant}
+        step={step}
+        id={name}
+        name={name}
+        min={min}
+        max={max}
+        {...props}
+      >
+        <NumberInputField name={name} />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </ChakraNumberInput>
+    </Stack>
   );
 };
 

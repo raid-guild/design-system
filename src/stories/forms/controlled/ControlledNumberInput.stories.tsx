@@ -16,9 +16,15 @@ const numberInputVariants = [
 
 const Controlled: StoryFn<typeof NumberInput> = () => (
   <Box m='15px'>
-    <Stack spacing={4}>
+    <Stack>
       {numberInputVariants.map((input) => {
-        return <NumberInput key={input.variant} {...input} />;
+        return (
+          <NumberInput
+            key={input.variant}
+            label={`Input - ${input.name} Variant`}
+            {...input}
+          />
+        );
       })}
     </Stack>
   </Box>
