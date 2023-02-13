@@ -1,17 +1,20 @@
 module.exports = {
-  plugins: ['import', '@typescript-eslint', 'prettier'],
+  root: true,
+  plugins: ['import', 'prettier', '@typescript-eslint'],
   extends: [
     'airbnb',
+    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:storybook/recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
-    // project: './tsconfig.json',
+    project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
     jsx: true,
   },
