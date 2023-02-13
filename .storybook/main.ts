@@ -1,24 +1,32 @@
-const path = require('path');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+import path from 'path';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import { StorybookConfig } from '@storybook/react-webpack5';
 
-module.exports = {
+const config: StorybookConfig = {
   stories: [
     // '../src/stories/index.stories.tsx',
     '../src/stories/**/*.stories.@(ts|tsx|js|jsx)',
   ],
   addons: [
-    '@storybook/addon-actions',
     '@storybook/addon-links',
+    { name: '@storybook/addon-essentials', options: { docs: false } },
     '@storybook/addon-docs',
-    'storybook-addon-react-docgen',
     '@chakra-ui/storybook-addon',
   ],
+  core: {
+    builder: {
+      name: '@storybook/builder-webpack5',
+      options: {
+        lazyCompilation: true,
+      },
+    },
+  },
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {
     check: true, // type-check stories during Storybook build
   },
+  framework: '@storybook/react-webpack5',
   features: {
-    emotionAlias: false,
     storyStoreV7: true,
   },
   webpackFinal: async (config) => {
@@ -30,14 +38,6 @@ module.exports = {
             loader: require.resolve('ts-loader'),
             options: {
               transpileOnly: true,
-            },
-          },
-          {
-            loader: require.resolve('react-docgen-typescript-loader'),
-            options: {
-              // Provide the path to your tsconfig.json so that your stories can
-              // display types from outside each individual story.
-              tsconfigPath: path.resolve(__dirname, '../tsconfig.json'),
             },
           },
         ],
@@ -69,17 +69,6 @@ module.exports = {
     // return result
     return config;
   },
-  core: {
-    builder: 'webpack5',
-    options: {
-      lazyCompilation: true,
-    },
-  },
-  framework: {
-    name: '@storybook/react-webpack5',
-    options: {},
-  },
-  // docs: {
-  //   autodocs: true,
-  // },
 };
+
+export default config;

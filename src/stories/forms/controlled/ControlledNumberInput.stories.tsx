@@ -1,11 +1,10 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { Meta, StoryFn } from '@storybook/react';
-import { NumberInput as NumberInputComponent, Box, Stack } from '../..';
+import type { Meta, StoryFn } from '@storybook/react';
+import { ControlledNumberInput as NumberInput, Box, Stack } from '../../..';
 
 export default {
-  title: 'Components/Forms/NumberInput/HookForm',
-  component: NumberInputComponent,
+  title: 'Components/Forms/NumberInput/Controlled',
+  component: NumberInput,
 } as Meta;
 
 const stepConfig = { step: 1, min: 0, max: 10 };
@@ -15,17 +14,14 @@ const numberInputVariants = [
   { name: 'Filled', variant: 'filled', ...stepConfig },
 ];
 
-const HookForm: StoryFn<typeof NumberInputComponent> = () => (
+const Controlled: StoryFn<typeof NumberInput> = () => (
   <Box m='15px'>
-    <Stack spacing={4}>
+    <Stack>
       {numberInputVariants.map((input) => {
-        const localForm = useForm();
-
         return (
-          <NumberInputComponent
+          <NumberInput
             key={input.variant}
             label={`Input - ${input.name} Variant`}
-            localForm={localForm}
             {...input}
           />
         );
@@ -34,4 +30,4 @@ const HookForm: StoryFn<typeof NumberInputComponent> = () => (
   </Box>
 );
 
-export { HookForm };
+export { Controlled };

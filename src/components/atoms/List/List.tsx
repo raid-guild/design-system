@@ -10,7 +10,7 @@ import {
 import { Text } from '../Text';
 import Swords from '../../icons/Swords';
 
-interface ListItemProps {
+export interface ListItemProps {
   _listItems: string[];
   withSwords?: boolean;
   icon?: any;

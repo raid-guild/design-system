@@ -19,13 +19,11 @@ export const parameters = {
     theme,
   },
   controls: {
+    expanded: true,
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  },
-  docs: {
-    theme: themes.dark,
   },
   options: {
     storySort: {

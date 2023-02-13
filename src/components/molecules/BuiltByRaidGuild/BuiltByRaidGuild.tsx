@@ -8,7 +8,7 @@ export interface BuiltByRaidGuildProps {
   color?: string;
 }
 
-const BuiltByRaidGuildComponent: React.FC<BuiltByRaidGuildProps> = ({
+const BuiltByRaidGuild: React.FC<BuiltByRaidGuildProps> = ({
   copy,
   color,
 }: BuiltByRaidGuildProps) => (
@@ -27,4 +27,4 @@ const BuiltByRaidGuildComponent: React.FC<BuiltByRaidGuildProps> = ({
   </Stack>
 );
 
-export default BuiltByRaidGuildComponent;
+export default BuiltByRaidGuild;

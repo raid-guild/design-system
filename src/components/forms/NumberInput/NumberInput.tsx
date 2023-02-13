@@ -1,5 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { FormHelperText } from '@chakra-ui/react';
 import React from 'react';
-import { UseFormReturn, RegisterOptions } from 'react-hook-form';
+import {
+  UseFormReturn,
+  RegisterOptions,
+  Controller,
+  FieldValues,
+} from 'react-hook-form';
 import {
   FormControl,
   FormLabel,
@@ -9,57 +16,74 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  FormErrorMessage,
 } from '../../chakra';
 
-type CustomNumberInputProps = {
+export interface CustomNumberInputProps {
   customValidations?: RegisterOptions;
   label?: string | React.ReactNode;
-  min?: number;
-  max?: number;
+  helperText?: string;
   name: string;
-  localForm: UseFormReturn;
-  precision?: number;
-  step?: number;
-  value?: number;
+  localForm: UseFormReturn<FieldValues>;
+  step: number;
   variant: string;
-};
+  min: number;
+  max: number;
+}
 
 type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
 
 /**
  * Primary UI component for Heading
  */
-const NumberInput: React.FC<NumberInputProps> = ({
-  customValidations,
+const NumberInput = ({
+  name,
   label,
+  localForm,
+  helperText,
+  customValidations,
+  isRequired,
+  step,
+  variant,
   min,
   max,
-  name,
-  localForm,
-  precision,
-  step,
-  value,
-  variant,
 }: NumberInputProps) => {
-  const { register } = localForm;
+  if (!localForm) return null;
+
+  const {
+    control,
+    formState: { errors },
+  } = localForm;
+
+  const error = name && errors[name] && errors[name]?.message;
 
   return (
-    <FormControl>
+    <FormControl isRequired={isRequired} isInvalid={!!errors[name]}>
       {label && <FormLabel>{label}</FormLabel>}
-      <ChakraNumberInput
-        min={min}
-        max={max}
-        precision={precision}
-        step={step}
-        value={value}
-        variant={variant}
-      >
-        <NumberInputField {...register(name, customValidations)} />
-        <NumberInputStepper>
-          <NumberIncrementStepper />
-          <NumberDecrementStepper />
-        </NumberInputStepper>
-      </ChakraNumberInput>
+      <Controller
+        control={control}
+        name={name}
+        rules={customValidations}
+        render={({ field: { ref, ...restField } }) => (
+          <ChakraNumberInput
+            variant={variant}
+            step={step}
+            min={min}
+            max={max}
+            {...restField}
+          >
+            <NumberInputField ref={ref} name={restField.name} />
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </ChakraNumberInput>
+        )}
+      />
+      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+      {typeof error === 'string' && (
+        <FormErrorMessage>{error}</FormErrorMessage>
+      )}
     </FormControl>
   );
 };
