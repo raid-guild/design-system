@@ -53,6 +53,7 @@ const Card = {
     },
     topRainbowBorder: {
       container: {
+        ...blackCard,
         borderTop: '2px solid',
         borderRadius: 'none',
         ...rainbowBorder,
