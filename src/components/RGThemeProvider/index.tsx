@@ -1,9 +1,5 @@
 import React, { ReactNode } from 'react';
-import {
-  ChakraProvider,
-  ColorModeScript,
-  ToastProvider,
-} from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import RaidGuildTheme from '../../theme/index';
 import Fonts from './Fonts';
 
@@ -25,7 +21,7 @@ const RGThemeProvider: React.FC<RGThemeProps> = ({
     <ChakraProvider theme={theme || RaidGuildTheme} resetCSS>
       {colorModeScript || <ColorModeScript initialColorMode='dark' />}
       {fonts || <Fonts />}
-      <ToastProvider>{children}</ToastProvider>
+      {children}
     </ChakraProvider>
   );
 };
