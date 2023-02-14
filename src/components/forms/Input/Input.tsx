@@ -16,7 +16,7 @@ import {
 import { Tooltip } from '../../atoms';
 
 type CustomInputProps = {
-  label: string | ReactNode;
+  label?: string | ReactNode;
   name: string;
   localForm: UseFormReturn;
   tooltip?: string;

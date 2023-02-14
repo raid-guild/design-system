@@ -11,6 +11,12 @@ interface RGThemeProps {
   children: ReactNode;
 }
 
+/**
+ * This theme provider is having trouble. Gives blank page when used.
+ *
+ * Import the components separately for the time being.
+ *
+ */
 const RGThemeProvider: React.FC<RGThemeProps> = ({
   theme,
   fonts,
