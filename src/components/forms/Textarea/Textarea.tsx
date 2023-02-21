@@ -72,7 +72,7 @@ const Textarea: React.FC<TextareaProps> = ({
         <ChakraTextarea {...props} {...register(name)} />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {typeof error === 'string' && (
-          <FormErrorMessage>Error Message</FormErrorMessage>
+          <FormErrorMessage>{error}</FormErrorMessage>
         )}
       </Stack>
     </FormControl>
