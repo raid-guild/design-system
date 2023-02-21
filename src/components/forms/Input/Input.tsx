@@ -80,7 +80,7 @@ const Input: React.FC<InputProps> = ({
         <ChakraInput type={type} {...props} {...register(name)} />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {typeof error === 'string' && (
-          <FormErrorMessage>Error Message</FormErrorMessage>
+          <FormErrorMessage>{error}</FormErrorMessage>
         )}
       </Stack>
     </FormControl>
