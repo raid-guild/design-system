@@ -7,3 +7,9 @@ dist
 storybook-static/*
 .yarn
 .yarnrc.yml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/design-system.iml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/prettier.xml

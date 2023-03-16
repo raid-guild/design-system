@@ -90,4 +90,6 @@ const theme = extendTheme({
   },
 });
 
+export const clientTheme = extendTheme({});
+
 export default theme;

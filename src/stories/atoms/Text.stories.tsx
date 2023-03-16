@@ -1,6 +1,13 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Text as TextComponent, Stack, Flex } from '../..';
+import {
+  Text as TextComponent,
+  Stack,
+  Flex,
+  TextProps,
+  defaultTheme,
+  clientTheme,
+} from '../..';
 
 export default {
   title: 'Components/Atoms/Text',
@@ -16,7 +23,8 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as Meta;
+} as Meta<typeof TextComponent>;
+type Story = StoryObj<typeof TextComponent>;
 
 const textExamples: Array<{ size: any }> = [
   { size: '4xl' },
@@ -30,7 +38,7 @@ const textExamples: Array<{ size: any }> = [
 
 const copy = 'At the table of rounds we lay our swords.';
 
-const Text: StoryFn<typeof TextComponent> = (args) => (
+const TextStoryContent = (args: TextProps) => (
   <Stack spacing={3}>
     {textExamples.map((text) => (
       <Flex align='center' key={text.size}>
@@ -45,4 +53,22 @@ const Text: StoryFn<typeof TextComponent> = (args) => (
   </Stack>
 );
 
-export { Text };
+export const Guild: Story = {
+  render: (args) => <TextStoryContent {...args} />,
+  name: 'RaidGuild',
+  parameters: {
+    chakra: {
+      theme: defaultTheme,
+    },
+  },
+};
+
+export const Client: Story = {
+  render: (args) => <TextStoryContent {...args} />,
+  name: 'ClientTheme',
+  parameters: {
+    chakra: {
+      theme: clientTheme,
+    },
+  },
+};

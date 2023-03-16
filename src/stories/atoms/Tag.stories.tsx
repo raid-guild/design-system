@@ -1,11 +1,20 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Tag as TagComponent, Stack, Text, Heading, Flex } from '../..';
+import { Meta, StoryObj } from '@storybook/react';
+import {
+  Tag as TagComponent,
+  Stack,
+  Text,
+  Heading,
+  Flex,
+  defaultTheme,
+  clientTheme,
+} from '../..';
 
 export default {
   title: 'Components/Atoms/Tags',
   component: TagComponent,
 } as Meta<typeof TagComponent>;
+type Story = StoryObj<typeof TagComponent>;
 
 const tagVariants = [
   { name: 'Solid', variant: 'solid' },
@@ -19,7 +28,7 @@ const tagSizes = [
   { name: 'Large', size: 'lg' },
 ];
 
-const Tags: StoryFn<typeof TagComponent> = () => (
+const TagsStoryContent = () => (
   <Stack spacing={10}>
     {tagSizes.map((size) => (
       <Stack w='600px' key={size.name}>
@@ -45,4 +54,23 @@ const Tags: StoryFn<typeof TagComponent> = () => (
   </Stack>
 );
 
-export { Tags };
+export const Guild: Story = {
+  render: () => <TagsStoryContent />,
+  name: 'RaidGuild',
+
+  parameters: {
+    chakra: {
+      theme: defaultTheme,
+    },
+  },
+};
+
+export const Client: Story = {
+  render: () => <TagsStoryContent />,
+  name: 'ClientTheme',
+  parameters: {
+    chakra: {
+      theme: clientTheme,
+    },
+  },
+};

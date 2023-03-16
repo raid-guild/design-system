@@ -1,6 +1,4 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { themes } from '@storybook/theming';
-import theme from '../src/theme/index';
 import { Fonts, Box } from '../src';
 
 export const parameters = {
@@ -14,9 +12,6 @@ export const parameters = {
     element: '#root',
     // sets the execution mode for the addon
     manual: false,
-  },
-  chakra: {
-    theme,
   },
   controls: {
     expanded: true,

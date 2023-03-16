@@ -24,4 +24,4 @@ export {
   default as RGThemeProvider,
   Fonts,
 } from './components/RGThemeProvider';
-export { default as defaultTheme } from './theme';
+export { default as defaultTheme, clientTheme } from './theme';

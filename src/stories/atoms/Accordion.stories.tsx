@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import {
   Accordion as AccordionComponent,
   AccordionItem,
@@ -8,17 +8,25 @@ import {
   AccordionIcon,
   Text,
   Heading,
+  defaultTheme,
+  clientTheme,
 } from '../..';
 
 export default {
   title: 'Components/Atoms/Accordion',
   component: AccordionComponent,
+  parameters: {
+    chakra: {
+      theme: defaultTheme,
+    },
+  },
 } as Meta<typeof AccordionComponent>;
+type Story = StoryObj<typeof AccordionComponent>;
 
 // eslint-disable-next-line max-len
 // TODO this could be abstracted to its own component, but just added the style to the default chakra component for now
 
-const Accordion: StoryFn<typeof AccordionComponent> = () => (
+const AccordionStoryContent = () => (
   <AccordionComponent allowToggle>
     <AccordionItem>
       <AccordionButton justifyContent='space-between'>
@@ -41,4 +49,22 @@ const Accordion: StoryFn<typeof AccordionComponent> = () => (
   </AccordionComponent>
 );
 
-export { Accordion };
+export const Guild: Story = {
+  render: () => <AccordionStoryContent />,
+  name: 'RaidGuild',
+  parameters: {
+    chakra: {
+      theme: defaultTheme,
+    },
+  },
+};
+
+export const Client: Story = {
+  render: () => <AccordionStoryContent />,
+  name: 'ClientTheme',
+  parameters: {
+    chakra: {
+      theme: clientTheme,
+    },
+  },
+};

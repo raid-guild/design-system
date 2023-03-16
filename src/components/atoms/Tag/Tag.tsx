@@ -1,9 +1,9 @@
 import React from 'react';
 import { ChakraTag, ChakraTagProps } from '../../chakra';
 
-interface CustomTagProps {
+type CustomTagProps = {
   label?: string;
-}
+};
 
 export type TagProps = CustomTagProps & ChakraTagProps;
 

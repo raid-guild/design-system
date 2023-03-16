@@ -1,6 +1,7 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import React from 'react';
 import { FaCaretDown } from 'react-icons/fa';
+import { StoryObj } from '@storybook/react';
 import {
   Menu as MenuComponent,
   MenuButton,
@@ -9,9 +10,11 @@ import {
   Text,
   Flex,
   Icon,
+  defaultTheme,
+  clientTheme,
 } from '../..';
 
-export const Menu: StoryFn = () => {
+const MenuStoryContent = () => {
   return (
     <MenuComponent>
       <MenuButton>
@@ -27,10 +30,33 @@ export const Menu: StoryFn = () => {
   );
 };
 
-Menu.args = {
+const args = {
   size: 150,
 };
 
 export default {
   title: 'Components/Atoms/Menu',
+  args,
+  component: MenuComponent,
 } as Meta;
+type Story = StoryObj<typeof MenuComponent>;
+
+export const Guild: Story = {
+  render: () => <MenuStoryContent />,
+  name: 'RaidGuild',
+  parameters: {
+    chakra: {
+      theme: defaultTheme,
+    },
+  },
+};
+
+export const Client: Story = {
+  render: () => <MenuStoryContent />,
+  name: 'ClientTheme',
+  parameters: {
+    chakra: {
+      theme: clientTheme,
+    },
+  },
+};
