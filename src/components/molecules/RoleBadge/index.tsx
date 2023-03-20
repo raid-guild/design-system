@@ -1,1 +1,1 @@
-export { default as RoleBadge } from './RoleBadge';
+export { default as RoleBadge, RoleBadgeProps } from './RoleBadge';

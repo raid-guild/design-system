@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from '../../chakra';
 import { roleImage } from './roleImages';
 
-interface RoleBadgeProps {
+export interface RoleBadgeProps {
   roleName: string;
   width?: number | string;
   height?: number | string;

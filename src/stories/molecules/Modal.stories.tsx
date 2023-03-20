@@ -1,19 +1,22 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import {
   Modal as ModalComponent,
   Button,
   Box,
   useDisclosure,
   Text,
+  defaultTheme,
+  clientTheme,
 } from '../..';
 
 export default {
   title: 'Components/Molecules/Modal',
   component: ModalComponent,
 } as Meta<typeof ModalComponent>;
+type Story = StoryObj<typeof ModalComponent>;
 
-const Modal: StoryFn<typeof ModalComponent> = () => {
+const Template = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const submit = () => {
@@ -41,4 +44,23 @@ const Modal: StoryFn<typeof ModalComponent> = () => {
   );
 };
 
-export { Modal };
+export const Guild: Story = {
+  render: () => <Template />,
+  name: 'RaidGuild',
+
+  parameters: {
+    chakra: {
+      theme: defaultTheme,
+    },
+  },
+};
+
+export const Client: Story = {
+  render: () => <Template />,
+  name: 'ClientTheme',
+  parameters: {
+    chakra: {
+      theme: clientTheme,
+    },
+  },
+};

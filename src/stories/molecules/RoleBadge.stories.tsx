@@ -1,8 +1,9 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react';
 import React from 'react';
 import { SimpleGrid, Stack } from '../../components/chakra';
 import { Heading } from '../../components/atoms';
 import { RoleBadge } from '../../components/molecules/RoleBadge';
+import defaultTheme, { clientTheme } from '../../theme';
 
 const roles = [
   'alchemist',
@@ -51,12 +52,35 @@ const Template: StoryFn<RoleBadgeStoryProps> = ({
   );
 };
 
-export const RoleBadges = Template.bind({});
-RoleBadges.args = {
-  size: 150,
-};
-
 export default {
   title: 'Components/Molecules/RoleBadges',
-  component: RoleBadges,
+  component: RoleBadge,
 } as Meta;
+type Story = StoryObj<RoleBadgeStoryProps>;
+
+export const Guild: Story = {
+  render: (args) => <Template {...args} />,
+  name: 'RaidGuild',
+
+  parameters: {
+    chakra: {
+      theme: defaultTheme,
+    },
+  },
+  args: {
+    size: 150,
+  },
+};
+
+export const Client: Story = {
+  render: (args) => <Template {...args} />,
+  name: 'ClientTheme',
+  parameters: {
+    chakra: {
+      theme: clientTheme,
+    },
+  },
+  args: {
+    size: 150,
+  },
+};
