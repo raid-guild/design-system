@@ -1,21 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
-import {
-  Heading as HeadingComponent,
-  Stack,
-  Flex,
-  Text,
-  HeadingProps,
-  defaultTheme,
-  clientTheme,
-} from '../..';
+import { Heading as HeadingComponent, Stack, Flex, Text } from '../..';
 import { HeadingVariants } from '../../components/atoms/Heading';
 
 export default {
   title: 'Components/Atoms/Heading',
   component: HeadingComponent,
 } as Meta;
-type Story = StoryObj<typeof HeadingComponent>;
 
 const headingExamples: Array<{ size: string }> = [
   { size: '4xl' },
@@ -31,7 +22,7 @@ const headingVariants: HeadingVariants[] = ['shadow', 'noShadow'];
 
 const copy = 'RaidGuild vs Moloch';
 
-const HeadingStoryContent = (args: HeadingProps) => (
+const Heading: StoryFn<typeof HeadingComponent> = (args) => (
   <Stack spacing={4}>
     {/* Map out each size */}
     {headingExamples.map((example) => (
@@ -50,23 +41,4 @@ const HeadingStoryContent = (args: HeadingProps) => (
   </Stack>
 );
 
-export const Guild: Story = {
-  render: (args) => <HeadingStoryContent {...args} />,
-  name: 'RaidGuild',
-
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: (args) => <HeadingStoryContent {...args} />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { Heading };

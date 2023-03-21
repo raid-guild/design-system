@@ -1,36 +1,12 @@
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
-import { StoryObj } from '@storybook/react';
-import {
-  BuiltByRaidGuild as BuiltByRaidGuildComponent,
-  clientTheme,
-  defaultTheme,
-} from '../..';
+import { BuiltByRaidGuild as BuiltByRaidGuildComponent } from '../..';
 
 export default {
   title: 'Components/Molecules/BuiltByRaidGuild',
   component: BuiltByRaidGuildComponent,
 };
-type Story = StoryObj<typeof BuiltByRaidGuildComponent>;
 
-const BuiltByRaidGuildStoryContent = () => <BuiltByRaidGuildComponent />;
+const BuiltByRaidGuild: StoryFn = () => <BuiltByRaidGuildComponent />;
 
-export const Guild: Story = {
-  render: () => <BuiltByRaidGuildStoryContent />,
-  name: 'RaidGuild',
-
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <BuiltByRaidGuildStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { BuiltByRaidGuild };

@@ -1,22 +1,19 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   Tabs as TabsComponent,
   Tab,
   TabList,
   TabPanels,
   TabPanel,
-  clientTheme,
-  defaultTheme,
 } from '../..';
 
 export default {
   title: 'Components/Atoms/Tabs',
   component: TabsComponent,
 } as Meta<typeof TabsComponent>;
-type Story = StoryObj<typeof TabsComponent>;
 
-const TabsStoryContent = () => (
+const Tabs: StoryFn<typeof TabsComponent> = () => (
   <TabsComponent>
     <TabList>
       <Tab>Test 1</Tab>
@@ -28,22 +25,5 @@ const TabsStoryContent = () => (
     </TabPanels>
   </TabsComponent>
 );
-export const Guild: Story = {
-  render: () => <TabsStoryContent />,
-  name: 'RaidGuild',
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
 
-export const Client: Story = {
-  render: () => <TabsStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { Tabs };

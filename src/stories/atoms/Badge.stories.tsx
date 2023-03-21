@@ -1,18 +1,11 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import {
-  Badge as BadgeComponent,
-  Stack,
-  HStack,
-  defaultTheme,
-  clientTheme,
-} from '../..';
+import { Meta, StoryFn } from '@storybook/react';
+import { Badge as BadgeComponent, Stack, HStack } from '../..';
 
 export default {
   title: 'Components/Atoms/Badge',
   component: BadgeComponent,
 } as Meta<typeof BadgeComponent>;
-type Story = StoryObj<typeof BadgeComponent>;
 
 const badgeColors = [
   { name: 'Default', color: 'gray' },
@@ -23,7 +16,7 @@ const badgeColors = [
 
 const badgeVariants = ['outline', 'solid', 'subtle'];
 
-const BadgeStoryContent = () => (
+const Badge: StoryFn<typeof BadgeComponent> = () => (
   <Stack>
     {badgeColors.map((b) => (
       <HStack key={b.name}>
@@ -41,22 +34,4 @@ const BadgeStoryContent = () => (
   </Stack>
 );
 
-export const Guild: Story = {
-  render: () => <BadgeStoryContent />,
-  name: 'RaidGuild',
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <BadgeStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { Badge };

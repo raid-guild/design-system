@@ -1,19 +1,13 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import {
-  Tooltip as TooltipComponent,
-  Button,
-  defaultTheme,
-  clientTheme,
-} from '../..';
+import { Meta, StoryFn } from '@storybook/react';
+import { Tooltip as TooltipComponent, Button } from '../..';
 
 export default {
   title: 'Components/Atoms/Tooltip',
   component: TooltipComponent,
 } as Meta<typeof TooltipComponent>;
-type Story = StoryObj<typeof TooltipComponent>;
 
-const TooltipStoryContent = () => (
+const Tooltip: StoryFn<typeof TooltipComponent> = () => (
   <TooltipComponent
     label="Reason you can't click"
     placement='end'
@@ -24,22 +18,4 @@ const TooltipStoryContent = () => (
   </TooltipComponent>
 );
 
-export const Guild: Story = {
-  render: () => <TooltipStoryContent />,
-  name: 'RaidGuild',
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <TooltipStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { Tooltip };

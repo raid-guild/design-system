@@ -1,21 +1,15 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import {
-  clientTheme,
-  defaultTheme,
-  Spinner as SpinnerComponent,
-  Stack,
-} from '../..';
+import { Meta, StoryFn } from '@storybook/react';
+import { Spinner as SpinnerComponent, Stack } from '../..';
 
 export default {
   title: 'Components/Atoms/Spinner',
   component: SpinnerComponent,
 } as Meta<typeof SpinnerComponent>;
-type Story = StoryObj<typeof SpinnerComponent>;
 
 const spinnerSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 
-const SpinnerStoryContent = () => (
+const Spinner: StoryFn<typeof SpinnerComponent> = () => (
   <Stack>
     {spinnerSizes.map((size) => (
       <SpinnerComponent size={size} key={size} />
@@ -23,22 +17,4 @@ const SpinnerStoryContent = () => (
   </Stack>
 );
 
-export const Guild: Story = {
-  render: () => <SpinnerStoryContent />,
-  name: 'RaidGuild',
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <SpinnerStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { Spinner };

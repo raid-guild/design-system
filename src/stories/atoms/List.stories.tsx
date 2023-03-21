@@ -1,28 +1,20 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ListItemProps } from 'components/atoms/List/List';
-import {
-  List as ListComponent,
-  HStack,
-  Stack,
-  Heading,
-  defaultTheme,
-  clientTheme,
-} from '../..';
+import { List as ListComponent, HStack, Stack, Heading } from '../..';
 import Castle from '../../components/icons/Castle';
 
 export default {
   title: 'Components/Atoms/List',
   component: ListComponent,
 } as Meta<typeof ListComponent>;
-type Story = StoryObj<typeof ListComponent>;
 
 type ListEntry = Partial<ListItemProps> & {
   name: string;
   ordered?: boolean;
 };
 
-const ListStoryContent = () => {
+const List: StoryFn<typeof ListComponent> = () => {
   const listItems = ['lorem ipsum 1', 'lorem ipsum 2', 'lorem ipsum 3'];
 
   const listVariants: ListEntry[] = [
@@ -49,23 +41,4 @@ const ListStoryContent = () => {
   );
 };
 
-export const Guild: Story = {
-  render: () => <ListStoryContent />,
-  name: 'RaidGuild',
-
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <ListStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { List };

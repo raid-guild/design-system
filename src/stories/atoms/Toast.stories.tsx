@@ -1,22 +1,19 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   Toast as ToastComponent,
   Button,
   useToast,
   Stack,
-  defaultTheme,
   ToastProvider,
-  clientTheme,
 } from '../..';
 
 export default {
   title: 'Components/Atoms/Toast',
   component: ToastComponent,
 } as Meta<typeof ToastComponent>;
-type Story = StoryObj<typeof ToastComponent>;
 
-const ToastStoryContent = () => {
+const Toast: StoryFn = () => {
   const toast = useToast();
 
   const clickSuccessToast = () => {
@@ -84,23 +81,4 @@ const ToastStoryContent = () => {
   );
 };
 
-export const Guild: Story = {
-  render: () => <ToastStoryContent />,
-  name: 'RaidGuild',
-
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <ToastStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { Toast };

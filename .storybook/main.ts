@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     { name: '@storybook/addon-essentials', options: { docs: false } },
     '@storybook/addon-docs',
-    '@chakra-ui/storybook-addon',
+    // '@chakra-ui/storybook-addon',
   ],
   core: {
     builder: {

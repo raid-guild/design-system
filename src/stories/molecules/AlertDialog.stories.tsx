@@ -1,15 +1,13 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import {
   AlertDialog as AlertDialogComponent,
   Button,
   Box,
   useDisclosure,
-  defaultTheme,
-  clientTheme,
 } from '../..';
 
-const AlertDialogStoryContent = () => {
+export const AlertDialog: StoryFn = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const submit = () => {
@@ -35,29 +33,8 @@ const AlertDialogStoryContent = () => {
     </Box>
   );
 };
-export const Guild: Story = {
-  render: () => <AlertDialogStoryContent />,
-  name: 'RaidGuild',
-
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <AlertDialogStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
 
 export default {
   title: 'Components/Molecules/Alert Dialog',
   component: AlertDialogComponent,
 } as Meta;
-type Story = StoryObj<typeof AlertDialogComponent>;

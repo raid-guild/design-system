@@ -1,22 +1,14 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Meta, StoryObj } from '@storybook/react';
-import {
-  DatePicker as DatePickerComponent,
-  Box,
-  Stack,
-  Text,
-  defaultTheme,
-  clientTheme,
-} from '../..';
+import { Meta, StoryFn } from '@storybook/react';
+import { DatePicker as DatePickerComponent, Box, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/DatePicker',
   component: DatePickerComponent,
 } as Meta;
-type Story = StoryObj<typeof DatePickerComponent>;
 
-const DatePickerStoryContent = () => {
+const DatePicker: StoryFn<typeof DatePickerComponent> = () => {
   const localForm = useForm();
   useEffect(() => {
     localForm.reset({ raidStartDate: new Date() });
@@ -43,23 +35,4 @@ const DatePickerStoryContent = () => {
   );
 };
 
-export const Guild: Story = {
-  render: () => <DatePickerStoryContent />,
-  name: 'RaidGuild',
-
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <DatePickerStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { DatePicker };

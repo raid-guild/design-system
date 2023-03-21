@@ -1,15 +1,6 @@
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import {
-  Card,
-  Image,
-  HStack,
-  SimpleGrid,
-  Heading,
-  Text,
-  defaultTheme,
-  clientTheme,
-} from '../..';
+import { Meta, StoryFn } from '@storybook/react';
+import { Card, Image, HStack, SimpleGrid, Heading, Text } from '../..';
 import imgDesignSprints from '../../assets/images/designsprints.png';
 import { RoleBadge } from '../../components/molecules';
 
@@ -21,7 +12,6 @@ export default {
   title: 'Components/Atoms/Cards',
   component: Card,
 } as Meta<typeof Card>;
-type Story = StoryObj<typeof Card>;
 
 const cardVariants = [
   'fullBorder',
@@ -36,7 +26,7 @@ const title = 'Card Title';
 const cardCopy =
   'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores eius amet quisquam ratione, perspiciatis voluptatem officia.';
 
-const CardStoryContent = () => (
+const Cards: StoryFn<typeof Card> = () => (
   <SimpleGrid
     columns={{ base: 1, md: 2, lg: 2 }}
     gap='4rem'
@@ -82,23 +72,4 @@ const CardStoryContent = () => (
   </SimpleGrid>
 );
 
-export const Guild: Story = {
-  render: () => <CardStoryContent />,
-  name: 'RaidGuild',
-
-  parameters: {
-    chakra: {
-      theme: defaultTheme,
-    },
-  },
-};
-
-export const Client: Story = {
-  render: () => <CardStoryContent />,
-  name: 'ClientTheme',
-  parameters: {
-    chakra: {
-      theme: clientTheme,
-    },
-  },
-};
+export { Cards };
