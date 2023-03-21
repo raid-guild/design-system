@@ -7,3 +7,4 @@ dist
 storybook-static/*
 .yarn
 .yarnrc.yml
+/.idea/*
