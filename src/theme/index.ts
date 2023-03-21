@@ -90,6 +90,11 @@ const theme = extendTheme({
   },
 });
 
-export const clientTheme = extendTheme({});
+export const clientTheme = extendTheme({
+  colors,
+  layerStyles: {
+    ...gradientStyles,
+  },
+});
 
 export default theme;

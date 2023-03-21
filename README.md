@@ -23,3 +23,6 @@ On http://localhost:6006/ you'll see the components built in the [storybook](htt
 ## Prettier
 
 If you do not already use [Prettier](https://prettier.io/), please add Prettier to your text editor. Prettier allows us to have consistent formatting without having to think much about it.
+
+## Helper components
+Not all variations and components are available in both themes. Helper utility components (`<RaidGuildThemeOnly />` and `<ClientThemeOnly />`) exist to conditionally hide certain parts of a story depending on the theme.

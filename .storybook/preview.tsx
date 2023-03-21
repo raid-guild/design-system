@@ -2,6 +2,7 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Fonts, Box, RGThemeProvider, defaultTheme, clientTheme } from '../src';
 import { Decorator } from '@storybook/react';
 import React from 'react';
+import { StoryBookThemeContext } from '../src/stories/StoryBookThemeContext';
 
 export const parameters = {
   viewport: {
@@ -53,9 +54,11 @@ export const decorators: Decorator[] = [
     return (
       <Box>
         <Fonts />
-        <RGThemeProvider theme={storyTheme}>
-          <Story />
-        </RGThemeProvider>
+        <StoryBookThemeContext.Provider value={{ theme }}>
+          <RGThemeProvider theme={storyTheme}>
+            <Story />
+          </RGThemeProvider>
+        </StoryBookThemeContext.Provider>
       </Box>
     );
   },
