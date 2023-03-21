@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { Button as ButtonComponent, Flex, Stack, Text } from '../..';
-import { RaidGuildThemeOnly } from '../StoryBookThemeContext';
+import { RaidGuildThemeOnly } from '../utils';
 
 export default {
   title: 'Components/Atoms/Buttons',
