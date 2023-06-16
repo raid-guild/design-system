@@ -1,5 +1,5 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { themes } from '@storybook/theming';
+// import { themes } from '@storybook/theming';
 import theme from '../src/theme/index';
 import { Fonts, Box } from '../src';
 

@@ -3,7 +3,7 @@ import {
   Button,
   ChakraButtonProps,
   forwardRef,
-  ComponentWithAs,
+  // ComponentWithAs,
 } from '../../chakra';
 
 export type CustomDatePickerButtonProps = ChakraButtonProps & {
@@ -12,10 +12,7 @@ export type CustomDatePickerButtonProps = ChakraButtonProps & {
   ref?: HTMLInputElement;
 };
 
-export type CustomDatePickerButton = ComponentWithAs<
-  'button',
-  CustomDatePickerButtonProps
-> & {
+export type CustomDatePickerButton = CustomDatePickerButtonProps & {
   Button: typeof Button;
 };
 

@@ -30,7 +30,7 @@ const config: StorybookConfig = {
     storyStoreV7: true,
   },
   webpackFinal: async (config) => {
-    config.module.rules.push(
+    config.module?.rules?.push(
       {
         test: /\.(ts|tsx)$/,
         use: [
@@ -49,22 +49,24 @@ const config: StorybookConfig = {
       }
     );
 
-    // config.resolve.extensions.push('.eot', '.otf', '.tff', '.woff', '.woff2');
-    config.resolve.extensions.push('.ts', '.tsx');
+    if (config.resolve) {
+      // config.resolve.extensions.push('.eot', '.otf', '.tff', '.woff', '.woff2');
+      config.resolve.extensions?.push('.ts', '.tsx');
 
-    config.resolve.plugins = [
-      ...(config.resolve.plugins || []),
-      new TsconfigPathsPlugin({
-        extensions: config.resolve.extensions,
-      }),
-    ];
+      config.resolve.plugins = [
+        ...(config.resolve.plugins || []),
+        new TsconfigPathsPlugin({
+          extensions: config.resolve?.extensions,
+        }),
+      ];
 
-    // include ts files here so they can be resolved properly
-    // config.resolve.modules.push(process.cwd() + '/node_modules');
-    // config.resolve.modules.push(process.cwd() + '/src');
+      // include ts files here so they can be resolved properly
+      // config.resolve.modules.push(process.cwd() + '/node_modules');
+      // config.resolve.modules.push(process.cwd() + '/src');
 
-    // this is needed for working w/ linked folders
-    config.resolve.symlinks = false;
+      // this is needed for working w/ linked folders
+      config.resolve.symlinks = false;
+    }
 
     // return result
     return config;
