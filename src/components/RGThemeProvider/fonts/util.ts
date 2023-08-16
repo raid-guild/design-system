@@ -8,8 +8,7 @@ export type Font = {
   sources: Source[];
 };
 
-export const ASSETS_BASE_URL =
-  'https://interstellar-manatee.s3.amazonaws.com/fonts';
+export const ASSETS_BASE_URL = 'https://www.raidguild.org/fonts';
 
 export const mapSourceWeights = (
   inputSources: { [weight: number]: Source[] },
