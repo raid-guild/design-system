@@ -41,18 +41,20 @@ const theme = extendTheme({
         overflowY: 'overlay',
       },
 
+      // todo move to an optional component
+      // https://github.com/chakra-ui/chakra-ui/issues/4472#issuecomment-1463302711
       // Scrollbar styles
-      '::-webkit-scrollbar': {
-        width: '10px',
-        background: 'transparent',
-      },
-      '::-webkit-scrollbar-thumb': {
-        background: '#ff3864',
-        borderRadius: '5px',
-      },
-      '::-webkit-scrollbar-thumb:hover': {
-        background: '#e4728b',
-      },
+      // '::-webkit-scrollbar': {
+      //   width: '10px',
+      //   background: 'transparent',
+      // },
+      // '::-webkit-scrollbar-thumb': {
+      //   background: '#ff3864',
+      //   borderRadius: '5px',
+      // },
+      // '::-webkit-scrollbar-thumb:hover': {
+      //   background: '#e4728b',
+      // },
     },
   },
   colors,
