@@ -33,5 +33,4 @@ const RGThemeProvider: React.FC<RGThemeProps> = ({
 };
 
 export default RGThemeProvider;
-
 export { Fonts };
