@@ -1,4 +1,4 @@
-import { RGTokens } from 'components/tokens';
+import RGTokens from 'components/tokens';
 import _ from 'lodash';
 
 interface gradientTokenInterface {
@@ -9,6 +9,8 @@ interface gradientTokenInterface {
 const chakraGradients = _.mapValues(RGTokens.gradient, (gradients) =>
   _.mapValues(gradients, (gradient: gradientTokenInterface) => gradient.value)
 );
+
+console.log(chakraGradients);
 
 const GradientStyles = {
   ...chakraGradients,

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { RGTokens } from 'components/tokens';
+import RGTokens from 'components/tokens';
 
 interface colorTokenInterface {
   value: string;
@@ -9,6 +9,8 @@ interface colorTokenInterface {
 const chakraColors = _.mapValues(RGTokens.colors, (colors) =>
   _.mapValues(colors, (color: colorTokenInterface) => color.value)
 );
+
+console.log(chakraColors);
 
 const Colors = {
   ...chakraColors,
