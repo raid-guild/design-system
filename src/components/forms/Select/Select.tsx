@@ -43,7 +43,7 @@ export interface SelectProps {
   isDisabled?: boolean;
   variant?: 'outline' | 'filled' | 'flushed' | undefined;
   basicStyles?: boolean;
-  value?: any;
+  value?: unknown;
   colorScheme?:
     | 'whiteAlpha'
     | 'blackAlpha'

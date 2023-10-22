@@ -24,6 +24,7 @@ type CustomToastProps = {
   iconColor?: string;
   toast?: CreateToastFnReturn;
   closeToast?: () => void;
+  descriptionNoOfLines?: number;
 };
 
 export type ToastProps = ChakraToastProps & CustomToastProps;
@@ -75,6 +76,7 @@ const Toast: React.FC<ToastProps> = ({
   iconName,
   iconColor,
   closeToast,
+  descriptionNoOfLines,
   ...props
 }: ToastProps) => {
   return (
@@ -97,7 +99,11 @@ const Toast: React.FC<ToastProps> = ({
         )}
         <Box>
           <Heading size='md'>{title}</Heading>
-          {description && <Text size='sm'>{description}</Text>}
+          {description && (
+            <Text size='sm' noOfLines={descriptionNoOfLines}>
+              {description}
+            </Text>
+          )}
         </Box>
       </HStack>
       {props.isClosable === true && (

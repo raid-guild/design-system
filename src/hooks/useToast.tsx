@@ -17,6 +17,7 @@ const ToastBase = ({
   id,
   duration,
   closeToast,
+  descriptionNoOfLines = 2,
   ...props // gets the rest of the original Chakra Toast props (such as isClosable)
 }: ToastProps & {
   status: ChakraAlertStatus;
@@ -37,6 +38,7 @@ const ToastBase = ({
         iconName={iconName}
         status={status}
         closeToast={closeToast}
+        descriptionNoOfLines={descriptionNoOfLines}
         {...props}
       />
     ),

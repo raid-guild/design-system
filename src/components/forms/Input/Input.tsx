@@ -21,6 +21,7 @@ type CustomInputProps = {
   localForm: UseFormReturn;
   tooltip?: string;
   helperText?: string;
+  spacing?: number | string;
 };
 
 export type InputProps = ChakraInputProps & CustomInputProps;
@@ -42,6 +43,7 @@ const Input: React.FC<InputProps> = ({
   localForm,
   tooltip,
   helperText,
+  spacing,
   ...props
 }: InputProps) => {
   if (!localForm) return null;
@@ -54,29 +56,32 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <FormControl>
-      <Stack spacing={4}>
-        <HStack align='center'>
-          {label && <FormLabel m='0'>{label}</FormLabel>}
-          {tooltip && (
-            <Tooltip
-              label={tooltip}
-              shouldWrapChildren
-              hasArrow
-              placement='end'
-            >
-              <Flex
-                h='24px'
-                w='24px'
-                bg='primary.500'
-                borderRadius='full'
-                align='center'
-                justify='center'
+      <Stack spacing={spacing}>
+        {label && (
+          <HStack align='center'>
+            <FormLabel m='0'>{label}</FormLabel>
+            {tooltip && (
+              <Tooltip
+                label={tooltip}
+                shouldWrapChildren
+                hasArrow
+                placement='end'
               >
-                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
-              </Flex>
-            </Tooltip>
-          )}
-        </HStack>
+                <Flex
+                  h='24px'
+                  w='24px'
+                  bg='primary.500'
+                  borderRadius='full'
+                  align='center'
+                  justify='center'
+                >
+                  <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
+                </Flex>
+              </Tooltip>
+            )}
+          </HStack>
+        )}
+
         <ChakraInput type={type} {...props} {...register(name)} />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {typeof error === 'string' && (

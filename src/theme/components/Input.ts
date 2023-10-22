@@ -38,7 +38,7 @@ const Input = {
     },
   },
   defaultProps: {
-    variant: 'filled',
+    variant: 'outline',
   },
 };
 
