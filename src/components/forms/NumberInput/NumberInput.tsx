@@ -29,7 +29,7 @@ export interface CustomNumberInputProps {
   variant?: string;
   min?: number;
   max?: number;
-  spacing: number | string;
+  spacing?: number | string;
 }
 
 type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
