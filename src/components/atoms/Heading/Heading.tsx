@@ -5,7 +5,7 @@ import { ChakraHeadingProps, ChakraHeading } from '../../chakra';
  * Primary UI component for Heading
  */
 const Heading = ({
-  variant = 'shadow',
+  variant,
   as,
   color,
   content,

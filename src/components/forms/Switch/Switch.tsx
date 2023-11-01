@@ -1,5 +1,5 @@
 import React from 'react';
-import { UseFormReturn } from 'react-hook-form';
+import { FieldValues, RegisterOptions, UseFormReturn } from 'react-hook-form';
 import {
   HStack,
   ChakraSwitch,
@@ -12,7 +12,9 @@ import {
 
 type CustomSwitchProps = {
   label: string | React.ReactNode;
-  localForm: UseFormReturn;
+  name: string;
+  registerOptions?: RegisterOptions<FieldValues, string> | undefined;
+  localForm: UseFormReturn<FieldValues>;
 };
 
 export type SwitchProps = ChakraSwitchProps & CustomSwitchProps;
@@ -22,6 +24,8 @@ export type SwitchProps = ChakraSwitchProps & CustomSwitchProps;
  */
 const Switch: React.FC<SwitchProps> = ({
   label,
+  name,
+  registerOptions,
   localForm,
   ...props
 }: SwitchProps) => {
@@ -31,7 +35,7 @@ const Switch: React.FC<SwitchProps> = ({
     <Flex as={FormControl} align='center'>
       <HStack spacing={3}>
         {label && <ChakraText as={FormLabel}>{label}</ChakraText>}
-        <ChakraSwitch {...props} {...register} />
+        <ChakraSwitch {...props} {...register(name, registerOptions)} />
       </HStack>
     </Flex>
   );

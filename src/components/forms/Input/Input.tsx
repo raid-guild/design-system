@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { UseFormReturn } from 'react-hook-form';
+import { FieldValues, RegisterOptions, UseFormReturn } from 'react-hook-form';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import {
   ChakraInput,
@@ -21,6 +21,8 @@ type CustomInputProps = {
   localForm: UseFormReturn;
   tooltip?: string;
   helperText?: string;
+  spacing?: number | string;
+  registerOptions?: RegisterOptions<FieldValues, string> | undefined;
 };
 
 export type InputProps = ChakraInputProps & CustomInputProps;
@@ -40,8 +42,10 @@ const Input: React.FC<InputProps> = ({
   name,
   type,
   localForm,
+  registerOptions,
   tooltip,
   helperText,
+  spacing,
   ...props
 }: InputProps) => {
   if (!localForm) return null;
@@ -54,30 +58,37 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <FormControl>
-      <Stack spacing={4}>
-        <HStack align='center'>
-          {label && <FormLabel m='0'>{label}</FormLabel>}
-          {tooltip && (
-            <Tooltip
-              label={tooltip}
-              shouldWrapChildren
-              hasArrow
-              placement='end'
-            >
-              <Flex
-                h='24px'
-                w='24px'
-                bg='primary.500'
-                borderRadius='full'
-                align='center'
-                justify='center'
+      <Stack spacing={spacing}>
+        {label && (
+          <HStack align='center'>
+            <FormLabel m='0'>{label}</FormLabel>
+            {tooltip && (
+              <Tooltip
+                label={tooltip}
+                shouldWrapChildren
+                hasArrow
+                placement='end'
               >
-                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
-              </Flex>
-            </Tooltip>
-          )}
-        </HStack>
-        <ChakraInput type={type} {...props} {...register(name)} />
+                <Flex
+                  h='24px'
+                  w='24px'
+                  bg='primary.500'
+                  borderRadius='full'
+                  align='center'
+                  justify='center'
+                >
+                  <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
+                </Flex>
+              </Tooltip>
+            )}
+          </HStack>
+        )}
+
+        <ChakraInput
+          type={type}
+          {...props}
+          {...register(name, registerOptions)}
+        />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {typeof error === 'string' && (
           <FormErrorMessage>{error}</FormErrorMessage>
