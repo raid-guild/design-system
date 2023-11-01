@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { UseFormReturn } from 'react-hook-form';
+import { FieldValues, RegisterOptions, UseFormReturn } from 'react-hook-form';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import {
   ChakraInput,
@@ -22,6 +22,7 @@ type CustomInputProps = {
   tooltip?: string;
   helperText?: string;
   spacing?: number | string;
+  registerOptions?: RegisterOptions<FieldValues, string> | undefined;
 };
 
 export type InputProps = ChakraInputProps & CustomInputProps;
@@ -41,6 +42,7 @@ const Input: React.FC<InputProps> = ({
   name,
   type,
   localForm,
+  registerOptions,
   tooltip,
   helperText,
   spacing,
@@ -82,7 +84,11 @@ const Input: React.FC<InputProps> = ({
           </HStack>
         )}
 
-        <ChakraInput type={type} {...props} {...register(name)} />
+        <ChakraInput
+          type={type}
+          {...props}
+          {...register(name, registerOptions)}
+        />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {typeof error === 'string' && (
           <FormErrorMessage>{error}</FormErrorMessage>
