@@ -1,24 +1,26 @@
+import { StyleFunctionProps, mode } from '@chakra-ui/theme-tools';
+
 const NumberInput = {
   baseStyle: {},
   defaultProps: {
     variant: 'outline',
   },
   variants: {
-    filled: {
+    filled: (props: StyleFunctionProps) => ({
       field: {
         borderRadius: '0px',
-        bg: 'gray.700',
-        color: 'white',
+        bg: mode('blackAlpha.200', 'gray.700')(props),
+        color: mode('black', 'white')(props),
         _focus: {
-          bg: 'gray.700',
+          bg: mode('blackAlpha.400', 'gray.700')(props),
         },
         _hover: {
-          bg: 'gray.700',
+          bg: mode('blackAlpha.300', 'gray.700')(props),
         },
       },
       stepperGroup: {},
       stepper: {},
-    },
+    }),
     outline: {
       field: {
         border: '1px solid',

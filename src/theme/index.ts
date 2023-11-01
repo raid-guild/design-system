@@ -1,3 +1,4 @@
+import { StyleFunctionProps, mode } from '@chakra-ui/theme-tools';
 import { extendTheme } from '../components/chakra';
 
 import colors from './colors';
@@ -25,7 +26,7 @@ import Textarea from './components/Textarea';
 import Tooltip from './components/Tooltip';
 
 const theme = extendTheme({
-  styles: {
+  styles: (props: StyleFunctionProps) => ({
     global: {
       '*': {
         margin: 0,
@@ -33,7 +34,7 @@ const theme = extendTheme({
         boxSizing: 'border-box',
       },
       body: {
-        bg: 'gray.800',
+        bg: mode('white', 'blue')(props),
         fontFamily: 'texturina',
         color: 'white',
         minHeight: '100vh',
@@ -56,7 +57,7 @@ const theme = extendTheme({
       //   background: '#e4728b',
       // },
     },
-  },
+  }),
   colors,
   fonts: {
     texturina: `'Texturina', serif`,
