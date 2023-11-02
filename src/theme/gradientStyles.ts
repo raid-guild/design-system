@@ -1,13 +1,9 @@
 import RGTokens from 'components/tokens';
 import _ from 'lodash';
 
-console.log(RGTokens.gradient);
-
 const chakraGradients = _.mapValues(RGTokens.gradient, (gradient) => ({
   bgGradient: gradient.value,
 }));
-
-console.log(chakraGradients);
 
 const GradientStyles = {
   ...chakraGradients,
@@ -36,7 +32,5 @@ const GradientStyles = {
       'linear-gradient(157.1deg, #22002b 0%, #390418 29.17%, #48093A 61.98%, #1F0442 100%)',
   },
 };
-
-console.log(GradientStyles);
 
 export default GradientStyles;
