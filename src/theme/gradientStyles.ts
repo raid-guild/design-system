@@ -1,5 +1,5 @@
-import RGTokens from 'components/tokens';
 import _ from 'lodash';
+import RGTokens from './tokens';
 
 const chakraGradients = _.mapValues(RGTokens.gradient, (gradient) => ({
   bgGradient: gradient.value,
