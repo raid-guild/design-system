@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import RGTokens from 'components/tokens';
+import RGTokens from './tokens';
 
 interface colorTokenInterface {
   value: string;
