@@ -95,6 +95,7 @@
     "@rollup/plugin-replace": "^3.0.0",
     "@storybook/react": "^7.0.21",
     "@storybook/theming": "^7.0.21",
+    "@tokens-studio/sd-transforms": "^0.11.3",
     "@types/react-datepicker": "^4.8.0",
     "chakra-react-select": "^4.6.0",
     "framer-motion": "^10.12.16",
@@ -107,6 +108,7 @@
     "react-icons": "^4.3.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-css-porter": "^1.0.2",
+    "token-transformer": "^0.0.33",
     "tsconfig-paths-webpack-plugin": "^4.0.0"
   }
 }

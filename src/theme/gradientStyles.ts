@@ -1,4 +1,12 @@
+import _ from 'lodash';
+import RGTokens from './tokens';
+
+const chakraGradients = _.mapValues(RGTokens.gradient, (gradient) => ({
+  bgGradient: gradient.value,
+}));
+
 const GradientStyles = {
+  ...chakraGradients,
   primaryGradient: {
     bgGradient: `
       radial-gradient(97.27% 170.54% at 98.7% 2.73%, #24003A 0%, rgba(0, 0, 0, 0) 100%),
