@@ -2,9 +2,8 @@ name: Sync Design Tokens
 
 on:
   push:
-    branches:    
-      - '*'
-      - '!main'
+    branches-ignore:
+      - 'main'
     paths:
       - 'src/theme/tokens/tokens.json'
 
@@ -26,10 +25,10 @@ jobs:
         node-version: 18
 
     - name: Transform tokens
-      run: npx token-transformer ./src/theme/tokens/tokens.json ./src/theme/tokens/tokens-output.json
+      run: npx token-transformer ./src/theme/tokens/tokens.json ./src/theme/tokens/token-output.json
 
     - name: Commit changes
       uses: devops-infra/action-commit-push@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        commit_message: "Updated tokens"
+        commit_message: "[Auto-Commit via Github Workflow] Updated tokens"
