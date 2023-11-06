@@ -49,6 +49,7 @@ const NumberInput = ({
   min = 0,
   max = 100,
   spacing,
+  ...props
 }: NumberInputProps) => {
   if (!localForm) return null;
 
@@ -73,6 +74,7 @@ const NumberInput = ({
               step={step}
               min={min}
               max={max}
+              placeholder={props.placeholder}
               {...restField}
             >
               <NumberInputField ref={ref} name={restField.name} />
