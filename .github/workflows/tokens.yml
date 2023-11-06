@@ -31,4 +31,4 @@ jobs:
       uses: devops-infra/action-commit-push@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        commit_message: "Updated tokens"
+        commit_message: "[Auto-Commit via Github Workflow] Updated tokens"
