@@ -6,6 +6,9 @@ import { FormControl, FormLabel, Box, Stack } from '@chakra-ui/react';
 import { UseFormReturn } from 'react-hook-form/dist/types/form';
 import { CustomDatePickerButton } from './CustomDatePickerButton';
 
+// TODO pass variants to button
+// TODO currently only single date is supported, but type shows that it can be a range
+
 export interface DatePickerProps extends ReactDatePickerProps {
   name: string;
   label?: string;

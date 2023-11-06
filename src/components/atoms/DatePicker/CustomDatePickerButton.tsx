@@ -20,7 +20,7 @@ export const CustomDatePickerButton = forwardRef<
   CustomDatePickerButtonProps,
   'button'
 >(({ value, onClick }, ref) => (
-  <Button onClick={onClick} ref={ref} variant='solid'>
+  <Button onClick={onClick} ref={ref} variant='outline'>
     {value}
   </Button>
 ));
