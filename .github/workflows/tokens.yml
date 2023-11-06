@@ -14,10 +14,7 @@ jobs:
           node-version: 18
 
       - name: Transform Tokens
-        run: |
-            npx token-transformer ./src/tokens/tokens.json ./src/tokens/tokens-output.json
-            rm ./src/tokens/tokens.json
-            mv ./src/tokens/tokens-output.json ./src/tokens/tokens.json
+        run: npx token-transformer ./src/theme/tokens/tokens.json ./src/theme/tokens/tokens-output.json
 
 
       - name: Commit and push changes
