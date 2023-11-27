@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormHelperText, Stack } from '@chakra-ui/react';
 import React from 'react';
+import _ from 'lodash';
 import {
   UseFormReturn,
   RegisterOptions,
@@ -20,7 +21,7 @@ import {
 } from '../../chakra';
 
 export interface CustomNumberInputProps {
-  customValidations?: RegisterOptions;
+  registerOptions?: RegisterOptions;
   label?: string | React.ReactNode;
   helperText?: string;
   name: string;
@@ -34,6 +35,8 @@ export interface CustomNumberInputProps {
 
 type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
 
+// TODO add tooltip
+
 /**
  * Primary UI component for Heading
  */
@@ -42,7 +45,7 @@ const NumberInput = ({
   label,
   localForm,
   helperText,
-  customValidations,
+  registerOptions,
   isRequired,
   step = 1,
   variant = 'filled',
@@ -59,6 +62,8 @@ const NumberInput = ({
   } = localForm;
 
   const error = name && errors[name] && errors[name]?.message;
+  // some Input props not compatible with NumberInput/Controller field props
+  const localProps = _.omit(props, ['onInvalid', 'filter', 'defaultValue']);
 
   return (
     <FormControl isRequired={isRequired} isInvalid={!!errors[name]}>
@@ -67,14 +72,14 @@ const NumberInput = ({
         <Controller
           control={control}
           name={name}
-          rules={customValidations}
+          rules={registerOptions}
           render={({ field: { ref, ...restField } }) => (
             <ChakraNumberInput
               variant={variant}
               step={step}
               min={min}
               max={max}
-              placeholder={props.placeholder}
+              {...localProps}
               {...restField}
             >
               <NumberInputField ref={ref} name={restField.name} />

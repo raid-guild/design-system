@@ -101,8 +101,8 @@ const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <FormControl mb={4}>
-      <Stack spacing={2}>
+    <FormControl>
+      <Stack>
         <HStack align='center'>
           {label && <FormLabel m='0'>{label}</FormLabel>}
           {tooltip && (
@@ -126,7 +126,7 @@ const Select: React.FC<SelectProps> = ({
           )}
         </HStack>
 
-        <Box my={2}>
+        <Box>
           <Controller
             name={name}
             control={control}

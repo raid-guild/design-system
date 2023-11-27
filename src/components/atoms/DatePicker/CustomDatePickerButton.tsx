@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  ChakraButtonProps,
-  forwardRef,
-  // ComponentWithAs,
-} from '../../chakra';
+import { Button, ChakraButtonProps, forwardRef } from '../../chakra';
 
 export type CustomDatePickerButtonProps = ChakraButtonProps & {
   value?: React.ReactNode;
@@ -19,8 +14,8 @@ export type CustomDatePickerButton = CustomDatePickerButtonProps & {
 export const CustomDatePickerButton = forwardRef<
   CustomDatePickerButtonProps,
   'button'
->(({ value, onClick }, ref) => (
-  <Button onClick={onClick} ref={ref} variant='outline'>
+>(({ value, onClick, variant = 'outline' }, ref) => (
+  <Button onClick={onClick} ref={ref} variant={variant}>
     {value}
   </Button>
 ));

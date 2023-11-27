@@ -1,33 +1,37 @@
-import React, { SyntheticEvent } from 'react';
+import React from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller } from 'react-hook-form';
 import { FormControl, FormLabel, Box, Stack } from '@chakra-ui/react';
 import { UseFormReturn } from 'react-hook-form/dist/types/form';
+import _ from 'lodash';
 import { CustomDatePickerButton } from './CustomDatePickerButton';
 
-// TODO pass variants to button
+// TODO handle separate controlled component
 // TODO currently only single date is supported, but type shows that it can be a range
 
-export interface DatePickerProps extends ReactDatePickerProps {
+export type DatePickerProps = {
   name: string;
   label?: string;
   tip?: string;
   localForm: Pick<UseFormReturn, 'control' | 'formState' | 'watch'>;
-  onChange: (
-    date: Date | [Date | null, Date | null] | null,
-    event: SyntheticEvent<Date, Event> | undefined
-  ) => void;
-}
+  variant?: string;
+  spacing?: number | string;
+  // onChange?: (
+  //   date: Date | [Date | null, Date | null] | null,
+  //   event: SyntheticEvent<Date, Event> | undefined
+  // ) => void;
+} & ReactDatePickerProps;
 
 const DatePicker: React.FC<DatePickerProps> = ({
   label,
   name,
   localForm,
-  onChange,
+  variant,
+  spacing,
   ...props
 }: DatePickerProps) => {
-  const { control } = localForm;
+  const { control, watch } = _.pick(localForm, ['control', 'watch']);
 
   // these are the values that seemed relevant. we can adjust and even theme this
   const customDatePickerStyles = {
@@ -47,9 +51,9 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
   return (
     <FormControl mb={4}>
-      <Stack sx={customDatePickerStyles} spacing={2}>
+      <Stack sx={customDatePickerStyles} spacing={spacing}>
         {label && <FormLabel>{label}</FormLabel>}
-        <Box my={2}>
+        <Box>
           <Controller
             name={name}
             control={control}
@@ -57,9 +61,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
             render={({ field }) => (
               <ReactDatePicker
                 {...field}
-                onChange={onChange}
-                selected={localForm.watch(name)}
-                customInput={<CustomDatePickerButton />}
+                selected={watch?.(name)}
+                customInput={<CustomDatePickerButton variant={variant} />}
                 {...props}
               />
             )}

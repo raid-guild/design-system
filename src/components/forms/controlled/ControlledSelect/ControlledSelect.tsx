@@ -68,6 +68,7 @@ const ControlledSelect: React.FC<ControlledSelectProps> = ({
   ...props
 }: ControlledSelectProps) => {
   const chakraStyles: ChakraStylesConfig = {
+    // TODO migrate to theme file
     dropdownIndicator: (provided) => ({
       ...provided,
       background: 'gray.600',
@@ -79,7 +80,7 @@ const ControlledSelect: React.FC<ControlledSelectProps> = ({
   return (
     <Stack spacing={2}>
       {label && <FormLabel>{label}</FormLabel>}
-      <Box my={2}>
+      <Box>
         <ReactSelect
           chakraStyles={basicStyles === false ? chakraStyles : {}}
           options={options}
