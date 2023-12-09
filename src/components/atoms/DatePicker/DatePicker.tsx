@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Controller } from 'react-hook-form';
+import { Controller, RegisterOptions } from 'react-hook-form';
 import { FormControl, FormLabel, Box, Stack } from '@chakra-ui/react';
 import { UseFormReturn } from 'react-hook-form/dist/types/form';
 import _ from 'lodash';
@@ -15,6 +15,7 @@ export type DatePickerProps = {
   label?: string;
   tip?: string;
   localForm: Pick<UseFormReturn, 'control' | 'formState' | 'watch'>;
+  registerOptions?: RegisterOptions;
   variant?: string;
   spacing?: number | string;
   // onChange?: (
@@ -27,11 +28,16 @@ const DatePicker: React.FC<DatePickerProps> = ({
   label,
   name,
   localForm,
+  registerOptions,
   variant,
   spacing,
   ...props
 }: DatePickerProps) => {
-  const { control, watch } = _.pick(localForm, ['control', 'watch']);
+  const {
+    control,
+    watch,
+    formState: { errors },
+  } = _.pick(localForm, ['control', 'watch', 'formState']);
 
   // these are the values that seemed relevant. we can adjust and even theme this
   const customDatePickerStyles = {
@@ -50,13 +56,14 @@ const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   return (
-    <FormControl mb={4}>
+    <FormControl isInvalid={!!errors[name]}>
       <Stack sx={customDatePickerStyles} spacing={spacing}>
-        {label && <FormLabel>{label}</FormLabel>}
+        {label && <FormLabel m={0}>{label}</FormLabel>}
         <Box>
           <Controller
             name={name}
             control={control}
+            rules={registerOptions}
             shouldUnregister={false}
             render={({ field }) => (
               <ReactDatePicker

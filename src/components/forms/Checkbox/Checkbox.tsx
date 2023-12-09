@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import _ from 'lodash';
-import { UseFormReturn, FieldValues, Controller } from 'react-hook-form';
+import { UseFormReturn, Controller } from 'react-hook-form';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import {
   ChakraCheckbox,
@@ -21,7 +21,8 @@ export interface CustomCheckboxProps {
   label?: string | React.ReactNode;
   options: string[];
   direction?: 'row' | 'column';
-  localForm: UseFormReturn<FieldValues>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localForm: UseFormReturn<any>;
   helperText?: string;
   tooltip?: string;
 }

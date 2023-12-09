@@ -18,7 +18,8 @@ import { Tooltip } from '../../atoms';
 type CustomInputProps = {
   label?: string | ReactNode;
   name: string;
-  localForm: UseFormReturn;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localForm: UseFormReturn<any>;
   tooltip?: string;
   helperText?: string;
   spacing?: number | string;
@@ -70,8 +71,8 @@ const Input: React.FC<InputProps> = ({
                 placement='end'
               >
                 <Flex
-                  h='24px'
-                  w='24px'
+                  h='18px'
+                  w='18px'
                   bg='primary.500'
                   borderRadius='full'
                   align='center'

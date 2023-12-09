@@ -1,13 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormHelperText, Stack } from '@chakra-ui/react';
 import React from 'react';
 import _ from 'lodash';
-import {
-  UseFormReturn,
-  RegisterOptions,
-  Controller,
-  FieldValues,
-} from 'react-hook-form';
+import { UseFormReturn, RegisterOptions, Controller } from 'react-hook-form';
 import {
   FormControl,
   FormLabel,
@@ -25,7 +19,8 @@ export interface CustomNumberInputProps {
   label?: string | React.ReactNode;
   helperText?: string;
   name: string;
-  localForm: UseFormReturn<FieldValues>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localForm: UseFormReturn<any>;
   step?: number;
   variant?: string;
   min?: number;
@@ -72,7 +67,7 @@ const NumberInput = ({
         <Controller
           control={control}
           name={name}
-          rules={registerOptions}
+          rules={{ ...registerOptions, required: isRequired }}
           render={({ field: { ref, ...restField } }) => (
             <ChakraNumberInput
               variant={variant}
