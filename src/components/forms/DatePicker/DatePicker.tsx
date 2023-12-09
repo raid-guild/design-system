@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, RegisterOptions } from 'react-hook-form';
-import { FormControl, FormLabel, Box, Stack } from '@chakra-ui/react';
+import {
+  FormControl,
+  FormLabel,
+  Stack,
+  FormErrorMessage,
+} from '@chakra-ui/react';
 import { UseFormReturn } from 'react-hook-form/dist/types/form';
 import _ from 'lodash';
 import { CustomDatePickerButton } from './CustomDatePickerButton';
@@ -56,27 +61,33 @@ const DatePicker: React.FC<DatePickerProps> = ({
   };
 
   return (
-    <FormControl isInvalid={!!errors[name]}>
-      <Stack sx={customDatePickerStyles} spacing={spacing}>
-        {label && <FormLabel m={0}>{label}</FormLabel>}
-        <Box>
-          <Controller
-            name={name}
-            control={control}
-            rules={registerOptions}
-            shouldUnregister={false}
-            render={({ field }) => (
-              <ReactDatePicker
-                {...field}
-                selected={watch?.(name)}
-                customInput={<CustomDatePickerButton variant={variant} />}
-                {...props}
-              />
-            )}
-          />
-        </Box>
-      </Stack>
-    </FormControl>
+    <Controller
+      name={name}
+      control={control}
+      rules={registerOptions}
+      shouldUnregister={false}
+      render={({ field }) => (
+        <FormControl isInvalid={!!errors[name]}>
+          <Stack sx={customDatePickerStyles} spacing={spacing}>
+            {label && <FormLabel m={0}>{label}</FormLabel>}
+            <ReactDatePicker
+              {...props}
+              {...field}
+              selected={watch?.(name)}
+              customInput={<CustomDatePickerButton variant={variant} />}
+              ref={(ref) => {
+                field.ref({
+                  focus: ref?.setFocus,
+                });
+              }}
+            />
+            <FormErrorMessage color='red.500'>
+              {errors[name]?.message as string}
+            </FormErrorMessage>
+          </Stack>
+        </FormControl>
+      )}
+    />
   );
 };
 

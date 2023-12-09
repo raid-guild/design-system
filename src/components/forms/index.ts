@@ -1,6 +1,7 @@
 // DEFAULT INPUTS - REACT HOOK FORM
 export * from './Checkbox';
 export * from './CreatableSelect';
+export * from './DatePicker';
 export * from './Input';
 export * from './NumberInput';
 export * from './Radio';

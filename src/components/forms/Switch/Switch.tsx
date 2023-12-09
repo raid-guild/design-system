@@ -35,24 +35,29 @@ const Switch: React.FC<SwitchProps> = ({
   localForm,
   ...props
 }: SwitchProps) => {
-  const { control } = localForm;
+  const {
+    control,
+    formState: { errors },
+  } = localForm;
 
   return (
-    <Flex as={FormControl} align='center'>
+    <Flex as={FormControl} align='center' m={0}>
       <Controller
         control={control}
         name={name}
         rules={registerOptions}
         render={({ field: { onBlur, onChange, value } }) => (
-          <HStack spacing={3}>
-            {label && <ChakraText as={FormLabel}>{label}</ChakraText>}
-            <ChakraSwitch
-              {...props}
-              onChange={(e) => onChange(e.target.checked)}
-              onBlur={onBlur}
-              isChecked={value}
-            />
-          </HStack>
+          <FormControl isInvalid={!!errors[name]}>
+            <HStack spacing={3}>
+              {label && <ChakraText as={FormLabel}>{label}</ChakraText>}
+              <ChakraSwitch
+                {...props}
+                onChange={(e) => onChange(e.target.checked)}
+                onBlur={onBlur}
+                isChecked={value}
+              />
+            </HStack>
+          </FormControl>
         )}
       />
     </Flex>

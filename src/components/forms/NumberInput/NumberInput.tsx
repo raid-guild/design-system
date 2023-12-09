@@ -1,7 +1,8 @@
-import { FormHelperText, Stack } from '@chakra-ui/react';
+import { FormHelperText, HStack, Icon, Stack, Tooltip } from '@chakra-ui/react';
 import React from 'react';
 import _ from 'lodash';
 import { UseFormReturn, RegisterOptions, Controller } from 'react-hook-form';
+import { FaInfoCircle } from 'react-icons/fa';
 import {
   FormControl,
   FormLabel,
@@ -15,12 +16,13 @@ import {
 } from '../../chakra';
 
 export interface CustomNumberInputProps {
-  registerOptions?: RegisterOptions;
   label?: string | React.ReactNode;
   helperText?: string;
   name: string;
+  tooltip?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   localForm: UseFormReturn<any>;
+  registerOptions?: RegisterOptions;
   step?: number;
   variant?: string;
   min?: number;
@@ -40,8 +42,8 @@ const NumberInput = ({
   label,
   localForm,
   helperText,
+  tooltip,
   registerOptions,
-  isRequired,
   step = 1,
   variant = 'filled',
   min = 0,
@@ -61,14 +63,31 @@ const NumberInput = ({
   const localProps = _.omit(props, ['onInvalid', 'filter', 'defaultValue']);
 
   return (
-    <FormControl isRequired={isRequired} isInvalid={!!errors[name]}>
-      <Stack spacing={spacing}>
-        {label && <FormLabel m={0}>{label}</FormLabel>}
-        <Controller
-          control={control}
-          name={name}
-          rules={{ ...registerOptions, required: isRequired }}
-          render={({ field: { ref, ...restField } }) => (
+    <Controller
+      control={control}
+      name={name}
+      rules={registerOptions}
+      render={({ field: { ref, ...restField } }) => (
+        <FormControl
+          isRequired={!!registerOptions?.required || false}
+          isInvalid={!!errors[name]}
+          m={0}
+        >
+          <Stack spacing={spacing}>
+            <HStack>
+              {label && <FormLabel m={0}>{label}</FormLabel>}
+              {tooltip && (
+                <Tooltip>
+                  <Icon
+                    as={FaInfoCircle}
+                    boxSize={3}
+                    color='red.500'
+                    bg='white'
+                    borderRadius='full'
+                  />
+                </Tooltip>
+              )}
+            </HStack>
             <ChakraNumberInput
               variant={variant}
               step={step}
@@ -83,14 +102,13 @@ const NumberInput = ({
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </ChakraNumberInput>
-          )}
-        />
-        {helperText && <FormHelperText>{helperText}</FormHelperText>}
-        {typeof error === 'string' && (
-          <FormErrorMessage>{error}</FormErrorMessage>
-        )}
-      </Stack>
-    </FormControl>
+            {helperText && <FormHelperText>{helperText}</FormHelperText>}
+
+            <FormErrorMessage>{error as string}</FormErrorMessage>
+          </Stack>
+        </FormControl>
+      )}
+    />
   );
 };
 

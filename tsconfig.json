@@ -5,25 +5,19 @@
     "types",
     "src/stories",
     "src/test",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "tsdx.config.js"
   ],
-  "exclude": [
-    "dist"
-  ],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "baseUrl": "./src",
     // used to import token.json wherever required
     "resolveJsonModule": true,
     "paths": {
-      "@/*": [
-        "/*"
-      ]
+      "@/*": ["/*"]
     },
     "module": "esnext",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "importHelpers": true,
     // output .d.ts declaration files for consumers
     "declaration": true,

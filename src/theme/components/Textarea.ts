@@ -29,7 +29,7 @@ const Textarea = {
     },
   },
   defaultProps: {
-    variant: 'filled',
+    variant: 'outline',
   },
 };
 
