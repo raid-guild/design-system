@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   ControlledSlider as ControlledSliderComponent,
   Flex,
@@ -10,7 +10,7 @@ import {
 export default {
   title: 'Components/Forms/Slider/HookForm',
   component: ControlledSliderComponent,
-} as Meta<typeof ControlledSliderComponent>;
+}; // as Meta<typeof ControlledSliderComponent>;
 
 const markValues = [
   { label: '$1000', value: 1000 },

@@ -1,5 +1,10 @@
 import React from 'react';
-import { FieldValues, RegisterOptions, UseFormReturn } from 'react-hook-form';
+import {
+  Controller,
+  FieldValues,
+  RegisterOptions,
+  UseFormReturn,
+} from 'react-hook-form';
 import {
   HStack,
   ChakraSwitch,
@@ -14,7 +19,8 @@ type CustomSwitchProps = {
   label: string | React.ReactNode;
   name: string;
   registerOptions?: RegisterOptions<FieldValues, string> | undefined;
-  localForm: UseFormReturn<FieldValues>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localForm: UseFormReturn<any>;
 };
 
 export type SwitchProps = ChakraSwitchProps & CustomSwitchProps;
@@ -29,14 +35,31 @@ const Switch: React.FC<SwitchProps> = ({
   localForm,
   ...props
 }: SwitchProps) => {
-  const { register } = localForm;
+  const {
+    control,
+    formState: { errors },
+  } = localForm;
 
   return (
-    <Flex as={FormControl} align='center'>
-      <HStack spacing={3}>
-        {label && <ChakraText as={FormLabel}>{label}</ChakraText>}
-        <ChakraSwitch {...props} {...register(name, registerOptions)} />
-      </HStack>
+    <Flex as={FormControl} align='center' m={0}>
+      <Controller
+        control={control}
+        name={name}
+        rules={registerOptions}
+        render={({ field: { onBlur, onChange, value } }) => (
+          <FormControl isInvalid={!!errors[name]}>
+            <HStack spacing={3}>
+              {label && <ChakraText as={FormLabel}>{label}</ChakraText>}
+              <ChakraSwitch
+                {...props}
+                onChange={(e) => onChange(e.target.checked)}
+                onBlur={onBlur}
+                isChecked={value}
+              />
+            </HStack>
+          </FormControl>
+        )}
+      />
     </Flex>
   );
 };

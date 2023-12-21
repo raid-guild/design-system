@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   ControlledSelect as SelectComponent,
   Box,
@@ -10,7 +10,7 @@ import {
 export default {
   title: 'Components/Forms/Select/Controlled',
   component: SelectComponent,
-} as Meta<typeof SelectComponent>;
+}; // as Meta<typeof SelectComponent>;
 
 type SelectVariant = {
   name: string;

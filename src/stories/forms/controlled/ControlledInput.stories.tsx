@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { ControlledInput as InputComponent, Box, Stack } from '../../..';
 
 export default {
   title: 'Components/Forms/Input/Controlled',
   component: InputComponent,
-} as Meta;
+} as any; // as Meta;
 
 const inputVariants = [
   { name: 'Outline', variant: 'outline' },

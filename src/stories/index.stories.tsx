@@ -1,4 +1,3 @@
-import { Meta } from '@storybook/react';
 import type { StoryFn } from '@storybook/react';
 import React from 'react';
 
@@ -40,4 +39,4 @@ export const RaidGuildDesignSystem: StoryFn = () => (
 export default {
   title: 'Raid Guild Design System',
   component: RaidGuildDesignSystem,
-} as Meta;
+} as any; // as Meta;

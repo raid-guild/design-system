@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Card, Image, HStack, SimpleGrid, Heading, Text } from '../..';
 import imgDesignSprints from '../../assets/images/designsprints.png';
 import { RoleBadge } from '../../components/molecules';
@@ -11,7 +11,7 @@ export default {
    */
   title: 'Components/Atoms/Cards',
   component: Card,
-} as Meta<typeof Card>;
+}; // as Meta<typeof Card>;
 
 const cardVariants = [
   'fullBorder',

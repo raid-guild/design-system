@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Input as InputComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Forms/Input/HookForm',
   component: InputComponent,
-} as Meta;
+}; // as Meta;
 
 const inputVariants = [
   { name: 'Outline', variant: 'outline' },

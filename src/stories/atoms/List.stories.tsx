@@ -1,13 +1,13 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { ListItemProps } from 'components/atoms/List/List';
+import { StoryFn } from '@storybook/react';
+import { ListItemProps } from '../../components/atoms/List/List';
 import { List as ListComponent, HStack, Stack, Heading } from '../..';
 import Castle from '../../components/icons/Castle';
 
 export default {
   title: 'Components/Atoms/List',
   component: ListComponent,
-} as Meta<typeof ListComponent>;
+}; // as Meta<typeof ListComponent>;
 
 type ListEntry = Partial<ListItemProps> & {
   name: string;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Select as SelectComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Forms/Select/HookForm',
   component: SelectComponent,
-} as Meta<typeof SelectComponent>;
+}; // as Meta<typeof SelectComponent>;
 
 type SelectVariant = {
   name: string;

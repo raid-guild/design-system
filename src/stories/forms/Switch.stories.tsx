@@ -1,12 +1,12 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { Switch as SwitchComponent, Stack } from '../..';
 
 export default {
   title: 'Components/Forms/Switch/HookForm',
   component: SwitchComponent,
-} as Meta<typeof SwitchComponent>;
+}; // as Meta<typeof SwitchComponent>;
 
 // const switchSizes = [
 //   { name: 'Small', size: 'sm' },

@@ -3,55 +3,34 @@
   "include": [
     "src",
     "types",
-    "src/stories",
-    "src/test",
-    ".eslintrc.js"
+    // root files
+    ".eslintrc.cjs",
+    "rollup.config.js",
+    "tsdx.config.js"
   ],
-  "exclude": [
-    "dist"
-  ],
+  "exclude": [],
   "compilerOptions": {
-    "baseUrl": "./src",
-    // used to import token.json wherever required
-    "resolveJsonModule": true,
-    "paths": {
-      "@/*": [
-        "/*"
-      ]
-    },
-    "module": "esnext",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
-    "importHelpers": true,
-    // output .d.ts declaration files for consumers
-    "declaration": true,
-    // output .js.map sourcemap files for consumers
-    "sourceMap": true,
-    // match output dir to input dir. e.g. dist/index instead of dist/src/index
-    "rootDir": "./src",
-    //? don't do this for now -- sets base url for relative imports
-    // "baseUrl": "./src",
-    // stricter type-checking for stronger correctness. Recommended by TS
-    "strict": true,
-    // linter checks for common issues
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    // noUnused* overlap with @typescript-eslint/no-unused-vars, can disable if duplicative
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    // use Node's module resolution algorithm, instead of the legacy TS one
-    "moduleResolution": "node",
-    // transpile JSX to React.createElement
-    "jsx": "react",
-    // interop between ESM and CJS modules. Recommended by TS
-    "esModuleInterop": true,
-    // significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
-    "skipLibCheck": true,
-    // error out if import and file system have a casing mismatch. Recommended by TS
-    "forceConsistentCasingInFileNames": true,
-    // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
-    "noEmit": true
+    "baseUrl": ".",
+    "rootDir": ".",
+    "target": "ES5", // Specifies the JavaScript version to target when transpiling code.
+    "useDefineForClassFields": true, // Enables the use of 'define' for class fields.
+    "lib": ["ES2020", "DOM", "DOM.Iterable"], // Specifies the libraries available for the code.
+    "module": "ESNext", // Defines the module system to use for code generation.
+    "skipLibCheck": true, // Skips type checking of declaration files.
+
+    /* Bundler mode */
+    "moduleResolution": "node", // Specifies how modules are resolved when bundling.
+    "resolveJsonModule": true, // Enables importing JSON modules.
+    "isolatedModules": true, // Ensures each file is treated as a separate module.
+    "noEmit": true, // Prevents TypeScript from emitting output files.
+    "jsx": "react", // Configures JSX support for React.
+
+    /* Linting */
+    "strict": true, // Enables strict type checking.
+    "noUnusedLocals": true, // Flags unused local variables.
+    "noUnusedParameters": true, // Flags unused function parameters.
+    "noFallthroughCasesInSwitch": true, // Requires handling all cases in a switch statement.
+    "declaration": true, // Generates declaration files for TypeScript.
+    "allowSyntheticDefaultImports": true
   }
 }

@@ -38,8 +38,13 @@ const Gradients: StoryFn = () => (
         borderRadius='xl'
       >
         <Stack spacing={4} align='center'>
-          <Heading size='md'>{gradient.name}</Heading>
-          <Text fontFamily='jetbrains'>{`layerStyle='${gradient.style}'`}</Text>
+          <Heading size='md' maxW='70%' textAlign='center'>
+            {gradient.name}
+          </Heading>
+          <Text
+            fontFamily='jetbrains'
+            fontSize='sm'
+          >{`layerStyle='${gradient.style}'`}</Text>
         </Stack>
       </Flex>
     ))}

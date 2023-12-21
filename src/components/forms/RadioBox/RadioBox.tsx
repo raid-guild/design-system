@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { UseFormReturn, useController, FieldValues } from 'react-hook-form';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
+import {
+  UseFormReturn,
+  useController,
+  FieldValues,
+  RegisterOptions,
+} from 'react-hook-form';
+import { FaInfoCircle } from 'react-icons/fa';
 import {
   Box,
   useRadio,
@@ -15,7 +20,6 @@ import {
   FormHelperText,
   FormErrorMessage,
   Stack,
-  Flex,
   Icon,
 } from '../../chakra';
 import { Tooltip } from '../../atoms';
@@ -43,17 +47,40 @@ export interface CustomRadioBoxProps {
   tooltip?: string;
   label: string | React.ReactNode;
   localForm: UseFormReturn<FieldValues>;
-  options: any;
+  options: string[];
+  registerOptions?: RegisterOptions;
   stack?: 'vertical' | 'horizontal';
   size?: 'sm' | 'md' | 'lg';
 }
 
 type RadioBoxProps = CustomRadioBoxProps & ChakraRadioProps;
 
+const Options = ({
+  options,
+  getRadioProps,
+  size,
+}: {
+  options: string[];
+  getRadioProps: any;
+  size?: string;
+}) => (
+  <>
+    {options.map((v: any) => {
+      const radio = getRadioProps({ value: v });
+      return (
+        <RadioCard key={v} size={size} {...radio}>
+          {v}
+        </RadioCard>
+      );
+    })}
+  </>
+);
+
 const RadioBox = ({
   name,
   label,
   localForm,
+  registerOptions,
   options,
   stack,
   isRequired,
@@ -69,7 +96,7 @@ const RadioBox = ({
   } = useController({
     control,
     name,
-    // rules: { required: { value: true, message: "Required field" } }
+    rules: registerOptions,
   });
   const { getRootProps, getRadioProps } = useRadioGroup({
     name,
@@ -77,21 +104,11 @@ const RadioBox = ({
     value: field.value,
   });
 
-  const Options = () =>
-    options.map((v: any) => {
-      const radio = getRadioProps({ value: v });
-      return (
-        <RadioCard key={v} size={size} {...radio}>
-          {v}
-        </RadioCard>
-      );
-    });
-
   const group = getRootProps();
   const error = errors[name] && errors[name]?.message;
 
   return (
-    <FormControl isRequired={isRequired} isInvalid={!!errors[name]}>
+    <FormControl isRequired={isRequired} isInvalid={!!errors[name]} m={0}>
       <Stack>
         <HStack align='center'>
           {label && <FormLabel m='0'>{label}</FormLabel>}
@@ -102,26 +119,31 @@ const RadioBox = ({
               hasArrow
               placement='end'
             >
-              <Flex
-                h='24px'
-                w='24px'
-                bg='primary.500'
+              <Icon
+                as={FaInfoCircle}
+                boxSize={3}
+                color='red.500'
+                bg='white'
                 borderRadius='full'
-                align='center'
-                justify='center'
-              >
-                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
-              </Flex>
+              />
             </Tooltip>
           )}
         </HStack>
         {stack === 'vertical' ? (
           <VStack {...group} alignItems='inherit'>
-            <Options />
+            <Options
+              options={options}
+              getRadioProps={getRadioProps}
+              size={size}
+            />
           </VStack>
         ) : (
           <HStack {...group}>
-            <Options />
+            <Options
+              options={options}
+              getRadioProps={getRadioProps}
+              size={size}
+            />
           </HStack>
         )}
         {helperText && <FormHelperText>{helperText}</FormHelperText>}

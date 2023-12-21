@@ -1,12 +1,12 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { Radio as RadioComponent, Box, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Forms/Radio/HookForm',
   component: RadioComponent,
-} as Meta<typeof RadioComponent>;
+} as any; // as Meta<typeof RadioComponent>;
 
 const radioSizes = [
   { name: 'Small', size: 'sm' },

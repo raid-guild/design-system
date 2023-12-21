@@ -1,12 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { FormHelperText, Stack } from '@chakra-ui/react';
+import { FormHelperText, HStack, Icon, Stack, Tooltip } from '@chakra-ui/react';
 import React from 'react';
-import {
-  UseFormReturn,
-  RegisterOptions,
-  Controller,
-  FieldValues,
-} from 'react-hook-form';
+import _ from 'lodash';
+import { UseFormReturn, RegisterOptions, Controller } from 'react-hook-form';
+import { FaInfoCircle } from 'react-icons/fa';
 import {
   FormControl,
   FormLabel,
@@ -20,11 +16,13 @@ import {
 } from '../../chakra';
 
 export interface CustomNumberInputProps {
-  customValidations?: RegisterOptions;
   label?: string | React.ReactNode;
   helperText?: string;
   name: string;
-  localForm: UseFormReturn<FieldValues>;
+  tooltip?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localForm: UseFormReturn<any>;
+  registerOptions?: RegisterOptions;
   step?: number;
   variant?: string;
   min?: number;
@@ -34,6 +32,8 @@ export interface CustomNumberInputProps {
 
 type NumberInputProps = ChakraInputProps & CustomNumberInputProps;
 
+// TODO add tooltip
+
 /**
  * Primary UI component for Heading
  */
@@ -42,8 +42,8 @@ const NumberInput = ({
   label,
   localForm,
   helperText,
-  customValidations,
-  isRequired,
+  tooltip,
+  registerOptions,
   step = 1,
   variant = 'filled',
   min = 0,
@@ -59,22 +59,41 @@ const NumberInput = ({
   } = localForm;
 
   const error = name && errors[name] && errors[name]?.message;
+  // some Input props not compatible with NumberInput/Controller field props
+  const localProps = _.omit(props, ['onInvalid', 'filter', 'defaultValue']);
 
   return (
-    <FormControl isRequired={isRequired} isInvalid={!!errors[name]}>
-      <Stack spacing={spacing}>
-        {label && <FormLabel m={0}>{label}</FormLabel>}
-        <Controller
-          control={control}
-          name={name}
-          rules={customValidations}
-          render={({ field: { ref, ...restField } }) => (
+    <Controller
+      control={control}
+      name={name}
+      rules={registerOptions}
+      render={({ field: { ref, ...restField } }) => (
+        <FormControl
+          isRequired={!!registerOptions?.required || false}
+          isInvalid={!!errors[name]}
+          m={0}
+        >
+          <Stack spacing={spacing}>
+            <HStack>
+              {label && <FormLabel m={0}>{label}</FormLabel>}
+              {tooltip && (
+                <Tooltip>
+                  <Icon
+                    as={FaInfoCircle}
+                    boxSize={3}
+                    color='red.500'
+                    bg='white'
+                    borderRadius='full'
+                  />
+                </Tooltip>
+              )}
+            </HStack>
             <ChakraNumberInput
               variant={variant}
               step={step}
               min={min}
               max={max}
-              placeholder={props.placeholder}
+              {...localProps}
               {...restField}
             >
               <NumberInputField ref={ref} name={restField.name} />
@@ -83,14 +102,13 @@ const NumberInput = ({
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </ChakraNumberInput>
-          )}
-        />
-        {helperText && <FormHelperText>{helperText}</FormHelperText>}
-        {typeof error === 'string' && (
-          <FormErrorMessage>{error}</FormErrorMessage>
-        )}
-      </Stack>
-    </FormControl>
+            {helperText && <FormHelperText>{helperText}</FormHelperText>}
+
+            <FormErrorMessage>{error as string}</FormErrorMessage>
+          </Stack>
+        </FormControl>
+      )}
+    />
   );
 };
 

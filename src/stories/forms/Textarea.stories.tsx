@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { Textarea as TextareaComponent, Box, Stack, Divider } from '../..';
 
 export default {
   title: 'Components/Forms/Textarea/HookForm',
   component: TextareaComponent,
-} as Meta;
+}; // as Meta;
 
 const textareaVariants = [
   { name: 'Outline', variant: 'outline' },

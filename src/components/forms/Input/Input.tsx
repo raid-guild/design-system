@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { FieldValues, RegisterOptions, UseFormReturn } from 'react-hook-form';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { FaInfoCircle } from 'react-icons/fa';
+import _ from 'lodash';
 import {
   ChakraInput,
   ChakraInputProps,
@@ -10,7 +11,6 @@ import {
   FormHelperText,
   FormErrorMessage,
   Icon,
-  Flex,
   Stack,
 } from '../../chakra';
 import { Tooltip } from '../../atoms';
@@ -18,7 +18,8 @@ import { Tooltip } from '../../atoms';
 type CustomInputProps = {
   label?: string | ReactNode;
   name: string;
-  localForm: UseFormReturn;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localForm: UseFormReturn<any>;
   tooltip?: string;
   helperText?: string;
   spacing?: number | string;
@@ -57,7 +58,10 @@ const Input: React.FC<InputProps> = ({
   const error = errors[name] && errors[name]?.message;
 
   return (
-    <FormControl>
+    <FormControl
+      isRequired={_.includes(_.keys(registerOptions), 'required')}
+      isInvalid={!!errors[name]}
+    >
       <Stack spacing={spacing}>
         {label && (
           <HStack align='center'>
@@ -69,16 +73,13 @@ const Input: React.FC<InputProps> = ({
                 hasArrow
                 placement='end'
               >
-                <Flex
-                  h='24px'
-                  w='24px'
-                  bg='primary.500'
+                <Icon
+                  as={FaInfoCircle}
+                  boxSize={3}
+                  color='red.500'
+                  bg='white'
                   borderRadius='full'
-                  align='center'
-                  justify='center'
-                >
-                  <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
-                </Flex>
+                />
               </Tooltip>
             )}
           </HStack>
@@ -90,9 +91,7 @@ const Input: React.FC<InputProps> = ({
           {...register(name, registerOptions)}
         />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
-        {typeof error === 'string' && (
-          <FormErrorMessage>{error}</FormErrorMessage>
-        )}
+        <FormErrorMessage>{error as string}</FormErrorMessage>
       </Stack>
     </FormControl>
   );

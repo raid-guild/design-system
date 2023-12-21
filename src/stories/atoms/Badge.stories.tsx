@@ -1,11 +1,11 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Badge as BadgeComponent, Stack, HStack } from '../..';
 
 export default {
   title: 'Components/Atoms/Badge',
   component: BadgeComponent,
-} as Meta<typeof BadgeComponent>;
+} as any; // as Meta<typeof BadgeComponent>;
 
 const badgeColors = [
   { name: 'Default', color: 'gray' },

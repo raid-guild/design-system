@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 import { Heading as HeadingComponent, Stack, Flex, Text } from '../..';
 import { HeadingVariants } from '../../components/atoms/Heading';
@@ -6,7 +6,7 @@ import { HeadingVariants } from '../../components/atoms/Heading';
 export default {
   title: 'Components/Atoms/Heading',
   component: HeadingComponent,
-} as Meta;
+}; // as Meta;
 
 const headingExamples: Array<{ size: string }> = [
   { size: '4xl' },

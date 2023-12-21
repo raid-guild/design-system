@@ -1,6 +1,5 @@
 export * from './Badge';
 export * from './Card';
-export * from './DatePicker';
 export * from './Heading';
 export * from './List';
 export * from './Spinner';

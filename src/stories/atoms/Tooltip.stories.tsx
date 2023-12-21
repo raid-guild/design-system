@@ -1,11 +1,11 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Tooltip as TooltipComponent, Button } from '../..';
 
 export default {
   title: 'Components/Atoms/Tooltip',
   component: TooltipComponent,
-} as Meta<typeof TooltipComponent>;
+} as any; // as Meta<typeof TooltipComponent>;
 
 const Tooltip: StoryFn<typeof TooltipComponent> = () => (
   <TooltipComponent
@@ -14,7 +14,7 @@ const Tooltip: StoryFn<typeof TooltipComponent> = () => (
     shouldWrapChildren
     hasArrow
   >
-    <Button>Can&apos;t Click</Button>
+    <Button isDisabled>Can&apos;t Click</Button>
   </TooltipComponent>
 );
 

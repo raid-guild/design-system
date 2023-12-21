@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import {
@@ -48,11 +48,11 @@ const Template: StoryFn = (args) => {
   );
 };
 
-export const Icons = Template.bind({});
+export const Icons: any = Template.bind({});
 Icons.args = {
   size: 96,
 };
 
 export default {
   title: 'Components/Atoms/Icons',
-} as Meta;
+}; // as Meta;

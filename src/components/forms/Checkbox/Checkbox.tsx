@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import _ from 'lodash';
-import { UseFormReturn, FieldValues, Controller } from 'react-hook-form';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { UseFormReturn, Controller } from 'react-hook-form';
+import { FaInfoCircle } from 'react-icons/fa';
 import {
   ChakraCheckbox,
   ChakraCheckboxProps,
@@ -12,7 +12,7 @@ import {
   FormErrorMessage,
   Icon,
   HStack,
-  Flex,
+  // Flex,
 } from '../../chakra';
 import { Tooltip } from '../../atoms';
 
@@ -21,7 +21,8 @@ export interface CustomCheckboxProps {
   label?: string | React.ReactNode;
   options: string[];
   direction?: 'row' | 'column';
-  localForm: UseFormReturn<FieldValues>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  localForm: UseFormReturn<any>;
   helperText?: string;
   tooltip?: string;
 }
@@ -48,36 +49,33 @@ const Checkbox: React.FC<RadioProps> = ({
 
   if (_.eq(_.size(options), 1)) {
     return (
-      <FormControl>
-        <Stack spacing={4}>
-          <HStack align='center'>
-            {label && <FormLabel m='0'>{label}</FormLabel>}
-            {tooltip && (
-              <Tooltip
-                label={tooltip}
-                shouldWrapChildren
-                hasArrow
-                placement='end'
-              >
-                <Flex
-                  h='24px'
-                  w='24px'
-                  bg='primary.500'
-                  borderRadius='full'
-                  align='center'
-                  justify='center'
-                >
-                  <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
-                </Flex>
-              </Tooltip>
-            )}
-          </HStack>
-          <Controller
-            control={control}
-            name={name || options[0]}
-            key={options[0]}
-            defaultValue={false}
-            render={({ field: { onChange, value, ref } }) => (
+      <Controller
+        control={control}
+        name={name || options[0]}
+        key={options[0]}
+        defaultValue={false}
+        render={({ field: { onChange, value, ref } }) => (
+          <FormControl m={0}>
+            <Stack spacing={4}>
+              <HStack align='center'>
+                {label && <FormLabel m='0'>{label}</FormLabel>}
+                {tooltip && (
+                  <Tooltip
+                    label={tooltip}
+                    shouldWrapChildren
+                    hasArrow
+                    placement='end'
+                  >
+                    <Icon
+                      as={FaInfoCircle}
+                      boxSize={3}
+                      color='red.500'
+                      bg='white'
+                      borderRadius='full'
+                    />
+                  </Tooltip>
+                )}
+              </HStack>
               <ChakraCheckbox
                 onChange={onChange}
                 textTransform='capitalize'
@@ -88,14 +86,12 @@ const Checkbox: React.FC<RadioProps> = ({
               >
                 {options[0]}
               </ChakraCheckbox>
-            )}
-          />
-          {helperText && <FormHelperText>{helperText}</FormHelperText>}
-          {typeof error === 'string' && (
-            <FormErrorMessage>{error}</FormErrorMessage>
-          )}
-        </Stack>
-      </FormControl>
+              {helperText && <FormHelperText>{helperText}</FormHelperText>}
+              <FormErrorMessage>{error as string}</FormErrorMessage>
+            </Stack>
+          </FormControl>
+        )}
+      />
     );
   }
 
@@ -111,16 +107,13 @@ const Checkbox: React.FC<RadioProps> = ({
               hasArrow
               placement='end'
             >
-              <Flex
-                h='24px'
-                w='24px'
-                bg='primary.500'
+              <Icon
+                as={FaInfoCircle}
+                boxSize={3}
+                color='red.500'
+                bg='white'
                 borderRadius='full'
-                align='center'
-                justify='center'
-              >
-                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
-              </Flex>
+              />
             </Tooltip>
           )}
         </HStack>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   Tabs as TabsComponent,
   Tab,
@@ -11,7 +11,7 @@ import {
 export default {
   title: 'Components/Atoms/Tabs',
   component: TabsComponent,
-} as Meta<typeof TabsComponent>;
+} as any; // as Meta<typeof TabsComponent>;
 
 const Tabs: StoryFn<typeof TabsComponent> = () => (
   <TabsComponent>

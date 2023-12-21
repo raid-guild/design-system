@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { DatePicker as DatePickerComponent, Box, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/DatePicker',
   component: DatePickerComponent,
-} as Meta;
+}; // as Meta;
 
 const DatePicker: StoryFn<typeof DatePickerComponent> = () => {
   const localForm = useForm();

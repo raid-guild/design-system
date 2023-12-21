@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { ControlledTextarea as TextareaComponent, Box, Stack } from '../../..';
 
 export default {
   title: 'Components/Forms/Textarea/Controlled',
   component: TextareaComponent,
-} as Meta;
+} as any; // as Meta;
 
 const textareaVariants = [
   { name: 'Outline', variant: 'outline' },

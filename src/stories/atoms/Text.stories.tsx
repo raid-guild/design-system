@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 import { Text as TextComponent, Stack, Flex } from '../..';
 
@@ -16,7 +16,7 @@ export default {
       control: { type: 'radio' },
     },
   },
-} as Meta;
+}; // as Meta;
 
 const textExamples: Array<{ size: any }> = [
   { size: '4xl' },

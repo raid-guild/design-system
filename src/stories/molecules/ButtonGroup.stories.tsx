@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
 import { ButtonGroup } from '../..';
 
@@ -14,7 +14,7 @@ export default {
     spacing: { control: 'number' },
     size: { options: ['xs', 'sm', 'md', 'lg'], control: { type: 'radio' } },
   },
-} as Meta;
+} as any; // as Meta;
 
 const Template: StoryFn<any> = ({
   buttons,
@@ -23,13 +23,13 @@ const Template: StoryFn<any> = ({
   buttons: string[];
 }) => <ButtonGroup buttons={buttons} onSelect={() => null} {...args} />;
 
-export const Attached = Template.bind({});
+export const Attached: any = Template.bind({});
 Attached.args = {
   buttons: ['Tic', 'Tac', 'Toe'],
   isAttached: true,
 };
 
-export const Spaced = Template.bind({});
+export const Spaced: any = Template.bind({});
 Spaced.args = {
   buttons: ['Pinapple', 'Pen'],
   isAttached: false,

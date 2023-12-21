@@ -1,11 +1,11 @@
 import React from 'react';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { ControlledNumberInput as NumberInput, Box, Stack } from '../../..';
 
 export default {
   title: 'Components/Forms/NumberInput/Controlled',
   component: NumberInput,
-} as Meta;
+}; // as Meta;
 
 const stepConfig = { step: 1, min: 0, max: 10 };
 const numberInputVariants = [

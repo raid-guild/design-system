@@ -10,19 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      
+      - uses: pnpm/action-setup@v2 # Use PNPM
+        with:
+          version: 8
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install
 
       - name: Build Latest
-        run: yarn build && yarn build-storybook
+        run: pnpm build && pnpm build-storybook
         env:
           NODE_OPTIONS: --max-old-space-size=8096
 
       - name: Publish NPM Package
-        run: yarn publish --non-interactive --access public
+        run: pnpm publish --non-interactive --access public
         env: 
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 

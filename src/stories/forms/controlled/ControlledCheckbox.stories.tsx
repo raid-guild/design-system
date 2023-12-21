@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   ControlledCheckbox as CheckboxComponent,
   Box,
@@ -10,7 +10,7 @@ import {
 export default {
   title: 'Components/Forms/Checkbox/Controlled',
   component: CheckboxComponent,
-} as Meta<typeof CheckboxComponent>;
+}; // as Meta<typeof CheckboxComponent>;
 
 const checkboxSizes = [
   { name: 'Small', size: 'sm' },
