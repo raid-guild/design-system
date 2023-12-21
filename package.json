@@ -1,10 +1,10 @@
 {
   "name": "@raidguild/design-system",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "MIT",
   "author": "Raid Guild",
-  "main": "./dist/cjs/src/index.js",
-  "module": "./dist/esm/src/index.js",
+  "main": "./dist/src/index.js",
+  "module": "./dist/src/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "homepage": "https://raid-guild.github.io/design-system",
