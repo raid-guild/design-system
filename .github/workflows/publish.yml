@@ -25,7 +25,7 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=8096
 
       - name: Publish NPM Package
-        run: pnpm publish --non-interactive --access public
+        run: pnpm publish --access public
         env: 
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
