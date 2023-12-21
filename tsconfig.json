@@ -8,16 +8,10 @@
     "rollup.config.js",
     "tsdx.config.js"
   ],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "storybook-static",
-    "src/stories",
-    "src/theme/tokens/tokens-output.json",
-    "src/theme/tokens/tokens.json",
-    "src/theme/tokens/tokens.md"
-  ],
+  "exclude": [],
   "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
     "target": "ES5", // Specifies the JavaScript version to target when transpiling code.
     "useDefineForClassFields": true, // Enables the use of 'define' for class fields.
     "lib": ["ES2020", "DOM", "DOM.Iterable"], // Specifies the libraries available for the code.

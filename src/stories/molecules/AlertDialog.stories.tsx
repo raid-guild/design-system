@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   AlertDialog as AlertDialogComponent,
   Button,
@@ -11,6 +11,7 @@ export const AlertDialog: StoryFn = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const submit = () => {
+    // eslint-disable-next-line no-console
     console.log('submitted');
   };
 
@@ -37,4 +38,4 @@ export const AlertDialog: StoryFn = () => {
 export default {
   title: 'Components/Molecules/Alert Dialog',
   component: AlertDialogComponent,
-} as Meta;
+}; // as Meta;

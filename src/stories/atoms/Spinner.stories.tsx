@@ -1,11 +1,11 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Spinner as SpinnerComponent, Stack } from '../..';
 
 export default {
   title: 'Components/Atoms/Spinner',
   component: SpinnerComponent,
-} as Meta<typeof SpinnerComponent>;
+} as any; // as Meta<typeof SpinnerComponent>;
 
 const spinnerSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 

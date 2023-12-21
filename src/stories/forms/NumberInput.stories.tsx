@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { NumberInput as NumberInputComponent, Box, Stack } from '../..';
 
 export default {
   title: 'Components/Forms/NumberInput/HookForm',
   component: NumberInputComponent,
-} as Meta;
+} as any; // as Meta;
 
 const stepConfig = { step: 1, min: 0, max: 10 };
 const numberInputVariants = [

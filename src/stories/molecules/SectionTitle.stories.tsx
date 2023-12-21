@@ -1,11 +1,11 @@
 import React from 'react';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { SectionTitle as SectionTitleComponent, Stack } from '../..';
 
 export default {
   title: 'Components/Molecules/Section Title',
   component: SectionTitleComponent,
-} as Meta;
+} as any; // as Meta;
 
 const SectionTitle: StoryFn<typeof SectionTitleComponent> = () => (
   <Stack justify='center' my={100}>

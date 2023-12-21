@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   Toast as ToastComponent,
   Button,
@@ -11,7 +11,7 @@ import {
 export default {
   title: 'Components/Atoms/Toast',
   component: ToastComponent,
-} as Meta<typeof ToastComponent>;
+}; // as Meta<typeof ToastComponent>;
 
 const Toast: StoryFn = () => {
   const toast = useToast();

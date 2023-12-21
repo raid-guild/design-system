@@ -16,9 +16,10 @@ const config: StorybookConfig = {
   core: {
     builder: {
       name: '@storybook/builder-webpack5',
-      options: {
-        lazyCompilation: true,
-      },
+      options: {},
+      //   lazyCompilation: true,
+      //   fsCache: true,
+      // },
     },
   },
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
@@ -53,19 +54,19 @@ const config: StorybookConfig = {
       // config.resolve.extensions.push('.eot', '.otf', '.tff', '.woff', '.woff2');
       config.resolve.extensions?.push('.ts', '.tsx');
 
-      config.resolve.plugins = [
-        ...(config.resolve.plugins || []),
-        new TsconfigPathsPlugin({
-          extensions: config.resolve?.extensions,
-        }),
-      ];
+      // config.resolve.plugins = [
+      //   ...(config.resolve.plugins || []),
+      //   new TsconfigPathsPlugin({
+      //     extensions: config.resolve?.extensions,
+      //   }),
+      // ];
 
       // include ts files here so they can be resolved properly
       // config.resolve.modules.push(process.cwd() + '/node_modules');
       // config.resolve.modules.push(process.cwd() + '/src');
 
       // this is needed for working w/ linked folders
-      config.resolve.symlinks = false;
+      // config.resolve.symlinks = false;
     }
 
     // return result

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Button as ButtonComponent, Flex, Stack, Text } from '../..';
 
 export default {
   title: 'Components/Atoms/Buttons',
   component: ButtonComponent,
-} as Meta<typeof ButtonComponent>;
+} as any; // as Meta<typeof ButtonComponent>;
 
 const buttonVariants = [
   { name: 'Solid', variant: 'solid' },

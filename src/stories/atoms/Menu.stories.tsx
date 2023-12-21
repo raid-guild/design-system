@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import {
@@ -33,4 +33,4 @@ Menu.args = {
 
 export default {
   title: 'Components/Atoms/Menu',
-} as Meta;
+}; // as Meta;

@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
 import { SimpleGrid, Stack } from '../../components/chakra';
 import { Heading } from '../../components/atoms';
@@ -51,7 +51,7 @@ const Template: StoryFn<RoleBadgeStoryProps> = ({
   );
 };
 
-export const RoleBadges = Template.bind({});
+export const RoleBadges: any = Template.bind({});
 RoleBadges.args = {
   size: 150,
 };
@@ -59,4 +59,4 @@ RoleBadges.args = {
 export default {
   title: 'Components/Molecules/RoleBadges',
   component: RoleBadges,
-} as Meta;
+}; // as Meta;

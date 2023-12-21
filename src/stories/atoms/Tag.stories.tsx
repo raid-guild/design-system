@@ -1,11 +1,11 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Tag as TagComponent, Stack, Text, Heading, Flex } from '../..';
 
 export default {
   title: 'Components/Atoms/Tags',
   component: TagComponent,
-} as Meta<typeof TagComponent>;
+}; // as Meta<typeof TagComponent>;
 
 const tagVariants = [
   { name: 'Solid', variant: 'solid' },

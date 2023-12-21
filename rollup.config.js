@@ -9,30 +9,25 @@ import css from 'rollup-plugin-import-css';
 export default {
   // entry point
   input: 'src/index.ts',
-  // preserveModules: true,
 
-  // output directory
-  output: [
-    {
-      dir: './dist/cjs/',
-      format: 'cjs',
-      sourcemap: true,
-      exports: 'auto',
-    },
-    {
-      dir: './dist/esm/',
-      format: 'esm',
-      sourcemap: true,
-      exports: 'auto',
-    },
-  ],
+  // output config
+  output: {
+    dir: 'dist',
+    format: 'esm',
+    sourcemap: true,
+    exports: 'auto',
+    preserveModules: true,
+  },
 
   // plugins
   plugins: [
     peerDepsExternal(),
     resolve(),
     commonjs(),
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({
+      useTsconfigDeclarationDir: true,
+      exclude: ['src/**/*.stories.tsx', 'src/**/*.json', 'src/**/*.md'],
+    }),
     terser(),
     json({ compact: true }),
     css(),

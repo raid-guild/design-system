@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   Modal as ModalComponent,
   Button,
@@ -11,7 +11,7 @@ import {
 export default {
   title: 'Components/Molecules/Modal',
   component: ModalComponent,
-} as Meta<typeof ModalComponent>;
+}; // as Meta<typeof ModalComponent>;
 
 const Modal: StoryFn<typeof ModalComponent> = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

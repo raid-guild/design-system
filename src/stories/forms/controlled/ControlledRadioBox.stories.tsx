@@ -1,12 +1,12 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { RadioBox as RadioBoxComponent, Box, Stack, Text } from '../../..';
 
 export default {
   title: 'Components/Forms/RadioBox/Controlled',
   component: RadioBoxComponent,
-} as Meta<typeof RadioBoxComponent>;
+} as any; // as Meta<typeof RadioBoxComponent>;
 
 const radioSizes: { name: string; size: 'sm' | 'md' | 'lg' }[] = [
   { name: 'Small', size: 'sm' },
