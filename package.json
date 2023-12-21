@@ -3,8 +3,10 @@
   "version": "0.5.1",
   "license": "MIT",
   "author": "Raid Guild",
-  "module": "dist/design-system.esm.js",
-  "typings": "dist/index.d.ts",
+  "main": "./dist/cjs/src/index.js",
+  "module": "./dist/esm/src/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
   "homepage": "https://raid-guild.github.io/design-system",
   "files": [
     "dist"
@@ -13,9 +15,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build --format esm",
-    "test": "tsdx test --passWithNoTests",
+    "build": "rm -rf ./dist  && rollup -c",
     "lint": "eslint src",
     "prepare": "yarn build",
     "size": "size-limit",
@@ -28,7 +28,7 @@
     "generate-icons:watch": "yarn generate-icons --watch"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.7.0",
+    "@chakra-ui/react": "^2.8.2",
     "@chakra-ui/theme-tools": "^2.0.18",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -54,6 +54,10 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@chakra-ui/storybook-addon": "^4.0.16",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@size-limit/preset-small-lib": "^5.0.3",
     "@storybook/addon-docs": "^7.0.21",
     "@storybook/addon-essentials": "^7.0.21",
@@ -86,6 +90,10 @@
     "husky": "^7.0.1",
     "prettier": "^2.5.1",
     "react-is": "^17.0.2",
+    "rollup": "^4.9.1",
+    "rollup-plugin-import-css": "^3.3.5",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.36.0",
     "size-limit": "^5.0.3",
     "storybook": "^7.0.21",
     "ts-loader": "^9.4.1",

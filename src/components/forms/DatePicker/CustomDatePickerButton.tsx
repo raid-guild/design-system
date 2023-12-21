@@ -11,11 +11,11 @@ export type CustomDatePickerButton = CustomDatePickerButtonProps & {
   Button: typeof Button;
 };
 
-export const CustomDatePickerButton = forwardRef<
-  CustomDatePickerButtonProps,
-  'button'
->(({ value, onClick, variant = 'outline' }, ref) => (
-  <Button onClick={onClick} ref={ref} variant={variant}>
-    {value}
-  </Button>
-));
+export const CustomDatePickerButton: React.FC<CustomDatePickerButtonProps> =
+  forwardRef<CustomDatePickerButtonProps, 'button'>(
+    ({ value, onClick, variant = 'outline' }, ref) => (
+      <Button onClick={onClick} ref={ref} variant={variant}>
+        {value}
+      </Button>
+    )
+  );
