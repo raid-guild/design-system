@@ -120,7 +120,6 @@ export {
   Switch as ChakraSwitch,
   Table,
   Tabs,
-  Tab,
   TabList,
   TabPanels,
   TabPanel,
@@ -199,4 +198,5 @@ export type {
   ToastProps as ChakraToastProps,
   TooltipProps as ChakraTooltipProps,
   WrapProps as ChakraWrapProps,
+  TabProps,
 } from '@chakra-ui/react';
