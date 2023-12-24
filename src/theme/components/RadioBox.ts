@@ -4,13 +4,14 @@ const RadioBox = {
       _hover: {
         cursor: 'pointer',
       },
-      color: '#7f5af0',
+      color: 'primary.500',
       boxShadow: 'md',
-      border: '1px solid #7f5af0',
+      border: '1px solid',
+      borderColor: 'primary.500',
       _checked: {
-        bg: '#7f5af0',
+        bg: 'primary.500',
         color: 'white',
-        borderColor: 'teal.600',
+        borderColor: 'primary.500',
       },
       label: {
         fontFamily: 'spaceMono',
