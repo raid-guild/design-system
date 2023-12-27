@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, RegisterOptions } from 'react-hook-form';
+import { UseFormReturn } from 'react-hook-form/dist/types/form';
+import _ from 'lodash';
+import { FaInfoCircle } from 'react-icons/fa';
 import {
   FormControl,
   FormLabel,
   Stack,
   FormErrorMessage,
-} from '@chakra-ui/react';
-import { UseFormReturn } from 'react-hook-form/dist/types/form';
-import _ from 'lodash';
+  HStack,
+  Icon,
+} from '../../chakra';
 import { CustomDatePickerButton } from './CustomDatePickerButton';
+import { Tooltip } from '../../atoms';
 
 // TODO handle separate controlled component
 // TODO currently only single date is supported, but type shows that it can be a range
@@ -21,19 +25,17 @@ export type DatePickerProps = {
   tip?: string;
   localForm: Pick<UseFormReturn, 'control' | 'formState' | 'watch'>;
   registerOptions?: RegisterOptions;
+  tooltip?: string;
   variant?: string;
   spacing?: number | string;
-  // onChange?: (
-  //   date: Date | [Date | null, Date | null] | null,
-  //   event: SyntheticEvent<Date, Event> | undefined
-  // ) => void;
-} & ReactDatePickerProps;
+} & Omit<ReactDatePickerProps, 'onChange'>;
 
 const DatePicker: React.FC<DatePickerProps> = ({
   label,
   name,
   localForm,
   registerOptions,
+  tooltip,
   variant,
   spacing,
   ...props
@@ -69,7 +71,20 @@ const DatePicker: React.FC<DatePickerProps> = ({
       render={({ field }) => (
         <FormControl isInvalid={!!errors[name]}>
           <Stack sx={customDatePickerStyles} spacing={spacing}>
-            {label && <FormLabel m={0}>{label}</FormLabel>}
+            <HStack>
+              {label && <FormLabel m={0}>{label}</FormLabel>}
+              {tooltip && (
+                <Tooltip label={tooltip} shouldWrapChildren>
+                  <Icon
+                    as={FaInfoCircle}
+                    boxSize={3}
+                    color='red.500'
+                    bg='white'
+                    borderRadius='full'
+                  />
+                </Tooltip>
+              )}
+            </HStack>
             <ReactDatePicker
               {...props}
               {...field}

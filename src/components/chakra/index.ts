@@ -188,6 +188,7 @@ export type {
   NumberInputProps as ChakraNumberInputProps,
   RadioProps as ChakraRadioProps,
   RadioGroupProps as ChakraRadioGroupProps,
+  ResponsiveValue,
   SelectProps as ChakraSelectProps,
   SliderProps as ChakraSliderProps,
   SpinnerProps as ChakraSpinnerProps,
