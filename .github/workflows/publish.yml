@@ -11,12 +11,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
       - uses: pnpm/action-setup@v2 # Use PNPM
         with:
           version: 8
 
-     # Setup .npmrc file to publish to npm
+      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
@@ -32,7 +31,7 @@ jobs:
 
       - name: Publish NPM Package
         run: npm publish --non-interactive --access public
-        env: 
+        env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Update GH Pages
