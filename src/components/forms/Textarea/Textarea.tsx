@@ -1,6 +1,6 @@
 import React from 'react';
-import { UseFormReturn } from 'react-hook-form';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { RegisterOptions, UseFormReturn } from 'react-hook-form';
+import { FaInfoCircle } from 'react-icons/fa';
 import {
   ChakraTextarea,
   ChakraTextareaProps,
@@ -11,7 +11,6 @@ import {
   FormErrorMessage,
   Icon,
   HStack,
-  Flex,
 } from '../../chakra';
 import { Tooltip } from '../../atoms';
 
@@ -21,6 +20,7 @@ export type CustomTextareaProps = {
   helperText?: string;
   tooltip?: string;
   localForm: UseFormReturn;
+  registerOptions?: RegisterOptions;
 };
 
 export type TextareaProps = ChakraTextareaProps & CustomTextareaProps;
@@ -32,6 +32,7 @@ const Textarea: React.FC<TextareaProps> = ({
   label,
   name,
   localForm,
+  registerOptions,
   helperText,
   tooltip,
   ...props
@@ -55,21 +56,18 @@ const Textarea: React.FC<TextareaProps> = ({
               hasArrow
               placement='end'
             >
-              <Flex
-                h='24px'
-                w='24px'
-                bg='primary.500'
+              <Icon
+                as={FaInfoCircle}
+                boxSize={3}
+                color='red.500'
+                bg='white'
                 borderRadius='full'
-                align='center'
-                justify='center'
-              >
-                <Icon as={AiOutlineInfoCircle} w='12px' h='12px' />
-              </Flex>
+              />
             </Tooltip>
           )}
         </HStack>
 
-        <ChakraTextarea {...props} {...register(name)} />
+        <ChakraTextarea {...props} {...register(name, registerOptions)} />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {typeof error === 'string' && (
           <FormErrorMessage>{error}</FormErrorMessage>
