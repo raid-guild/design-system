@@ -11,6 +11,7 @@ const inputVariants = [
   { name: 'Outline', variant: 'outline' },
   { name: 'Flushed', variant: 'flushed' },
   { name: 'Filled', variant: 'filled' },
+  { name: 'Solid Outline', variant: 'solidOutline' },
 ];
 
 const Controlled: StoryFn<typeof InputComponent> = () => (

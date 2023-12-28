@@ -24,6 +24,7 @@ import Switch from './components/Switch';
 import Text from './components/Text';
 import Textarea from './components/Textarea';
 import Tooltip from './components/Tooltip';
+import Tabs from './components/Tabs';
 
 const theme = extendTheme({
   styles: (props: StyleFunctionProps) => ({
@@ -84,6 +85,7 @@ const theme = extendTheme({
     Slider,
     Spinner,
     Switch,
+    Tabs,
     Textarea,
     Text,
     Tooltip,

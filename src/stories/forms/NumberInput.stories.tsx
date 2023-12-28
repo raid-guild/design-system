@@ -13,6 +13,7 @@ const numberInputVariants = [
   { name: 'Outline', variant: 'outline', ...stepConfig },
   { name: 'Flushed', variant: 'flushed', ...stepConfig },
   { name: 'Filled', variant: 'filled', ...stepConfig },
+  { name: 'Solid Outline', variant: 'solidOutline', ...stepConfig },
 ];
 
 const HookForm: StoryFn<typeof NumberInputComponent> = () => (

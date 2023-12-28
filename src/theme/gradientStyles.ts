@@ -31,6 +31,14 @@ const GradientStyles = {
     bgGradient:
       'linear-gradient(157.1deg, #22002b 0%, #390418 29.17%, #48093A 61.98%, #1F0442 100%)',
   },
+  orangeToPurpleDiagonalGradient: {
+    bgGradient:
+      'linear-gradient(95deg, #FF5A00 0%, #D62789 70.2%, #AD17AD 100%)',
+  },
+  orangeToPurpleSharpGradient: {
+    bgGradient:
+      'linear-gradient(105deg, #FF5A00 0%, #D62789 20.2%, #AD17AD 80%)',
+  },
 };
 
 export default GradientStyles;

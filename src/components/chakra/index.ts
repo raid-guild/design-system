@@ -200,4 +200,6 @@ export type {
   ToastProps as ChakraToastProps,
   TooltipProps as ChakraTooltipProps,
   WrapProps as ChakraWrapProps,
+  TabsProps,
+  TabProps,
 } from '@chakra-ui/react';

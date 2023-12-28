@@ -14,7 +14,7 @@ export default {
 
 type SelectVariant = {
   name: string;
-  variant: 'outline' | 'filled' | 'flushed';
+  variant: 'outline' | 'filled' | 'flushed' | 'solidOutline';
   isMulti?: boolean;
   creatable?: boolean;
   basicStyles?: boolean;
@@ -33,6 +33,7 @@ type Option =
 
 const selectVariants: SelectVariant[] = [
   { name: 'Single Outline', variant: 'outline', isMulti: false },
+  { name: 'Single Solid Outline', variant: 'solidOutline', isMulti: false },
   { name: 'Single Filled', variant: 'filled', isMulti: false },
   { name: 'Single Flushed', variant: 'flushed', isMulti: false },
   {
@@ -43,6 +44,7 @@ const selectVariants: SelectVariant[] = [
   },
 
   { name: 'Multi Outline', variant: 'outline', isMulti: true },
+  { name: 'Multi Solid Outline', variant: 'solidOutline', isMulti: true },
   { name: 'Multi Filled', variant: 'filled', isMulti: true },
   { name: 'Multi Flushed', variant: 'flushed', isMulti: true },
   {

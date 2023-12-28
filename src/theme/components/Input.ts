@@ -18,6 +18,14 @@ const Input = {
         },
       },
     },
+    solidOutline: {
+      field: {
+        border: '1px solid',
+        backgroundColor: 'transparent',
+        borderRadius: '0px',
+        borderColor: 'primary.500',
+      },
+    },
     outline: {
       field: {
         border: '1px solid',

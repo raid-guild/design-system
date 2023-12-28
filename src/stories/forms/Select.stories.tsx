@@ -10,7 +10,7 @@ export default {
 
 type SelectVariant = {
   name: string;
-  variant: 'outline' | 'filled' | 'flushed';
+  variant: 'outline' | 'filled' | 'flushed' | 'solidOutline';
   isMulti?: boolean;
   creatable?: boolean;
   basicStyles?: boolean;
@@ -41,12 +41,18 @@ const selectVariants: SelectVariant[] = [
     helperText: 'This is a helper text',
   },
   {
+    name: 'Single Solid Outline',
+    variant: 'solidOutline',
+    isMulti: false,
+    tooltip: 'this is a tooltip',
+    helperText: 'This is a helper text',
+  },
+  {
     name: 'Single Outline Basic',
     variant: 'outline',
     isMulti: false,
     basicStyles: true,
   },
-
   {
     name: 'Multi Outline',
     variant: 'outline',
@@ -60,9 +66,16 @@ const selectVariants: SelectVariant[] = [
     isMulti: true,
     tooltip: 'this is a tooltip',
   },
+
   {
     name: 'Multi Flushed',
     variant: 'flushed',
+    isMulti: true,
+    tooltip: 'this is a tooltip',
+  },
+  {
+    name: 'Multi Solid Outline',
+    variant: 'solidOutline',
     isMulti: true,
     tooltip: 'this is a tooltip',
   },
