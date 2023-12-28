@@ -23,7 +23,7 @@ export interface ControlledSelectProps {
   isClearable?: boolean;
   onChange?: (option: Option) => void;
   isDisabled?: boolean;
-  variant?: 'outline' | 'filled' | 'flushed' | undefined;
+  variant?: 'outline' | 'filled' | 'flushed' | 'solidOutline' | undefined;
   basicStyles?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;

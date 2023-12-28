@@ -20,6 +20,12 @@ const Textarea = {
         'linear-gradient(95.58deg, #FF3864 0%, #8B1DBA 53.65%, #4353DF 100%)',
       borderRadius: '0px',
     },
+    solidOutline: {
+      border: '1px solid',
+      backgroundColor: 'transparent',
+      borderRadius: '0px',
+      borderColor: 'primary.500',
+    },
     flushed: {
       borderBottom: '1px solid',
       borderImageSlice: 1,

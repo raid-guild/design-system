@@ -41,7 +41,7 @@ export interface SelectProps {
   isSearchable?: boolean;
   onChange?: (option: Option) => void;
   isDisabled?: boolean;
-  variant?: 'outline' | 'filled' | 'flushed' | undefined;
+  variant?: 'outline' | 'filled' | 'flushed' | 'solidOutline' | undefined;
   basicStyles?: boolean;
   value?: unknown;
   colorScheme?:
