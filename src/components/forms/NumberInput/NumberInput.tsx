@@ -74,20 +74,23 @@ const NumberInput = ({
           m={0}
         >
           <Stack spacing={spacing}>
-            <HStack>
-              {label && <FormLabel m={0}>{label}</FormLabel>}
-              {tooltip && (
-                <Tooltip>
-                  <Icon
-                    as={FaInfoCircle}
-                    boxSize={3}
-                    color='red.500'
-                    bg='white'
-                    borderRadius='full'
-                  />
-                </Tooltip>
-              )}
-            </HStack>
+            {label && (
+              <HStack>
+                {label && <FormLabel m={0}>{label}</FormLabel>}
+                {tooltip && (
+                  <Tooltip>
+                    <Icon
+                      as={FaInfoCircle}
+                      boxSize={3}
+                      color='red.500'
+                      bg='white'
+                      borderRadius='full'
+                    />
+                  </Tooltip>
+                )}
+              </HStack>
+            )}
+
             <ChakraNumberInput
               variant={variant}
               step={step}

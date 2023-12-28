@@ -1,2 +1,2 @@
 export { default as CreatableSelect } from './CreatableSelect';
-export type { CreatableSelectProps } from './CreatableSelect';
+export type { CreatableSelectProps, Option } from './CreatableSelect';

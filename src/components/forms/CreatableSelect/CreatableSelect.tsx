@@ -16,6 +16,7 @@ export type Option =
   | { value: null; label: string }
   | { label: string | number; value: string | number }
   | { value: number; label: string };
+
 export interface CreatableSelectProps {
   name: string;
   label?: string | React.ReactNode;

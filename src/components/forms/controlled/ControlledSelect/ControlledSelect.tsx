@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChakraStylesConfig, Select as ReactSelect } from 'chakra-react-select';
-import { FormLabel, Box, Stack } from '../../../chakra';
+import { FormLabel, Box, Stack, ChakraSelectProps } from '../../../chakra';
 
 export type Option =
   | {
@@ -12,7 +12,7 @@ export type Option =
   | { value: null; label: string }
   | { label: string | number; value: string | number }
   | { value: number; label: string };
-export interface ControlledSelectProps {
+interface CustomControlledSelectProps {
   label?: string | React.ReactNode;
   placeholder?: string;
   defaultValue?: Option | Option[];
@@ -51,6 +51,18 @@ export interface ControlledSelectProps {
     | 'primary';
 }
 
+export type ControlledSelectProps = CustomControlledSelectProps &
+  Omit<
+    ChakraSelectProps,
+    | 'size'
+    | 'onFocus'
+    | 'onBlur'
+    | 'onChange'
+    | 'value'
+    | 'defaultValue'
+    | 'onKeyDown'
+  >;
+
 const ControlledSelect: React.FC<ControlledSelectProps> = ({
   label,
   placeholder,
@@ -78,7 +90,7 @@ const ControlledSelect: React.FC<ControlledSelectProps> = ({
   };
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} w='100%'>
       {label && <FormLabel>{label}</FormLabel>}
       <Box>
         <ReactSelect
