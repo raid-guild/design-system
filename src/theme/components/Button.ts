@@ -9,16 +9,16 @@ const Button = {
     variant: 'solid',
     fontWeight: '400',
     fontFamily: 'texturina',
-    maxWidth: '100%',
-    width: 'auto',
-    height: '40px',
-    paddingLeft: '24px',
-    paddingRight: '24px',
   },
   variants: {
     solid: {
       bg: 'purple.500',
       borderRadius: '2px',
+      maxWidth: '100%',
+      width: 'auto',
+      height: '40px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
       color: 'white',
       _hover: {
         bg: 'primary.500',
@@ -27,6 +27,11 @@ const Button = {
     bright: {
       color: 'white',
       borderRadius: '2px',
+      maxWidth: '100%',
+      width: 'auto',
+      height: '40px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
       background: GradientStyles.orangeToPurpleDiagonalGradient.bgGradient,
       _hover: {
         background: GradientStyles.orangeToPurpleSharpGradient.bgGradient,
@@ -38,6 +43,11 @@ const Button = {
     outline: {
       bg: 'transparent',
       border: '2px solid',
+      maxWidth: '100%',
+      width: 'auto',
+      height: '40px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
       borderRadius: '2px',
       color: 'purple.500',
       _hover: {
@@ -51,6 +61,11 @@ const Button = {
     gradientOutline: {
       border: '2px solid',
       borderRadius: '2px',
+      maxWidth: '100%',
+      width: 'auto',
+      height: '40px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
       borderImageSlice: 1,
       borderImageSource: 'linear-gradient(96deg, #FF3864 0%, #8B1DBA 71.35%)',
       background: 'linear-gradient(96deg, #FF3864 0%, #8B1DBA 71.35%)',
@@ -67,6 +82,11 @@ const Button = {
     ghost: {
       color: 'purple.500',
       borderRadius: '2px',
+      maxWidth: '100%',
+      width: 'auto',
+      height: '40px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
       bg: 'whiteAlpha.100',
       _hover: {
         bg: 'purple.500',

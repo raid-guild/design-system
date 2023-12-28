@@ -61,7 +61,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
         return (
           <Button
             key={label}
-            variant={i === selected ? 'solid' : 'outline'}
+            variant={i === selected ? 'solid' : 'ghost'}
             color='white'
             size={size}
             onClick={() => handleSelection(i)}

@@ -36,7 +36,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
   localForm,
   registerOptions,
   tooltip,
-  variant,
+  variant = 'ghost',
   spacing,
   ...props
 }: DatePickerProps) => {
