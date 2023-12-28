@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { StoryFn } from '@storybook/react';
+import _ from 'lodash';
 import { DatePicker as DatePickerComponent, Box, Stack, Text } from '../..';
 
 export default {
-  title: 'Components/Atoms/DatePicker',
+  title: 'Components/Forms/DatePicker',
   component: DatePickerComponent,
 }; // as Meta;
 
 const DatePicker: StoryFn<typeof DatePickerComponent> = () => {
   const localForm = useForm();
+  const { watch, reset } = _.pick(localForm, ['watch', 'reset']);
   useEffect(() => {
-    localForm.reset({ raidStartDate: new Date() });
+    reset({ raidStartDate: new Date() });
   }, []);
+
+  const startDate = watch('raidStartDate')?.toLocaleDateString();
 
   return (
     <Box m='15px'>
@@ -21,15 +25,9 @@ const DatePicker: StoryFn<typeof DatePickerComponent> = () => {
           name='raidStartDate'
           localForm={localForm}
           label='Raid Start Date'
-          onChange={(selectedDate) => {
-            localForm.setValue('raidStartDate', selectedDate as Date);
-          }}
+          tooltip='The date the raid is expected to start'
         />
-        <Text variant='shadow'>
-          Selected Date:{' '}
-          {localForm.getValues('raidStartDate') &&
-            localForm.getValues('raidStartDate').toLocaleDateString()}
-        </Text>
+        <Text variant='shadow'>Selected Date: {startDate}</Text>
       </Stack>
     </Box>
   );
