@@ -51,11 +51,8 @@ const Button = {
       borderRadius: '2px',
       color: 'purple.500',
       _hover: {
-        borderImageSlice: 1,
-        borderImageSource: 'linear-gradient(96deg, #FF3864 0%, #8B1DBA 71.35%)',
-        background: 'linear-gradient(96deg, #FF3864 0%, #8B1DBA 71.35%)',
-        color: 'transparent',
-        backgroundClip: 'text',
+        bg: 'transparent',
+        color: 'primary.500',
       },
     },
     gradientOutline: {
