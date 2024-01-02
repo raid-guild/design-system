@@ -26,6 +26,7 @@ export type DatePickerProps = {
   localForm: Pick<UseFormReturn, 'control' | 'formState' | 'watch'>;
   registerOptions?: RegisterOptions;
   tooltip?: string;
+  placeholder?: string;
   variant?: string;
   spacing?: number | string;
 } & Omit<ReactDatePickerProps, 'onChange'>;
@@ -36,6 +37,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
   localForm,
   registerOptions,
   tooltip,
+  placeholderText, // default prop from react-datepicker
+  placeholder, // match rest of inputs for consistency, takes priority
   variant = 'ghost',
   spacing,
   ...props
@@ -89,7 +92,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
               {...props}
               {...field}
               selected={watch?.(name)}
-              customInput={<CustomDatePickerButton variant={variant} />}
+              customInput={
+                <CustomDatePickerButton
+                  variant={variant}
+                  placeholder={placeholder || placeholderText}
+                />
+              }
               ref={(ref) => {
                 field.ref({
                   focus: ref?.setFocus,

@@ -5,6 +5,7 @@ export type CustomDatePickerButtonProps = ChakraButtonProps & {
   value?: React.ReactNode;
   onClick?: () => void;
   ref?: HTMLInputElement;
+  placeholder?: string;
 };
 
 export type CustomDatePickerButton = CustomDatePickerButtonProps & {
@@ -13,9 +14,12 @@ export type CustomDatePickerButton = CustomDatePickerButtonProps & {
 
 export const CustomDatePickerButton: React.FC<CustomDatePickerButtonProps> =
   forwardRef<CustomDatePickerButtonProps, 'button'>(
-    ({ value, onClick, variant = 'outline' }, ref) => (
+    (
+      { value, onClick, placeholder = 'Select Date', variant = 'outline' },
+      ref
+    ) => (
       <Button onClick={onClick} ref={ref} variant={variant}>
-        {value}
+        {value || placeholder}
       </Button>
     )
   );

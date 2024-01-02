@@ -25,5 +25,8 @@ const Tabs = {
       },
     },
   },
+  defaultProps: {
+    variant: 'default',
+  },
 };
 export default Tabs;

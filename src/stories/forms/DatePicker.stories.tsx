@@ -24,6 +24,7 @@ const DatePicker: StoryFn<typeof DatePickerComponent> = () => {
         <DatePickerComponent
           name='raidStartDate'
           localForm={localForm}
+          placeholder='Select a date'
           label='Raid Start Date'
           tooltip='The date the raid is expected to start'
         />

@@ -1,6 +1,6 @@
 {
   "name": "@raidguild/design-system",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "license": "MIT",
   "author": "Raid Guild",
   "main": "./dist/src/index.js",
