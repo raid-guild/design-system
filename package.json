@@ -1,6 +1,6 @@
 {
   "name": "@raidguild/design-system",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "license": "MIT",
   "author": "Raid Guild",
   "main": "./dist/src/index.js",
@@ -8,9 +8,7 @@
   "types": "./dist/src/index.d.ts",
   "type": "module",
   "homepage": "https://raid-guild.github.io/design-system",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "engines": {
     "node": ">=18"
   },
